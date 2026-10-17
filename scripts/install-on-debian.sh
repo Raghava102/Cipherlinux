@@ -68,7 +68,7 @@ if [ "$GREETD" -eq 1 ]; then
   sudo apt-get install -y greetd tuigreet
   sudo tee /etc/greetd/config.toml >/dev/null <<'CONF'
 [terminal]
-vt = 1
+vt = 7
 
 [default_session]
 command = "tuigreet --time --remember --remember-user-session --asterisks --greeting 'Cipher' --sessions /usr/share/wayland-sessions --cmd cipher-start"
