@@ -17,6 +17,7 @@ rm -rf /root/cipher-packages
 
 # Login: tuigreet on greetd, Cipher as the default session
 systemctl enable greetd.service
+systemctl enable cipher-live-autologin.service
 systemctl set-default graphical.target
 
 # Boot splash
