@@ -10,6 +10,7 @@ apt-get install -y -t trixie-backports \
     hyprland hyprland-guiutils hypridle hyprlock hyprpolkitagent \
     xdg-desktop-portal-hyprland quickshell
 apt-get install -y -t trixie-backports hyprpicker || echo "cipher: hyprpicker not available, skipping"
+apt-get install -y -t trixie-backports hyprsunset || echo "cipher: hyprsunset not available, skipping"
 
 # The Cipher desktop itself (dropped in by scripts/build-iso.sh)
 apt-get install -y /root/cipher-packages/cipher-desktop_*.deb
@@ -24,6 +25,14 @@ systemctl enable cipher-live-autologin.service
 # user's last choice after that)
 if ! grep -q '^DefaultSession=' /etc/gdm3/daemon.conf; then
     sed -i 's/^\[daemon\]/[daemon]\nDefaultSession=cipher.desktop/' /etc/gdm3/daemon.conf
+fi
+
+# Cipher Shield: a firewall on by default (allow outgoing, block unsolicited incoming)
+if command -v ufw >/dev/null; then
+    ufw --force default deny incoming >/dev/null || true
+    ufw --force default allow outgoing >/dev/null || true
+    sed -i 's/^ENABLED=.*/ENABLED=yes/' /etc/ufw/ufw.conf
+    systemctl enable ufw.service || true
 fi
 
 # ---- Branding --------------------------------------------------------------
@@ -64,13 +73,15 @@ fi
 # GNOME, styled as Cipher: dark, teal accent, Cipher wallpaper and dock
 mkdir -p /etc/dconf/db/local.d /etc/dconf/profile
 printf 'user-db:user\nsystem-db:local\n' > /etc/dconf/profile/user
-WALL=file:///usr/share/cipher/themes/cipher/backgrounds/1-lattice.png
+WALL=file:///usr/share/cipher/themes/aurora/backgrounds/0-silk.png
 cat > /etc/dconf/db/local.d/00-cipher <<CONF
 [org/gnome/desktop/interface]
 color-scheme='prefer-dark'
 gtk-theme='Adwaita-dark'
 accent-color='teal'
-font-name='Cantarell 11'
+font-name='Plus Jakarta Sans 11'
+document-font-name='Plus Jakarta Sans 11'
+icon-theme='Papirus-Dark'
 monospace-font-name='JetBrains Mono 11'
 clock-show-weekday=true
 
@@ -78,11 +89,11 @@ clock-show-weekday=true
 picture-uri='$WALL'
 picture-uri-dark='$WALL'
 picture-options='zoom'
-primary-color='#0b0f14'
+primary-color='#0b1518'
 
 [org/gnome/desktop/screensaver]
 picture-uri='$WALL'
-primary-color='#0b0f14'
+primary-color='#0b1518'
 
 [org/gnome/desktop/wm/preferences]
 button-layout='appmenu:minimize,maximize,close'

@@ -54,5 +54,7 @@ gnome-themes-extra
 qt6-image-formats-plugins
 nano
 sudo
+papirus-icon-theme
+ufw
 curl
 git

@@ -39,6 +39,9 @@ PanelWindow {
         : ({ name: "Cipher", children: [appsNode].concat(MenuData.tree) })
     readonly property var node: stack.length ? stack[stack.length - 1] : rootNode
     readonly property bool atRoot: stack.length === 0 && Shell.overlay !== "apps"
+    // Apps view with no search: show a big icon grid instead of a list
+    readonly property bool gridMode: Shell.overlay === "apps" && query === "" && stack.length === 0
+    readonly property int gridColumns: 6
     readonly property var items: buildItems(node, query, commandItems, atRoot)
 
     // keep the search field in sync when navigation clears the query
@@ -174,21 +177,21 @@ PanelWindow {
     // ---- UI ----------------------------------------------------------------
     Rectangle {
         anchors.fill: parent
-        color: Qt.rgba(0, 0, 0, 0.28)
+        color: Qt.rgba(0, 0, 0, Theme.light ? 0.16 : 0.38)
         MouseArea { anchors.fill: parent; onClicked: Shell.close() }
     }
 
-    Rectangle {
+    Glass {
         id: panel
-        width: Math.min(680, parent.width - 48)
-        height: Math.min(header.height + list.contentHeight + 24, 520)
+        strong: true
+        width: Math.min(win.gridMode ? 980 : 720, parent.width - 48)
+        height: win.gridMode ? Math.min(header.height + grid.contentHeight + 56, parent.height - 160)
+                             : Math.min(header.height + list.contentHeight + 40, 560)
         anchors.horizontalCenter: parent.horizontalCenter
-        y: Math.round(parent.height * 0.18)
-        radius: Theme.radius
-        color: Theme.bg
-        border.color: Theme.border
-        border.width: 1
+        y: Math.round(parent.height * (win.gridMode ? 0.09 : 0.16))
+        radius: Theme.radius + 10
         clip: true
+        Behavior on width { NumberAnimation { duration: 160; easing.type: Easing.OutCubic } }
 
         MouseArea { anchors.fill: parent }   // swallow clicks so the backdrop doesn't close us
 
@@ -197,8 +200,16 @@ PanelWindow {
             anchors.left: parent.left
             anchors.right: parent.right
             anchors.top: parent.top
-            anchors.margins: 12
-            spacing: 8
+            anchors.margins: 22
+            spacing: 14
+
+            Text {
+                visible: Shell.overlay === "apps" && win.stack.length === 0
+                text: "Apps"
+                font.family: Theme.displayFont
+                font.pixelSize: 40
+                color: Theme.text
+            }
 
             // breadcrumb
             Row {
@@ -218,18 +229,19 @@ PanelWindow {
 
             Rectangle {
                 width: parent.width
-                height: 40
-                radius: Theme.radiusSmall
-                color: Theme.surface
-                border.color: search.activeFocus ? Theme.accent : Theme.border
-                border.width: 1
+                height: 54
+                radius: 18
+                color: Theme.hover
+                border.color: search.activeFocus ? Theme.accent : Theme.glassEdge
+                border.width: 1.5
 
                 Icon {
                     id: searchIcon
                     name: "search"
                     color: Theme.muted
                     anchors.left: parent.left
-                    anchors.leftMargin: 12
+                    anchors.leftMargin: 18
+                    size: 19
                     anchors.verticalCenter: parent.verticalCenter
                 }
 
@@ -243,19 +255,26 @@ PanelWindow {
                     color: Theme.text
                     selectionColor: Theme.alpha(Theme.accent, 0.4)
                     font.family: Theme.font
-                    font.pixelSize: Theme.fontSize + 2
+                    font.pixelSize: Theme.fontSize + 4
                     onTextEdited: { win.query = text; win.current = 0; }
 
                     Label {
                         anchors.fill: parent
                         visible: search.text === ""
-                        text: win.loading ? "Loading…" : Shell.overlay === "apps" ? "Search apps" : "Search apps and commands"
+                        text: win.loading ? "Loading…" : Shell.overlay === "apps" ? "Search apps" : "Search apps, files, settings — or type a command"
                         color: Theme.muted
-                        font.pixelSize: Theme.fontSize + 2
+                        font.pixelSize: Theme.fontSize + 4
                     }
 
                     Keys.onPressed: e => {
                         const n = win.items.length;
+                        if (win.gridMode && n) {
+                            const c = win.gridColumns;
+                            if (e.key === Qt.Key_Right) { win.current = Math.min(n - 1, win.current + 1); e.accepted = true; return; }
+                            if (e.key === Qt.Key_Left) { win.current = Math.max(0, win.current - 1); e.accepted = true; return; }
+                            if (e.key === Qt.Key_Down) { win.current = Math.min(n - 1, win.current + c); e.accepted = true; return; }
+                            if (e.key === Qt.Key_Up) { win.current = Math.max(0, win.current - c); e.accepted = true; return; }
+                        }
                         if (e.key === Qt.Key_Down || (e.key === Qt.Key_Tab && !(e.modifiers & Qt.ShiftModifier))
                             || (e.key === Qt.Key_J && (e.modifiers & Qt.ControlModifier))) {
                             win.current = n ? (win.current + 1) % n : 0; e.accepted = true;
@@ -279,22 +298,23 @@ PanelWindow {
 
         ListView {
             id: list
+            visible: !win.gridMode
             anchors.top: header.bottom
-            anchors.topMargin: 8
+            anchors.topMargin: 12
             anchors.left: parent.left
             anchors.right: parent.right
             anchors.bottom: parent.bottom
-            anchors.margins: 8
+            anchors.margins: 14
             clip: true
-            model: win.items
+            model: win.gridMode ? [] : win.items
             currentIndex: win.current
             highlightMoveDuration: 80
             boundsBehavior: Flickable.StopAtBounds
             spacing: 2
 
             highlight: Rectangle {
-                radius: Theme.radiusSmall
-                color: Theme.alpha(Theme.accent, 0.14)
+                radius: 14
+                color: Theme.tint
                 border.color: Theme.alpha(Theme.accent, 0.35)
                 border.width: 1
             }
@@ -304,7 +324,7 @@ PanelWindow {
                 required property var modelData
                 required property int index
                 width: list.width
-                height: 40
+                height: 48
 
                 Item {
                     id: iconBox
@@ -317,7 +337,7 @@ PanelWindow {
                     IconImage {
                         anchors.centerIn: parent
                         visible: row.modelData.appIcon !== undefined
-                        implicitSize: 22
+                        implicitSize: 26
                         source: row.modelData.appIcon !== undefined
                             ? Quickshell.iconPath(row.modelData.appIcon, "application-x-executable") : ""
                     }
@@ -398,6 +418,67 @@ PanelWindow {
                 visible: list.count === 0 && !win.loading
                 text: win.query ? "Nothing matches “" + win.query + "”" : "Empty"
                 color: Theme.muted
+            }
+        }
+        GridView {
+            id: grid
+            visible: win.gridMode
+            anchors.top: header.bottom
+            anchors.topMargin: 18
+            anchors.left: parent.left
+            anchors.right: parent.right
+            anchors.bottom: parent.bottom
+            anchors.leftMargin: 22
+            anchors.rightMargin: 22
+            anchors.bottomMargin: 18
+            clip: true
+            boundsBehavior: Flickable.StopAtBounds
+            cellWidth: Math.floor(width / win.gridColumns)
+            cellHeight: 128
+            model: win.gridMode ? win.items : []
+            currentIndex: win.current
+
+            delegate: Item {
+                id: cell
+                required property var modelData
+                required property int index
+                width: grid.cellWidth
+                height: grid.cellHeight
+                readonly property bool selected: index === win.current
+
+                Rectangle {
+                    anchors.fill: parent
+                    anchors.margins: 4
+                    radius: 22
+                    color: cell.selected ? Theme.tint : "transparent"
+                    border.width: cell.selected ? 1 : 0
+                    border.color: Theme.alpha(Theme.accent, 0.35)
+                }
+                Column {
+                    anchors.centerIn: parent
+                    spacing: 10
+                    IconImage {
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        implicitSize: 64
+                        scale: cell.selected ? 1.06 : 1
+                        Behavior on scale { NumberAnimation { duration: 120 } }
+                        source: Quickshell.iconPath(cell.modelData.appIcon ?? "", "application-x-executable")
+                    }
+                    Label {
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        width: grid.cellWidth - 16
+                        horizontalAlignment: Text.AlignHCenter
+                        text: cell.modelData.name
+                        font.weight: cell.selected ? Font.Bold : Font.DemiBold
+                    }
+                }
+                MouseArea {
+                    anchors.fill: parent
+                    hoverEnabled: true
+                    cursorShape: Qt.PointingHandCursor
+                    onEntered: win.current = cell.index
+                    onClicked: win.activate(cell.modelData)
+                }
             }
         }
     }

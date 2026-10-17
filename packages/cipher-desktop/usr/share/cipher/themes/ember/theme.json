@@ -1,0 +1,41 @@
+{
+  "name": "ember",
+  "title": "Ember",
+  "light": false,
+  "colors": {
+    "bg": "#150e0c",
+    "surface": "#1d1411",
+    "overlay": "#2a1d18",
+    "border": "#3a2a23",
+    "text": "#f6e7da",
+    "muted": "#b39d8d",
+    "accent": "#f2b880",
+    "accent2": "#ff8a65",
+    "red": "#ff6b5a",
+    "yellow": "#ffd9a8",
+    "green": "#9ccf8a"
+  },
+  "art": {
+    "sky": [
+      "#1f1512",
+      "#0b0706"
+    ],
+    "back": [
+      "#1a100d",
+      "#3a211a"
+    ],
+    "ribbon": [
+      "#f2b880",
+      "#ffd9a8",
+      "#9a6b45"
+    ],
+    "silk": [
+      "#4a2419",
+      "#7a3d2b",
+      "#24120d"
+    ],
+    "foot": "#100907",
+    "line": "#ffd9a8",
+    "line2": "#fff0de"
+  }
+}

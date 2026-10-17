@@ -1,0 +1,41 @@
+{
+  "name": "aurora",
+  "title": "Aurora",
+  "light": false,
+  "colors": {
+    "bg": "#0b1518",
+    "surface": "#101c20",
+    "overlay": "#16262a",
+    "border": "#233a3e",
+    "text": "#e8f1ef",
+    "muted": "#9fb4b5",
+    "accent": "#6ee7c5",
+    "accent2": "#f6c58f",
+    "red": "#f07a6a",
+    "yellow": "#f6c58f",
+    "green": "#6ee7c5"
+  },
+  "art": {
+    "sky": [
+      "#0d1f22",
+      "#061012"
+    ],
+    "back": [
+      "#0c2023",
+      "#1a403d"
+    ],
+    "ribbon": [
+      "#e2cfab",
+      "#f3e6cc",
+      "#b9a582"
+    ],
+    "silk": [
+      "#1f4a45",
+      "#35776c",
+      "#0f2a2b"
+    ],
+    "foot": "#081719",
+    "line": "#f6c58f",
+    "line2": "#fff3dd"
+  }
+}

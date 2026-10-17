@@ -5,8 +5,7 @@ import qs.components
 
 Label {
     readonly property string title: Hyprland.activeToplevel?.title ?? ""
-    text: title
-    visible: title !== "" && Hyprland.activeToplevel?.workspace?.id === Hyprland.focusedWorkspace?.id
+    readonly property bool here: title !== "" && Hyprland.activeToplevel?.workspace?.id === Hyprland.focusedWorkspace?.id
+    text: here ? title : "Desktop"
     color: Theme.muted
-    leftPadding: 8
 }

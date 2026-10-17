@@ -16,7 +16,7 @@ Rectangle {
     width: 360
     implicitHeight: content.implicitHeight + 24
     radius: Theme.radius
-    color: Theme.bg
+    color: Theme.glassStrong
     border.width: 1
     border.color: critical ? Theme.red : Theme.border
 

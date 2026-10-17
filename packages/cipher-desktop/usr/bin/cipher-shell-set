@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """cipher-shell-set KEY VALUE|toggle — change a setting in ~/.config/cipher/shell.json.
 The shell watches that file and re-flows live.
-Keys: barPosition (top|bottom), barTransparent, clock24h, sharpCorners (true|false|toggle),
+Keys: barPosition (top|bottom), barTransparent, clock24h, sharpCorners, dockMagnify, greeting
+      (true|false|toggle), dockPosition (bottom|left|right|hidden), dockIconSize (32-72),
       font (name), fontSize (9-20), terminal (command)."""
 import json
 import os
@@ -10,8 +11,8 @@ import tempfile
 from pathlib import Path
 
 path = Path.home() / ".config/cipher/shell.json"
-BOOLS = {"barTransparent", "clock24h", "sharpCorners"}
-DEFAULTS = {"barTransparent": False, "clock24h": True, "sharpCorners": False}
+BOOLS = {"barTransparent", "clock24h", "sharpCorners", "dockMagnify", "greeting"}
+DEFAULTS = {"barTransparent": False, "clock24h": True, "sharpCorners": False, "dockMagnify": True, "greeting": True}
 
 if len(sys.argv) != 3 or sys.argv[1] in ("-h", "--help"):
     print(__doc__.strip()); sys.exit(0 if len(sys.argv) > 1 else 2)
@@ -35,6 +36,14 @@ elif key == "barPosition":
     if value not in ("top", "bottom"):
         sys.exit("barPosition takes top|bottom|toggle")
     data[key] = value
+elif key == "dockPosition":
+    if value not in ("bottom", "left", "right", "hidden"):
+        sys.exit("dockPosition takes bottom|left|right|hidden")
+    data[key] = value
+elif key == "dockIconSize":
+    if not value.isdigit() or not 32 <= int(value) <= 72:
+        sys.exit("dockIconSize takes 32-72")
+    data[key] = int(value)
 elif key == "fontSize":
     if not value.isdigit() or not 9 <= int(value) <= 20:
         sys.exit("fontSize takes 9-20")

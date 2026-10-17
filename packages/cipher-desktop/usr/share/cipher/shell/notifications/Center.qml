@@ -38,8 +38,8 @@ PanelWindow {
         anchors.margins: 10
         width: 380
         radius: Theme.radius
-        color: Theme.bg
-        border.color: Theme.border
+        color: Theme.glassStrong
+        border.color: Theme.glassEdge
         Keys.onEscapePressed: Shell.close()
 
         MouseArea { anchors.fill: parent }

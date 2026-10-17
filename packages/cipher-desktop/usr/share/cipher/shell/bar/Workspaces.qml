@@ -3,11 +3,11 @@ import Quickshell.Hyprland
 import qs.services
 import qs.components
 
-// Workspace pills: always shows 1-5, more as they get used.
-// The focused workspace stretches into an accent-colored pill.
+// Named workspace tabs: Home · Study · Create (names from shell.json),
+// then numbers for the rest. The active one gets a tinted pill and a dot.
 Row {
     id: root
-    spacing: 4
+    spacing: 2
 
     readonly property var occupied: {
         const ids = {};
@@ -18,7 +18,7 @@ Row {
     }
     readonly property int focusedId: Hyprland.focusedWorkspace?.id ?? 1
     readonly property int count: {
-        let max = 5;
+        let max = Math.max(1, Settings.workspaceNames.length);
         for (const id in occupied) max = Math.max(max, parseInt(id));
         return Math.max(max, focusedId);
     }
@@ -27,28 +27,36 @@ Row {
         model: root.count
 
         Rectangle {
-            id: pill
+            id: tab
             required property int index
             readonly property int wsId: index + 1
             readonly property bool focused: wsId === root.focusedId
             readonly property bool used: root.occupied[wsId] === true
+            readonly property string title: Settings.workspaceNames[index] ?? String(wsId)
 
             anchors.verticalCenter: parent.verticalCenter
-            implicitHeight: 20
-            implicitWidth: focused ? 34 : 20
-            radius: Theme.radiusSmall
-            color: focused ? Theme.accent
-                 : hover.containsMouse ? Theme.alpha(Theme.text, 0.12)
-                 : "transparent"
-            Behavior on implicitWidth { NumberAnimation { duration: 160; easing.type: Easing.OutCubic } }
+            implicitHeight: Settings.barHeight - 10
+            implicitWidth: row.implicitWidth + 28
+            radius: height / 2
+            color: focused ? Theme.tint : hover.containsMouse ? Theme.hover : "transparent"
             Behavior on color { ColorAnimation { duration: 160 } }
 
-            Label {
+            Row {
+                id: row
                 anchors.centerIn: parent
-                text: pill.wsId
-                font.pixelSize: Theme.fontSize - 2
-                font.bold: pill.focused
-                color: pill.focused ? Theme.bg : pill.used ? Theme.text : Theme.muted
+                spacing: 7
+                Rectangle {
+                    visible: tab.focused || tab.used
+                    width: 6; height: 6; radius: 3
+                    anchors.verticalCenter: parent.verticalCenter
+                    color: tab.focused ? Theme.accent : Theme.muted
+                }
+                Label {
+                    text: tab.title
+                    color: tab.focused ? Theme.accent : tab.used ? Theme.text : Theme.muted
+                    font.weight: tab.focused ? Font.DemiBold : Font.Medium
+                    anchors.verticalCenter: parent.verticalCenter
+                }
             }
 
             MouseArea {
@@ -56,8 +64,24 @@ Row {
                 anchors.fill: parent
                 hoverEnabled: true
                 cursorShape: Qt.PointingHandCursor
-                onClicked: Hyprland.dispatch(`workspace ${pill.wsId}`)
+                onClicked: Hyprland.dispatch(`workspace ${tab.wsId}`)
             }
+        }
+    }
+
+    Rectangle {
+        anchors.verticalCenter: parent.verticalCenter
+        implicitWidth: Settings.barHeight - 10
+        implicitHeight: Settings.barHeight - 10
+        radius: height / 2
+        color: addHover.containsMouse ? Theme.hover : "transparent"
+        Label { anchors.centerIn: parent; text: "+"; color: Theme.muted; font.pixelSize: Theme.fontSize + 4 }
+        MouseArea {
+            id: addHover
+            anchors.fill: parent
+            hoverEnabled: true
+            cursorShape: Qt.PointingHandCursor
+            onClicked: Hyprland.dispatch("workspace empty")
         }
     }
 

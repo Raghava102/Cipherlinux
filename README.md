@@ -1,5 +1,10 @@
 # Cipher
 
+**0.2 "Aurora"** — silk wallpapers, floating glass top bar with named workspaces,
+a dock (bottom / left / right), quick controls (`SUPER + C`), a desktop greeting
+with your recent files, an icon-grid app launcher, Cipher Shield firewall status,
+and three new themes: Aurora (default), Porcelain (light) and Ember.
+
 A Debian-based Hyprland desktop in the spirit of **Omarchy 4 "Quattro"**: one
 Quickshell process draws the whole desktop (bar, unified app + command menu,
 theme switcher, notifications, on-screen displays, background and lock screen),

@@ -1,0 +1,41 @@
+{
+  "name": "porcelain",
+  "title": "Porcelain",
+  "light": true,
+  "colors": {
+    "bg": "#f7f5f0",
+    "surface": "#ffffff",
+    "overlay": "#ebe7de",
+    "border": "#d8d3c7",
+    "text": "#1c2a2c",
+    "muted": "#5b6e70",
+    "accent": "#16695b",
+    "accent2": "#e7a978",
+    "red": "#c2493b",
+    "yellow": "#a8741a",
+    "green": "#16695b"
+  },
+  "art": {
+    "sky": [
+      "#d7e5ea",
+      "#f3eee6"
+    ],
+    "back": [
+      "#e6eef0",
+      "#d5e3e4"
+    ],
+    "ribbon": [
+      "#ffffff",
+      "#ffffff",
+      "#f7f1e7"
+    ],
+    "silk": [
+      "#cfe2e0",
+      "#9fc4c0",
+      "#e9dfd0"
+    ],
+    "foot": "#e9e2d6",
+    "line": "#e7a978",
+    "line2": "#ffffff"
+  }
+}

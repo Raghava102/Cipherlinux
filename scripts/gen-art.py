@@ -119,6 +119,107 @@ def signal(theme, seed):
     return base.convert("RGB")
 
 
+# ---- Aurora "silk" wallpaper -------------------------------------------------
+# The same curves as the Cipher Aurora design (drawn in a 1440x900 space).
+
+def _bezier(p0, p1, p2, p3, n=48):
+    pts = []
+    for i in range(n + 1):
+        t = i / n
+        u = 1 - t
+        pts.append((u ** 3 * p0[0] + 3 * u * u * t * p1[0] + 3 * u * t * t * p2[0] + t ** 3 * p3[0],
+                    u ** 3 * p0[1] + 3 * u * u * t * p1[1] + 3 * u * t * t * p2[1] + t ** 3 * p3[1]))
+    return pts
+
+
+def _curve(start, segs):
+    """segs: list of (c1, c2, end) cubic segments, c1=None means smooth (reflect)."""
+    pts, cur, prev_c2 = [start], start, None
+    for c1, c2, end in segs:
+        if c1 is None:
+            c1 = (2 * cur[0] - prev_c2[0], 2 * cur[1] - prev_c2[1])
+        pts += _bezier(cur, c1, c2, end)[1:]
+        cur, prev_c2 = end, c2
+    return pts
+
+
+def _gradient_layer(size, stops, horizontal=False, diagonal=False):
+    w, h = size
+    stops = [rgb(s) for s in stops]
+    img = Image.new("RGB", (w, h))
+    px = img.load()
+    for y in range(h):
+        for x in range(0, w, 2):
+            if diagonal:
+                t = (x / w + y / h) / 2
+            elif horizontal:
+                t = x / w
+            else:
+                t = y / h
+            seg = min(len(stops) - 2, int(t * (len(stops) - 1)))
+            lt = t * (len(stops) - 1) - seg
+            c = mix(stops[seg], stops[seg + 1], lt)
+            px[x, y] = c
+            if x + 1 < w:
+                px[x + 1, y] = c
+    return img
+
+
+def silk(theme):
+    """Layered silk ribbons with a glowing edge — the Cipher Aurora wallpaper."""
+    a = theme["art"]
+    W2, H2 = W, H
+    sx, sy = W2 / 1440, H2 / 900
+
+    def S(pts):
+        return [(x * sx, y * sy) for x, y in pts]
+
+    back = _curve((-60, 250), [((260, 110), (520, 410), (860, 320)), (None, (1300, 70), (1500, 140))])
+    ribbon_top = _curve((-60, 420), [((240, 300), (560, 560), (900, 470)), (None, (1320, 260), (1500, 330))])
+    ribbon_bot = _curve((1500, 420), [((1300, 360), (980, 600), (720, 610)), (None, (220, 470), (-60, 560))])
+    silk_top = _curve((-60, 560), [((300, 430), (600, 760), (980, 640)), (None, (1340, 470), (1500, 540))])
+    foot_top = _curve((-60, 720), [((260, 640), (640, 900), (1020, 800)), (None, (1360, 690), (1500, 740))])
+
+    img = _gradient_layer((W2, H2), a["sky"])
+
+    def fill(poly, layer, alpha=1.0, fade=None):
+        mask = Image.new("L", (W2 * SS, H2 * SS), 0)
+        ImageDraw.Draw(mask).polygon([(x * SS, y * SS) for x, y in S(poly)], fill=int(255 * alpha))
+        mask = mask.resize((W2, H2), Image.LANCZOS).filter(ImageFilter.GaussianBlur(0.6))
+        if fade:
+            # horizontal opacity ramp (left, right) for a silk-like falloff
+            ramp = Image.linear_gradient("L").rotate(90, expand=True).resize((W2, H2))
+            ramp = ramp.point(lambda v: int(255 * (fade[1] + (fade[0] - fade[1]) * v / 255)))
+            mask = Image.composite(mask, Image.new("L", (W2, H2), 0), mask)
+            from PIL import ImageChops
+            mask = ImageChops.multiply(mask, ramp)
+        img.paste(layer, (0, 0), mask)
+
+    fill(back + [(1500, 900), (-60, 900)], _gradient_layer((W2, H2), a["back"], diagonal=True))
+    fill(ribbon_top + ribbon_bot, _gradient_layer((W2, H2), a["ribbon"], horizontal=True), 0.7, fade=(1.0, 0.25))
+    # shade the lower half of the scene so the silk reads as folded fabric
+    shade = Image.new("RGB", (W2, H2), rgb(a["foot"]))
+    shade_mask = Image.linear_gradient("L").resize((W2, H2)).point(lambda v: int(v * 0.45))
+    fill(silk_top + [(1500, 900), (-60, 900)], _gradient_layer((W2, H2), a["silk"], diagonal=True))
+    img.paste(shade, (0, 0), shade_mask)
+    fill(foot_top + [(1500, 900), (-60, 900)], Image.new("RGB", (W2, H2), rgb(a["foot"])), 0.85)
+
+    # soft sheen on the main silk, then the glowing edge lines
+    glow_layer = Image.new("RGBA", (W2, H2), (0, 0, 0, 0))
+    gd = ImageDraw.Draw(glow_layer)
+    gd.line(S(silk_top), fill=rgb(a["line"]) + (150,), width=int(16 * sx))
+    glow_layer = glow_layer.filter(ImageFilter.GaussianBlur(18))
+    base = img.convert("RGBA")
+    base.alpha_composite(glow_layer)
+
+    lines = Image.new("RGBA", (W2 * SS, H2 * SS), (0, 0, 0, 0))
+    ld = ImageDraw.Draw(lines)
+    ld.line([(x * SS, y * SS) for x, y in S(silk_top)], fill=rgb(a["line"]) + (215,), width=int(2.6 * SS))
+    ld.line([(x * SS, y * SS) for x, y in S(ribbon_top)], fill=rgb(a["line2"]) + (105,), width=int(1.6 * SS))
+    base.alpha_composite(lines.resize((W2, H2), Image.LANCZOS))
+    return base.convert("RGB")
+
+
 def logo(size, color, bg=None, stroke_ratio=1 / 11):
     s = size * SS
     img = Image.new("RGBA", (s, s), (bg + (255,)) if bg else (0, 0, 0, 0))
@@ -136,14 +237,14 @@ def logo(size, color, bg=None, stroke_ratio=1 / 11):
 
 
 def branding():
-    cipher = json.loads((THEMES / "cipher/theme.json").read_text())
+    cipher = json.loads((THEMES / "aurora/theme.json").read_text())
     c = {k: rgb(v) for k, v in cipher["colors"].items()}
     BRANDING.mkdir(parents=True, exist_ok=True)
     logo(256, c["accent"]).save(BRANDING / "logo.png")
     logo(96, c["accent"]).save(BRANDING / "logo-96.png")
     logo(512, c["accent"], bg=c["bg"]).save(BRANDING / "icon.png")
     # GRUB / isolinux background: the lattice wallpaper at 1920x1080 with the mark
-    bg = lattice(cipher, 7).resize((1920, 1080), Image.LANCZOS).convert("RGBA")
+    bg = silk(cipher).resize((1920, 1080), Image.LANCZOS).convert("RGBA")
     mark = logo(160, c["accent"])
     bg.alpha_composite(mark, (1920 // 2 - 80, 1080 // 2 - 220))
     bg.convert("RGB").save(BRANDING / "boot-background.png")
@@ -165,10 +266,12 @@ def main(names):
         out = d / "backgrounds"
         out.mkdir(exist_ok=True)
         seed = sum(map(ord, d.name))
+        if "art" in theme:
+            silk(theme).save(out / "0-silk.png", optimize=True)
         lattice(theme, seed).save(out / "1-lattice.png", optimize=True)
         signal(theme, seed + 1).save(out / "2-signal.png", optimize=True)
         print("backgrounds:", d.name)
-    if not names or "cipher" in names:
+    if not names or "aurora" in names:
         branding()
         print("branding: done")
 

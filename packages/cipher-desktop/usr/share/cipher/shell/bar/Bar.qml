@@ -2,11 +2,14 @@ import QtQuick
 import QtQuick.Layouts
 import Quickshell
 import Quickshell.Wayland
+import Quickshell.Hyprland
 import qs.services
 import qs.components
 
-// The Cipher bar. One per screen. Left: logo + workspaces + active window.
-// Center: clock. Right: tray, status widgets and the power button.
+// Cipher Aurora bar: three floating glass pills over the wallpaper.
+//   left   — Cipher mark, the app you're in
+//   center — named workspaces (Home · Study · Create · +)
+//   right  — Shield, tray, network, sound, battery, clock → quick controls
 PanelWindow {
     id: bar
 
@@ -14,6 +17,8 @@ PanelWindow {
     screen: modelData
 
     readonly property bool atTop: Settings.barPosition !== "bottom"
+    readonly property int pill: Settings.barHeight
+    readonly property int edge: 10
 
     anchors {
         top: bar.atTop
@@ -21,107 +26,126 @@ PanelWindow {
         left: true
         right: true
     }
-    implicitHeight: Settings.barHeight
-    exclusiveZone: Settings.barHeight
+    implicitHeight: pill + edge + 4
+    exclusiveZone: pill + edge
     color: "transparent"
 
     WlrLayershell.namespace: "cipher-bar"
     WlrLayershell.layer: WlrLayer.Top
 
-    Rectangle {
+    Item {
         anchors.fill: parent
-        color: Settings.barTransparent ? Theme.alpha(Theme.bg, 0.55) : Theme.bg
-        Behavior on color { ColorAnimation { duration: 200 } }
+        anchors.leftMargin: 12
+        anchors.rightMargin: 12
+        anchors.topMargin: bar.atTop ? bar.edge : 4
+        anchors.bottomMargin: bar.atTop ? 4 : bar.edge
 
-        // hairline separating bar from windows
-        Rectangle {
+        // ---- left pill ------------------------------------------------------
+        Glass {
+            id: leftPill
             anchors.left: parent.left
-            anchors.right: parent.right
-            height: 1
-            y: bar.atTop ? parent.height - 1 : 0
-            color: Theme.border
-            visible: !Settings.barTransparent
-        }
-
-        MouseArea {
-            // Double-click empty bar space toggles transparency (like Omarchy 4).
-            anchors.fill: parent
-            onDoubleClicked: Shell.run("cipher-shell-set barTransparent toggle")
-        }
-
-        RowLayout {
-            id: left
-            anchors.left: parent.left
-            anchors.leftMargin: 6
             anchors.verticalCenter: parent.verticalCenter
-            spacing: 4
+            height: bar.pill
+            width: leftRow.implicitWidth + 28
+            radius: height / 2
+            color: Settings.barTransparent ? Theme.alpha(Theme.bg, 0.4) : Theme.glass
 
-            Rectangle {
-                implicitWidth: Settings.barHeight - 8
-                implicitHeight: Settings.barHeight - 8
-                radius: Theme.radiusSmall
-                color: logoMouse.containsMouse ? Theme.alpha(Theme.accent, 0.15) : "transparent"
-                Logo {
-                    anchors.centerIn: parent
-                    width: 18
-                    height: 18
+            RowLayout {
+                id: leftRow
+                anchors.centerIn: parent
+                spacing: 10
+
+                Item {
+                    implicitWidth: 22
+                    implicitHeight: 22
+                    Logo { anchors.fill: parent }
+                    MouseArea {
+                        anchors.fill: parent
+                        anchors.margins: -6
+                        cursorShape: Qt.PointingHandCursor
+                        acceptedButtons: Qt.LeftButton | Qt.RightButton
+                        onClicked: m => Shell.open(m.button === Qt.RightButton ? "apps" : "menu", [])
+                    }
                 }
-                MouseArea {
-                    id: logoMouse
-                    anchors.fill: parent
-                    hoverEnabled: true
-                    cursorShape: Qt.PointingHandCursor
-                    acceptedButtons: Qt.LeftButton | Qt.RightButton
-                    onClicked: m => Shell.open(m.button === Qt.RightButton ? "apps" : "menu", [])
-                }
+                Label { text: "Cipher"; font.weight: Font.Bold; font.pixelSize: Theme.fontSize + 1 }
+                Rectangle { implicitWidth: 1; implicitHeight: 16; color: Theme.alpha(Theme.text, 0.15) }
+                ActiveWindow { Layout.maximumWidth: Math.max(80, bar.width / 2 - 420) }
             }
 
-            Workspaces {}
-
-            ActiveWindow {
-                Layout.maximumWidth: Math.max(0, bar.width / 2 - left.x - 260)
+            MouseArea {
+                anchors.fill: parent
+                z: -1
+                onDoubleClicked: Shell.run("cipher-shell-set barTransparent toggle")
             }
         }
 
-        Clock {
-            anchors.centerIn: parent
-        }
-
-        RowLayout {
-            anchors.right: parent.right
-            anchors.rightMargin: 6
+        // ---- center pill: workspaces --------------------------------------
+        Glass {
+            anchors.horizontalCenter: parent.horizontalCenter
             anchors.verticalCenter: parent.verticalCenter
-            spacing: 2
+            height: bar.pill
+            width: spaces.implicitWidth + 10
+            radius: height / 2
+            color: Settings.barTransparent ? Theme.alpha(Theme.bg, 0.4) : Theme.glass
+            Workspaces { id: spaces; anchors.centerIn: parent }
+        }
 
-            // Each service-backed widget is loaded on its own, so a missing
-            // Quickshell service module only hides that widget.
-            Loader { source: "Tray.qml"; onLoaded: item.barWindow = bar }
+        // ---- right pill: status ------------------------------------------
+        Glass {
+            anchors.right: parent.right
+            anchors.verticalCenter: parent.verticalCenter
+            height: bar.pill
+            width: rightRow.implicitWidth + 16
+            radius: height / 2
+            color: Settings.barTransparent ? Theme.alpha(Theme.bg, 0.4) : Theme.glass
 
-            BarButton {
-                visible: Shell.dnd
-                icon: "bell-off"
-                tint: Theme.yellow
-                onClicked: Shell.dnd = false
-            }
+            RowLayout {
+                id: rightRow
+                anchors.centerIn: parent
+                spacing: 2
 
-            BarButton {
-                icon: Net.icon
-                tint: Net.kind === "none" ? Theme.muted : Theme.text
-                onClicked: Shell.terminal("nmtui")
-            }
+                // Shield chip
+                Rectangle {
+                    implicitHeight: bar.pill - 12
+                    implicitWidth: shieldRow.implicitWidth + 20
+                    radius: height / 2
+                    color: Shield.protectedNow ? Theme.tint : Theme.alpha(Theme.yellow, 0.16)
+                    Row {
+                        id: shieldRow
+                        anchors.centerIn: parent
+                        spacing: 6
+                        Icon { name: "shield-check"; size: 13; color: Shield.protectedNow ? Theme.accent : Theme.yellow; anchors.verticalCenter: parent.verticalCenter }
+                        Label {
+                            text: Shield.protectedNow ? "Protected" : "No firewall"
+                            color: Shield.protectedNow ? Theme.accent : Theme.yellow
+                            font.pixelSize: Theme.fontSize - 1
+                            font.weight: Font.DemiBold
+                            anchors.verticalCenter: parent.verticalCenter
+                        }
+                    }
+                    MouseArea { anchors.fill: parent; cursorShape: Qt.PointingHandCursor; onClicked: Shell.open("controls", []) }
+                }
 
-            Loader { source: "Volume.qml" }
-            Loader { source: "Battery.qml" }
+                Loader { source: "Tray.qml"; onLoaded: item.barWindow = bar }
 
-            BarButton {
-                icon: Notifs.history.length > 0 ? "bell-dot" : "bell"
-                onClicked: Shell.open("notifications", [])
-            }
-
-            BarButton {
-                icon: "power"
-                tint: Theme.red
-                onClicked: Shell.open("menu", ["System"])
+                BarButton {
+                    visible: Shell.dnd
+                    icon: "bell-off"
+                    tint: Theme.yellow
+                    onClicked: Shell.dnd = false
+                }
+                BarButton {
+                    icon: Net.icon
+                    tint: Net.kind === "none" ? Theme.muted : Theme.text
+                    onClicked: Shell.open("controls", [])
+                }
+                Loader { source: "Volume.qml" }
+                Loader { source: "Battery.qml" }
+                BarButton {
+                    icon: Notifs.history.length > 0 ? "bell-dot" : "bell"
+                    onClicked: Shell.open("notifications", [])
+                }
+                Clock {}
             }
         }
     }

@@ -1,9 +1,15 @@
 {
   "barPosition": "top",
   "barTransparent": false,
-  "clock24h": true,
+  "clock24h": false,
   "sharpCorners": false,
-  "font": "JetBrains Mono",
+  "font": "Plus Jakarta Sans",
   "fontSize": 13,
-  "terminal": "foot"
+  "terminal": "foot",
+  "dockPosition": "bottom",
+  "dockIconSize": 48,
+  "dockMagnify": true,
+  "dockPinned": ["firefox-esr", "org.gnome.Nautilus", "foot", "org.gnome.TextEditor", "org.gnome.Settings", "org.gnome.Software"],
+  "workspaceNames": ["Home", "Study", "Create"],
+  "greeting": true
 }

@@ -3,19 +3,38 @@ import Quickshell
 import qs.services
 import qs.components
 
-// Center clock. Click to show the date and ISO week; right-click flips 12h/24h.
-BarButton {
+// Time in bold, date in muted. Click: date + ISO week. Right-click: 12h/24h.
+Rectangle {
     id: root
-    property bool showDate: false
-
+    property bool showWeek: false
     readonly property string timeFormat: Settings.clock24h ? "HH:mm" : "h:mm AP"
-    label: showDate
-        ? Qt.formatDateTime(clock.date, "dddd d MMMM") + "  ·  W" + isoWeek(clock.date)
-        : Qt.formatDateTime(clock.date, "ddd d MMM   " + timeFormat)
 
-    onClicked: m => {
-        if (m.button === Qt.RightButton) Shell.run("cipher-shell-set clock24h toggle");
-        else root.showDate = !root.showDate;
+    implicitHeight: Settings.barHeight - 10
+    implicitWidth: row.implicitWidth + 24
+    radius: height / 2
+    color: mouse.containsMouse ? Theme.hover : "transparent"
+
+    Row {
+        id: row
+        anchors.centerIn: parent
+        spacing: 8
+        Label { text: Qt.formatDateTime(clock.date, root.timeFormat); font.weight: Font.DemiBold }
+        Label {
+            text: root.showWeek ? "Week " + root.isoWeek(clock.date) : Qt.formatDateTime(clock.date, "ddd d MMM")
+            color: Theme.muted
+        }
+    }
+
+    MouseArea {
+        id: mouse
+        anchors.fill: parent
+        hoverEnabled: true
+        acceptedButtons: Qt.LeftButton | Qt.RightButton
+        cursorShape: Qt.PointingHandCursor
+        onClicked: m => {
+            if (m.button === Qt.RightButton) Shell.run("cipher-shell-set clock24h toggle");
+            else root.showWeek = !root.showWeek;
+        }
     }
 
     function isoWeek(d) {
@@ -26,8 +45,5 @@ BarButton {
         return Math.ceil(((date - yearStart) / 86400000 + 1) / 7);
     }
 
-    SystemClock {
-        id: clock
-        precision: SystemClock.Minutes
-    }
+    SystemClock { id: clock; precision: SystemClock.Minutes }
 }

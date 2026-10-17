@@ -13,27 +13,37 @@ Singleton {
     readonly property string configDir: home + "/.config/cipher"
     readonly property string themeFile: configDir + "/current/theme.json"
 
-    // Fallback palette = the "cipher" theme, used until theme.json loads.
-    property string name: "cipher"
-    property string title: "Cipher"
-    property color bg: "#0b0f14"
-    property color surface: "#121821"
-    property color overlay: "#1a2230"
-    property color border: "#243041"
-    property color text: "#d6e2ea"
-    property color muted: "#6b7d8c"
-    property color accent: "#2de2a6"
-    property color accent2: "#3fb6ff"
-    property color red: "#ff5c7a"
-    property color yellow: "#ffcc66"
-    property color green: "#2de2a6"
+    // Fallback palette = the "aurora" theme, used until theme.json loads.
+    property string name: "aurora"
+    property string title: "Aurora"
+    property color bg: "#0b1518"
+    property color surface: "#101c20"
+    property color overlay: "#16262a"
+    property color border: "#233a3e"
+    property color text: "#e8f1ef"
+    property color muted: "#9fb4b5"
+    property color accent: "#6ee7c5"
+    property color accent2: "#f6c58f"
+    property color red: "#f07a6a"
+    property color yellow: "#f6c58f"
+    property color green: "#6ee7c5"
     property string wallpaper: ""
     property bool light: false
 
     // Shape + type, overridable per user in shell.json
-    readonly property int radius: Settings.sharpCorners ? 0 : 12
-    readonly property int radiusSmall: Settings.sharpCorners ? 0 : 8
+    readonly property int radius: Settings.sharpCorners ? 0 : 22
+    readonly property int radiusSmall: Settings.sharpCorners ? 0 : 14
+    readonly property int radiusPill: Settings.sharpCorners ? 0 : 999
     readonly property string font: Settings.font
+    readonly property string displayFont: "Fraunces"
+
+    // Aurora glass: translucent panels with a hairline edge
+    readonly property color glass: light ? Qt.rgba(1, 1, 1, 0.72) : alpha(bg, 0.72)
+    readonly property color glassStrong: light ? Qt.rgba(0.99, 0.98, 0.97, 0.94) : alpha(bg, 0.86)
+    readonly property color glassEdge: light ? Qt.rgba(1, 1, 1, 0.95) : Qt.rgba(1, 1, 1, 0.09)
+    readonly property color hover: light ? Qt.rgba(0, 0, 0, 0.06) : Qt.rgba(1, 1, 1, 0.07)
+    readonly property color tint: alpha(accent, light ? 0.14 : 0.16)
+    readonly property color onAccent: light ? "#ffffff" : "#06231d"
     readonly property int fontSize: Settings.fontSize
     readonly property int gap: 8
 

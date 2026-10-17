@@ -13,8 +13,8 @@ Rectangle {
 
     implicitHeight: Settings.barHeight - 10
     implicitWidth: row.implicitWidth + 16
-    radius: Theme.radiusSmall
-    color: mouse.containsMouse ? Theme.alpha(Theme.text, 0.08) : "transparent"
+    radius: height / 2
+    color: mouse.containsMouse ? Theme.hover : "transparent"
     Behavior on color { ColorAnimation { duration: 120 } }
 
     Row {

@@ -100,8 +100,9 @@ Scope {
                 Label {
                     anchors.horizontalCenter: parent.horizontalCenter
                     text: Qt.formatDateTime(clock.date, Settings.clock24h ? "HH:mm" : "h:mm")
-                    font.pixelSize: 96
-                    font.bold: true
+                    font.family: Theme.displayFont
+                    font.pixelSize: 120
+                    font.weight: Font.Light
                 }
                 Label {
                     anchors.horizontalCenter: parent.horizontalCenter

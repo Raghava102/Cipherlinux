@@ -13,10 +13,17 @@ Singleton {
     property bool barTransparent: false
     property bool clock24h: true
     property bool sharpCorners: false
-    property string font: "JetBrains Mono"
+    property string font: "Plus Jakarta Sans"
     property int fontSize: 13
     property string terminal: "foot"
-    property int barHeight: 34
+    property int barHeight: 40
+    // Aurora
+    property string dockPosition: "bottom"   // "bottom" | "left" | "right" | "hidden"
+    property int dockIconSize: 48
+    property bool dockMagnify: true
+    property var dockPinned: ["firefox-esr", "org.gnome.Nautilus", "foot", "org.gnome.TextEditor", "org.gnome.Settings", "org.gnome.Software"]
+    property var workspaceNames: ["Home", "Study", "Create"]
+    property bool greeting: true
 
     readonly property string path: Quickshell.env("HOME") + "/.config/cipher/shell.json"
 
@@ -30,6 +37,12 @@ Singleton {
         if (typeof s.font === "string" && s.font.length > 0) root.font = s.font;
         if (Number.isInteger(s.fontSize) && s.fontSize >= 9 && s.fontSize <= 20) root.fontSize = s.fontSize;
         if (typeof s.terminal === "string" && s.terminal.length > 0) root.terminal = s.terminal;
+        if (["bottom", "left", "right", "hidden"].includes(s.dockPosition)) root.dockPosition = s.dockPosition;
+        if (Number.isInteger(s.dockIconSize) && s.dockIconSize >= 32 && s.dockIconSize <= 72) root.dockIconSize = s.dockIconSize;
+        if (typeof s.dockMagnify === "boolean") root.dockMagnify = s.dockMagnify;
+        if (Array.isArray(s.dockPinned)) root.dockPinned = s.dockPinned.filter(x => typeof x === "string");
+        if (Array.isArray(s.workspaceNames)) root.workspaceNames = s.workspaceNames.filter(x => typeof x === "string");
+        if (typeof s.greeting === "boolean") root.greeting = s.greeting;
     }
 
     FileView {

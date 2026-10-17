@@ -59,8 +59,8 @@ PanelWindow {
     Rectangle {
         anchors.fill: parent
         radius: height / 2
-        color: Theme.bg
-        border.color: Theme.border
+        color: Theme.glassStrong
+        border.color: Theme.glassEdge
         opacity: win.shown ? 1 : 0
         Behavior on opacity { NumberAnimation { duration: 120 } }
 

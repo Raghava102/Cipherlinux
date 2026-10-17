@@ -1,5 +1,6 @@
 //@ pragma UseQApplication
 //@ pragma Env QT_QUICK_CONTROLS_STYLE=Basic
+//@ pragma IconTheme Papirus-Dark
 
 // Cipher shell — the whole Cipher desktop in one Quickshell process:
 // background, bar, menu/launcher, theme switcher, notifications, OSD, lock.
@@ -20,6 +21,9 @@ import qs.menu
 import qs.themes
 import qs.notifications
 import qs.osd
+import qs.dock
+import qs.controls
+import qs.desktop
 
 ShellRoot {
     id: root
@@ -27,7 +31,7 @@ ShellRoot {
     FontLoader { source: Qt.resolvedUrl("fonts/lucide.ttf") }
 
     // Touch the singletons so they start with the shell.
-    readonly property var _services: [Theme, Settings, Shell, Notifs, Net, MenuData]
+    readonly property var _services: [Theme, Settings, Shell, Notifs, Net, MenuData, Shield, Bluetooth, Brightness]
 
     Variants {
         model: Quickshell.screens
@@ -38,6 +42,14 @@ ShellRoot {
         model: Quickshell.screens
         Bar {}
     }
+
+    Variants {
+        model: Quickshell.screens
+        Dock {}
+    }
+
+    Greeting {}
+    QuickControls {}
 
     Menu {}
     ThemeSwitcher {}

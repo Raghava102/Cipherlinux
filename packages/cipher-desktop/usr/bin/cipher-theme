@@ -30,7 +30,7 @@ USER_THEMES = HOME / ".config/cipher/themes"
 TEMPLATES = Path("/usr/share/cipher/templates")
 USER_BACKGROUNDS = HOME / ".config/cipher/backgrounds"
 CURRENT = HOME / ".config/cipher/current"
-DEFAULT_THEME = "cipher"
+DEFAULT_THEME = "aurora"
 
 NAME_RE = re.compile(r"^[a-z0-9][a-z0-9-]{0,40}$")
 HEX_RE = re.compile(r"^#[0-9a-fA-F]{6}$")

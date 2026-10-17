@@ -10,7 +10,7 @@ import Quickshell.Hyprland
 Singleton {
     id: root
 
-    // Which overlay is open: "" | "menu" | "apps" | "themes" | "notifications"
+    // Which overlay is open: "" | "menu" | "apps" | "themes" | "notifications" | "controls"
     property string overlay: ""
     // Optional menu path to open at, e.g. ["Style"]
     property var menuStart: []
@@ -51,6 +51,11 @@ Singleton {
         function apps(): void { root.open("apps", []); }
         function open(path: string): void { root.open("menu", path.length ? path.split("/") : []); }
         function close(): void { root.close(); }
+    }
+
+    IpcHandler {
+        target: "controls"
+        function toggle(): void { root.open("controls", []); }
     }
 
     IpcHandler {
