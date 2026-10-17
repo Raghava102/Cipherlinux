@@ -3,7 +3,7 @@
 # Install a minimal Debian first (no desktop), log in as your user, then:
 #
 #   ./scripts/install-on-debian.sh             # install Cipher for this user
-#   ./scripts/install-on-debian.sh --gnome     # also add GNOME + the GDM login screen
+#   ./scripts/install-on-debian.sh --gnome     # also add the full GNOME desktop + GDM login
 set -euo pipefail
 
 ROOT=$(cd "$(dirname "$0")/.." && pwd)
@@ -65,7 +65,7 @@ cipher-theme init
 
 if [ "$GNOME" -eq 1 ]; then
   step "Installing GNOME and the GDM login screen (pick Cipher or GNOME at login)"
-  sudo apt-get install -y gdm3 gnome-core
+  sudo apt-get install -y task-gnome-desktop gdm3
   for dm in sddm lightdm greetd; do
     systemctl is-enabled "$dm" >/dev/null 2>&1 && sudo systemctl disable "$dm" || true
   done

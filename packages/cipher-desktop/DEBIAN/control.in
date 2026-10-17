@@ -16,7 +16,7 @@ Depends: hyprland (>= 0.54), quickshell (>= 0.3), hypridle, hyprpolkitagent,
 Recommends: hyprlock, cliphist, udiskie, power-profiles-daemon, pavucontrol, blueman,
  wf-recorder, hyprpicker, btop, thunar, chromium, plymouth,
  gnome-themes-extra, qt6-image-formats-plugins, nano
-Suggests: gdm3 | greetd, gnome-core
+Suggests: gdm3 | greetd, task-gnome-desktop
 Description: Cipher desktop — Hyprland with a Quickshell desktop shell
  Cipher is a Debian-based Hyprland desktop in the spirit of Omarchy 4:
  one Quickshell process provides the bar, unified app/command menu,

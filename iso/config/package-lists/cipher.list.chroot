@@ -13,9 +13,9 @@ calamares-settings-debian
 plymouth
 plymouth-themes
 
-# Login + second desktop: GDM, with GNOME next to Cipher
+# Login + second desktop: GDM, with the full GNOME desktop next to Cipher
+task-gnome-desktop
 gdm3
-gnome-core
 gnome-tweaks
 firefox-esr
 
