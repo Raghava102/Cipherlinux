@@ -1,0 +1,12 @@
+PRETTY_NAME="Cipher 0.1.0 (Debian 13 based)"
+NAME="Cipher"
+VERSION_ID="0.1.0"
+VERSION="0.1.0 (trixie)"
+VERSION_CODENAME=trixie
+DEBIAN_CODENAME=trixie
+ID=cipher
+ID_LIKE=debian
+LOGO=cipher-logo
+HOME_URL="https://github.com/Raghava102/Cipherlinux"
+SUPPORT_URL="https://github.com/Raghava102/Cipherlinux/issues"
+BUG_REPORT_URL="https://github.com/Raghava102/Cipherlinux/issues"

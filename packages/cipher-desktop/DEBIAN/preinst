@@ -1,0 +1,8 @@
+#!/bin/sh
+set -e
+# Cipher ships its own /usr/lib/os-release; keep Debian's copy beside it.
+if [ "$1" = "install" ] || [ "$1" = "upgrade" ]; then
+    dpkg-divert --package cipher-desktop --add --rename \
+        --divert /usr/lib/os-release.debian /usr/lib/os-release
+fi
+exit 0

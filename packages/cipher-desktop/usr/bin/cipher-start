@@ -34,6 +34,14 @@ cipher-theme init >/dev/null 2>&1 || : > "$CUR/hyprland.conf"
   fi
 } > "$CUR/hardware.conf"
 
+# Keep the compositor's output so a failed start can be diagnosed:
+#   cat ~/.local/state/cipher/session.log   (from GNOME or a TTY)
+LOG="${XDG_STATE_HOME:-$HOME/.local/state}/cipher/session.log"
+mkdir -p "$(dirname "$LOG")"
+[ -f "$LOG" ] && mv -f "$LOG" "$LOG.old"
+exec >"$LOG" 2>&1
+echo "cipher-start $(date -Is) on $(cat /sys/class/dmi/id/product_name 2>/dev/null)"
+
 if command -v start-hyprland >/dev/null 2>&1; then
   exec start-hyprland
 fi

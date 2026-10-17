@@ -19,6 +19,35 @@ rm -rf /root/cipher-packages
 echo /usr/sbin/gdm3 > /etc/X11/default-display-manager
 ln -sf /usr/lib/systemd/system/gdm.service /etc/systemd/system/display-manager.service
 systemctl enable cipher-live-autologin.service
+
+# Cipher is the default session for every new login (GDM remembers each
+# user's last choice after that)
+if ! grep -q '^DefaultSession=' /etc/gdm3/daemon.conf; then
+    sed -i 's/^\[daemon\]/[daemon]\nDefaultSession=cipher.desktop/' /etc/gdm3/daemon.conf
+fi
+
+# ---- Branding --------------------------------------------------------------
+# Login screen: Cipher logo under the user list
+if [ -f /etc/gdm3/greeter.dconf-defaults ] && ! grep -q 'cipher' /etc/gdm3/greeter.dconf-defaults; then
+    printf "\n[org/gnome/login-screen]\nlogo='/usr/share/cipher/branding/logo-96.png'\n" \
+        >> /etc/gdm3/greeter.dconf-defaults
+fi
+
+# Text console banner
+printf 'Cipher %s \\n \\l\n\n' "$(. /usr/lib/os-release && echo "$VERSION_ID")" > /etc/issue
+echo "Cipher" > /etc/issue.net
+
+# Installer: "Install Cipher" with Cipher branding
+if [ -d /etc/calamares/branding/debian ]; then
+    rm -rf /etc/calamares/branding/cipher
+    cp -a /etc/calamares/branding/debian /etc/calamares/branding/cipher
+    python3 /usr/share/cipher/branding/calamares-rebrand.py /etc/calamares/branding/cipher
+    sed -i 's/^branding:.*/branding: cipher/' /etc/calamares/settings.conf
+fi
+for f in /usr/share/applications/install-debian.desktop /usr/share/applications/calamares.desktop; do
+    [ -f "$f" ] || continue
+    sed -i -E 's/^(Name(\[[^]]*\])?)=.*/\1=Install Cipher/; s/^(GenericName(\[[^]]*\])?)=.*/\1=Install Cipher/; s/^Icon=.*/Icon=cipher-logo/' "$f"
+done
 systemctl set-default graphical.target
 
 # Boot splash
@@ -32,11 +61,35 @@ if [ -d /usr/lib/nvidia ] || dpkg -s nvidia-driver >/dev/null 2>&1; then
     echo "options nvidia-drm modeset=1 fbdev=1" > /etc/modprobe.d/cipher-nvidia.conf
 fi
 
-# Default GTK preference for the dark default theme
+# GNOME, styled as Cipher: dark, teal accent, Cipher wallpaper and dock
 mkdir -p /etc/dconf/db/local.d /etc/dconf/profile
 printf 'user-db:user\nsystem-db:local\n' > /etc/dconf/profile/user
-printf "[org/gnome/desktop/interface]\ncolor-scheme='prefer-dark'\ngtk-theme='Adwaita-dark'\n" \
-    > /etc/dconf/db/local.d/00-cipher
+WALL=file:///usr/share/cipher/themes/cipher/backgrounds/1-lattice.png
+cat > /etc/dconf/db/local.d/00-cipher <<CONF
+[org/gnome/desktop/interface]
+color-scheme='prefer-dark'
+gtk-theme='Adwaita-dark'
+accent-color='teal'
+font-name='Cantarell 11'
+monospace-font-name='JetBrains Mono 11'
+clock-show-weekday=true
+
+[org/gnome/desktop/background]
+picture-uri='$WALL'
+picture-uri-dark='$WALL'
+picture-options='zoom'
+primary-color='#0b0f14'
+
+[org/gnome/desktop/screensaver]
+picture-uri='$WALL'
+primary-color='#0b0f14'
+
+[org/gnome/desktop/wm/preferences]
+button-layout='appmenu:minimize,maximize,close'
+
+[org/gnome/shell]
+favorite-apps=['firefox-esr.desktop', 'org.gnome.Nautilus.desktop', 'foot.desktop', 'org.gnome.TextEditor.desktop', 'org.gnome.Settings.desktop', 'org.gnome.Software.desktop', 'install-debian.desktop']
+CONF
 command -v dconf >/dev/null && dconf update || true
 
 apt-get clean
