@@ -15,12 +15,10 @@ apt-get install -y -t trixie-backports hyprpicker || echo "cipher: hyprpicker no
 apt-get install -y /root/cipher-packages/cipher-desktop_*.deb
 rm -rf /root/cipher-packages
 
-# Login: tuigreet on greetd, Cipher as the default session
-systemctl enable greetd.service
+# Login: GDM (pick Cipher or GNOME); the live ISO auto-logs into Cipher
+echo /usr/sbin/gdm3 > /etc/X11/default-display-manager
+ln -sf /usr/lib/systemd/system/gdm.service /etc/systemd/system/display-manager.service
 systemctl enable cipher-live-autologin.service
-# greetd owns the graphical login; keep the console on tty1 as a plain getty
-systemctl disable display-manager.service 2>/dev/null || true
-ln -sf /usr/lib/systemd/system/greetd.service /etc/systemd/system/display-manager.service
 systemctl set-default graphical.target
 
 # Boot splash

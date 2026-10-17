@@ -1,7 +1,0 @@
-# greetd: tuigreet login, Cipher as the remembered default session.
-[terminal]
-vt = 7
-
-[default_session]
-command = "tuigreet --time --remember --remember-user-session --asterisks --greeting 'Cipher' --sessions /usr/share/wayland-sessions --cmd cipher-start"
-user = "_greetd"

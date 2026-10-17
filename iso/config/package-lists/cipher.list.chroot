@@ -13,9 +13,11 @@ calamares-settings-debian
 plymouth
 plymouth-themes
 
-# Login
-greetd
-tuigreet
+# Login + second desktop: GDM, with GNOME next to Cipher
+gdm3
+gnome-core
+gnome-tweaks
+firefox-esr
 
 # Hardware & firmware
 linux-image-amd64

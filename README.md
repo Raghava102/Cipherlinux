@@ -8,7 +8,7 @@ and a single command re-themes everything live.
 - **Base:** Debian 13 "trixie" (stable) + `trixie-backports`
 - **Compositor:** Hyprland 0.54 (from trixie-backports)
 - **Shell:** Quickshell 0.3 (from trixie-backports) running the `cipher` shell config
-- **Login:** greetd + tuigreet · **Installer:** Calamares · **Boot:** Plymouth splash
+- **Login:** GDM — pick **Cipher** or **GNOME** · **Installer:** Calamares · **Boot:** Plymouth splash
 - **Themes:** Cipher (default), Tokyo Night, Catppuccin, Gruvbox, Nord, Rosé Pine, Paper (light)
 
 ## What's in the box
@@ -37,10 +37,10 @@ Install a minimal Debian 13 (uncheck every desktop in the installer, keep
 ```bash
 sudo apt install git
 git clone <your-repo-url> cipher && cd cipher
-./scripts/install-on-debian.sh --greetd
+./scripts/install-on-debian.sh --gnome
 ```
 
-Reboot and pick the **Cipher** session.
+Reboot and pick **Cipher** or **GNOME** from the gear/session menu on the login screen.
 
 ### 2. Get the ISO from GitHub (no Debian machine needed)
 
@@ -66,7 +66,7 @@ qemu-system-x86_64 -enable-kvm -m 4G -smp 4 -vga virtio -display gtk,gl=on \
   -cdrom out/cipher-0.1.0-amd64.iso
 ```
 
-The live session logs straight into Cipher (user `cipher`, password `live`).
+The live session logs straight into Cipher (user `cipher`, password `live`); log out to try GNOME.
 Search **Install** in the menu to run Calamares.
 
 ## Keys

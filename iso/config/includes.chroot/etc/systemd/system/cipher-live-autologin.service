@@ -1,12 +1,12 @@
 [Unit]
 Description=Cipher live session auto-login
 ConditionKernelCommandLine=boot=live
-After=live-config.service systemd-user-sessions.service
-Before=greetd.service
+After=live-config.service
+Before=display-manager.service gdm.service
 
 [Service]
 Type=oneshot
 ExecStart=/usr/lib/cipher/live-autologin
 
 [Install]
-WantedBy=greetd.service
+WantedBy=display-manager.service

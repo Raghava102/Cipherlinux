@@ -3,14 +3,14 @@
 # Install a minimal Debian first (no desktop), log in as your user, then:
 #
 #   ./scripts/install-on-debian.sh             # install Cipher for this user
-#   ./scripts/install-on-debian.sh --greetd    # also switch the login screen to tuigreet
+#   ./scripts/install-on-debian.sh --gnome     # also add GNOME + the GDM login screen
 set -euo pipefail
 
 ROOT=$(cd "$(dirname "$0")/.." && pwd)
-GREETD=0
+GNOME=0
 for arg in "$@"; do
   case "$arg" in
-    --greetd) GREETD=1 ;;
+    --gnome) GNOME=1 ;;
     -h|--help) sed -n '2,7p' "$0"; exit 0 ;;
     *) echo "unknown option: $arg" >&2; exit 2 ;;
   esac
@@ -63,21 +63,13 @@ for f in .config/hypr/hyprland.conf .config/foot/foot.ini .config/btop/btop.conf
 done
 cipher-theme init
 
-if [ "$GREETD" -eq 1 ]; then
-  step "Switching the login screen to greetd + tuigreet"
-  sudo apt-get install -y greetd tuigreet
-  sudo tee /etc/greetd/config.toml >/dev/null <<'CONF'
-[terminal]
-vt = 7
-
-[default_session]
-command = "tuigreet --time --remember --remember-user-session --asterisks --greeting 'Cipher' --sessions /usr/share/wayland-sessions --cmd cipher-start"
-user = "_greetd"
-CONF
-  for dm in gdm3 sddm lightdm; do
+if [ "$GNOME" -eq 1 ]; then
+  step "Installing GNOME and the GDM login screen (pick Cipher or GNOME at login)"
+  sudo apt-get install -y gdm3 gnome-core
+  for dm in sddm lightdm greetd; do
     systemctl is-enabled "$dm" >/dev/null 2>&1 && sudo systemctl disable "$dm" || true
   done
-  sudo systemctl enable greetd
+  sudo systemctl enable gdm3 || sudo systemctl enable gdm
 fi
 
 if lspci 2>/dev/null | grep -qi 'nvidia' && ! dpkg -s nvidia-driver >/dev/null 2>&1; then

@@ -1,17 +1,23 @@
 #!/bin/sh
-# Live ISO only: log the live user straight into Cipher via greetd.
-# The installed system never runs this (the unit requires boot=live).
-CONF=/etc/greetd/config.toml
-grep -q '^\[initial_session\]' "$CONF" && exit 0
-
+# Live ISO only: log the live user straight into the Cipher session via GDM.
+# The installed system never runs this (the unit requires boot=live), so it
+# shows the normal GDM login where you pick Cipher or GNOME.
 user=$(sed -n 's/.*\(live-config\.\)\{0,1\}username=\([^ ]*\).*/\2/p' /proc/cmdline)
 [ -n "$user" ] && getent passwd "$user" >/dev/null || user=$(getent passwd 1000 | cut -d: -f1)
 [ -n "$user" ] || exit 0
 
-printf '\n[initial_session]\ncommand = "cipher-start"\nuser = "%s"\n' "$user" >> "$CONF"
+# GDM automatic login
+conf=/etc/gdm3/daemon.conf
+if [ -f "$conf" ] && ! grep -q '^AutomaticLogin=' "$conf"; then
+    sed -i "s/^\[daemon\]/[daemon]\nAutomaticLoginEnable=true\nAutomaticLogin=$user/" "$conf"
+fi
+
+# Default session for that user = Cipher (Wayland)
+mkdir -p /var/lib/AccountsService/users
+printf '[User]\nSession=cipher\nSessionType=wayland\nSystemAccount=false\n' > "/var/lib/AccountsService/users/$user"
 
 home=$(getent passwd "$user" | cut -d: -f6)
-conf="$home/.config/hypr/hyprland.conf"
-if [ -f "$conf" ] && ! grep -q 'Welcome to Cipher' "$conf"; then
-    echo 'exec-once = sleep 4 && notify-send -a Cipher -u critical "Welcome to Cipher (live)" "Press SUPER + SPACE and search Install to put Cipher on this computer."' >> "$conf"
+hypr="$home/.config/hypr/hyprland.conf"
+if [ -f "$hypr" ] && ! grep -q 'Welcome to Cipher' "$hypr"; then
+    echo 'exec-once = sleep 4 && notify-send -a Cipher -u critical "Welcome to Cipher (live)" "Press SUPER + SPACE and search Install to put Cipher on this computer. Log out to try GNOME."' >> "$hypr"
 fi
