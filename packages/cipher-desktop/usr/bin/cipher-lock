@@ -1,0 +1,17 @@
+#!/bin/bash
+# Lock the session with the Cipher lock screen. Falls back to hyprlock if the
+# shell isn't answering, so idle/suspend never leave the session unlocked.
+QS=$(command -v qs || command -v quickshell)
+if [ -n "$QS" ] && [ "$("$QS" -c cipher ipc call lock isLocked 2>/dev/null)" = "true" ]; then
+  exit 0
+fi
+if [ -n "$QS" ] && "$QS" -c cipher ipc call lock lock >/dev/null 2>&1; then
+  exit 0
+fi
+if command -v hyprlock >/dev/null 2>&1; then
+  pidof hyprlock >/dev/null || exec hyprlock
+  exit 0
+fi
+echo "cipher-lock: no lock screen available (shell down and hyprlock missing)" >&2
+command -v notify-send >/dev/null && notify-send -u critical "Cipher" "Could not lock the screen"
+exit 1

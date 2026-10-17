@@ -1,0 +1,6 @@
+#!/bin/bash
+# cipher-emoji list | copy EMOJI
+case "${1:-list}" in
+  list) cat /usr/share/cipher/emoji.tsv ;;
+  copy) printf '%s' "$2" | wl-copy && notify-send -a Emoji -t 1200 "$2  copied" ;;
+esac

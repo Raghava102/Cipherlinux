@@ -1,0 +1,10 @@
+#!/bin/sh
+set -e
+if [ "$1" = "configure" ]; then
+    # Rebuild the initramfs splash if plymouth is present and Cipher is its theme
+    if command -v plymouth-set-default-theme >/dev/null 2>&1 \
+       && [ "$(plymouth-set-default-theme 2>/dev/null)" = "cipher" ]; then
+        update-initramfs -u >/dev/null 2>&1 || true
+    fi
+fi
+exit 0

@@ -1,0 +1,18 @@
+{
+  "name": "gruvbox",
+  "title": "Gruvbox",
+  "light": false,
+  "colors": {
+    "bg": "#282828",
+    "surface": "#32302f",
+    "overlay": "#3c3836",
+    "border": "#504945",
+    "text": "#ebdbb2",
+    "muted": "#928374",
+    "accent": "#d79921",
+    "accent2": "#83a598",
+    "red": "#fb4934",
+    "yellow": "#fabd2f",
+    "green": "#b8bb26"
+  }
+}

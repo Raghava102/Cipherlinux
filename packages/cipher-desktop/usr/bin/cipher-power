@@ -1,0 +1,14 @@
+#!/bin/bash
+# cipher-power profiles      list power profiles for the Cipher menu
+# cipher-power set PROFILE   switch power profile
+case "${1:-profiles}" in
+  profiles)
+    command -v powerprofilesctl >/dev/null || { printf 'power-profiles-daemon is not installed\t\tinfo\n'; exit 0; }
+    cur=$(powerprofilesctl get)
+    for p in performance balanced power-saver; do
+      powerprofilesctl list | grep -qE "^[* ] ${p}:" || continue
+      mark=""; [ "$p" = "$cur" ] && mark="  ✓"
+      printf '%s%s\t%s\tzap\n' "$p" "$mark" "$p"
+    done ;;
+  set) powerprofilesctl set "$2" && notify-send -a Power -t 1500 "Power profile" "$2" ;;
+esac

@@ -1,0 +1,6 @@
+#!/bin/bash
+# cipher-ipc TARGET FUNCTION [ARGS...] — call into the running Cipher shell.
+#   cipher-ipc menu toggle | cipher-ipc menu open System/Power\ profile
+#   (run `qs -c cipher ipc show` to list every target)
+QS=$(command -v qs || command -v quickshell) || { echo "cipher-ipc: quickshell is not installed" >&2; exit 1; }
+exec "$QS" -c cipher ipc call "$@"

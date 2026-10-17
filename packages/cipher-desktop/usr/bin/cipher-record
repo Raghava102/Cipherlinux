@@ -1,0 +1,14 @@
+#!/bin/bash
+# cipher-record toggle — start a region recording, or stop the running one.
+dir="${XDG_VIDEOS_DIR:-$HOME/Videos}/Recordings"
+if pidof wf-recorder >/dev/null; then
+  pkill -INT -x wf-recorder
+  notify-send -a Recorder "Recording saved" "${dir/#$HOME/\~}"
+  exit 0
+fi
+[ "${1:-toggle}" = "stop" ] && exit 0
+command -v wf-recorder >/dev/null || { notify-send -a Recorder "wf-recorder is not installed"; exit 1; }
+mkdir -p "$dir"
+geo=$(slurp -d) || exit 0
+notify-send -a Recorder -t 1500 "Recording…" "Press SUPER+SHIFT+R again to stop"
+exec wf-recorder -g "$geo" -f "$dir/$(date +%Y-%m-%d_%H-%M-%S).mp4"

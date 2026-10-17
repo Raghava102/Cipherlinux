@@ -1,0 +1,14 @@
+#!/bin/bash
+# cipher-clipboard list        history for the Cipher menu (label<TAB>id)
+# cipher-clipboard paste ID    copy an entry back to the clipboard
+# cipher-clipboard wipe        forget the history
+case "${1:-list}" in
+  list)
+    cliphist list 2>/dev/null | head -n 200 | while IFS=$'\t' read -r id preview; do
+      preview=${preview//$'\t'/ }
+      printf '%s\t%s\tclipboard\n' "${preview:0:120}" "$id"
+    done ;;
+  paste) cliphist decode "$2" | wl-copy ;;
+  wipe)  cliphist wipe ;;
+  *) echo "usage: cipher-clipboard list|paste ID|wipe" >&2; exit 2 ;;
+esac

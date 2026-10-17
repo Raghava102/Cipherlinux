@@ -1,0 +1,33 @@
+#!/bin/bash
+# cipher-shell           start the Cipher shell (supervised: restarts on crash)
+# cipher-shell restart   restart the running shell
+# cipher-shell logs      follow the shell log
+QS=$(command -v qs || command -v quickshell) || { echo "cipher-shell: quickshell is not installed" >&2; exit 1; }
+
+case "${1:-run}" in
+  restart)
+    "$QS" kill -c cipher >/dev/null 2>&1 || true
+    exit 0 ;;
+  logs)
+    exec "$QS" log -c cipher -f ;;
+  run) ;;
+  *) echo "usage: cipher-shell [run|restart|logs]" >&2; exit 2 ;;
+esac
+
+cipher-theme init >/dev/null 2>&1 || true
+# Hyprland sources this; cipher-start normally writes it at login
+mkdir -p "$HOME/.config/cipher/current"
+[ -f "$HOME/.config/cipher/current/hardware.conf" ] || : > "$HOME/.config/cipher/current/hardware.conf"
+
+# Supervise: if the shell crashes, bring it back (with backoff) so you're never
+# left without a bar. A clean exit (status 0) ends the loop.
+delay=1
+while true; do
+  started=$(date +%s)
+  "$QS" -c cipher -n
+  status=$?
+  [ "$status" -eq 0 ] && exit 0
+  # quick crash loops back off up to 30s; a long-lived run resets the delay
+  if [ $(( $(date +%s) - started )) -gt 60 ]; then delay=1; else delay=$(( delay * 2 > 30 ? 30 : delay * 2 )); fi
+  sleep "$delay"
+done

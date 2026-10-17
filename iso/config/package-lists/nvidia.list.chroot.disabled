@@ -1,0 +1,7 @@
+# Proprietary NVIDIA driver (GTX 900 series and newer, e.g. RTX 3050).
+# Enable by renaming this file to nvidia.list.chroot. Hyprland needs
+# nvidia-drm.modeset=1, which the hook sets when this driver is present.
+nvidia-kernel-dkms
+nvidia-driver
+firmware-nvidia-gsp
+linux-headers-amd64

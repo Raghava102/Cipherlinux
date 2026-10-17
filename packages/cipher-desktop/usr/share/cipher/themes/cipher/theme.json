@@ -1,0 +1,18 @@
+{
+  "name": "cipher",
+  "title": "Cipher",
+  "light": false,
+  "colors": {
+    "bg": "#0b0f14",
+    "surface": "#121821",
+    "overlay": "#1a2230",
+    "border": "#243041",
+    "text": "#d6e2ea",
+    "muted": "#6b7d8c",
+    "accent": "#2de2a6",
+    "accent2": "#3fb6ff",
+    "red": "#ff5c7a",
+    "yellow": "#ffcc66",
+    "green": "#2de2a6"
+  }
+}

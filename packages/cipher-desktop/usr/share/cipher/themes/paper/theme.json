@@ -1,0 +1,18 @@
+{
+  "name": "paper",
+  "title": "Paper",
+  "light": true,
+  "colors": {
+    "bg": "#f4f1ea",
+    "surface": "#ebe6db",
+    "overlay": "#e0d9ca",
+    "border": "#cfc6b3",
+    "text": "#2b2a27",
+    "muted": "#7a7468",
+    "accent": "#1f7a63",
+    "accent2": "#2f5f9e",
+    "red": "#b3403a",
+    "yellow": "#a8741a",
+    "green": "#1f7a63"
+  }
+}

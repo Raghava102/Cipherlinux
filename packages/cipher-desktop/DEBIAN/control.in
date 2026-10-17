@@ -1,0 +1,23 @@
+Package: cipher-desktop
+Version: @VERSION@
+Architecture: all
+Maintainer: @MAINTAINER@
+Section: x11
+Priority: optional
+Homepage: @HOMEPAGE@
+Depends: hyprland (>= 0.54), quickshell (>= 0.3), hypridle, hyprpolkitagent,
+ xdg-desktop-portal-hyprland, xdg-desktop-portal-gtk,
+ qml6-module-qtqml, qml6-module-qtquick, qml6-module-qtquick-layouts,
+ qml6-module-qtquick-window, qml6-module-qtqml-workerscript,
+ qt6-svg-plugins, qt6-wayland,
+ python3, foot, fonts-jetbrains-mono, fonts-noto-color-emoji,
+ pipewire, pipewire-pulse, wireplumber, network-manager, upower,
+ brightnessctl, playerctl, grim, slurp, wl-clipboard, libnotify-bin, xdg-utils
+Recommends: hyprlock, cliphist, udiskie, power-profiles-daemon, pavucontrol, blueman,
+ wf-recorder, hyprpicker, btop, thunar, chromium, greetd, tuigreet, plymouth,
+ gnome-themes-extra, qt6-image-formats-plugins, nano
+Description: Cipher desktop — Hyprland with a Quickshell desktop shell
+ Cipher is a Debian-based Hyprland desktop in the spirit of Omarchy 4:
+ one Quickshell process provides the bar, unified app/command menu,
+ theme switcher, notifications, on-screen displays, background and
+ lock screen. Themes re-color Hyprland, the shell, foot and btop live.

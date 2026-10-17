@@ -1,0 +1,21 @@
+#!/bin/sh
+# live-build configuration for the Cipher ISO (Debian 13 "trixie", amd64).
+set -e
+
+lb config noauto \
+    --mode debian \
+    --distribution trixie \
+    --architectures amd64 \
+    --archive-areas "main contrib non-free non-free-firmware" \
+    --debian-installer none \
+    --apt-recommends true \
+    --firmware-chroot true \
+    --security true \
+    --updates true \
+    --memtest none \
+    --bootappend-live "boot=live components quiet splash username=cipher hostname=cipher locales=en_US.UTF-8" \
+    --iso-application "Cipher" \
+    --iso-publisher "Cipher Project" \
+    --iso-volume "CIPHER" \
+    --image-name "cipher" \
+    "${@}"

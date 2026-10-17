@@ -1,0 +1,9 @@
+{
+  "barPosition": "top",
+  "barTransparent": false,
+  "clock24h": true,
+  "sharpCorners": false,
+  "font": "JetBrains Mono",
+  "fontSize": 13,
+  "terminal": "foot"
+}

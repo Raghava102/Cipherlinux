@@ -1,0 +1,56 @@
+# Cipher live image — packages from Debian 13 main.
+# Hyprland, Quickshell and friends come from trixie-backports and are installed
+# by config/hooks/live/0100-cipher.hook.chroot, together with cipher-desktop.
+
+# Live system + installer
+live-boot
+live-config
+live-config-systemd
+calamares
+calamares-settings-debian
+
+# Boot splash
+plymouth
+plymouth-themes
+
+# Login
+greetd
+tuigreet
+
+# Hardware & firmware
+linux-image-amd64
+firmware-linux
+firmware-linux-nonfree
+firmware-misc-nonfree
+firmware-iwlwifi
+firmware-realtek
+firmware-atheros
+firmware-sof-signed
+amd64-microcode
+intel-microcode
+mesa-vulkan-drivers
+intel-media-va-driver
+bluez
+
+# Networking & audio
+network-manager
+pipewire
+pipewire-pulse
+wireplumber
+
+# Desktop tools that Cipher's menu uses (recommended by cipher-desktop)
+cliphist
+udiskie
+power-profiles-daemon
+pavucontrol
+blueman
+wf-recorder
+btop
+thunar
+chromium
+gnome-themes-extra
+qt6-image-formats-plugins
+nano
+sudo
+curl
+git

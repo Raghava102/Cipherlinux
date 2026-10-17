@@ -1,0 +1,63 @@
+# Cipher boot splash: the mark, a thin progress bar, and a password prompt
+# for encrypted disks.
+
+Window.SetBackgroundTopColor(0.043, 0.059, 0.078);
+Window.SetBackgroundBottomColor(0.071, 0.094, 0.129);
+
+cx = Window.GetX() + Window.GetWidth() / 2;
+cy = Window.GetY() + Window.GetHeight() / 2;
+
+logo.image = Image("logo.png");
+logo.sprite = Sprite(logo.image);
+logo.sprite.SetPosition(cx - logo.image.GetWidth() / 2, cy - logo.image.GetHeight() / 2 - 60, 10);
+
+track.image = Image("progress-track.png");
+track.sprite = Sprite(track.image);
+track.sprite.SetPosition(cx - track.image.GetWidth() / 2, cy + 120, 10);
+
+bar.image = Image("progress.png");
+bar.sprite = Sprite();
+bar.sprite.SetPosition(cx - track.image.GetWidth() / 2, cy + 120, 11);
+
+fun progress_callback(duration, progress) {
+    width = Math.Int(track.image.GetWidth() * progress);
+    if (width < 1) width = 1;
+    bar.sprite.SetImage(bar.image.Scale(width, bar.image.GetHeight()));
+}
+Plymouth.SetBootProgressFunction(progress_callback);
+
+# --- password prompt (LUKS) ---------------------------------------------------
+prompt.sprite = Sprite();
+bullets.sprite = Sprite();
+
+fun display_password_callback(text, count) {
+    prompt.image = Image.Text(text, 0.84, 0.89, 0.92, 1, "Sans 12");
+    prompt.sprite.SetImage(prompt.image);
+    prompt.sprite.SetPosition(cx - prompt.image.GetWidth() / 2, cy + 160, 20);
+    dots = "";
+    n = count;
+    if (n > 32) n = 32;
+    for (i = 0; i < n; i++) dots = dots + "● ";
+    bullets.image = Image.Text(dots, 0.18, 0.89, 0.65, 1, "Sans 14");
+    bullets.sprite.SetImage(bullets.image);
+    bullets.sprite.SetPosition(cx - bullets.image.GetWidth() / 2, cy + 190, 20);
+    prompt.sprite.SetOpacity(1);
+    bullets.sprite.SetOpacity(1);
+}
+
+fun display_normal_callback() {
+    prompt.sprite.SetOpacity(0);
+    bullets.sprite.SetOpacity(0);
+}
+
+Plymouth.SetDisplayPasswordFunction(display_password_callback);
+Plymouth.SetDisplayNormalFunction(display_normal_callback);
+
+# --- messages -------------------------------------------------------------------
+message.sprite = Sprite();
+fun message_callback(text) {
+    message.image = Image.Text(text, 0.42, 0.49, 0.55, 1, "Sans 10");
+    message.sprite.SetImage(message.image);
+    message.sprite.SetPosition(cx - message.image.GetWidth() / 2, Window.GetY() + Window.GetHeight() - 60, 20);
+}
+Plymouth.SetMessageFunction(message_callback);

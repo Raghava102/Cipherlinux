@@ -1,0 +1,3 @@
+#!/bin/bash
+# cipher-bg next|prev|list|set PATH — change the desktop background.
+exec cipher-theme bg "${@:-next}"

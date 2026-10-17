@@ -1,0 +1,21 @@
+#!/bin/bash
+# cipher-osd brightness up|down   adjust backlight and show the OSD
+# cipher-osd mic                  toggle microphone mute and show the OSD
+osd() { cipher-ipc osd "$@" >/dev/null 2>&1 || true; }
+
+case "${1:-}" in
+  brightness)
+    case "${2:-}" in
+      up)   brightnessctl -e4 -n2 set 5%+ >/dev/null ;;
+      down) brightnessctl -e4 -n2 set 5%- >/dev/null ;;
+      *) echo "usage: cipher-osd brightness up|down" >&2; exit 2 ;;
+    esac
+    cur=$(brightnessctl get); max=$(brightnessctl max)
+    [ "${max:-0}" -gt 0 ] && osd show brightness $(( cur * 100 / max ))
+    ;;
+  mic)
+    wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
+    if wpctl get-volume @DEFAULT_AUDIO_SOURCE@ | grep -q MUTED; then osd mute mic true; else osd mute mic false; fi
+    ;;
+  *) echo "usage: cipher-osd brightness up|down | mic" >&2; exit 2 ;;
+esac

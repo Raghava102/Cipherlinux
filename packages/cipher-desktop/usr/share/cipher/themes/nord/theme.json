@@ -1,0 +1,18 @@
+{
+  "name": "nord",
+  "title": "Nord",
+  "light": false,
+  "colors": {
+    "bg": "#2e3440",
+    "surface": "#3b4252",
+    "overlay": "#434c5e",
+    "border": "#4c566a",
+    "text": "#eceff4",
+    "muted": "#7b88a1",
+    "accent": "#88c0d0",
+    "accent2": "#81a1c1",
+    "red": "#bf616a",
+    "yellow": "#ebcb8b",
+    "green": "#a3be8c"
+  }
+}

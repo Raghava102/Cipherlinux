@@ -1,0 +1,18 @@
+{
+  "name": "tokyo-night",
+  "title": "Tokyo Night",
+  "light": false,
+  "colors": {
+    "bg": "#1a1b26",
+    "surface": "#1f2335",
+    "overlay": "#292e42",
+    "border": "#3b4261",
+    "text": "#c0caf5",
+    "muted": "#565f89",
+    "accent": "#7aa2f7",
+    "accent2": "#bb9af7",
+    "red": "#f7768e",
+    "yellow": "#e0af68",
+    "green": "#9ece6a"
+  }
+}

@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=Cipher
+Comment=Cipher desktop (Hyprland + Cipher shell)
+Exec=/usr/bin/cipher-start
+Type=Application
+DesktopNames=Hyprland;Cipher
+Keywords=tiling;wayland;compositor;cipher;

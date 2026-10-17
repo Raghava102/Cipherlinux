@@ -1,0 +1,20 @@
+#!/bin/bash
+# cipher-screenshot region|screen|window — save to ~/Pictures/Screenshots and copy.
+set -o pipefail
+dir="${XDG_PICTURES_DIR:-$HOME/Pictures}/Screenshots"
+mkdir -p "$dir"
+file="$dir/$(date +%Y-%m-%d_%H-%M-%S).png"
+
+case "${1:-region}" in
+  region) geo=$(slurp -d) || exit 0; grim -g "$geo" "$file" ;;
+  window)
+    geo=$(hyprctl -j activewindow | python3 -c 'import json,sys; w=json.load(sys.stdin); print("%d,%d %dx%d" % (*w["at"], *w["size"]))') || exit 1
+    grim -g "$geo" "$file" ;;
+  screen)
+    mon=$(hyprctl -j monitors | python3 -c 'import json,sys; print(next(m["name"] for m in json.load(sys.stdin) if m["focused"]))')
+    grim -o "$mon" "$file" ;;
+  *) echo "usage: cipher-screenshot region|screen|window" >&2; exit 2 ;;
+esac || exit 1
+
+wl-copy --type image/png < "$file"
+notify-send -a Screenshot -i "$file" "Screenshot saved" "Copied to clipboard · ${file/#$HOME/\~}"

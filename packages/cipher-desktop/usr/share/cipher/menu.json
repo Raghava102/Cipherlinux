@@ -1,0 +1,83 @@
+[
+  {
+    "name": "Style", "icon": "palette",
+    "children": [
+      { "name": "Theme", "icon": "palette", "provider": "command",
+        "list": ["cipher-theme", "list"], "run": "cipher-theme set {}" },
+      { "name": "Theme switcher", "icon": "layers", "exec": "cipher-ipc themes toggle", "keys": "SUPER + SHIFT + CTRL + Space", "keepOpen": true },
+      { "name": "Next background", "icon": "wallpaper", "exec": "cipher-bg next", "keys": "SUPER + CTRL + Space", "keepOpen": true },
+      { "name": "Background", "icon": "image", "provider": "command",
+        "list": ["cipher-theme", "bg", "list"], "run": "cipher-theme bg set {}" },
+      { "name": "Bar", "icon": "monitor",
+        "children": [
+          { "name": "Move bar top / bottom", "icon": "layers", "exec": "cipher-shell-set barPosition toggle", "keepOpen": true },
+          { "name": "Toggle bar transparency", "icon": "sparkles", "exec": "cipher-shell-set barTransparent toggle", "hint": "or double-click the bar", "keepOpen": true },
+          { "name": "Toggle 12h / 24h clock", "icon": "info", "exec": "cipher-shell-set clock24h toggle", "keepOpen": true },
+          { "name": "Toggle sharp / rounded corners", "icon": "square-dashed", "exec": "cipher-shell-set sharpCorners toggle", "keepOpen": true }
+        ] }
+    ]
+  },
+  {
+    "name": "Tools", "icon": "package",
+    "children": [
+      { "name": "Clipboard", "icon": "clipboard", "keys": "SUPER + CTRL + V", "provider": "command",
+        "list": ["cipher-clipboard", "list"], "run": "cipher-clipboard paste {}" },
+      { "name": "Emoji", "icon": "sparkles", "keys": "SUPER + CTRL + E", "provider": "command", "itemIcon": "",
+        "list": ["cipher-emoji", "list"], "run": "cipher-emoji copy {}" },
+      { "name": "Screenshot region", "icon": "square-dashed", "exec": "sleep 0.2; cipher-screenshot region", "keys": "Print" },
+      { "name": "Screenshot screen", "icon": "monitor", "exec": "sleep 0.3; cipher-screenshot screen", "keys": "SHIFT + Print" },
+      { "name": "Screenshot window", "icon": "app-window", "exec": "sleep 0.3; cipher-screenshot window" },
+      { "name": "Record screen", "icon": "video", "exec": "cipher-record toggle", "keys": "SUPER + SHIFT + R" },
+      { "name": "Color picker", "icon": "paintbrush", "exec": "sleep 0.2; cipher-colorpick", "keys": "SUPER + SHIFT + C" },
+      { "name": "System monitor", "icon": "cpu", "exec": "cipher-launch terminal btop" },
+      { "name": "Terminal", "icon": "terminal", "exec": "cipher-launch terminal", "keys": "SUPER + Enter" }
+    ]
+  },
+  {
+    "name": "Setup", "icon": "settings",
+    "children": [
+      { "name": "Wi-Fi & network", "icon": "wifi", "terminal": "nmtui" },
+      { "name": "Bluetooth", "icon": "bluetooth", "exec": "blueman-manager" },
+      { "name": "Audio", "icon": "volume-2", "exec": "pavucontrol" },
+      { "name": "Monitors, keyboard & input", "icon": "monitor", "hint": "~/.config/hypr/hyprland.conf",
+        "terminal": "${EDITOR:-nano} ~/.config/hypr/hyprland.conf" },
+      { "name": "Shell settings", "icon": "settings", "hint": "~/.config/cipher/shell.json",
+        "terminal": "${EDITOR:-nano} ~/.config/cipher/shell.json" },
+      { "name": "My menu entries", "icon": "layout-grid", "hint": "~/.config/cipher/menu.json",
+        "terminal": "${EDITOR:-nano} ~/.config/cipher/menu.json" },
+      { "name": "Power profile", "icon": "zap", "provider": "command",
+        "list": ["cipher-power", "profiles"], "run": "cipher-power set {}" }
+    ]
+  },
+  {
+    "name": "Update", "icon": "download",
+    "children": [
+      { "name": "Update system", "icon": "download", "terminal": "sudo apt update && sudo apt full-upgrade" },
+      { "name": "Restart shell", "icon": "refresh-cw", "exec": "cipher-shell restart" },
+      { "name": "Reload Hyprland", "icon": "rotate-ccw", "exec": "hyprctl reload" },
+      { "name": "Shell log", "icon": "terminal", "terminal": "cipher-shell logs" }
+    ]
+  },
+  {
+    "name": "Learn", "icon": "book-open",
+    "children": [
+      { "name": "Keybindings", "icon": "keyboard", "keys": "SUPER + K", "provider": "command",
+        "list": ["cipher-keys"] },
+      { "name": "Hyprland wiki", "icon": "globe", "exec": "xdg-open https://wiki.hypr.land" },
+      { "name": "Quickshell docs", "icon": "globe", "exec": "xdg-open https://quickshell.org/docs/" },
+      { "name": "Debian reference", "icon": "globe", "exec": "xdg-open https://www.debian.org/doc/manuals/debian-reference/" }
+    ]
+  },
+  {
+    "name": "System", "icon": "power",
+    "children": [
+      { "name": "Lock", "icon": "lock", "exec": "cipher-lock", "keys": "SUPER + CTRL + L" },
+      { "name": "Suspend", "icon": "moon", "exec": "systemctl suspend" },
+      { "name": "Log out", "icon": "log-out", "exec": "hyprctl dispatch exit" },
+      { "name": "Restart", "icon": "rotate-ccw", "exec": "systemctl reboot" },
+      { "name": "Shut down", "icon": "power", "exec": "systemctl poweroff" },
+      { "name": "Power profile", "icon": "zap", "provider": "command",
+        "list": ["cipher-power", "profiles"], "run": "cipher-power set {}" }
+    ]
+  }
+]

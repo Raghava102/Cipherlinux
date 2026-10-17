@@ -1,0 +1,40 @@
+#!/bin/sh
+# Install the Cipher desktop into the live image.
+set -e
+export DEBIAN_FRONTEND=noninteractive
+
+apt-get update
+
+# Hyprland + Quickshell from trixie-backports (with their newer dependencies)
+apt-get install -y -t trixie-backports \
+    hyprland hyprland-guiutils hypridle hyprlock hyprpolkitagent \
+    xdg-desktop-portal-hyprland quickshell
+apt-get install -y -t trixie-backports hyprpicker || echo "cipher: hyprpicker not available, skipping"
+
+# The Cipher desktop itself (dropped in by scripts/build-iso.sh)
+apt-get install -y /root/cipher-packages/cipher-desktop_*.deb
+rm -rf /root/cipher-packages
+
+# Login: tuigreet on greetd, Cipher as the default session
+systemctl enable greetd.service
+systemctl set-default graphical.target
+
+# Boot splash
+if command -v plymouth-set-default-theme >/dev/null; then
+    plymouth-set-default-theme cipher
+fi
+
+# NVIDIA: Hyprland needs kernel modesetting
+if [ -d /usr/lib/nvidia ] || dpkg -s nvidia-driver >/dev/null 2>&1; then
+    mkdir -p /etc/modprobe.d
+    echo "options nvidia-drm modeset=1 fbdev=1" > /etc/modprobe.d/cipher-nvidia.conf
+fi
+
+# Default GTK preference for the dark default theme
+mkdir -p /etc/dconf/db/local.d /etc/dconf/profile
+printf 'user-db:user\nsystem-db:local\n' > /etc/dconf/profile/user
+printf "[org/gnome/desktop/interface]\ncolor-scheme='prefer-dark'\ngtk-theme='Adwaita-dark'\n" \
+    > /etc/dconf/db/local.d/00-cipher
+command -v dconf >/dev/null && dconf update || true
+
+apt-get clean

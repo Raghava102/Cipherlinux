@@ -1,0 +1,22 @@
+#!/bin/bash
+# cipher-launch terminal [CMD...] | browser [URL] | files [DIR]
+# Uses your choices in ~/.config/cipher/shell.json ("terminal") and the
+# system default browser, falling back to sensible Debian defaults.
+conf="$HOME/.config/cipher/shell.json"
+pick() { for c in "$@"; do command -v "$c" >/dev/null 2>&1 && { echo "$c"; return 0; }; done; return 1; }
+
+what="${1:-}"; shift || true
+case "$what" in
+  terminal)
+    term=""
+    [ -f "$conf" ] && term=$(python3 -c 'import json,sys; print(json.load(open(sys.argv[1])).get("terminal",""))' "$conf" 2>/dev/null)
+    [ -n "$term" ] && command -v "$term" >/dev/null || term=$(pick foot kitty alacritty x-terminal-emulator)
+    if [ $# -gt 0 ]; then exec "$term" -e "$@"; else exec "$term"; fi ;;
+  browser)
+    desktop=$(xdg-settings get default-web-browser 2>/dev/null)
+    if [ -n "$desktop" ] && command -v gtk-launch >/dev/null; then exec gtk-launch "$desktop" "$@"; fi
+    exec "$(pick chromium firefox-esr firefox x-www-browser)" "$@" ;;
+  files)
+    exec "$(pick thunar nautilus pcmanfm)" "${1:-$HOME}" ;;
+  *) echo "usage: cipher-launch terminal|browser|files" >&2; exit 2 ;;
+esac

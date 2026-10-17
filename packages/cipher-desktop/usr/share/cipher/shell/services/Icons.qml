@@ -1,0 +1,76 @@
+pragma Singleton
+
+import QtQuick
+import Quickshell
+
+// Generated from lucide-static codepoints (ISC). Subset font: fonts/lucide.ttf
+Singleton {
+    readonly property string family: "lucide"
+    readonly property var map: ({
+        "app-window": "\ue426",
+        "arrow-left": "\ue048",
+        "battery": "\ue053",
+        "battery-charging": "\ue054",
+        "battery-full": "\ue055",
+        "battery-low": "\ue056",
+        "battery-medium": "\ue057",
+        "bell": "\ue059",
+        "bell-dot": "\ue42b",
+        "bell-off": "\ue05a",
+        "bluetooth": "\ue05c",
+        "book-open": "\ue05f",
+        "camera": "\ue064",
+        "check": "\ue06c",
+        "chevron-left": "\ue06e",
+        "chevron-right": "\ue06f",
+        "circle": "\ue076",
+        "circle-stop": "\ue083",
+        "clipboard": "\ue085",
+        "code": "\ue093",
+        "command": "\ue09a",
+        "cpu": "\ue0a9",
+        "download": "\ue0b2",
+        "ethernet-port": "\ue620",
+        "folder": "\ue0d7",
+        "globe": "\ue0e8",
+        "hash": "\ue0ef",
+        "image": "\ue0f6",
+        "info": "\ue0f9",
+        "keyboard": "\ue284",
+        "layers": "\ue529",
+        "layout-grid": "\ue0ff",
+        "lock": "\ue10b",
+        "log-out": "\ue10e",
+        "mic": "\ue118",
+        "monitor": "\ue11d",
+        "monitor-off": "\ue1dc",
+        "moon": "\ue11e",
+        "network": "\ue125",
+        "package": "\ue129",
+        "paintbrush": "\ue2e7",
+        "palette": "\ue1dd",
+        "power": "\ue140",
+        "refresh-cw": "\ue145",
+        "rotate-ccw": "\ue148",
+        "search": "\ue151",
+        "settings": "\ue154",
+        "shield-check": "\ue1ff",
+        "sparkles": "\ue412",
+        "square-dashed": "\ue1cb",
+        "sun": "\ue178",
+        "terminal": "\ue181",
+        "trash-2": "\ue18e",
+        "user": "\ue19f",
+        "video": "\ue1a5",
+        "volume-1": "\ue1aa",
+        "volume-2": "\ue1ab",
+        "volume-x": "\ue1ac",
+        "wallpaper": "\ue44b",
+        "wifi": "\ue1ae",
+        "wifi-off": "\ue1af",
+        "x": "\ue1b2",
+        "zap": "\ue1b4"
+    })
+
+    function glyph(name) { return map[name] ?? map["circle"]; }
+}

@@ -1,0 +1,272 @@
+#!/usr/bin/env python3
+"""cipher-theme — switch Cipher themes and backgrounds.
+
+  cipher-theme list [--json]       themes you can pick
+  cipher-theme current             name of the active theme
+  cipher-theme set NAME            apply a theme everywhere
+  cipher-theme init                apply the default theme if none is set yet
+  cipher-theme bg next|prev        cycle backgrounds of the current theme
+  cipher-theme bg set PATH         use any image as the background
+  cipher-theme bg list             backgrounds for the current theme
+
+Themes live in /usr/share/cipher/themes/<name>/ and ~/.config/cipher/themes/<name>/
+(yours win). Each has a theme.json and a backgrounds/ folder. Templates in
+/usr/share/cipher/templates/*.tpl are rendered with the theme colors into
+~/.config/cipher/current/ so Hyprland, the terminal and btop follow along.
+"""
+
+import json
+import os
+import re
+import shutil
+import subprocess
+import sys
+import tempfile
+from pathlib import Path
+
+HOME = Path.home()
+SYSTEM_THEMES = Path("/usr/share/cipher/themes")
+USER_THEMES = HOME / ".config/cipher/themes"
+TEMPLATES = Path("/usr/share/cipher/templates")
+USER_BACKGROUNDS = HOME / ".config/cipher/backgrounds"
+CURRENT = HOME / ".config/cipher/current"
+DEFAULT_THEME = "cipher"
+
+NAME_RE = re.compile(r"^[a-z0-9][a-z0-9-]{0,40}$")
+HEX_RE = re.compile(r"^#[0-9a-fA-F]{6}$")
+COLOR_KEYS = ("bg", "surface", "overlay", "border", "text", "muted",
+              "accent", "accent2", "red", "yellow", "green")
+IMAGE_EXT = {".png", ".jpg", ".jpeg", ".webp"}
+
+# Where rendered templates go. Anything else lands in CURRENT.
+TEMPLATE_TARGETS = {
+    "btop.theme": HOME / ".config/btop/themes/cipher.theme",
+}
+
+
+class ThemeError(Exception):
+    pass
+
+
+def die(msg):
+    print(f"cipher-theme: {msg}", file=sys.stderr)
+    sys.exit(1)
+
+
+def atomic_write(path: Path, text: str):
+    path.parent.mkdir(parents=True, exist_ok=True)
+    fd, tmp = tempfile.mkstemp(dir=path.parent, prefix=f".{path.name}.")
+    with os.fdopen(fd, "w") as f:
+        f.write(text)
+    os.replace(tmp, path)
+
+
+def theme_dirs():
+    """name -> directory, user themes overriding system ones."""
+    found = {}
+    for root in (SYSTEM_THEMES, USER_THEMES):
+        if not root.is_dir():
+            continue
+        for d in sorted(root.iterdir()):
+            if d.is_dir() and NAME_RE.match(d.name) and (d / "theme.json").is_file():
+                found[d.name] = d
+    return found
+
+
+def load_theme(name):
+    if not NAME_RE.match(name or ""):
+        raise ThemeError(f"invalid theme name: {name!r}")
+    d = theme_dirs().get(name)
+    if not d:
+        raise ThemeError(f"no such theme: {name} (try: cipher-theme list)")
+    try:
+        data = json.loads((d / "theme.json").read_text())
+    except (OSError, json.JSONDecodeError) as e:
+        raise ThemeError(f"{d}/theme.json is not valid JSON: {e}") from e
+    colors = data.get("colors", {})
+    for k in COLOR_KEYS:
+        # Colors are substituted into config files: only plain #rrggbb is accepted.
+        if not HEX_RE.match(str(colors.get(k, ""))):
+            raise ThemeError(f"theme {name}: color '{k}' must be #rrggbb")
+    return {
+        "name": name,
+        "title": str(data.get("title", name))[:60],
+        "light": data.get("light") is True,
+        "colors": {k: colors[k].lower() for k in COLOR_KEYS},
+        "dir": d,
+    }
+
+
+def backgrounds(theme):
+    imgs = []
+    for root in (theme["dir"] / "backgrounds", USER_BACKGROUNDS / theme["name"]):
+        if root.is_dir():
+            imgs += sorted(p for p in root.iterdir() if p.suffix.lower() in IMAGE_EXT)
+    return imgs
+
+
+def state():
+    try:
+        return json.loads((CURRENT / "theme.json").read_text())
+    except (OSError, json.JSONDecodeError):
+        return {}
+
+
+def remembered_bg(name):
+    try:
+        return json.loads((CURRENT / "backgrounds.json").read_text()).get(name)
+    except (OSError, json.JSONDecodeError):
+        return None
+
+
+def remember_bg(name, path):
+    try:
+        data = json.loads((CURRENT / "backgrounds.json").read_text())
+    except (OSError, json.JSONDecodeError):
+        data = {}
+    data[name] = str(path)
+    atomic_write(CURRENT / "backgrounds.json", json.dumps(data, indent=2) + "\n")
+
+
+def placeholders(colors):
+    out = {}
+    for k, v in colors.items():
+        h = v.lstrip("#")
+        out[k] = v
+        out[f"{k}_hex"] = h
+        out[f"{k}_rgb"] = ",".join(str(int(h[i:i + 2], 16)) for i in (0, 2, 4))
+    return out
+
+
+def render_templates(theme):
+    values = placeholders(theme["colors"])
+    values["name"] = theme["name"]
+    values["color_scheme"] = "prefer-light" if theme["light"] else "prefer-dark"
+    pattern = re.compile(r"\{\{\s*([a-z0-9_]+)\s*\}\}")
+    if not TEMPLATES.is_dir():
+        return
+    for tpl in sorted(TEMPLATES.glob("*.tpl")):
+        out_name = tpl.name[:-4]
+        text = pattern.sub(lambda m: values.get(m.group(1), m.group(0)), tpl.read_text())
+        atomic_write(TEMPLATE_TARGETS.get(out_name, CURRENT / out_name), text)
+
+
+def write_state(theme, wallpaper):
+    data = {
+        "name": theme["name"],
+        "title": theme["title"],
+        "light": theme["light"],
+        "colors": theme["colors"],
+        "wallpaper": str(wallpaper) if wallpaper else "",
+    }
+    atomic_write(CURRENT / "theme.json", json.dumps(data, indent=2) + "\n")
+
+
+def run_quiet(*argv):
+    if shutil.which(argv[0]):
+        subprocess.run(argv, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, check=False)
+
+
+def notify_session(theme):
+    # Hyprland border colors, live shell re-theme, GTK light/dark preference.
+    if os.environ.get("HYPRLAND_INSTANCE_SIGNATURE"):
+        run_quiet("hyprctl", "reload")
+    run_quiet("qs", "-c", "cipher", "ipc", "call", "theme", "reload")
+    scheme = "prefer-light" if theme["light"] else "prefer-dark"
+    run_quiet("gsettings", "set", "org.gnome.desktop.interface", "color-scheme", scheme)
+    run_quiet("gsettings", "set", "org.gnome.desktop.interface", "gtk-theme",
+              "Adwaita" if theme["light"] else "Adwaita-dark")
+
+
+def cmd_set(name):
+    theme = load_theme(name)
+    bgs = backgrounds(theme)
+    remembered = remembered_bg(name)
+    wallpaper = remembered if remembered and Path(remembered).is_file() else (bgs[0] if bgs else "")
+    render_templates(theme)
+    write_state(theme, wallpaper)
+    notify_session(theme)
+    print(f"Theme: {theme['title']}")
+
+
+def cmd_list(as_json):
+    themes = []
+    for name in theme_dirs():
+        try:
+            t = load_theme(name)
+        except ThemeError:
+            continue  # broken themes are skipped quietly; `set` explains why
+        bgs = backgrounds(t)
+        themes.append({
+            "name": t["name"], "title": t["title"], "light": t["light"],
+            "colors": t["colors"], "wallpaper": str(bgs[0]) if bgs else "",
+        })
+    if as_json:
+        print(json.dumps(themes))
+    else:
+        # label<TAB>value<TAB>icon — the format the Cipher menu reads
+        current = state().get("name")
+        for t in themes:
+            mark = "  ✓" if t["name"] == current else ""
+            print(f"{t['title']}{mark}\t{t['name']}\tpalette")
+
+
+def cmd_bg(args):
+    st = state()
+    name = st.get("name") or DEFAULT_THEME
+    theme = load_theme(name)
+    if not args or args[0] == "list":
+        for p in backgrounds(theme):
+            print(f"{p.stem}\t{p}\timage")
+        return
+    action = args[0]
+    if action == "set":
+        if len(args) < 2:
+            die("usage: cipher-theme bg set PATH")
+        target = Path(args[1]).expanduser().resolve()
+        if not target.is_file() or target.suffix.lower() not in IMAGE_EXT:
+            die(f"not an image: {target}")
+    elif action in ("next", "prev"):
+        bgs = backgrounds(theme)
+        if not bgs:
+            die(f"theme {name} has no backgrounds")
+        cur = st.get("wallpaper", "")
+        idx = next((i for i, p in enumerate(bgs) if str(p) == cur), -1)
+        step = 1 if action == "next" else -1
+        target = bgs[(idx + step) % len(bgs)]
+    else:
+        die(f"unknown bg action: {action}")
+    remember_bg(name, target)
+    write_state(theme, target)
+    run_quiet("qs", "-c", "cipher", "ipc", "call", "theme", "reload")
+
+
+def main(argv):
+    if not argv or argv[0] in ("-h", "--help", "help"):
+        print(__doc__.strip())
+        return
+    cmd, rest = argv[0], argv[1:]
+    if cmd == "list":
+        cmd_list("--json" in rest)
+    elif cmd == "current":
+        print(state().get("name", ""))
+    elif cmd == "set":
+        if not rest:
+            die("usage: cipher-theme set NAME")
+        cmd_set(rest[0])
+    elif cmd == "init":
+        cur = state().get("name")
+        if cur and cur in theme_dirs() and (CURRENT / "hyprland.conf").is_file():
+            return
+        cmd_set(cur if cur in theme_dirs() else DEFAULT_THEME)
+    elif cmd == "bg":
+        cmd_bg(rest)
+    else:
+        die(f"unknown command: {cmd} (see cipher-theme --help)")
+
+
+if __name__ == "__main__":
+    try:
+        main(sys.argv[1:])
+    except ThemeError as e:
+        die(str(e))

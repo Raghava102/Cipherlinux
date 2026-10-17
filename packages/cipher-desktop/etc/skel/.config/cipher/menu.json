@@ -1,0 +1,9 @@
+[
+  {
+    "name": "My stuff",
+    "icon": "user",
+    "children": [
+      { "name": "Edit this menu", "icon": "layout-grid", "terminal": "${EDITOR:-nano} ~/.config/cipher/menu.json" }
+    ]
+  }
+]

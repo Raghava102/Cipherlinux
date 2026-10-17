@@ -1,0 +1,3 @@
+# PAM configuration for the Cipher lock screen (Quickshell PamContext).
+# Authentication only: the session is already open.
+@include common-auth

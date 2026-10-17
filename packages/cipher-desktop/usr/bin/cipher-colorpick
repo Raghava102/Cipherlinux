@@ -1,0 +1,5 @@
+#!/bin/bash
+# Pick a color anywhere on screen and copy its hex value.
+command -v hyprpicker >/dev/null || { notify-send -a Cipher "hyprpicker is not installed" "sudo apt install -t trixie-backports hyprpicker"; exit 1; }
+color=$(hyprpicker -a -f hex) || exit 0
+[ -n "$color" ] && notify-send -a "Color picker" "$color" "Copied to clipboard"
