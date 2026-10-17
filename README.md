@@ -42,7 +42,14 @@ git clone <your-repo-url> cipher && cd cipher
 
 Reboot and pick the **Cipher** session.
 
-### 2. Build the live ISO
+### 2. Get the ISO from GitHub (no Debian machine needed)
+
+Push this repo to GitHub, then open **Actions → Build Cipher ISO → Run workflow**
+(tick *NVIDIA* for laptops like an RTX 3050). About 30–45 minutes later the ISO is
+under **Artifacts** on the run page. Pushing a tag such as `v0.1.0` also publishes it
+as a GitHub Release.
+
+### 3. Build the live ISO yourself
 
 On a Debian 13 machine (or VM) with ~15 GB free:
 

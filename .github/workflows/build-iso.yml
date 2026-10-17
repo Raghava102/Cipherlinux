@@ -1,0 +1,74 @@
+# Builds the Cipher live ISO on GitHub's servers.
+#   Actions tab -> "Build Cipher ISO" -> Run workflow   (download from the run's Artifacts)
+#   or push a tag like v0.1.0                           (ISO attached to a GitHub Release)
+name: Build Cipher ISO
+
+on:
+  workflow_dispatch:
+    inputs:
+      nvidia:
+        description: "Include the proprietary NVIDIA driver"
+        type: boolean
+        default: false
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: write
+
+jobs:
+  iso:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Free disk space (live-build needs ~15 GB)
+        run: |
+          sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc /opt/hostedtoolcache/CodeQL /usr/local/share/boost
+          sudo docker image prune --all --force
+          df -h /
+
+      - name: Build ISO in a Debian 13 container
+        run: |
+          NVIDIA_FLAG=""
+          if [ "${{ inputs.nvidia }}" = "true" ]; then NVIDIA_FLAG="--nvidia"; fi
+          sudo docker run --rm --privileged \
+            -v "$PWD":/src -w /src debian:trixie \
+            bash -euxc "
+              apt-get update
+              apt-get install -y --no-install-recommends live-build debootstrap dpkg ca-certificates \
+                python3 xz-utils squashfs-tools xorriso grub-efi-amd64-bin grub-pc-bin mtools dosfstools \
+                isolinux syslinux-common
+              ./scripts/build-iso.sh $NVIDIA_FLAG
+            "
+          sudo chown -R "$(id -u):$(id -g)" out
+          ls -lh out
+
+      - name: Upload ISO (Artifacts on the run page)
+        uses: actions/upload-artifact@v4
+        with:
+          name: cipher-iso
+          path: |
+            out/*.iso
+            out/*.sha256
+          compression-level: 0
+          retention-days: 14
+
+      - name: Attach to GitHub Release (tag builds)
+        if: startsWith(github.ref, 'refs/tags/v')
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          cd out
+          ISO=$(ls *.iso)
+          # Release assets are capped at 2 GiB each: split if needed
+          if [ "$(stat -c%s "$ISO")" -gt 2000000000 ]; then
+            split -b 1900M -d "$ISO" "$ISO.part"
+            ASSETS="$ISO.part* $ISO.sha256"
+            NOTE="The ISO is split in parts. Join them: cat $ISO.part* > $ISO && sha256sum -c $ISO.sha256"
+          else
+            ASSETS="$ISO $ISO.sha256"
+            NOTE="Verify: sha256sum -c $ISO.sha256"
+          fi
+          gh release create "${GITHUB_REF_NAME}" $ASSETS --title "Cipher ${GITHUB_REF_NAME}" --notes "$NOTE"
