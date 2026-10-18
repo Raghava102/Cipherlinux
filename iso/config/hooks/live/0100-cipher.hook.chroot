@@ -133,6 +133,12 @@ for unit in NetworkManager-wait-online.service systemd-networkd-wait-online.serv
     systemctl disable "$unit" >/dev/null 2>&1 || true
 done
 systemctl mask NetworkManager-wait-online.service >/dev/null 2>&1 || true
+# Package-list refresh: not in the first minutes after boot (it used to run
+# right away when the machine had been off, slowing the desktop down)
+for t in apt-daily apt-daily-upgrade; do
+    mkdir -p /etc/systemd/system/$t.timer.d
+    printf '[Timer]\nPersistent=false\nOnBootSec=30min\n' > /etc/systemd/system/$t.timer.d/cipher.conf
+done
 # No watchdog modules (nowatchdog): faster shutdown on many laptops
 printf 'blacklist iTCO_wdt\nblacklist sp5100_tco\n' > /etc/modprobe.d/cipher-nowatchdog.conf
 
