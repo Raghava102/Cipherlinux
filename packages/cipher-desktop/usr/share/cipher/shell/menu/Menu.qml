@@ -191,7 +191,7 @@ PanelWindow {
         y: Math.round(parent.height * (win.gridMode ? 0.09 : 0.16))
         radius: Theme.radius + 10
         clip: true
-        Behavior on width { NumberAnimation { duration: 160; easing.type: Easing.OutCubic } }
+        Behavior on width { NumberAnimation { duration: Theme.ms(160); easing.type: Easing.OutCubic } }
 
         MouseArea { anchors.fill: parent }   // swallow clicks so the backdrop doesn't close us
 
@@ -461,7 +461,7 @@ PanelWindow {
                         anchors.horizontalCenter: parent.horizontalCenter
                         implicitSize: 64
                         scale: cell.selected ? 1.06 : 1
-                        Behavior on scale { NumberAnimation { duration: 120 } }
+                        Behavior on scale { NumberAnimation { duration: Theme.ms(120) } }
                         source: Quickshell.iconPath(cell.modelData.appIcon ?? "", "application-x-executable")
                     }
                     Label {

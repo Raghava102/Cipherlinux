@@ -40,7 +40,7 @@ Item {
         y: tile.vertical ? (tile.separator ? 14 : 0) : 0
         scale: tile.zoom
         transformOrigin: tile.side === "left" ? Item.Left : tile.side === "right" ? Item.Right : Item.Bottom
-        Behavior on scale { NumberAnimation { duration: 140; easing.type: Easing.OutCubic } }
+        Behavior on scale { NumberAnimation { duration: Theme.ms(140); easing.type: Easing.OutCubic } }
 
         Rectangle {
             visible: tile.glyph !== ""
@@ -67,7 +67,7 @@ Item {
         height: tile.vertical ? (tile.focused ? 14 : 5) : 4
         x: tile.vertical ? (tile.side === "left" ? -9 : tile.size + 5) : body.x + (tile.size - width) / 2
         y: tile.vertical ? body.y + (tile.size - height) / 2 : tile.size + 5
-        Behavior on width { NumberAnimation { duration: 140 } }
+        Behavior on width { NumberAnimation { duration: Theme.ms(140) } }
     }
 
     // hover label

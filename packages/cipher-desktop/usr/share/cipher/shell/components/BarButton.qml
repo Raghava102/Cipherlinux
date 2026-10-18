@@ -15,7 +15,7 @@ Rectangle {
     implicitWidth: row.implicitWidth + 16
     radius: height / 2
     color: mouse.containsMouse ? Theme.hover : "transparent"
-    Behavior on color { ColorAnimation { duration: 120 } }
+    Behavior on color { ColorAnimation { duration: Theme.ms(120) } }
 
     Row {
         id: row

@@ -39,7 +39,7 @@ Row {
             implicitWidth: row.implicitWidth + 28
             radius: height / 2
             color: focused ? Theme.tint : hover.containsMouse ? Theme.hover : "transparent"
-            Behavior on color { ColorAnimation { duration: 160 } }
+            Behavior on color { ColorAnimation { duration: Theme.ms(160) } }
 
             Row {
                 id: row

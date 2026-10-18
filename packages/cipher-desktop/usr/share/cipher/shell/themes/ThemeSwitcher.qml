@@ -96,8 +96,8 @@ PanelWindow {
                 height: 200
                 scale: selected ? 1.0 : 0.88
                 opacity: selected ? 1.0 : 0.65
-                Behavior on scale { NumberAnimation { duration: 160; easing.type: Easing.OutCubic } }
-                Behavior on opacity { NumberAnimation { duration: 160 } }
+                Behavior on scale { NumberAnimation { duration: Theme.ms(160); easing.type: Easing.OutCubic } }
+                Behavior on opacity { NumberAnimation { duration: Theme.ms(160) } }
 
                 Rectangle {
                     anchors.fill: parent

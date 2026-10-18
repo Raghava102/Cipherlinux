@@ -63,3 +63,5 @@ git
 open-vm-tools
 open-vm-tools-desktop
 spice-vdagent
+# compressed RAM swap: smoother on low-memory machines and VMs
+zram-tools

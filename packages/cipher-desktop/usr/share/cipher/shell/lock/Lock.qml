@@ -127,10 +127,10 @@ Scope {
                     SequentialAnimation on anchors.horizontalCenterOffset {
                         running: root.failed
                         loops: 1
-                        NumberAnimation { to: -12; duration: 50 }
-                        NumberAnimation { to: 12; duration: 70 }
-                        NumberAnimation { to: -6; duration: 60 }
-                        NumberAnimation { to: 0; duration: 50 }
+                        NumberAnimation { to: -12; duration: Theme.ms(50) }
+                        NumberAnimation { to: 12; duration: Theme.ms(70) }
+                        NumberAnimation { to: -6; duration: Theme.ms(60) }
+                        NumberAnimation { to: 0; duration: Theme.ms(50) }
                     }
 
                     Icon {

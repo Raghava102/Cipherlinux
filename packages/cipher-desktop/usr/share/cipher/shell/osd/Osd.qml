@@ -62,7 +62,7 @@ PanelWindow {
         color: Theme.glassStrong
         border.color: Theme.glassEdge
         opacity: win.shown ? 1 : 0
-        Behavior on opacity { NumberAnimation { duration: 120 } }
+        Behavior on opacity { NumberAnimation { duration: Theme.ms(120) } }
 
         Icon {
             id: icon
@@ -90,7 +90,7 @@ PanelWindow {
                 radius: 3
                 width: parent.width * (win.muted ? 0 : win.value)
                 color: Theme.accent
-                Behavior on width { NumberAnimation { duration: 90 } }
+                Behavior on width { NumberAnimation { duration: Theme.ms(90) } }
             }
         }
 

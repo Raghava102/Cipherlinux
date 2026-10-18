@@ -10,6 +10,12 @@ Singleton {
     id: root
 
     readonly property string home: Quickshell.env("HOME")
+
+    // Software rendering (virtual machines without a usable GPU): every
+    // animation frame is drawn by the CPU, so motion makes it stutter.
+    // In that mode transitions are instant, which feels much snappier.
+    readonly property bool lite: Quickshell.env("QT_QUICK_BACKEND") === "software"
+    function ms(d) { return lite ? 0 : d }
     readonly property string configDir: home + "/.config/cipher"
     readonly property string themeFile: configDir + "/current/theme.json"
 

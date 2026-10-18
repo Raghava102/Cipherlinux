@@ -2,6 +2,9 @@
 # cipher-shell           start the Cipher shell (supervised: restarts on crash)
 # cipher-shell restart   restart the running shell
 # cipher-shell logs      show the shell log
+# cipher-shell gpu on    (virtual machines) draw the shell with the GPU — smoother
+#                        with VMware 3D acceleration; falls back automatically
+# cipher-shell gpu off   back to software rendering
 #
 # Output goes to ~/.local/state/cipher/shell.log. If the shell keeps
 # crashing with GPU rendering, it falls back to software rendering, and
@@ -20,8 +23,21 @@ case "${1:-run}" in
     exit 0 ;;
   logs)
     exec tail -n 200 -F "$LOG" ;;
+  gpu)
+    mark="$HOME/.config/cipher/gpu-shell"
+    case "${2:-}" in
+      on)  mkdir -p "$(dirname "$mark")"; touch "$mark"; echo "GPU rendering on — restarting the shell" ;;
+      off) rm -f "$mark"; echo "GPU rendering off — restarting the shell" ;;
+      *)   [ -f "$mark" ] && echo on || echo off; exit 0 ;;
+    esac
+    # restart the supervisor so it picks the new mode
+    for p in $(pgrep -x cipher-shell); do [ "$p" != "$$" ] && kill "$p" 2>/dev/null; done
+    pkill -f 'quickshell.*cipher|qs -p .*cipher' 2>/dev/null || true
+    sleep 1
+    setsid -f cipher-shell >/dev/null 2>&1
+    exit 0 ;;
   run) ;;
-  *) echo "usage: cipher-shell [run|restart|logs]" >&2; exit 2 ;;
+  *) echo "usage: cipher-shell [run|restart|logs|gpu on|gpu off]" >&2; exit 2 ;;
 esac
 
 # Only one supervisor per session
@@ -50,7 +66,7 @@ software=${CIPHER_SOFTWARE_RENDERING:-0}
 # Virtual GPUs (VMware, VirtualBox, QEMU) often can't draw Qt Quick layers:
 # start straight in software rendering there. Real hardware uses the GPU.
 if [ -z "${CIPHER_SOFTWARE_RENDERING:-}" ] && command -v systemd-detect-virt >/dev/null \
-   && systemd-detect-virt --vm --quiet; then
+   && systemd-detect-virt --vm --quiet && [ ! -f "$HOME/.config/cipher/gpu-shell" ]; then
   software=1
   echo "=== virtual machine ($(systemd-detect-virt)): using software rendering" >> "$LOG"
 fi

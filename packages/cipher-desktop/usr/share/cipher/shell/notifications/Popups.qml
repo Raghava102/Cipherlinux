@@ -30,7 +30,7 @@ PanelWindow {
         id: stack
         width: parent.width
         spacing: 8
-        move: Transition { NumberAnimation { properties: "y"; duration: 160; easing.type: Easing.OutCubic } }
+        move: Transition { NumberAnimation { properties: "y"; duration: Theme.ms(160); easing.type: Easing.OutCubic } }
 
         Repeater {
             model: Notifs.popups

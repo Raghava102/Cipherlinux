@@ -113,6 +113,13 @@ for f in /usr/share/applications/*.desktop; do
     fi
 done
 
+# Compressed swap in RAM (zram): half of memory, zstd
+if [ -f /etc/default/zramswap ]; then
+    sed -i -E 's/^#?\s*ALGO=.*/ALGO=zstd/; s/^#?\s*PERCENT=.*/PERCENT=50/' /etc/default/zramswap
+    grep -q '^PERCENT=' /etc/default/zramswap || echo PERCENT=50 >> /etc/default/zramswap
+    systemctl enable zramswap.service || true
+fi
+
 # Boot splash
 if command -v plymouth-set-default-theme >/dev/null; then
     plymouth-set-default-theme cipher

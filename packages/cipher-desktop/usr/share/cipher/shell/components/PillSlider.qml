@@ -23,7 +23,7 @@ Item {
             height: parent.height
             radius: height / 2
             color: Theme.light ? Theme.accent : Theme.text
-            Behavior on width { enabled: !drag.pressed; NumberAnimation { duration: 120 } }
+            Behavior on width { enabled: !drag.pressed; NumberAnimation { duration: Theme.ms(120) } }
         }
         Icon {
             anchors.left: parent.left

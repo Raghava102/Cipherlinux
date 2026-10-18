@@ -42,7 +42,7 @@ PanelWindow {
         sourceSize.height: win.height
         asynchronous: true
         opacity: win.useA && status === Image.Ready ? 1 : 0
-        Behavior on opacity { NumberAnimation { duration: 450; easing.type: Easing.InOutQuad } }
+        Behavior on opacity { NumberAnimation { duration: Theme.ms(450); easing.type: Easing.InOutQuad } }
         Component.onCompleted: source = win.current ? "file://" + win.current : ""
     }
     Image {
@@ -53,6 +53,6 @@ PanelWindow {
         sourceSize.height: win.height
         asynchronous: true
         opacity: !win.useA && status === Image.Ready ? 1 : 0
-        Behavior on opacity { NumberAnimation { duration: 450; easing.type: Easing.InOutQuad } }
+        Behavior on opacity { NumberAnimation { duration: Theme.ms(450); easing.type: Easing.InOutQuad } }
     }
 }
