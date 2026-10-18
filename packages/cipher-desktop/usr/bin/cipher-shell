@@ -39,17 +39,42 @@ mkdir -p "$HOME/.config/cipher/current"
   command -v qs quickshell
 } >> "$LOG" 2>&1
 
+# The bar is the sign of life: Hyprland lists it as a "cipher-bar" layer.
+bar_visible() {
+  command -v hyprctl >/dev/null || return 0
+  hyprctl layers 2>/dev/null | grep -q 'namespace: cipher-bar'
+}
+
 fails=0
-software=0
+software=${CIPHER_SOFTWARE_RENDERING:-0}
 while true; do
   started=$(date +%s)
   if [ "$software" -eq 1 ]; then
     echo "=== starting (software rendering) $(date -Is)" >> "$LOG"
-    QT_QUICK_BACKEND=software cipher-qs >> "$LOG" 2>&1
+    QT_QUICK_BACKEND=software cipher-qs >> "$LOG" 2>&1 &
   else
     echo "=== starting $(date -Is)" >> "$LOG"
-    cipher-qs >> "$LOG" 2>&1
+    cipher-qs >> "$LOG" 2>&1 &
   fi
+  pid=$!
+
+  # Running but not drawing (GPU driver trouble) counts as a failure too.
+  if [ "$software" -eq 0 ]; then
+    for _ in $(seq 1 15); do
+      sleep 1
+      kill -0 "$pid" 2>/dev/null || break
+      bar_visible && break
+    done
+    if kill -0 "$pid" 2>/dev/null && ! bar_visible; then
+      echo "=== shell running but nothing on screen after 15s: switching to software rendering" >> "$LOG"
+      kill "$pid" 2>/dev/null; wait "$pid" 2>/dev/null
+      software=1
+      notify 0 "Cipher shell could not draw with the GPU — using software rendering. Log: ~/.local/state/cipher/shell.log"
+      continue
+    fi
+  fi
+
+  wait "$pid"
   status=$?
   echo "=== exited with status $status $(date -Is)" >> "$LOG"
   [ "$status" -eq 0 ] && exit 0
