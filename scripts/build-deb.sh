@@ -24,7 +24,7 @@ sed -i -E "s|^(PRETTY_NAME=\"Cipher )[^ ]+|\1$VERSION|; s|^VERSION_ID=.*|VERSION
 # Sane permissions regardless of the checkout's umask
 find "$STAGE" -path "$STAGE/DEBIAN" -prune -o -type d -exec chmod 755 {} +
 find "$STAGE" -path "$STAGE/DEBIAN" -prune -o -type f -exec chmod 644 {} +
-chmod 755 "$STAGE"/usr/share/cipher/branding/calamares-rebrand.py "$STAGE"/usr/bin/* "$STAGE"/DEBIAN/postinst "$STAGE"/DEBIAN/preinst "$STAGE"/DEBIAN/postrm
+chmod 755 "$STAGE"/usr/share/cipher/branding/calamares-rebrand.py "$STAGE"/usr/bin/* "$STAGE"/usr/lib/cipher/* "$STAGE"/DEBIAN/postinst "$STAGE"/DEBIAN/preinst "$STAGE"/DEBIAN/postrm
 
 # Every regular file under /etc is a conffile, so local edits survive upgrades
 (cd "$STAGE" && find etc -type f | sort | sed 's|^|/|') > "$STAGE/DEBIAN/conffiles"

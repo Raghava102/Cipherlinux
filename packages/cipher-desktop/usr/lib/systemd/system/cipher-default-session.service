@@ -1,0 +1,12 @@
+[Unit]
+Description=Cipher: new users start in the Cipher session
+After=local-fs.target systemd-user-sessions.service
+Before=accounts-daemon.service display-manager.service
+ConditionPathExists=/usr/share/wayland-sessions/cipher.desktop
+
+[Service]
+Type=oneshot
+ExecStart=/usr/lib/cipher/default-session
+
+[Install]
+WantedBy=graphical.target

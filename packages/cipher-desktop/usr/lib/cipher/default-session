@@ -1,0 +1,26 @@
+#!/bin/sh
+# Start every user in the Cipher session the first time they log in.
+# Runs once per user (before GDM starts); after that GDM remembers whatever
+# the user picks with the gear button on the login screen (Cipher or GNOME).
+[ -f /usr/share/wayland-sessions/cipher.desktop ] || exit 0
+dir=/var/lib/AccountsService/users
+mark=/var/lib/cipher/default-session
+mkdir -p "$dir" "$mark"
+
+getent passwd | while IFS=: read -r name _ uid _ _ _ shell; do
+    [ "$uid" -ge 1000 ] 2>/dev/null && [ "$uid" -lt 60000 ] || continue
+    case "$shell" in */nologin|*/false) continue ;; esac
+    [ -e "$mark/$name" ] && continue
+    f="$dir/$name"
+    if [ -s "$f" ]; then
+        sed -i '/^XSession=/d; /^Session=/d; /^SessionType=/d' "$f"
+        grep -q '^\[User\]' "$f" || sed -i '1i [User]' "$f"
+        sed -i 's/^\[User\]$/[User]\nSession=cipher\nSessionType=wayland/' "$f"
+    else
+        printf '[User]\nSession=cipher\nSessionType=wayland\nSystemAccount=false\n' > "$f"
+    fi
+    chmod 600 "$f"
+    touch "$mark/$name"
+    echo "cipher: $name will start in the Cipher session"
+done
+exit 0

@@ -38,6 +38,9 @@ fi
 echo /usr/sbin/gdm3 > /etc/X11/default-display-manager
 ln -sf /usr/lib/systemd/system/gdm.service /etc/systemd/system/display-manager.service
 systemctl enable cipher-live-autologin.service
+# Installed system: every user starts in Cipher the first time (then GDM
+# remembers what they pick at the login gear)
+systemctl enable cipher-default-session.service
 
 # Cipher is the default session for every new login (GDM remembers each
 # user's last choice after that)
@@ -76,6 +79,39 @@ for f in $(grep -l -i -E 'calamares|install-debian' /usr/share/applications/*.de
     sed -i -E 's/^(Name(\[[^]]*\])?)=.*/\1=Install Cipher/; s/^(GenericName(\[[^]]*\])?)=.*/\1=Install Cipher/; s/^Icon=.*/Icon=cipher-logo/' "$f"
 done
 systemctl set-default graphical.target
+
+# GNOME Settings > About: Debian builds it with a fixed logo file, so put the
+# Cipher wordmark at whatever path it uses
+for bin in /usr/bin/gnome-control-center /usr/libexec/gnome-control-center*; do
+    [ -f "$bin" ] || continue
+    for path in $(grep -a -o -E '/usr/share/[A-Za-z0-9_./+-]+\.(png|svg)' "$bin" | grep -i -E 'logo|debian' | sort -u); do
+        src=logo-text-dark.png   # About is shown in dark mode
+        if dpkg -S "$path" >/dev/null 2>&1 && ! dpkg-divert --list "$path" | grep -q cipher; then
+            dpkg-divert --package cipher-desktop --add --rename --divert "$path.debian" "$path" || true
+        fi
+        mkdir -p "$(dirname "$path")"
+        rm -f "$path"
+        case "$path" in
+            *.svg) printf '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="697" height="187"><image width="697" height="187" xlink:href="data:image/png;base64,%s"/></svg>\n' \
+                       "$(base64 -w0 /usr/share/cipher/branding/$src)" > "$path" ;;
+            *)     cp /usr/share/cipher/branding/$src "$path" ;;
+        esac
+        diag "about logo" "replaced $path"
+    done
+done
+# and for icon-theme lookups (LOGO=cipher-logo in os-release)
+for v in text text-dark; do
+    cp /usr/share/cipher/branding/logo-$v.png /usr/share/icons/hicolor/256x256/apps/cipher-logo-$v.png
+done
+gtk-update-icon-cache -f -q /usr/share/icons/hicolor 2>/dev/null || true
+
+# GNOME app grid: hide helper entries that aren't apps
+for f in /usr/share/applications/*.desktop; do
+    if grep -q -E '^Name=(Foot Client|Foot Server|KDE System Settings|Bulk Rename|Hyprland Polkit Agent|uxterm|xterm)' "$f" \
+       || grep -q -E '^Exec=(footclient|foot --server|systemsettings)' "$f"; then
+        grep -q '^NoDisplay=true' "$f" || sed -i '0,/^\[Desktop Entry\]/s//[Desktop Entry]\nNoDisplay=true/' "$f"
+    fi
+done
 
 # Boot splash
 if command -v plymouth-set-default-theme >/dev/null; then
