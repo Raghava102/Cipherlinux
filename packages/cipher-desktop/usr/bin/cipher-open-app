@@ -32,7 +32,12 @@ if [ -n "$f" ] && grep -q '^Terminal=true' "$f"; then
   setsid -f cipher-launch terminal sh -c "$exe" >> "$log" 2>&1 < /dev/null
   exit 0
 fi
-if command -v gtk-launch >/dev/null 2>&1; then
+# gtk-launch can't D-Bus-activate ids with a '-' (not a valid object path,
+# e.g. org.gnome.font-viewer): run their Exec line instead
+direct=0
+case "$id" in *-*) [ -n "$f" ] && grep -q '^DBusActivatable=true' "$f" && direct=1 ;; esac
+
+if [ "$direct" = 0 ] && command -v gtk-launch >/dev/null 2>&1; then
   setsid -f gtk-launch "$id" "$@" >> "$log" 2>&1 < /dev/null && exit 0
 fi
 # fallback: run the Exec line ourselves
