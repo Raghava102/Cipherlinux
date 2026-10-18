@@ -26,6 +26,18 @@ jobs:
           sudo docker run --rm --privileged -v /dev:/dev -v "$PWD":/src -w /src debian:trixie bash scripts/ci-shell-preview.sh
           sudo chown -R "$(id -u):$(id -g)" preview
 
+      - name: Hyprland config check
+        if: always()
+        run: |
+          f=preview/verify-config.log
+          [ -f "$f" ] || { echo "::warning::no verify-config.log"; exit 0; }
+          cat "$f"
+          if grep -qiE 'error|does not exist|invalid' "$f"; then
+            grep -iE 'error|does not exist|invalid' "$f" | head -10 | while IFS= read -r l; do echo "::error title=hyprland config::${l:0:400}"; done
+            exit 1
+          fi
+          echo "::notice title=hyprland config::OK"
+
       - name: Report shell errors
         if: always()
         run: |

@@ -103,6 +103,11 @@ if ls /dev/dri/card* >/dev/null 2>&1; then
     as_user cipher-ipc controls toggle >> "$OUT/hypr-stage.log" 2>&1; sleep 2
     as_user grim /tmp/9.png 2>> "$OUT/hypr-stage.log" && cp /tmp/9.png "$OUT/9-hyprland-controls.png"
   fi
+  # Hyprland's own config check, on exactly what this login used (theme +
+  # hardware.conf written by cipher-start)
+  runuser -u cipher -- env HOME="$U" XDG_RUNTIME_DIR="$RT" Hyprland --verify-config -c "$U/.config/hypr/hyprland.conf" > "$OUT/verify-config.log" 2>&1
+  echo "verify-config exit $?" >> "$OUT/verify-config.log"
+  cp "$U/.config/cipher/current/hardware.conf" "$OUT/hardware.conf" 2>/dev/null
   cp "$U/.local/state/cipher/"*.log "$OUT/" 2>/dev/null || true
   for f in "$OUT"/session.log "$OUT"/shell.log; do [ -f "$f" ] && mv "$f" "${f%.log}-hyprland.log"; done
   pkill -x Hyprland 2>/dev/null || true
