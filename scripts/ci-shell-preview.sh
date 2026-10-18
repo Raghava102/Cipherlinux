@@ -73,12 +73,12 @@ cipher-qs ipc show > "$OUT/ipc-targets.log" 2>&1 || true
 # Launch apps exactly like a dock click (shell -> Shell.launch -> cipher-open-app)
 SWAYSOCK=$(ls "$XDG_RUNTIME_DIR"/sway-ipc.*.sock 2>/dev/null | head -n1); export SWAYSOCK
 apt-get install -y -q jq >> "$OUT/apt.log" 2>&1
-apt-get install -y -q gnome-text-editor gnome-calculator nautilus libgtk-3-bin >> "$OUT/apt.log" 2>&1
+apt-get install -y -q libgtk-3-bin >> "$OUT/apt.log" 2>&1
 command -v jq >/dev/null || echo "FAIL jq missing" >> "$OUT/dock-launch.log"
 # the shell must see the newly installed apps
 cipher-shell restart >/dev/null 2>&1; pkill -f "qs -p" ; sleep 1; cipher-qs >> "$OUT/shell.log" 2>&1 & sleep 8
 dbus-update-activation-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP 2>/dev/null
-for id in foot thunar org.gnome.TextEditor org.gnome.Calculator org.gnome.Nautilus; do
+for id in foot thunar org.pulseaudio.pavucontrol blueman-manager; do
   before=$(swaymsg -t get_tree | jq '[.. | objects | select((.pid? // 0) > 0)] | length')
   r=$(cipher-ipc apps launch "$id" 2>&1)
   ok=FAIL
