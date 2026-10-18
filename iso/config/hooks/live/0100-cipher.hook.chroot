@@ -115,6 +115,27 @@ if [ -f /etc/default/zramswap ]; then
     systemctl enable zramswap.service || true
 fi
 
+# ---- Fast boot and shutdown -------------------------------------------------
+# Boot menu: 1 second (hold SHIFT or ESC to see it), quiet kernel
+if [ -f /etc/default/grub ]; then
+    sed -i -E 's/^GRUB_TIMEOUT=.*/GRUB_TIMEOUT=1/' /etc/default/grub
+    grep -q '^GRUB_TIMEOUT_STYLE=' /etc/default/grub || echo 'GRUB_TIMEOUT_STYLE=menu' >> /etc/default/grub
+    sed -i -E 's/^GRUB_CMDLINE_LINUX_DEFAULT=.*/GRUB_CMDLINE_LINUX_DEFAULT="quiet splash loglevel=3 rd.udev.log_level=3 systemd.show_status=auto nowatchdog"/' /etc/default/grub
+    sed -i -E 's/^#?GRUB_DISTRIBUTOR=.*/GRUB_DISTRIBUTOR="Cipher"/' /etc/default/grub
+fi
+# A stuck service may hold up shutdown for 10 s, not 90 s
+mkdir -p /etc/systemd/system.conf.d /etc/systemd/user.conf.d
+printf '[Manager]\nDefaultTimeoutStopSec=10s\nDefaultTimeoutStartSec=30s\n' > /etc/systemd/system.conf.d/10-cipher-fast.conf
+printf '[Manager]\nDefaultTimeoutStopSec=5s\n' > /etc/systemd/user.conf.d/10-cipher-fast.conf
+# Don't wait for the network before the desktop, or for things most PCs lack
+for unit in NetworkManager-wait-online.service systemd-networkd-wait-online.service \
+            ModemManager.service cups-browsed.service; do
+    systemctl disable "$unit" >/dev/null 2>&1 || true
+done
+systemctl mask NetworkManager-wait-online.service >/dev/null 2>&1 || true
+# No watchdog modules (nowatchdog): faster shutdown on many laptops
+printf 'blacklist iTCO_wdt\nblacklist sp5100_tco\n' > /etc/modprobe.d/cipher-nowatchdog.conf
+
 # Boot splash
 if command -v plymouth-set-default-theme >/dev/null; then
     plymouth-set-default-theme cipher

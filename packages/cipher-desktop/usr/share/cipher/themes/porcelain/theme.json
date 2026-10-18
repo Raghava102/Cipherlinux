@@ -3,17 +3,21 @@
   "title": "Porcelain",
   "light": true,
   "colors": {
-    "bg": "#f7f5f0",
-    "surface": "#ffffff",
-    "overlay": "#ebe7de",
-    "border": "#d8d3c7",
-    "text": "#1c2a2c",
-    "muted": "#5b6e70",
-    "accent": "#16695b",
-    "accent2": "#e7a978",
+    "bg": "#e3ebee",
+    "surface": "#f7f5f0",
+    "overlay": "#ecefed",
+    "border": "#c9d6d6",
+    "text": "#1f2d2b",
+    "muted": "#566866",
+    "accent": "#1b6b5a",
+    "accent2": "#e8a877",
     "red": "#c2493b",
     "yellow": "#a8741a",
-    "green": "#16695b"
+    "green": "#1b6b5a",
+    "secondary": "#7fb3ab",
+    "extra": "#9db4e0",
+    "highlight": "#e8a877",
+    "shadow": "#1f2d2b"
   },
   "art": {
     "sky": [

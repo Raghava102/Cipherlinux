@@ -6,10 +6,9 @@ import Quickshell.Hyprland
 import qs.services
 import qs.components
 
-// Cipher Aurora bar: three floating glass pills over the wallpaper.
-//   left   — Cipher mark, the app you're in
-//   center — named workspaces (Home · Study · Create · +)
-//   right  — Shield, tray, network, sound, battery, clock → quick controls
+// Cipher bar: one floating status pill on the right — Shield, network,
+// sound, battery, clock and date. Clicking it opens Quick Controls.
+// Workspaces have no bar space: SUPER + 1..9 (SUPER + TAB to cycle).
 PanelWindow {
     id: bar
 
@@ -43,59 +42,6 @@ PanelWindow {
         anchors.topMargin: bar.atTop ? bar.edge : 4
         anchors.bottomMargin: bar.atTop ? 4 : bar.edge
 
-        // ---- left pill ------------------------------------------------------
-        Glass {
-            id: leftPill
-            anchors.left: parent.left
-            anchors.verticalCenter: parent.verticalCenter
-            height: bar.pill
-            width: leftRow.implicitWidth + 28
-            radius: height / 2
-            color: Settings.barTransparent ? Theme.alpha(Theme.bg, 0.4) : Theme.glass
-
-            RowLayout {
-                id: leftRow
-                anchors.centerIn: parent
-                spacing: 10
-
-                Item {
-                    implicitWidth: 22
-                    implicitHeight: 22
-                    Logo { anchors.fill: parent }
-                    MouseArea {
-                        anchors.fill: parent
-                        anchors.margins: -6
-                        cursorShape: Qt.PointingHandCursor
-                        acceptedButtons: Qt.LeftButton | Qt.RightButton
-                        onClicked: m => Shell.open(m.button === Qt.RightButton ? "apps" : "menu", [])
-                    }
-                }
-                Label { visible: !bar.tiny; text: "Cipher"; font.weight: Font.Bold; font.pixelSize: Theme.fontSize + 1 }
-                Rectangle { visible: !bar.compact; implicitWidth: 1; implicitHeight: 16; color: Theme.alpha(Theme.text, 0.15) }
-                ActiveWindow { visible: !bar.compact; Layout.maximumWidth: Math.max(80, bar.width / 2 - 460) }
-            }
-
-            MouseArea {
-                anchors.fill: parent
-                z: -1
-                onDoubleClicked: Shell.run("cipher-shell-set barTransparent toggle")
-            }
-        }
-
-        // ---- center pill: workspaces --------------------------------------
-        Glass {
-            id: centerPill
-            anchors.verticalCenter: parent.verticalCenter
-            // centered when there's room, otherwise squeezed between the side pills
-            x: Math.max(leftPill.width + 12,
-                        Math.min((parent.width - width) / 2, rightPill.x - width - 12))
-            height: bar.pill
-            width: spaces.implicitWidth + 10
-            radius: height / 2
-            color: Settings.barTransparent ? Theme.alpha(Theme.bg, 0.4) : Theme.glass
-            Workspaces { id: spaces; anchors.centerIn: parent }
-        }
-
         // ---- right pill: status ------------------------------------------
         Glass {
             id: rightPill
@@ -105,6 +51,14 @@ PanelWindow {
             width: rightRow.implicitWidth + 16
             radius: height / 2
             color: Settings.barTransparent ? Theme.alpha(Theme.bg, 0.4) : Theme.glass
+
+            MouseArea {
+                anchors.fill: parent
+                z: -1
+                cursorShape: Qt.PointingHandCursor
+                onClicked: Shell.open("controls", [])
+                onDoubleClicked: Shell.run("cipher-shell-set barTransparent toggle")
+            }
 
             RowLayout {
                 id: rightRow
@@ -123,7 +77,7 @@ PanelWindow {
                         spacing: 6
                         Icon { name: "shield-check"; size: 13; color: Shield.protectedNow ? Theme.accent : Theme.yellow; anchors.verticalCenter: parent.verticalCenter }
                         Label {
-                            visible: !bar.compact
+                            visible: !bar.tiny
                             text: Shield.protectedNow ? "Protected" : "No firewall"
                             color: Shield.protectedNow ? Theme.accent : Theme.yellow
                             font.pixelSize: Theme.fontSize - 1
@@ -150,7 +104,8 @@ PanelWindow {
                 Loader { source: "Volume.qml"; visible: !!item }
                 Loader { source: "Battery.qml"; visible: !!item && item.present }
                 BarButton {
-                    icon: Notifs.history.length > 0 ? "bell-dot" : "bell"
+                    visible: Notifs.history.length > 0
+                    icon: "bell-dot"
                     onClicked: Shell.open("notifications", [])
                 }
                 Clock { showDate: !bar.tiny }

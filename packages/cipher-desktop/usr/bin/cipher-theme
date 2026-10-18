@@ -4,6 +4,7 @@
   cipher-theme list [--json]       themes you can pick
   cipher-theme current             name of the active theme
   cipher-theme set NAME            apply a theme everywhere
+  cipher-theme next | prev         cycle Aurora > Porcelain > Ember
   cipher-theme init                apply the default theme if none is set yet
   cipher-theme bg next|prev        cycle backgrounds of the current theme
   cipher-theme bg set PATH         use any image as the background
@@ -36,6 +37,8 @@ NAME_RE = re.compile(r"^[a-z0-9][a-z0-9-]{0,40}$")
 HEX_RE = re.compile(r"^#[0-9a-fA-F]{6}$")
 COLOR_KEYS = ("bg", "surface", "overlay", "border", "text", "muted",
               "accent", "accent2", "red", "yellow", "green")
+# Optional: themes without them get sensible defaults
+OPTIONAL_KEYS = ("secondary", "extra", "highlight", "shadow")
 IMAGE_EXT = {".png", ".jpg", ".jpeg", ".webp"}
 
 # Where rendered templates go. Anything else lands in CURRENT.
@@ -88,11 +91,18 @@ def load_theme(name):
         # Colors are substituted into config files: only plain #rrggbb is accepted.
         if not HEX_RE.match(str(colors.get(k, ""))):
             raise ThemeError(f"theme {name}: color '{k}' must be #rrggbb")
+    out = {k: colors[k].lower() for k in COLOR_KEYS}
+    defaults = {"secondary": out["accent2"], "extra": out["muted"],
+                "highlight": out["accent2"], "shadow": "#000000"}
+    for k in OPTIONAL_KEYS:
+        v = str(colors.get(k, ""))
+        out[k] = v.lower() if HEX_RE.match(v) else defaults[k]
+    light = data.get("light") is True
     return {
         "name": name,
         "title": str(data.get("title", name))[:60],
-        "light": data.get("light") is True,
-        "colors": {k: colors[k].lower() for k in COLOR_KEYS},
+        "light": light,
+        "colors": out,
         "dir": d,
     }
 
@@ -141,6 +151,7 @@ def placeholders(colors):
 def render_templates(theme):
     values = placeholders(theme["colors"])
     values["name"] = theme["name"]
+    values["shadow_alpha"] = "33" if theme["light"] else "66"
     values["color_scheme"] = "prefer-light" if theme["light"] else "prefer-dark"
     pattern = re.compile(r"\{\{\s*([a-z0-9_]+)\s*\}\}")
     if not TEMPLATES.is_dir():
@@ -254,6 +265,12 @@ def main(argv):
         if not rest:
             die("usage: cipher-theme set NAME")
         cmd_set(rest[0])
+    elif cmd in ("next", "prev"):
+        # SUPER + T: Aurora > Porcelain > Ember (then back to Aurora)
+        cycle = [n for n in ("aurora", "porcelain", "ember") if n in theme_dirs()] or sorted(theme_dirs())
+        cur = state().get("name")
+        i = cycle.index(cur) if cur in cycle else -1
+        cmd_set(cycle[(i + (1 if cmd == "next" else -1)) % len(cycle)])
     elif cmd == "init":
         cur = state().get("name")
         if cur and cur in theme_dirs() and (CURRENT / "hyprland.conf").is_file():

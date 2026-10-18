@@ -3,17 +3,21 @@
   "title": "Aurora",
   "light": false,
   "colors": {
-    "bg": "#0b1518",
-    "surface": "#101c20",
-    "overlay": "#16262a",
-    "border": "#233a3e",
-    "text": "#e8f1ef",
-    "muted": "#9fb4b5",
-    "accent": "#6ee7c5",
-    "accent2": "#f6c58f",
+    "bg": "#0b1a1c",
+    "surface": "#12282a",
+    "overlay": "#183235",
+    "border": "#22403f",
+    "text": "#e8f2ef",
+    "muted": "#9db5b2",
+    "accent": "#5fe3b8",
+    "accent2": "#f2b880",
     "red": "#f07a6a",
-    "yellow": "#f6c58f",
-    "green": "#6ee7c5"
+    "yellow": "#f2b880",
+    "green": "#5fe3b8",
+    "secondary": "#2f6f66",
+    "extra": "#a89f88",
+    "highlight": "#f2b880",
+    "shadow": "#000000"
   },
   "art": {
     "sky": [
