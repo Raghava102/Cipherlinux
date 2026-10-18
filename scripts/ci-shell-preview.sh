@@ -75,32 +75,30 @@ if ls /dev/dri/card* >/dev/null 2>&1; then
   echo "== stage 2: Hyprland on $(ls /dev/dri | tr '\n' ' ')" > "$OUT/hypr-stage.log"
   pkill -x sway 2>/dev/null; pkill -f 'qs -p' 2>/dev/null; sleep 1
   apt-get install -y -q seatd >> "$OUT/apt.log" 2>&1
-  seatd -u root -g root > "$OUT/seatd.log" 2>&1 &
+  # a normal user, created like the live user (skeleton configs copied)
+  useradd -m -s /bin/bash -G video,render,input cipher 2>/dev/null || useradd -m -s /bin/bash cipher
+  U=/home/cipher
+  RT=/run/user/$(id -u cipher); mkdir -p "$RT"; chown cipher: "$RT"; chmod 700 "$RT"
+  cp "$HOME/.local/share/recently-used.xbel" "$U/.local/share/" 2>/dev/null || { mkdir -p "$U/.local/share"; cp "$HOME/.local/share/recently-used.xbel" "$U/.local/share/"; }
+  chown -R cipher: "$U"
+  seatd -u cipher -g cipher > "$OUT/seatd.log" 2>&1 &
   sleep 1
-  export LIBSEAT_BACKEND=seatd
-  unset WAYLAND_DISPLAY QT_QUICK_BACKEND
-  rm -f "$HOME/.local/state/cipher/"*.log
-  before=$(ls "$XDG_RUNTIME_DIR" 2>/dev/null)
-  timeout 90 Hyprland > "$OUT/hyprland.log" 2>&1 &
-  sleep 25
-  sock=""
-  for s in "$XDG_RUNTIME_DIR"/wayland-*; do
-    case "$s" in *.lock) continue ;; esac
-    echo "$before" | grep -qx "$(basename "$s")" || sock=$(basename "$s")
-  done
-  echo "hyprland socket: ${sock:-none}" >> "$OUT/hypr-stage.log"
+  runuser -u cipher -- env -i HOME="$U" USER=cipher LOGNAME=cipher PATH=/usr/local/bin:/usr/bin:/bin \
+      XDG_RUNTIME_DIR="$RT" LIBSEAT_BACKEND=seatd LANG=C.UTF-8 \
+      timeout 100 cipher-start > "$OUT/hyprland.log" 2>&1 &
+  sleep 30
+  sock=$(ls "$RT" | grep -E '^wayland-[0-9]+$' | head -n1)
+  HIS=$(ls "$RT/hypr" 2>/dev/null | head -n1)
+  echo "hyprland socket: ${sock:-none}  instance: ${HIS:-none}" >> "$OUT/hypr-stage.log"
+  as_user() { runuser -u cipher -- env HOME="$U" XDG_RUNTIME_DIR="$RT" WAYLAND_DISPLAY="$sock" HYPRLAND_INSTANCE_SIGNATURE="$HIS" "$@"; }
   if [ -n "$sock" ]; then
-    WAYLAND_DISPLAY=$sock grim "$OUT/8-hyprland-session.png" 2>> "$OUT/hypr-stage.log"
-    HIS=$(ls "$XDG_RUNTIME_DIR/hypr" 2>/dev/null | head -n1)
-    if [ -n "$HIS" ]; then
-      export HYPRLAND_INSTANCE_SIGNATURE=$HIS
-      hyprctl configerrors >> "$OUT/hypr-stage.log" 2>&1
-      hyprctl layers >> "$OUT/hypr-stage.log" 2>&1
-      WAYLAND_DISPLAY=$sock cipher-ipc controls toggle >> "$OUT/hypr-stage.log" 2>&1; sleep 2
-      WAYLAND_DISPLAY=$sock grim "$OUT/9-hyprland-controls.png" 2>> "$OUT/hypr-stage.log"
-    fi
+    as_user grim /tmp/8.png 2>> "$OUT/hypr-stage.log" && cp /tmp/8.png "$OUT/8-hyprland-session.png"
+    { echo "--- configerrors"; as_user hyprctl configerrors; echo "--- layers"; as_user hyprctl layers; echo "--- processes"; ps -eo user,pid,etime,args | grep -E 'Hyprland|qs |quickshell|cipher-shell|hypridle' | grep -v grep; } >> "$OUT/hypr-stage.log" 2>&1
+    as_user cipher-ipc controls toggle >> "$OUT/hypr-stage.log" 2>&1; sleep 2
+    as_user grim /tmp/9.png 2>> "$OUT/hypr-stage.log" && cp /tmp/9.png "$OUT/9-hyprland-controls.png"
   fi
-  cp "$HOME/.local/state/cipher/"*.log "$OUT/" 2>/dev/null || true
+  cp "$U/.local/state/cipher/"*.log "$OUT/" 2>/dev/null || true
+  for f in "$OUT"/session.log "$OUT"/shell.log; do [ -f "$f" ] && mv "$f" "${f%.log}-hyprland.log"; done
   pkill -x Hyprland 2>/dev/null || true
 else
   echo "no /dev/dri in container: skipped Hyprland stage" > "$OUT/hypr-stage.log"
