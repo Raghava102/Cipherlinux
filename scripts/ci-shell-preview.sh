@@ -64,7 +64,7 @@ ipc themes toggle;        shot 5-themes;         ipc menu close
 cipher-theme set porcelain >> "$OUT/theme.log" 2>&1; sleep 3; shot 6-porcelain
 cipher-theme set ember >> "$OUT/theme.log" 2>&1; sleep 3; shot 7-ember
 cipher-theme set aurora >> "$OUT/theme.log" 2>&1
-swaymsg output HEADLESS-1 resolution 1024x768 >> "$OUT/sway.log" 2>&1; sleep 4; shot 10-small-screen
+SWAYSOCK=$(ls "$XDG_RUNTIME_DIR"/sway-ipc.*.sock 2>/dev/null | head -n1) swaymsg output "*" resolution 1024x768 >> "$OUT/sway.log" 2>&1; sleep 4; shot 10-small-screen
 
 cipher-qs ipc show > "$OUT/ipc-targets.log" 2>&1 || true
 kill %1 %2 2>/dev/null || true
