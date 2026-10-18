@@ -1,0 +1,8 @@
+#!/bin/bash
+# cipher-qs [ARGS...] — run Quickshell against the Cipher shell config by PATH,
+# so it works no matter how the session sets XDG_CONFIG_DIRS.
+# A copy in ~/.config/quickshell/cipher overrides the system one.
+QS=$(command -v qs || command -v quickshell) || { echo "cipher-qs: quickshell is not installed" >&2; exit 127; }
+CFG="${XDG_CONFIG_HOME:-$HOME/.config}/quickshell/cipher"
+[ -f "$CFG/shell.qml" ] || CFG=/usr/share/cipher/shell
+exec "$QS" -p "$CFG" "$@"

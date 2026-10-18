@@ -6,7 +6,7 @@ import Quickshell.Io
 import Quickshell.Hyprland
 
 // Shared UI state and the IPC surface used by the cipher-* scripts and
-// Hyprland keybindings (`qs -c cipher ipc call <target> <fn>`).
+// Hyprland keybindings (`cipher-ipc <target> <fn>`).
 Singleton {
     id: root
 

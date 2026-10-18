@@ -50,11 +50,11 @@ for _ in $(seq 1 50); do ls "$XDG_RUNTIME_DIR"/wayland-* >/dev/null 2>&1 && brea
 export WAYLAND_DISPLAY; WAYLAND_DISPLAY=$(basename "$(ls "$XDG_RUNTIME_DIR"/wayland-? | head -n1)")
 
 export QT_QUICK_BACKEND=software QT_QPA_PLATFORM=wayland
-qs -c cipher > "$OUT/shell.log" 2>&1 &
+cipher-qs > "$OUT/shell.log" 2>&1 &
 sleep 10
 
 shot() { grim "$OUT/$1.png" 2>> "$OUT/grim.log"; }
-ipc() { qs -c cipher ipc call "$@" >> "$OUT/ipc.log" 2>&1; sleep 2.5; }
+ipc() { cipher-ipc "$@" >> "$OUT/ipc.log" 2>&1; sleep 2.5; }
 
 shot 1-desktop
 ipc controls toggle;      shot 2-quick-controls; ipc menu close
@@ -64,6 +64,45 @@ ipc themes toggle;        shot 5-themes;         ipc menu close
 cipher-theme set porcelain >> "$OUT/theme.log" 2>&1; sleep 3; shot 6-porcelain
 cipher-theme set ember >> "$OUT/theme.log" 2>&1; sleep 3; shot 7-ember
 
-qs -c cipher ipc show > "$OUT/ipc-targets.log" 2>&1 || true
+cipher-qs ipc show > "$OUT/ipc-targets.log" 2>&1 || true
 kill %1 %2 2>/dev/null || true
+ls -la "$OUT"
+
+# ---------------------------------------------------------------------------
+# Stage 2: the real session — Hyprland on a virtual KMS device (vkms), with
+# Cipher's own hyprland.conf and exec-once cipher-shell. Closest thing to a VM.
+if ls /dev/dri/card* >/dev/null 2>&1; then
+  echo "== stage 2: Hyprland on $(ls /dev/dri | tr '\n' ' ')" > "$OUT/hypr-stage.log"
+  pkill -x sway 2>/dev/null; pkill -f 'qs -p' 2>/dev/null; sleep 1
+  apt-get install -y -q seatd >> "$OUT/apt.log" 2>&1
+  seatd -u root -g root > "$OUT/seatd.log" 2>&1 &
+  sleep 1
+  export LIBSEAT_BACKEND=seatd
+  unset WAYLAND_DISPLAY QT_QUICK_BACKEND
+  rm -f "$HOME/.local/state/cipher/"*.log
+  before=$(ls "$XDG_RUNTIME_DIR" 2>/dev/null)
+  timeout 90 Hyprland > "$OUT/hyprland.log" 2>&1 &
+  sleep 25
+  sock=""
+  for s in "$XDG_RUNTIME_DIR"/wayland-*; do
+    case "$s" in *.lock) continue ;; esac
+    echo "$before" | grep -qx "$(basename "$s")" || sock=$(basename "$s")
+  done
+  echo "hyprland socket: ${sock:-none}" >> "$OUT/hypr-stage.log"
+  if [ -n "$sock" ]; then
+    WAYLAND_DISPLAY=$sock grim "$OUT/8-hyprland-session.png" 2>> "$OUT/hypr-stage.log"
+    HIS=$(ls "$XDG_RUNTIME_DIR/hypr" 2>/dev/null | head -n1)
+    if [ -n "$HIS" ]; then
+      export HYPRLAND_INSTANCE_SIGNATURE=$HIS
+      hyprctl configerrors >> "$OUT/hypr-stage.log" 2>&1
+      hyprctl layers >> "$OUT/hypr-stage.log" 2>&1
+      WAYLAND_DISPLAY=$sock cipher-ipc controls toggle >> "$OUT/hypr-stage.log" 2>&1; sleep 2
+      WAYLAND_DISPLAY=$sock grim "$OUT/9-hyprland-controls.png" 2>> "$OUT/hypr-stage.log"
+    fi
+  fi
+  cp "$HOME/.local/state/cipher/"*.log "$OUT/" 2>/dev/null || true
+  pkill -x Hyprland 2>/dev/null || true
+else
+  echo "no /dev/dri in container: skipped Hyprland stage" > "$OUT/hypr-stage.log"
+fi
 ls -la "$OUT"

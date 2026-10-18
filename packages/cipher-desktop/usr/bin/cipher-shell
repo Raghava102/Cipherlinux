@@ -1,33 +1,72 @@
 #!/bin/bash
 # cipher-shell           start the Cipher shell (supervised: restarts on crash)
 # cipher-shell restart   restart the running shell
-# cipher-shell logs      follow the shell log
-QS=$(command -v qs || command -v quickshell) || { echo "cipher-shell: quickshell is not installed" >&2; exit 1; }
+# cipher-shell logs      show the shell log
+#
+# Output goes to ~/.local/state/cipher/shell.log. If the shell keeps
+# crashing with GPU rendering, it falls back to software rendering, and
+# Hyprland shows a notice so a failure is never silent.
+LOG_DIR="${XDG_STATE_HOME:-$HOME/.local/state}/cipher"
+LOG="$LOG_DIR/shell.log"
+mkdir -p "$LOG_DIR"
+
+notify() {  # visible even when the shell (our notification daemon) is down
+  command -v hyprctl >/dev/null && hyprctl notify "$1" 12000 0 "$2" >/dev/null 2>&1
+}
 
 case "${1:-run}" in
   restart)
-    "$QS" kill -c cipher >/dev/null 2>&1 || true
+    pkill -f 'quickshell.*cipher|qs -p .*cipher' 2>/dev/null || true
     exit 0 ;;
   logs)
-    exec "$QS" log -c cipher -f ;;
+    exec tail -n 200 -F "$LOG" ;;
   run) ;;
   *) echo "usage: cipher-shell [run|restart|logs]" >&2; exit 2 ;;
 esac
 
+# Only one supervisor per session
+exec 9>"${XDG_RUNTIME_DIR:-/tmp}/cipher-shell.lock"
+flock -n 9 || { echo "cipher-shell: already running" >&2; exit 0; }
+
 cipher-theme init >/dev/null 2>&1 || true
-# Hyprland sources this; cipher-start normally writes it at login
 mkdir -p "$HOME/.config/cipher/current"
 [ -f "$HOME/.config/cipher/current/hardware.conf" ] || : > "$HOME/.config/cipher/current/hardware.conf"
 
-# Supervise: if the shell crashes, bring it back (with backoff) so you're never
-# left without a bar. A clean exit (status 0) ends the loop.
-delay=1
+[ -f "$LOG" ] && mv -f "$LOG" "$LOG.old"
+{
+  echo "=== cipher-shell $(date -Is)"
+  echo "WAYLAND_DISPLAY=${WAYLAND_DISPLAY:-} XDG_CONFIG_DIRS=${XDG_CONFIG_DIRS:-} HYPRLAND_INSTANCE_SIGNATURE=${HYPRLAND_INSTANCE_SIGNATURE:+set}"
+  command -v qs quickshell
+} >> "$LOG" 2>&1
+
+fails=0
+software=0
 while true; do
   started=$(date +%s)
-  "$QS" -c cipher -n
+  if [ "$software" -eq 1 ]; then
+    echo "=== starting (software rendering) $(date -Is)" >> "$LOG"
+    QT_QUICK_BACKEND=software cipher-qs >> "$LOG" 2>&1
+  else
+    echo "=== starting $(date -Is)" >> "$LOG"
+    cipher-qs >> "$LOG" 2>&1
+  fi
   status=$?
+  echo "=== exited with status $status $(date -Is)" >> "$LOG"
   [ "$status" -eq 0 ] && exit 0
-  # quick crash loops back off up to 30s; a long-lived run resets the delay
-  if [ $(( $(date +%s) - started )) -gt 60 ]; then delay=1; else delay=$(( delay * 2 > 30 ? 30 : delay * 2 )); fi
-  sleep "$delay"
+
+  if [ $(( $(date +%s) - started )) -lt 20 ]; then
+    fails=$((fails + 1))
+  else
+    fails=0
+  fi
+  if [ "$fails" -ge 2 ] && [ "$software" -eq 0 ]; then
+    software=1
+    fails=0
+    notify 0 "Cipher shell crashed — retrying with software rendering. Log: ~/.local/state/cipher/shell.log"
+  elif [ "$fails" -ge 3 ]; then
+    notify 3 "Cipher shell keeps crashing. Press SUPER+RETURN for a terminal and run: cipher-shell logs"
+    sleep 30
+    fails=0
+  fi
+  sleep 2
 done

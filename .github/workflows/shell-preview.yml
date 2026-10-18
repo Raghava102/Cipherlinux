@@ -20,7 +20,10 @@ jobs:
 
       - name: Render shell in a Debian 13 container
         run: |
-          sudo docker run --rm -v "$PWD":/src -w /src debian:trixie bash scripts/ci-shell-preview.sh
+          # a virtual KMS display so the real Hyprland session can run too
+          sudo modprobe vkms || sudo apt-get install -y -q "linux-modules-extra-$(uname -r)" && sudo modprobe vkms || true
+          ls -l /dev/dri || true
+          sudo docker run --rm --privileged -v /dev:/dev -v "$PWD":/src -w /src debian:trixie bash scripts/ci-shell-preview.sh
           sudo chown -R "$(id -u):$(id -g)" preview
 
       - name: Report shell errors

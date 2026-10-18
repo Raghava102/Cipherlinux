@@ -171,7 +171,7 @@ def notify_session(theme):
     # Hyprland border colors, live shell re-theme, GTK light/dark preference.
     if os.environ.get("HYPRLAND_INSTANCE_SIGNATURE"):
         run_quiet("hyprctl", "reload")
-    run_quiet("qs", "-c", "cipher", "ipc", "call", "theme", "reload")
+    run_quiet("cipher-ipc", "theme", "reload")
     scheme = "prefer-light" if theme["light"] else "prefer-dark"
     run_quiet("gsettings", "set", "org.gnome.desktop.interface", "color-scheme", scheme)
     run_quiet("gsettings", "set", "org.gnome.desktop.interface", "gtk-theme",
@@ -238,7 +238,7 @@ def cmd_bg(args):
         die(f"unknown bg action: {action}")
     remember_bg(name, target)
     write_state(theme, target)
-    run_quiet("qs", "-c", "cipher", "ipc", "call", "theme", "reload")
+    run_quiet("cipher-ipc", "theme", "reload")
 
 
 def main(argv):

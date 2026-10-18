@@ -5,9 +5,9 @@
 // Cipher shell — the whole Cipher desktop in one Quickshell process:
 // background, bar, menu/launcher, theme switcher, notifications, OSD, lock.
 //
-// Run:        qs -c cipher
-// Talk to it: qs -c cipher ipc call <target> <function> [args]
-//             (see `qs -c cipher ipc show` for every target)
+// Run:        cipher-qs            (qs -p /usr/share/cipher/shell)
+// Talk to it: cipher-ipc <target> <function> [args]
+//             (see `cipher-qs ipc show` for every target)
 // Customize:  copy /usr/share/cipher/shell to ~/.config/quickshell/cipher
 //             and it takes precedence. Prefer ~/.config/cipher/shell.json
 //             for simple tweaks so updates keep flowing.

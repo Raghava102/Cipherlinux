@@ -7,7 +7,7 @@ import qs.components
 
 // On-screen display for volume / brightness / mic (replaces swayosd).
 // Volume is picked up automatically from PipeWire; brightness is pushed by
-// `cipher-osd` (qs -c cipher ipc call osd show brightness 40).
+// `cipher-osd` (cipher-ipc osd show brightness 40).
 PanelWindow {
     id: win
 
