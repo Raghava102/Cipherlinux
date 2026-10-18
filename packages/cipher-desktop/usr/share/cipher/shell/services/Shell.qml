@@ -33,6 +33,12 @@ Singleton {
     function close() { root.overlay = ""; }
 
     // Run a shell command detached from the shell process.
+    // Start an app from its desktop entry (see cipher-open-app)
+    function launch(entry) {
+        if (!entry) return;
+        Quickshell.execDetached(["cipher-open-app", entry.id]);
+    }
+
     function run(cmd) {
         if (!cmd) return;
         Quickshell.execDetached(["sh", "-c", cmd]);

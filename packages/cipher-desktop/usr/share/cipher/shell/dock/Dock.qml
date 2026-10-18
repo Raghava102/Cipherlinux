@@ -129,10 +129,10 @@ PanelWindow {
                             const i = modelData.wins.findIndex(w => w.activated);
                             modelData.wins[(i + 1) % modelData.wins.length].activate();
                         } else if (modelData.entry) {
-                            modelData.entry.execute();
+                            Shell.launch(modelData.entry);
                         }
                     }
-                    onLaunchNew: if (modelData.entry) modelData.entry.execute()
+                    onLaunchNew: if (modelData.entry) Shell.launch(modelData.entry)
                 }
             }
         }

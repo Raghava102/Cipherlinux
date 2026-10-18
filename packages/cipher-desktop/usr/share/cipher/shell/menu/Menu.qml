@@ -137,7 +137,7 @@ PanelWindow {
 
     function activate(it) {
         if (!it) return;
-        if (it.entry) { it.entry.execute(); Shell.close(); return; }
+        if (it.entry) { Shell.launch(it.entry); Shell.close(); return; }
         if (it.children || it.provider) { enter([it]); return; }
         if (it.value !== undefined && it.run) {
             Shell.run(it.run.split("{}").join(quote(it.value)));

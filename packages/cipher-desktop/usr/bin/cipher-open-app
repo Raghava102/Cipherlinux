@@ -1,0 +1,31 @@
+#!/bin/bash
+# cipher-open-app <desktop-id>  — start an app the way the dock and menu do.
+# Goes through GIO (gtk-launch) so D-Bus-activated apps (GNOME Software,
+# Settings, ...) start properly, gives GNOME apps that refuse to run outside
+# GNOME the environment they expect, and doesn't leak the shell's own
+# software-rendering setting into apps.
+id="${1:?usage: cipher-open-app <desktop-id>}"; shift
+id="${id%.desktop}"
+log="${XDG_STATE_HOME:-$HOME/.local/state}/cipher/apps.log"
+mkdir -p "$(dirname "$log")"
+
+unset QT_QUICK_BACKEND QSG_RENDER_LOOP
+case "$id" in
+  # These check XDG_CURRENT_DESKTOP and exit unless it says GNOME
+  org.gnome.Settings|gnome-control-center|org.gnome.Settings.*|gnome-*-panel)
+    export XDG_CURRENT_DESKTOP=GNOME ;;
+esac
+
+echo "$(date -Is) open $id" >> "$log"
+if command -v gtk-launch >/dev/null 2>&1; then
+  setsid -f gtk-launch "$id" "$@" >> "$log" 2>&1 < /dev/null && exit 0
+fi
+# fallback: run the Exec line ourselves
+for dir in "${XDG_DATA_HOME:-$HOME/.local/share}/applications" /usr/local/share/applications /usr/share/applications /var/lib/flatpak/exports/share/applications; do
+  f="$dir/$id.desktop"
+  [ -f "$f" ] || continue
+  exe=$(sed -n 's/^Exec=//p' "$f" | head -n1 | sed -E 's/ ?%[fFuUdDnNickvm]//g')
+  [ -n "$exe" ] && { setsid -f sh -c "exec $exe" >> "$log" 2>&1 < /dev/null; exit 0; }
+done
+echo "$(date -Is) cannot open $id" >> "$log"
+exit 1
