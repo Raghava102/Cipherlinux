@@ -147,8 +147,8 @@ PanelWindow {
                     tint: Net.kind === "none" ? Theme.muted : Theme.text
                     onClicked: Shell.open("controls", [])
                 }
-                Loader { source: "Volume.qml"; visible: !!item && item.visible }
-                Loader { source: "Battery.qml"; visible: !!item && item.visible }
+                Loader { source: "Volume.qml"; visible: !!item }
+                Loader { source: "Battery.qml"; visible: !!item && item.present }
                 BarButton {
                     icon: Notifs.history.length > 0 ? "bell-dot" : "bell"
                     onClicked: Shell.open("notifications", [])

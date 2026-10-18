@@ -12,7 +12,9 @@ BarButton {
                                   || dev?.state === UPowerDeviceState.FullyCharged
     property bool showPercent: true
 
-    visible: dev?.isLaptopBattery ?? false
+    // read by the bar (not `visible`, which a hidden parent would force false)
+    readonly property bool present: dev?.isLaptopBattery ?? false
+    visible: present
     icon: charging ? "battery-charging"
         : pct < 15 ? "battery-low"
         : pct < 50 ? "battery-medium"
