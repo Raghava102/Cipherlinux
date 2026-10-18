@@ -86,6 +86,7 @@ for id in foot thunar org.gnome.TextEditor org.gnome.Calculator org.gnome.Nautil
   echo "$ok $id ($r)" >> "$OUT/dock-launch.log"
   swaymsg '[app_id=".*"] kill' >/dev/null 2>&1; sleep 1
 done
+{ echo "--- apps.log"; cat "$HOME/.local/state/cipher/apps.log"; echo "--- direct run"; cipher-open-app foot; echo "rc=$?"; sleep 3; swaymsg -t get_tree | jq -r '.. | objects | select((.pid? // 0) > 0) | "\(.pid) \(.app_id)"'; echo "--- ps"; ps -eo pid,ppid,args | grep -E 'foot|gtk-launch|cipher-open' | grep -v grep; echo "--- which"; command -v gtk-launch setsid cipher-open-app; } >> "$OUT/dock-launch-debug.log" 2>&1
 cat "$OUT/dock-launch.log"
 kill %1 %2 2>/dev/null || true
 ls -la "$OUT"
