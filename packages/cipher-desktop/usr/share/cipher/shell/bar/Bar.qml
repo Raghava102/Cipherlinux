@@ -134,7 +134,7 @@ PanelWindow {
                     MouseArea { anchors.fill: parent; cursorShape: Qt.PointingHandCursor; onClicked: Shell.open("controls", []) }
                 }
 
-                Loader { source: "Tray.qml"; onLoaded: item.barWindow = bar }
+                Loader { source: "Tray.qml"; visible: !!item && item.implicitWidth > 0; onLoaded: item.barWindow = bar }
 
                 BarButton {
                     visible: Shell.dnd
@@ -147,8 +147,8 @@ PanelWindow {
                     tint: Net.kind === "none" ? Theme.muted : Theme.text
                     onClicked: Shell.open("controls", [])
                 }
-                Loader { source: "Volume.qml" }
-                Loader { source: "Battery.qml" }
+                Loader { source: "Volume.qml"; visible: !!item && item.visible }
+                Loader { source: "Battery.qml"; visible: !!item && item.visible }
                 BarButton {
                     icon: Notifs.history.length > 0 ? "bell-dot" : "bell"
                     onClicked: Shell.open("notifications", [])
