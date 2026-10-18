@@ -60,6 +60,8 @@ PanelWindow {
 
     readonly property var toplevels: ToplevelManager.toplevels.values
     readonly property var items: {
+        // touch the app list so this re-evaluates once desktop entries are scanned
+        const known = DesktopEntries.applications.values.length;
         const out = [];
         const used = new Set();
         for (const id of Settings.dockPinned) {
