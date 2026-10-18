@@ -47,6 +47,13 @@ bar_visible() {
 
 fails=0
 software=${CIPHER_SOFTWARE_RENDERING:-0}
+# Virtual GPUs (VMware, VirtualBox, QEMU) often can't draw Qt Quick layers:
+# start straight in software rendering there. Real hardware uses the GPU.
+if [ -z "${CIPHER_SOFTWARE_RENDERING:-}" ] && command -v systemd-detect-virt >/dev/null \
+   && systemd-detect-virt --vm --quiet; then
+  software=1
+  echo "=== virtual machine ($(systemd-detect-virt)): using software rendering" >> "$LOG"
+fi
 while true; do
   started=$(date +%s)
   if [ "$software" -eq 1 ]; then

@@ -15,7 +15,7 @@ PanelWindow {
     visible: Settings.greeting && Shell.overlay !== "apps" && Shell.overlay !== "menu" && Shell.overlay !== "themes"
 
     anchors { top: true; left: true }
-    margins { top: 90; left: 96 }
+    margins { top: (win.screen?.width ?? 1920) < 1300 ? 70 : 90; left: (win.screen?.width ?? 1920) < 1300 ? 48 : 96 }
     implicitWidth: 960
     implicitHeight: col.implicitHeight + 10
     exclusionMode: ExclusionMode.Normal
@@ -96,7 +96,7 @@ PanelWindow {
         Text {
             text: win.greeting + (win.person ? ", " + win.person : "")
             font.family: Theme.displayFont
-            font.pixelSize: 64
+            font.pixelSize: (win.screen?.width ?? 1920) < 1300 ? 46 : 64
             font.weight: Font.Normal
             color: Theme.text
             style: Text.Raised

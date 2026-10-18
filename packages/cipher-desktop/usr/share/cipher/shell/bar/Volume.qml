@@ -12,7 +12,7 @@ BarButton {
     readonly property bool muted: sink?.audio?.muted ?? false
 
     icon: muted || volume <= 0.001 ? "volume-x" : volume < 0.5 ? "volume-1" : "volume-2"
-    label: muted ? "" : Math.round(volume * 100) + "%"
+    label: muted || (QsWindow.window?.width ?? 2000) < 1300 ? "" : Math.round(volume * 100) + "%"
     tint: muted ? Theme.muted : Theme.text
 
     onClicked: m => {

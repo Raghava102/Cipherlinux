@@ -7,6 +7,7 @@ import qs.components
 Rectangle {
     id: root
     property bool showWeek: false
+    property bool showDate: true
     readonly property string timeFormat: Settings.clock24h ? "HH:mm" : "h:mm AP"
 
     implicitHeight: Settings.barHeight - 10
@@ -20,6 +21,7 @@ Rectangle {
         spacing: 8
         Label { text: Qt.formatDateTime(clock.date, root.timeFormat); font.weight: Font.DemiBold }
         Label {
+            visible: root.showDate || root.showWeek
             text: root.showWeek ? "Week " + root.isoWeek(clock.date) : Qt.formatDateTime(clock.date, "ddd d MMM")
             color: Theme.muted
         }

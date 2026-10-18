@@ -19,6 +19,9 @@ PanelWindow {
     readonly property bool atTop: Settings.barPosition !== "bottom"
     readonly property int pill: Settings.barHeight
     readonly property int edge: 10
+    // narrow screens (small VM windows, 1366px laptops) get a compact bar
+    readonly property bool compact: width < 1300
+    readonly property bool tiny: width < 1050
 
     anchors {
         top: bar.atTop
@@ -67,9 +70,9 @@ PanelWindow {
                         onClicked: m => Shell.open(m.button === Qt.RightButton ? "apps" : "menu", [])
                     }
                 }
-                Label { text: "Cipher"; font.weight: Font.Bold; font.pixelSize: Theme.fontSize + 1 }
-                Rectangle { implicitWidth: 1; implicitHeight: 16; color: Theme.alpha(Theme.text, 0.15) }
-                ActiveWindow { Layout.maximumWidth: Math.max(80, bar.width / 2 - 420) }
+                Label { visible: !bar.tiny; text: "Cipher"; font.weight: Font.Bold; font.pixelSize: Theme.fontSize + 1 }
+                Rectangle { visible: !bar.compact; implicitWidth: 1; implicitHeight: 16; color: Theme.alpha(Theme.text, 0.15) }
+                ActiveWindow { visible: !bar.compact; Layout.maximumWidth: Math.max(80, bar.width / 2 - 460) }
             }
 
             MouseArea {
@@ -81,8 +84,11 @@ PanelWindow {
 
         // ---- center pill: workspaces --------------------------------------
         Glass {
-            anchors.horizontalCenter: parent.horizontalCenter
+            id: centerPill
             anchors.verticalCenter: parent.verticalCenter
+            // centered when there's room, otherwise squeezed between the side pills
+            x: Math.max(leftPill.width + 12,
+                        Math.min((parent.width - width) / 2, rightPill.x - width - 12))
             height: bar.pill
             width: spaces.implicitWidth + 10
             radius: height / 2
@@ -92,6 +98,7 @@ PanelWindow {
 
         // ---- right pill: status ------------------------------------------
         Glass {
+            id: rightPill
             anchors.right: parent.right
             anchors.verticalCenter: parent.verticalCenter
             height: bar.pill
@@ -107,7 +114,7 @@ PanelWindow {
                 // Shield chip
                 Rectangle {
                     implicitHeight: bar.pill - 12
-                    implicitWidth: shieldRow.implicitWidth + 20
+                    implicitWidth: shieldRow.implicitWidth + (bar.compact ? 14 : 20)
                     radius: height / 2
                     color: Shield.protectedNow ? Theme.tint : Theme.alpha(Theme.yellow, 0.16)
                     Row {
@@ -116,6 +123,7 @@ PanelWindow {
                         spacing: 6
                         Icon { name: "shield-check"; size: 13; color: Shield.protectedNow ? Theme.accent : Theme.yellow; anchors.verticalCenter: parent.verticalCenter }
                         Label {
+                            visible: !bar.compact
                             text: Shield.protectedNow ? "Protected" : "No firewall"
                             color: Shield.protectedNow ? Theme.accent : Theme.yellow
                             font.pixelSize: Theme.fontSize - 1
@@ -145,7 +153,7 @@ PanelWindow {
                     icon: Notifs.history.length > 0 ? "bell-dot" : "bell"
                     onClicked: Shell.open("notifications", [])
                 }
-                Clock {}
+                Clock { showDate: !bar.tiny }
             }
         }
     }
