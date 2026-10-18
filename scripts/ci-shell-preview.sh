@@ -82,6 +82,8 @@ if ls /dev/dri/card* >/dev/null 2>&1; then
   U=/home/cipher
   RT=/run/user/$(id -u cipher); mkdir -p "$RT"; chown cipher: "$RT"; chmod 700 "$RT"
   cp "$HOME/.local/share/recently-used.xbel" "$U/.local/share/" 2>/dev/null || { mkdir -p "$U/.local/share"; cp "$HOME/.local/share/recently-used.xbel" "$U/.local/share/"; }
+  # test the software-rendering path (what a VM without 3D acceleration gets)
+  mkdir -p "$U/.local/state/cipher"; touch "$U/.local/state/cipher/software-render"
   chown -R cipher: "$U"
   seatd -u cipher -g cipher > "$OUT/seatd.log" 2>&1 &
   sleep 1
