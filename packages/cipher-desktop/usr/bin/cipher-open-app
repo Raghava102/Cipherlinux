@@ -37,8 +37,22 @@ fi
 direct=0
 case "$id" in *-*) [ -n "$f" ] && grep -q '^DBusActivatable=true' "$f" && direct=1 ;; esac
 
+windows() { hyprctl clients -j 2>/dev/null | grep -c '"pid"'; }
+
 if [ "$direct" = 0 ] && command -v gtk-launch >/dev/null 2>&1; then
-  setsid -f gtk-launch "$id" "$@" >> "$log" 2>&1 < /dev/null && exit 0
+  before=$(windows)
+  setsid -f gtk-launch "$id" "$@" >> "$log" 2>&1 < /dev/null
+  # Safety net: if no new window shows up, start the app directly instead
+  # (single-instance apps just raise the window they already opened)
+  if command -v hyprctl >/dev/null 2>&1 && [ -n "${HYPRLAND_INSTANCE_SIGNATURE:-}" ]; then
+    for _ in $(seq 1 16); do
+      sleep 0.5
+      [ "$(windows)" -gt "${before:-0}" ] && { echo "$(date -Is) ok $id" >> "$log"; exit 0; }
+    done
+    echo "$(date -Is) no window from gtk-launch $id after 8s; starting it directly" >> "$log"
+  else
+    exit 0
+  fi
 fi
 # fallback: run the Exec line ourselves
 if [ -n "$f" ]; then
