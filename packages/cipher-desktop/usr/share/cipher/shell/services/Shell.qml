@@ -59,6 +59,17 @@ Singleton {
         function close(): void { root.close(); }
     }
 
+    // cipher-ipc apps launch <desktop-id> — same path as clicking a dock tile
+    IpcHandler {
+        target: "apps"
+        function launch(id: string): string {
+            const e = DesktopEntries.byId(id) ?? DesktopEntries.heuristicLookup(id);
+            if (!e) return "not found: " + id;
+            root.launch(e);
+            return "launched " + e.id;
+        }
+    }
+
     IpcHandler {
         target: "controls"
         function toggle(): void { root.open("controls", []); }

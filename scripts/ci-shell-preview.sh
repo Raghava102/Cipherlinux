@@ -69,6 +69,24 @@ ipc controls toggle; shot 11-small-controls; ipc menu close
 ipc menu apps; shot 12-small-apps; ipc menu close
 
 cipher-qs ipc show > "$OUT/ipc-targets.log" 2>&1 || true
+
+# Launch apps exactly like a dock click (shell -> Shell.launch -> cipher-open-app)
+SWAYSOCK=$(ls "$XDG_RUNTIME_DIR"/sway-ipc.*.sock 2>/dev/null | head -n1); export SWAYSOCK
+apt-get install -y -q jq foot thunar gnome-text-editor gnome-calculator nautilus >> "$OUT/apt.log" 2>&1
+dbus-update-activation-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP 2>/dev/null
+for id in foot thunar org.gnome.TextEditor org.gnome.Calculator org.gnome.Nautilus; do
+  before=$(swaymsg -t get_tree | jq '[.. | objects | select((.pid? // 0) > 0)] | length')
+  r=$(cipher-ipc apps launch "$id" 2>&1)
+  ok=FAIL
+  for _ in $(seq 1 20); do
+    sleep 1
+    now=$(swaymsg -t get_tree | jq '[.. | objects | select((.pid? // 0) > 0)] | length')
+    [ "$now" -gt "$before" ] && { ok=PASS; break; }
+  done
+  echo "$ok $id ($r)" >> "$OUT/dock-launch.log"
+  swaymsg '[app_id=".*"] kill' >/dev/null 2>&1; sleep 1
+done
+cat "$OUT/dock-launch.log"
 kill %1 %2 2>/dev/null || true
 ls -la "$OUT"
 

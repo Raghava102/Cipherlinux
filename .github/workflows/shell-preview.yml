@@ -38,6 +38,14 @@ jobs:
           fi
           echo "::notice title=hyprland config::OK"
 
+      - name: Dock launch check
+        if: always()
+        run: |
+          f=preview/dock-launch.log
+          [ -f "$f" ] || exit 0
+          while read -r l; do case "$l" in PASS*) echo "::notice title=dock launch::$l";; *) echo "::error title=dock launch::$l";; esac; done < "$f"
+          ! grep -q '^FAIL' "$f"
+
       - name: Report shell errors
         if: always()
         run: |
