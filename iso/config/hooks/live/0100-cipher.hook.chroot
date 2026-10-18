@@ -105,13 +105,8 @@ for v in text text-dark; do
 done
 gtk-update-icon-cache -f -q /usr/share/icons/hicolor 2>/dev/null || true
 
-# GNOME app grid: hide helper entries that aren't apps
-for f in /usr/share/applications/*.desktop; do
-    if grep -q -E '^Name=(Foot Client|Foot Server|KDE System Settings|Bulk Rename|Hyprland Polkit Agent|uxterm|xterm)' "$f" \
-       || grep -q -E '^Exec=(footclient|foot --server|systemsettings)' "$f"; then
-        grep -q '^NoDisplay=true' "$f" || sed -i '0,/^\[Desktop Entry\]/s//[Desktop Entry]\nNoDisplay=true/' "$f"
-    fi
-done
+# App grids (Cipher and GNOME): hide helpers that aren't apps
+/usr/lib/cipher/tidy-apps
 
 # Compressed swap in RAM (zram): half of memory, zstd
 if [ -f /etc/default/zramswap ]; then

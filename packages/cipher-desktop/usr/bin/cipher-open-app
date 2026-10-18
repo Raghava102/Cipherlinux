@@ -17,15 +17,28 @@ case "$id" in
 esac
 
 echo "$(date -Is) open $id" >> "$log"
+
+desktop_file() {
+  for dir in "${XDG_DATA_HOME:-$HOME/.local/share}/applications" /usr/local/share/applications /usr/share/applications /var/lib/flatpak/exports/share/applications; do
+    [ -f "$dir/$1.desktop" ] && { echo "$dir/$1.desktop"; return 0; }
+  done
+  return 1
+}
+f=$(desktop_file "$id")
+
+# Terminal apps (btop, nano, ...): open in Cipher's terminal, not gnome-terminal
+if [ -n "$f" ] && grep -q '^Terminal=true' "$f"; then
+  exe=$(sed -n 's/^Exec=//p' "$f" | head -n1 | sed -E 's/ ?%[fFuUdDnNickvm]//g')
+  setsid -f cipher-launch terminal sh -c "$exe" >> "$log" 2>&1 < /dev/null
+  exit 0
+fi
 if command -v gtk-launch >/dev/null 2>&1; then
   setsid -f gtk-launch "$id" "$@" >> "$log" 2>&1 < /dev/null && exit 0
 fi
 # fallback: run the Exec line ourselves
-for dir in "${XDG_DATA_HOME:-$HOME/.local/share}/applications" /usr/local/share/applications /usr/share/applications /var/lib/flatpak/exports/share/applications; do
-  f="$dir/$id.desktop"
-  [ -f "$f" ] || continue
+if [ -n "$f" ]; then
   exe=$(sed -n 's/^Exec=//p' "$f" | head -n1 | sed -E 's/ ?%[fFuUdDnNickvm]//g')
   [ -n "$exe" ] && { setsid -f sh -c "exec $exe" >> "$log" 2>&1 < /dev/null; exit 0; }
-done
+fi
 echo "$(date -Is) cannot open $id" >> "$log"
 exit 1

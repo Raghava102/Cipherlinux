@@ -1,0 +1,17 @@
+#!/bin/sh
+# Hide entries that aren't apps you'd open from a grid (helpers, duplicates,
+# X11-only terminals). Run at image build time; safe to run again.
+dir=${1:-/usr/share/applications}
+for id in debian-xterm debian-uxterm foot-server footclient im-config blueman-adapters \
+          gnome-system-monitor-kde org.kde.kinfocenter systemsettings kdesystemsettings \
+          hyprpolkitagent thunar-settings; do
+    f="$dir/$id.desktop"
+    [ -f "$f" ] || continue
+    grep -q '^NoDisplay=true' "$f" || sed -i '0,/^\[Desktop Entry\]/s//[Desktop Entry]\nNoDisplay=true/' "$f"
+done
+# anything else named like a KDE settings shell
+for f in "$dir"/*.desktop; do
+    grep -q -E '^Name=KDE System Settings' "$f" 2>/dev/null || continue
+    grep -q '^NoDisplay=true' "$f" || sed -i '0,/^\[Desktop Entry\]/s//[Desktop Entry]\nNoDisplay=true/' "$f"
+done
+exit 0

@@ -22,7 +22,8 @@ echo "installing: $PKGS" > "$OUT/apt.log"
 apt-get install -y -q $PKGS >> "$OUT/apt.log" 2>&1 || { tail -30 "$OUT/apt.log"; echo "::warning::some packages failed to install"; }
 ./scripts/build-deb.sh >> "$OUT/apt.log" 2>&1
 apt-get install -y -q -t trixie-backports ./out/cipher-desktop_*_all.deb >> "$OUT/apt.log" 2>&1 || { tail -30 "$OUT/apt.log"; exit 1; }
-apt-get install -y -q sway grim jq dbus dbus-user-session libgtk-3-bin >> "$OUT/apt.log" 2>&1
+apt-get install -y -q sway xwayland grim jq dbus dbus-user-session libgtk-3-bin >> "$OUT/apt.log" 2>&1
+/usr/lib/cipher/tidy-apps
 dpkg -l | awk '/^ii/{print $2" "$3}' > "$OUT/packages.txt"
 
 # system bus (polkit, NetworkManager, accounts-daemon... activate on demand)
@@ -40,6 +41,7 @@ OUT=$1
 cat > /tmp/sway.conf <<'SWAY'
 output HEADLESS-1 resolution 1440x900 position 0 0
 default_border none
+xwayland enable
 SWAY
 WLR_BACKENDS=headless WLR_RENDERER=pixman WLR_LIBINPUT_NO_DEVICES=1 sway -c /tmp/sway.conf > "$OUT/sway.log" 2>&1 &
 for _ in $(seq 1 50); do ls "$XDG_RUNTIME_DIR"/wayland-* >/dev/null 2>&1 && break; sleep 0.2; done
@@ -48,6 +50,9 @@ export SWAYSOCK; SWAYSOCK=$(ls "$XDG_RUNTIME_DIR"/sway-ipc.*.sock | head -n1)
 # the Cipher session's environment
 export XDG_CURRENT_DESKTOP=Hyprland XDG_SESSION_DESKTOP=cipher XDG_SESSION_TYPE=wayland
 export QT_QPA_PLATFORM="wayland;xcb" GDK_BACKEND="wayland,x11" MOZ_ENABLE_WAYLAND=1
+export DISPLAY=:0
+# like the session's autostart.conf: D-Bus-started apps get the display
+dbus-update-activation-environment WAYLAND_DISPLAY DISPLAY XDG_CURRENT_DESKTOP XDG_SESSION_TYPE XDG_SESSION_DESKTOP GDK_BACKEND QT_QPA_PLATFORM MOZ_ENABLE_WAYLAND
 export QT_QUICK_BACKEND=software   # what the shell has in a VM; the launcher must drop it
 cipher-theme init >/dev/null 2>&1
 
