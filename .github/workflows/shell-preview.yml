@@ -1,0 +1,50 @@
+# Renders the Cipher shell headlessly (Debian 13 + Quickshell + sway) and
+# publishes screenshots and logs to the `ci-preview` branch.
+name: Shell preview
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ["packages/**", "scripts/ci-shell-preview.sh"]
+
+permissions:
+  contents: write
+
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Render shell in a Debian 13 container
+        run: |
+          sudo docker run --rm -v "$PWD":/src -w /src debian:trixie bash scripts/ci-shell-preview.sh
+          sudo chown -R "$(id -u):$(id -g)" preview
+
+      - name: Report shell errors
+        if: always()
+        run: |
+          f=preview/shell.log
+          [ -f "$f" ] || exit 0
+          n=$(grep -ciE 'error|warn|failed|cannot|unable' "$f" || true)
+          echo "::notice title=shell log::$n warning/error lines (see ci-preview branch)"
+          grep -iE 'error|failed|cannot|unable' "$f" | head -8 | while IFS= read -r l; do
+            echo "::warning title=shell::${l:0:400}"
+          done
+
+      - name: Publish to ci-preview branch
+        if: always()
+        run: |
+          [ -d preview ] || exit 0
+          SHA=$(git rev-parse --short HEAD)
+          cd preview
+          git init -q
+          git config user.name "cipher-ci"
+          git config user.email "cipher-ci@users.noreply.github.com"
+          git checkout -q -b ci-preview
+          echo "Shell preview for $SHA" > README.md
+          git add -A
+          git commit -q -m "Shell preview for $SHA"
+          git push -q -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" ci-preview
