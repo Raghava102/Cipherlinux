@@ -2,7 +2,22 @@
 # Start every user in the Cipher session the first time they log in.
 # Runs once per user (before GDM starts); after that GDM remembers whatever
 # the user picks with the gear button on the login screen (Cipher or GNOME).
-[ -f /usr/share/wayland-sessions/cipher.desktop ] || exit 0
+[ -f /usr/share/wayland-sessions/cipher.desktop ] || 
+# Log straight in: the first person set up on this computer (by the installer)
+# gets automatic login, once. Turn it off in Settings > Users.
+first=/var/lib/cipher/autologin-configured
+conf=/etc/gdm3/daemon.conf
+if [ ! -e "$first" ] && [ -f "$conf" ] && ! grep -q '^AutomaticLogin=' "$conf" \
+   && ! grep -qw 'boot=live' /proc/cmdline; then
+    user=$(getent passwd | awk -F: '$3>=1000 && $3<60000 && $7 !~ /(nologin|false)$/ {print $1; exit}')
+    if [ -n "$user" ]; then
+        sed -i '/^AutomaticLoginEnable=/d' "$conf"
+        sed -i "s/^\[daemon\]/[daemon]\nAutomaticLoginEnable=true\nAutomaticLogin=$user/" "$conf"
+        echo "cipher: automatic login for $user"
+    fi
+    touch "$first"
+fi
+exit 0
 dir=/var/lib/AccountsService/users
 mark=/var/lib/cipher/default-session
 mkdir -p "$dir" "$mark"
@@ -23,4 +38,19 @@ getent passwd | while IFS=: read -r name _ uid _ _ _ shell; do
     touch "$mark/$name"
     echo "cipher: $name will start in the Cipher session"
 done
+
+# Log straight in: the first person set up on this computer (by the installer)
+# gets automatic login, once. Turn it off in Settings > Users.
+first=/var/lib/cipher/autologin-configured
+conf=/etc/gdm3/daemon.conf
+if [ ! -e "$first" ] && [ -f "$conf" ] && ! grep -q '^AutomaticLogin=' "$conf" \
+   && ! grep -qw 'boot=live' /proc/cmdline; then
+    user=$(getent passwd | awk -F: '$3>=1000 && $3<60000 && $7 !~ /(nologin|false)$/ {print $1; exit}')
+    if [ -n "$user" ]; then
+        sed -i '/^AutomaticLoginEnable=/d' "$conf"
+        sed -i "s/^\[daemon\]/[daemon]\nAutomaticLoginEnable=true\nAutomaticLogin=$user/" "$conf"
+        echo "cipher: automatic login for $user"
+    fi
+    touch "$first"
+fi
 exit 0

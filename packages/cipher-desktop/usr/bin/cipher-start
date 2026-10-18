@@ -42,7 +42,41 @@ mkdir -p "$(dirname "$LOG")"
 exec >"$LOG" 2>&1
 echo "cipher-start $(date -Is) on $(cat /sys/class/dmi/id/product_name 2>/dev/null)"
 
-if command -v start-hyprland >/dev/null 2>&1; then
-  exec start-hyprland
+# Software rendering: VMs without 3D acceleration (VMware with "Accelerate 3D
+# graphics" off, VirtualBox, ...) have no usable GPU, and Hyprland crashes at
+# start. If the compositor dies within a minute, start it again with Mesa's
+# software renderer (llvmpipe) and remember that for the next login.
+SOFT="${XDG_STATE_HOME:-$HOME/.local/state}/cipher/software-render"
+hypr() {
+  if command -v start-hyprland >/dev/null 2>&1; then start-hyprland; else Hyprland; fi
+}
+soft_env() {
+  export LIBGL_ALWAYS_SOFTWARE=1 GALLIUM_DRIVER=llvmpipe WLR_RENDERER_ALLOW_SOFTWARE=1
+  export AQ_NO_ATOMIC=1 QT_QUICK_BACKEND=software
+}
+
+if [ -f "$SOFT" ]; then
+  echo "software rendering (remembered from an earlier login; rm $SOFT to retry the GPU)"
+  soft_env
+  command -v start-hyprland >/dev/null 2>&1 && exec start-hyprland
+  exec Hyprland
 fi
-exec Hyprland
+
+t0=$(date +%s)
+hypr
+rc=$?
+dt=$(( $(date +%s) - t0 ))
+echo "compositor exited: code $rc after ${dt}s"
+if [ "$dt" -lt 60 ] && [ "$rc" -ne 0 ]; then
+  echo "== quick crash: retrying with software rendering $(date -Is)"
+  touch "$SOFT"
+  soft_env
+  t0=$(date +%s)
+  hypr
+  rc=$?
+  dt=$(( $(date +%s) - t0 ))
+  echo "compositor exited: code $rc after ${dt}s (software)"
+  # it didn't help: forget it so the GPU is tried again next time
+  [ "$dt" -lt 60 ] && [ "$rc" -ne 0 ] && rm -f "$SOFT"
+fi
+exit "$rc"
