@@ -3,6 +3,9 @@
 set -e
 export DEBIAN_FRONTEND=noninteractive
 
+# Build diagnostics: shown as notes on the GitHub Actions run.
+diag() { printf '::notice title=%s::%s\n' "$1" "$(printf '%s' "$2" | sed ':a;N;$!ba;s/\n/%0A/g')"; }
+
 apt-get update
 
 # Hyprland + Quickshell from trixie-backports (with their newer dependencies)
@@ -14,7 +17,22 @@ apt-get install -y -t trixie-backports hyprsunset || echo "cipher: hyprsunset no
 
 # The Cipher desktop itself (dropped in by scripts/build-iso.sh)
 apt-get install -y /root/cipher-packages/cipher-desktop_*.deb
+diag "os-release (before fix)" "$(ls -l /etc/os-release /usr/lib/os-release* 2>&1)
+$(dpkg-divert --list '*os-release*' 2>&1)
+$(head -n 3 /etc/os-release)"
+
+# Cipher identifies itself everywhere (GNOME About, hostnamectl, neofetch)
+if ! grep -q '^ID=cipher' /usr/lib/os-release; then
+    echo "cipher: os-release is not Cipher's, restoring it from the package"
+    dpkg-divert --package cipher-desktop --add --rename --divert /usr/lib/os-release.debian /usr/lib/os-release || true
+    dpkg -i /root/cipher-packages/cipher-desktop_*.deb || true
+fi
 rm -rf /root/cipher-packages
+if [ -L /etc/os-release ] || [ ! -e /etc/os-release ]; then
+    ln -sf ../usr/lib/os-release /etc/os-release
+else
+    cp /usr/lib/os-release /etc/os-release
+fi
 
 # Login: GDM (pick Cipher or GNOME); the live ISO auto-logs into Cipher
 echo /usr/sbin/gdm3 > /etc/X11/default-display-manager
@@ -53,8 +71,8 @@ if [ -d /etc/calamares/branding/debian ]; then
     python3 /usr/share/cipher/branding/calamares-rebrand.py /etc/calamares/branding/cipher
     sed -i 's/^branding:.*/branding: cipher/' /etc/calamares/settings.conf
 fi
-for f in /usr/share/applications/install-debian.desktop /usr/share/applications/calamares.desktop; do
-    [ -f "$f" ] || continue
+diag "installer desktop files" "$(grep -l -i -E 'calamares|install-debian' /usr/share/applications/*.desktop 2>&1)"
+for f in $(grep -l -i -E 'calamares|install-debian' /usr/share/applications/*.desktop 2>/dev/null); do
     sed -i -E 's/^(Name(\[[^]]*\])?)=.*/\1=Install Cipher/; s/^(GenericName(\[[^]]*\])?)=.*/\1=Install Cipher/; s/^Icon=.*/Icon=cipher-logo/' "$f"
 done
 systemctl set-default graphical.target
@@ -102,5 +120,14 @@ button-layout='appmenu:minimize,maximize,close'
 favorite-apps=['firefox-esr.desktop', 'org.gnome.Nautilus.desktop', 'foot.desktop', 'org.gnome.TextEditor.desktop', 'org.gnome.Settings.desktop', 'org.gnome.Software.desktop', 'install-debian.desktop']
 CONF
 command -v dconf >/dev/null && dconf update || true
+
+diag "session setup" "$(ls /usr/share/wayland-sessions /usr/share/xsessions 2>&1)
+gdm: $(grep -E '^(DefaultSession|AutomaticLogin)' /etc/gdm3/daemon.conf 2>&1)
+autologin unit: $(systemctl is-enabled cipher-live-autologin.service 2>&1)
+display-manager: $(readlink -f /etc/systemd/system/display-manager.service)
+start-hyprland: $(command -v start-hyprland Hyprland 2>&1)
+qs: $(command -v qs quickshell 2>&1)"
+diag "versions" "$(dpkg-query -W -f '${Package} ${Version}\n' cipher-desktop hyprland quickshell gdm3 base-files calamares 2>&1)
+$(head -n 3 /etc/os-release)"
 
 apt-get clean
