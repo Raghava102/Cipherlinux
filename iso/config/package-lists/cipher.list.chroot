@@ -58,3 +58,8 @@ papirus-icon-theme
 ufw
 curl
 git
+
+# Virtual machines: screen size follows the window, shared clipboard
+open-vm-tools
+open-vm-tools-desktop
+spice-vdagent

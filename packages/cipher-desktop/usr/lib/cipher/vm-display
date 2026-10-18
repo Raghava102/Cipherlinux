@@ -1,0 +1,20 @@
+#!/bin/sh
+# Virtual machines: keep Hyprland's resolution equal to the VM window.
+# VMware Tools / spice-vdagent change the virtual screen's preferred mode when
+# the window is resized (or goes full screen); apply it at scale 1, so the
+# picture is never stretched to the wrong aspect ratio.
+last=""
+while :; do
+    cur=""
+    for c in /sys/class/drm/card*-*; do
+        [ "$(cat "$c/status" 2>/dev/null)" = connected ] || continue
+        cur=$(head -n1 "$c/modes" 2>/dev/null)
+        [ -n "$cur" ] && break
+    done
+    if [ -n "$cur" ] && [ "$cur" != "$last" ]; then
+        if hyprctl keyword monitor ",$cur,auto,1" >/dev/null 2>&1; then
+            last=$cur
+        fi
+    fi
+    sleep 2
+done

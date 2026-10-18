@@ -31,6 +31,8 @@ cipher-theme init >/dev/null 2>&1 || : > "$CUR/hyprland.conf"
     echo "cursor {"
     echo "    no_hardware_cursors = 1"
     echo "}"
+    echo "# follow the VM window size, at scale 1 (no stretching)"
+    echo "exec-once = /usr/lib/cipher/vm-display"
   fi
 } > "$CUR/hardware.conf"
 

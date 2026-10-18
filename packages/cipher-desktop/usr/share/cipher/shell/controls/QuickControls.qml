@@ -35,7 +35,7 @@ PanelWindow {
         anchors.right: parent.right
         anchors.rightMargin: 12
         y: 8
-        width: 392
+        width: Math.min(392, parent.width - 24)
         height: col.implicitHeight + 40
         radius: Theme.radius + 6
         Keys.onEscapePressed: Shell.close()

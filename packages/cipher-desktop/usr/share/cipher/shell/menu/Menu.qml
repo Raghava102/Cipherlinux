@@ -41,7 +41,7 @@ PanelWindow {
     readonly property bool atRoot: stack.length === 0 && Shell.overlay !== "apps"
     // Apps view with no search: show a big icon grid instead of a list
     readonly property bool gridMode: Shell.overlay === "apps" && query === "" && stack.length === 0
-    readonly property int gridColumns: 6
+    readonly property int gridColumns: Math.max(3, Math.min(6, Math.floor((width - 96) / 150)))
     readonly property var items: buildItems(node, query, commandItems, atRoot)
 
     // keep the search field in sync when navigation clears the query
