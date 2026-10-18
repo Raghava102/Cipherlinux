@@ -3,7 +3,7 @@
 # Runs inside a debian:trixie container (see .github/workflows/shell-preview.yml).
 # Output: preview/*.png and preview/*.log
 set -u
-cd "$(dirname "$0")/.."
+cd "$(dirname "$0")/.." || exit 1
 OUT=preview
 rm -rf "$OUT"; mkdir -p "$OUT"
 export DEBIAN_FRONTEND=noninteractive
@@ -25,7 +25,7 @@ dpkg-query -W -f '${Package} ${Version}\n' cipher-desktop hyprland quickshell sw
 
 # A user-like environment
 export HOME=/root USER=root
-export XDG_RUNTIME_DIR=/tmp/xdg; mkdir -p -m 700 "$XDG_RUNTIME_DIR"
+export XDG_RUNTIME_DIR=/tmp/xdg; mkdir -p "$XDG_RUNTIME_DIR"; chmod 700 "$XDG_RUNTIME_DIR"
 cp -r /etc/skel/.config "$HOME/" 2>/dev/null || true
 mkdir -p "$HOME/.local/share"
 cat > "$HOME/.local/share/recently-used.xbel" <<'XBEL'

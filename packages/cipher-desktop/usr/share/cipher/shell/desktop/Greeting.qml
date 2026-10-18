@@ -11,11 +11,12 @@ import qs.components
 PanelWindow {
     id: win
     screen: Quickshell.screens.length > 0 ? Quickshell.screens[0] : null
-    visible: Settings.greeting
+    // step aside while a full-screen overlay is open
+    visible: Settings.greeting && Shell.overlay !== "apps" && Shell.overlay !== "menu" && Shell.overlay !== "themes"
 
     anchors { top: true; left: true }
     margins { top: 90; left: 96 }
-    implicitWidth: 520
+    implicitWidth: 960
     implicitHeight: col.implicitHeight + 10
     exclusionMode: ExclusionMode.Normal
     color: "transparent"
@@ -38,7 +39,9 @@ PanelWindow {
         command: ["sh", "-c", "getent passwd \"$USER\" | cut -d: -f5 | cut -d, -f1"]
         stdout: StdioCollector {
             onStreamFinished: {
-                const n = this.text.trim().split(" ")[0];
+                const full = this.text.trim();
+                // live-config names the live user "Debian Live user": not a person's name
+                const n = /live user/i.test(full) ? "" : full.split(" ")[0];
                 if (n) win.person = n;
                 else if (win.person) win.person = win.person.charAt(0).toUpperCase() + win.person.slice(1);
             }
@@ -109,7 +112,7 @@ PanelWindow {
         }
 
         Glass {
-            Layout.fillWidth: true
+            Layout.preferredWidth: 520
             implicitHeight: cards.implicitHeight + 32
             radius: Theme.radius + 2
 

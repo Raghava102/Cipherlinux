@@ -76,7 +76,7 @@ PanelWindow {
     // ---- data ------------------------------------------------------------
     function apps() {
         return DesktopEntries.applications.values
-            .filter(e => !e.noDisplay)
+            .filter(e => !e.noDisplay && !Settings.hiddenApps.includes(e.id))
             .map(e => ({ name: e.name, hint: e.genericName || e.comment || "", appIcon: e.icon, entry: e,
                          keywords: (e.keywords ?? []).join(" ") }))
             .sort((a, b) => a.name.localeCompare(b.name));
@@ -177,7 +177,7 @@ PanelWindow {
     // ---- UI ----------------------------------------------------------------
     Rectangle {
         anchors.fill: parent
-        color: Qt.rgba(0, 0, 0, Theme.light ? 0.16 : 0.38)
+        color: Qt.rgba(0, 0, 0, Theme.light ? 0.22 : 0.5)
         MouseArea { anchors.fill: parent; onClicked: Shell.close() }
     }
 

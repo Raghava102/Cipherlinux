@@ -39,7 +39,7 @@ Singleton {
 
     // Aurora glass: translucent panels with a hairline edge
     readonly property color glass: light ? Qt.rgba(1, 1, 1, 0.72) : alpha(bg, 0.72)
-    readonly property color glassStrong: light ? Qt.rgba(0.99, 0.98, 0.97, 0.94) : alpha(bg, 0.86)
+    readonly property color glassStrong: light ? Qt.rgba(0.99, 0.98, 0.97, 0.96) : alpha(bg, 0.94)
     readonly property color glassEdge: light ? Qt.rgba(1, 1, 1, 0.95) : Qt.rgba(1, 1, 1, 0.09)
     readonly property color hover: light ? Qt.rgba(0, 0, 0, 0.06) : Qt.rgba(1, 1, 1, 0.07)
     readonly property color tint: alpha(accent, light ? 0.14 : 0.16)

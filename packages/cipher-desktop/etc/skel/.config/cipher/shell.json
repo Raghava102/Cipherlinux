@@ -9,7 +9,10 @@
   "dockPosition": "bottom",
   "dockIconSize": 48,
   "dockMagnify": true,
-  "dockPinned": ["firefox-esr", "org.gnome.Nautilus", "foot", "org.gnome.TextEditor", "org.gnome.Settings", "org.gnome.Software"],
-  "workspaceNames": ["Home", "Study", "Create"],
+  "workspaceNames": [
+    "Home",
+    "Study",
+    "Create"
+  ],
   "greeting": true
 }

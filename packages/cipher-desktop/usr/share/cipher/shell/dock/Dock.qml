@@ -42,8 +42,13 @@ PanelWindow {
     WlrLayershell.layer: WlrLayer.Top
 
     // ---- model -------------------------------------------------------------
-    function entryFor(id) {
-        return DesktopEntries.byId(id) ?? DesktopEntries.heuristicLookup(id);
+    function entryFor(spec) {
+        const ids = String(spec).split("|");
+        for (const id of ids) {
+            const e = DesktopEntries.byId(id);
+            if (e) return e;
+        }
+        return ids.length === 1 ? DesktopEntries.heuristicLookup(ids[0]) : null;
     }
     function matches(entry, appId) {
         if (!entry || !appId) return false;
@@ -59,7 +64,7 @@ PanelWindow {
         const used = new Set();
         for (const id of Settings.dockPinned) {
             const e = entryFor(id);
-            if (!e) continue;
+            if (!e || out.some(o => o.entry === e)) continue;
             const wins = toplevels.filter(t => matches(e, t.appId));
             wins.forEach(w => used.add(w));
             out.push({ entry: e, wins, pinned: true });

@@ -21,7 +21,10 @@ Singleton {
     property string dockPosition: "bottom"   // "bottom" | "left" | "right" | "hidden"
     property int dockIconSize: 48
     property bool dockMagnify: true
-    property var dockPinned: ["firefox-esr", "org.gnome.Nautilus", "foot", "org.gnome.TextEditor", "org.gnome.Settings", "org.gnome.Software"]
+    // "a|b" = first one that's installed
+    property var dockPinned: ["firefox-esr|firefox|chromium", "org.gnome.Nautilus|thunar", "foot", "org.gnome.TextEditor|org.gnome.gedit", "btop", "org.gnome.Settings", "org.gnome.Software"]
+    // launcher entries nobody wants to see
+    property var hiddenApps: ["footclient", "foot-server", "thunar-settings", "thunar-volman-settings", "thunar-bulk-rename", "blueman-adapters", "system-config-printer", "kdesystemsettings", "systemsettings", "org.gnome.Extensions", "nm-connection-editor", "display-im6.q16", "debian-uxterm", "debian-xterm", "htop", "vim", "nvim", "calamares-install-debian", "hyprland-share-picker", "qt5ct", "qt6ct", "yelp"]
     property var workspaceNames: ["Home", "Study", "Create"]
     property bool greeting: true
 
@@ -41,6 +44,7 @@ Singleton {
         if (Number.isInteger(s.dockIconSize) && s.dockIconSize >= 32 && s.dockIconSize <= 72) root.dockIconSize = s.dockIconSize;
         if (typeof s.dockMagnify === "boolean") root.dockMagnify = s.dockMagnify;
         if (Array.isArray(s.dockPinned)) root.dockPinned = s.dockPinned.filter(x => typeof x === "string");
+        if (Array.isArray(s.hiddenApps)) root.hiddenApps = root.hiddenApps.concat(s.hiddenApps.filter(x => typeof x === "string"));
         if (Array.isArray(s.workspaceNames)) root.workspaceNames = s.workspaceNames.filter(x => typeof x === "string");
         if (typeof s.greeting === "boolean") root.greeting = s.greeting;
     }
