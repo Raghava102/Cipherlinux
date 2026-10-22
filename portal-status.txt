@@ -1,0 +1,21 @@
+● xdg-desktop-portal.service - Portal service
+     Loaded: loaded (/usr/lib/systemd/user/xdg-desktop-portal.service; static)
+     Active: active (running) since Thu 2026-10-22 05:55:30 UTC; 10ms ago
+ Invocation: 164a18a517d040d2a49ee0f1be13bcca
+   Main PID: 28517 (xdg-desktop-por)
+      Tasks: 8 (limit: 2614)
+     Memory: 4.1M (peak: 4.3M)
+        CPU: 36ms
+     CGroup: /system.slice/docker-71c0fe2f89dc2a4a15e1eece177ac0df3bf3b938724b952ae4cbd2d6782f12e4.scope/user.slice/user-1000.slice/user@1000.service/session.slice/xdg-desktop-portal.service
+             └─28517 /usr/libexec/xdg-desktop-portal
+
+Oct 22 05:55:30 71c0fe2f89dc xdg-desktop-por[28517]: Failed to create RealtimeKit proxy: Error calling StartServiceByName for org.freedesktop.RealtimeKit1: Unit rtkit-daemon.service is masked.
+Oct 22 05:55:30 71c0fe2f89dc xdg-desktop-por[28517]: Failed to create screenshot proxy: Error calling StartServiceByName for org.freedesktop.impl.portal.desktop.hyprland: Unit xdg-desktop-portal-hyprland.service is masked.
+Oct 22 05:55:30 71c0fe2f89dc xdg-desktop-por[28517]: No skeleton to export
+Oct 22 05:55:30 71c0fe2f89dc xdg-desktop-por[28517]: Failed to create global_shortcuts proxy: Error calling StartServiceByName for org.freedesktop.impl.portal.desktop.hyprland: Unit xdg-desktop-portal-hyprland.service is masked.
+Oct 22 05:55:30 71c0fe2f89dc xdg-desktop-por[28517]: No skeleton to export
+Oct 22 05:55:30 71c0fe2f89dc xdg-desktop-por[28517]: Failed to create screen cast proxy: Error calling StartServiceByName for org.freedesktop.impl.portal.desktop.hyprland: Unit xdg-desktop-portal-hyprland.service is masked.
+Oct 22 05:55:30 71c0fe2f89dc xdg-desktop-por[28517]: No skeleton to export
+Oct 22 05:55:30 71c0fe2f89dc xdg-desktop-por[28517]: Failed to create capture input proxy: Error calling StartServiceByName for org.freedesktop.impl.portal.desktop.hyprland: Unit xdg-desktop-portal-hyprland.service is masked.
+Oct 22 05:55:30 71c0fe2f89dc xdg-desktop-por[28517]: No skeleton to export
+Oct 22 05:55:30 71c0fe2f89dc systemd[28434]: Started xdg-desktop-portal.service - Portal service.

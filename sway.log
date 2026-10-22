@@ -1,0 +1,22 @@
+2026-10-22 05:55:29 - [main.c:278] Could not find config for output HEADLESS-1 ((null))
+Xwayland glamor: GBM Wayland interfaces not available
+Failed to initialize glamor, falling back to sw
+00:00:45.805 [ERROR] [wlr] [xwayland/xwm.c:1633] xcb error: op ChangeProperty (no minor), code Window (no extension), sequence 185, value 4194305
+00:00:45.805 [ERROR] [wlr] [xwayland/xwm.c:1633] xcb error: op DeleteProperty (no minor), code Window (no extension), sequence 186, value 4194305
+00:00:45.805 [ERROR] [wlr] [xwayland/xwm.c:1633] xcb error: op DeleteProperty (no minor), code Window (no extension), sequence 189, value 4194305
+00:00:49.218 [ERROR] [wlr] [xwayland/xwm.c:1633] xcb error: op ChangeProperty (no minor), code Window (no extension), sequence 236, value 4194305
+00:00:49.218 [ERROR] [wlr] [xwayland/xwm.c:1633] xcb error: op DeleteProperty (no minor), code Window (no extension), sequence 237, value 4194305
+00:00:49.218 [ERROR] [wlr] [xwayland/xwm.c:1633] xcb error: op DeleteProperty (no minor), code Window (no extension), sequence 240, value 4194305
+00:00:53.396 [ERROR] [wlr] [xwayland/xwm.c:1633] xcb error: op ChangeProperty (no minor), code Window (no extension), sequence 287, value 4194305
+00:00:53.396 [ERROR] [wlr] [xwayland/xwm.c:1633] xcb error: op DeleteProperty (no minor), code Window (no extension), sequence 288, value 4194305
+00:00:53.396 [ERROR] [wlr] [xwayland/xwm.c:1633] xcb error: op DeleteProperty (no minor), code Window (no extension), sequence 291, value 4194305
+00:00:57.579 [ERROR] [wlr] [xwayland/xwm.c:1633] xcb error: op ChangeProperty (no minor), code Window (no extension), sequence 338, value 4194305
+00:00:57.579 [ERROR] [wlr] [xwayland/xwm.c:1633] xcb error: op DeleteProperty (no minor), code Window (no extension), sequence 339, value 4194305
+00:00:57.579 [ERROR] [wlr] [xwayland/xwm.c:1633] xcb error: op DeleteProperty (no minor), code Window (no extension), sequence 342, value 4194305
+00:01:02.003 [ERROR] [wlr] [xwayland/xwm.c:1633] xcb error: op ChangeProperty (no minor), code Window (no extension), sequence 393, value 4194305
+00:01:02.003 [ERROR] [wlr] [xwayland/xwm.c:1633] xcb error: op DeleteProperty (no minor), code Window (no extension), sequence 394, value 4194305
+00:01:05.934 [ERROR] [wlr] [xwayland/xwm.c:1633] xcb error: op ChangeProperty (no minor), code Window (no extension), sequence 441, value 4194305
+00:01:05.934 [ERROR] [wlr] [xwayland/xwm.c:1633] xcb error: op DeleteProperty (no minor), code Window (no extension), sequence 442, value 4194305
+00:01:05.934 [ERROR] [wlr] [xwayland/xwm.c:1633] xcb error: op DeleteProperty (no minor), code Window (no extension), sequence 445, value 4194305
+Xwayland glamor: GBM Wayland interfaces not available
+Failed to initialize glamor, falling back to sw

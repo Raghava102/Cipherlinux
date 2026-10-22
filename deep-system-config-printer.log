@@ -1,0 +1,40 @@
+(system-config-printer.py:38669): GLib-GIO-DEBUG: 06:06:23.308: _g_io_module_get_default: Found default implementation dconf (DConfSettingsBackend) for ‘gsettings-backend’
+(system-config-printer.py:38669): dconf-DEBUG: 06:06:23.308: watch_fast: "/org/gnome/desktop/interface/" (establishing: 0, active: 0)
+(system-config-printer.py:38669): dconf-DEBUG: 06:06:23.308: watch_fast: "/org/gnome/desktop/peripherals/mouse/" (establishing: 0, active: 0)
+(system-config-printer.py:38669): dconf-DEBUG: 06:06:23.308: watch_fast: "/org/gnome/desktop/sound/" (establishing: 0, active: 0)
+(system-config-printer.py:38669): dconf-DEBUG: 06:06:23.308: watch_fast: "/org/gnome/desktop/privacy/" (establishing: 0, active: 0)
+(system-config-printer.py:38669): dconf-DEBUG: 06:06:23.308: watch_fast: "/org/gnome/desktop/wm/preferences/" (establishing: 0, active: 0)
+(system-config-printer.py:38669): dconf-DEBUG: 06:06:23.308: watch_fast: "/org/gnome/settings-daemon/plugins/xsettings/" (establishing: 0, active: 0)
+(system-config-printer.py:38669): dconf-DEBUG: 06:06:23.308: watch_fast: "/org/gnome/desktop/a11y/" (establishing: 0, active: 0)
+(system-config-printer.py:38669): dconf-DEBUG: 06:06:23.308: watch_fast: "/org/gnome/desktop/a11y/interface/" (establishing: 0, active: 0)
+(system-config-printer.py:38669): dconf-DEBUG: 06:06:23.309: watch_established: "/org/gnome/desktop/interface/" (establishing: 1)
+(system-config-printer.py:38669): dconf-DEBUG: 06:06:23.309: watch_established: "/org/gnome/desktop/peripherals/mouse/" (establishing: 1)
+(system-config-printer.py:38669): dconf-DEBUG: 06:06:23.309: watch_established: "/org/gnome/desktop/sound/" (establishing: 1)
+(system-config-printer.py:38669): dconf-DEBUG: 06:06:23.309: watch_established: "/org/gnome/desktop/privacy/" (establishing: 1)
+(system-config-printer.py:38669): dconf-DEBUG: 06:06:23.309: watch_established: "/org/gnome/desktop/wm/preferences/" (establishing: 1)
+(system-config-printer.py:38669): dconf-DEBUG: 06:06:23.309: watch_established: "/org/gnome/settings-daemon/plugins/xsettings/" (establishing: 1)
+(system-config-printer.py:38669): dconf-DEBUG: 06:06:23.309: watch_established: "/org/gnome/desktop/a11y/" (establishing: 1)
+(system-config-printer.py:38669): dconf-DEBUG: 06:06:23.309: watch_established: "/org/gnome/desktop/a11y/interface/" (establishing: 1)
+(system-config-printer.py:38669): Gdk-DEBUG: 06:06:23.319: Compositor prefers decoration mode 'server'
+(system-config-printer.py:38669): GLib-DEBUG: 06:06:23.319: unsetenv() is not thread-safe and should not be used after threads are created
+(system-config-printer.py:38669): GLib-GIO-DEBUG: 06:06:23.337: _g_io_module_get_default: Found default implementation gvfs (GDaemonVfs) for ‘gio-vfs’
+/usr/share/system-config-printer/system-config-printer.py:325: DeprecationWarning: Gtk.ActionGroup.list_actions is deprecated
+  for action in printer_manager_action_group.list_actions ():
+/usr/share/system-config-printer/system-config-printer.py:326: DeprecationWarning: Gtk.Action.set_sensitive is deprecated
+  action.set_sensitive (False)
+/usr/share/system-config-printer/system-config-printer.py:334: DeprecationWarning: Gtk.ActionGroup.get_action is deprecated
+  act = printer_manager_action_group.get_action (action)
+/usr/share/system-config-printer/system-config-printer.py:364: DeprecationWarning: Gtk.UIManager.ensure_update is deprecated
+  self.ui_manager.ensure_update ()
+/usr/share/system-config-printer/system-config-printer.py:365: DeprecationWarning: Gtk.UIManager.get_accel_group is deprecated
+  self.PrintersWindow.add_accel_group (self.ui_manager.get_accel_group ())
+/usr/share/system-config-printer/system-config-printer.py:374: DeprecationWarning: Gtk.UIManager.get_action is deprecated
+  action = self.ui_manager.get_action ("/new-printer")
+/usr/share/system-config-printer/system-config-printer.py:375: DeprecationWarning: Gtk.Action.create_menu_item is deprecated
+  newprinteritem = action.create_menu_item ()
+
+(system-config-printer:38669): GVFS-RemoteVolumeMonitor-WARNING **: 06:06:46.855: remote volume monitor with dbus name org.gtk.vfs.UDisks2VolumeMonitor is not supported
+/usr/share/system-config-printer/system-config-printer.py:673: DeprecationWarning: Gtk.Action.get_proxies is deprecated
+  for widget in action.get_proxies ():
+/usr/share/system-config-printer/system-config-printer.py:2253: DeprecationWarning: Gdk.threads_enter is deprecated
+  Gdk.threads_enter ()

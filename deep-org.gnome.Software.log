@@ -1,0 +1,571 @@
+06:05:06:556 Gdk Using portal setting for org.gnome.fontconfig serial: 0
+06:05:06:556 Gdk Ignoring portal setting for org.gnome.desktop.privacy disable-microphone
+06:05:06:556 Gdk Ignoring portal setting for org.gnome.desktop.privacy disable-camera
+06:05:06:556 Gdk Ignoring portal setting for org.gnome.desktop.privacy old-files-age
+06:05:06:556 Gdk Using portal setting for org.gnome.desktop.privacy remember-recent-files: true
+06:05:06:556 Gdk Ignoring portal setting for org.gnome.desktop.privacy disable-sound-output
+06:05:06:556 Gdk Ignoring portal setting for org.gnome.desktop.privacy send-software-usage-stats
+06:05:06:556 Gdk Ignoring portal setting for org.gnome.desktop.privacy report-technical-problems
+06:05:06:556 Gdk Ignoring portal setting for org.gnome.desktop.privacy remove-old-trash-files
+06:05:06:556 Gdk Ignoring portal setting for org.gnome.desktop.privacy remove-old-temp-files
+06:05:06:556 Gdk Ignoring portal setting for org.gnome.desktop.privacy privacy-screen
+06:05:06:556 Gdk Ignoring portal setting for org.gnome.desktop.privacy usb-protection
+06:05:06:556 Gdk Ignoring portal setting for org.gnome.desktop.privacy usb-protection-level
+06:05:06:556 Gdk Ignoring portal setting for org.gnome.desktop.privacy remember-app-usage
+06:05:06:556 Gdk Ignoring portal setting for org.gnome.desktop.privacy show-full-name-in-top-bar
+06:05:06:556 Gdk Ignoring portal setting for org.gnome.desktop.privacy hide-identity
+06:05:06:556 Gdk Using portal setting for org.gnome.desktop.privacy recent-files-max-age: -1
+06:05:06:556 Gdk Using portal setting for org.gnome.desktop.a11y.interface show-status-shapes: false
+06:05:06:556 Gdk Using portal setting for org.gnome.desktop.a11y.interface high-contrast: false
+06:05:06:556 Gdk Ignoring portal setting for org.gnome.desktop.a11y always-show-universal-access-status
+06:05:06:556 Gdk Using portal setting for org.gnome.desktop.a11y always-show-text-caret: false
+06:05:06:556 Gdk Ignoring portal setting for org.gnome.desktop.interface toolkit-accessibility
+06:05:06:556 Gdk Ignoring portal setting for org.gnome.desktop.interface gtk-color-palette
+06:05:06:556 Gdk Ignoring portal setting for org.gnome.desktop.interface can-change-accels
+06:05:06:556 Gdk Ignoring portal setting for org.gnome.desktop.interface document-font-name
+06:05:06:556 Gdk Using portal setting for org.gnome.desktop.interface enable-animations: true
+06:05:06:556 Gdk Using portal setting for org.gnome.desktop.interface cursor-blink: true
+06:05:06:556 Gdk Ignoring portal setting for org.gnome.desktop.interface clock-show-weekday
+06:05:06:556 Gdk Using portal setting for org.gnome.desktop.interface icon-theme: 'Adwaita'
+06:05:06:556 Gdk Ignoring portal setting for org.gnome.desktop.interface gtk-im-preedit-style
+06:05:06:556 Gdk Ignoring portal setting for org.gnome.desktop.interface scaling-factor
+06:05:06:556 Gdk Ignoring portal setting for org.gnome.desktop.interface menus-have-tearoff
+06:05:06:556 Gdk Using portal setting for org.gnome.desktop.interface cursor-size: 24
+06:05:06:556 Gdk Ignoring portal setting for org.gnome.desktop.interface clock-show-seconds
+06:05:06:556 Gdk Using portal setting for org.gnome.desktop.interface gtk-im-module: ''
+06:05:06:556 Gdk Ignoring portal setting for org.gnome.desktop.interface gtk-timeout-initial
+06:05:06:556 Gdk Ignoring portal setting for org.gnome.desktop.interface accent-color
+06:05:06:556 Gdk Using portal setting for org.gnome.desktop.interface gtk-theme: 'Adwaita-dark'
+06:05:06:556 Gdk Ignoring portal setting for org.gnome.desktop.interface gtk-color-scheme
+06:05:06:556 Gdk Ignoring portal setting for org.gnome.desktop.interface clock-show-date
+06:05:06:556 Gdk Using portal setting for org.gnome.desktop.interface cursor-blink-time: 1200
+06:05:06:556 Gdk Ignoring portal setting for org.gnome.desktop.interface toolbar-icons-size
+06:05:06:556 Gdk Using portal setting for org.gnome.desktop.interface font-antialiasing: 'grayscale'
+06:05:06:556 Gdk Ignoring portal setting for org.gnome.desktop.interface toolbar-style
+06:05:06:556 Gdk Ignoring portal setting for org.gnome.desktop.interface enable-hot-corners
+06:05:06:556 Gdk Ignoring portal setting for org.gnome.desktop.interface monospace-font-name
+06:05:06:556 Gdk Ignoring portal setting for org.gnome.desktop.interface gtk-timeout-repeat
+06:05:06:556 Gdk Using portal setting for org.gnome.desktop.interface overlay-scrolling: true
+06:05:06:556 Gdk Using portal setting for org.gnome.desktop.interface cursor-blink-timeout: 10
+06:05:06:556 Gdk Ignoring portal setting for org.gnome.desktop.interface gtk-key-theme
+06:05:06:556 Gdk Ignoring portal setting for org.gnome.desktop.interface toolbar-detachable
+06:05:06:556 Gdk Using portal setting for org.gnome.desktop.interface font-rendering: 'automatic'
+06:05:06:556 Gdk Using portal setting for org.gnome.desktop.interface cursor-theme: 'Adwaita'
+06:05:06:556 Gdk Ignoring portal setting for org.gnome.desktop.interface avatar-directories
+06:05:06:556 Gdk Ignoring portal setting for org.gnome.desktop.interface gtk-im-status-style
+06:05:06:556 Gdk Ignoring portal setting for org.gnome.desktop.interface menubar-detachable
+06:05:06:556 Gdk Using portal setting for org.gnome.desktop.interface text-scaling-factor: 1.0
+06:05:06:556 Gdk Ignoring portal setting for org.gnome.desktop.interface show-battery-percentage
+06:05:06:556 Gdk Ignoring portal setting for org.gnome.desktop.interface clock-format
+06:05:06:556 Gdk Ignoring portal setting for org.gnome.desktop.interface menubar-accel
+06:05:06:556 Gdk Using portal setting for org.gnome.desktop.interface gtk-enable-primary-paste: true
+06:05:06:556 Gdk Ignoring portal setting for org.gnome.desktop.interface color-scheme
+06:05:06:556 Gdk Ignoring portal setting for org.gnome.desktop.interface locate-pointer
+06:05:06:556 Gdk Using portal setting for org.gnome.desktop.interface font-rgba-order: 'rgb'
+06:05:06:556 Gdk Using portal setting for org.gnome.desktop.interface font-hinting: 'slight'
+06:05:06:556 Gdk Using portal setting for org.gnome.desktop.interface font-name: 'Cantarell 11'
+06:05:06:556 Gdk Using portal setting for org.gnome.desktop.sound theme-name: 'freedesktop'
+06:05:06:556 Gdk Using portal setting for org.gnome.desktop.sound event-sounds: true
+06:05:06:556 Gdk Using portal setting for org.gnome.desktop.sound input-feedback-sounds: false
+06:05:06:556 Gdk Ignoring portal setting for org.gnome.desktop.sound allow-volume-above-100-percent
+06:05:06:556 Gdk Ignoring portal setting for org.gnome.desktop.peripherals.mouse left-handed
+06:05:06:556 Gdk Using portal setting for org.gnome.desktop.peripherals.mouse double-click: 400
+06:05:06:556 Gdk Ignoring portal setting for org.gnome.desktop.peripherals.mouse natural-scroll
+06:05:06:556 Gdk Ignoring portal setting for org.gnome.desktop.peripherals.mouse middle-click-emulation
+06:05:06:556 Gdk Ignoring portal setting for org.gnome.desktop.peripherals.mouse speed
+06:05:06:556 Gdk Ignoring portal setting for org.gnome.desktop.peripherals.mouse accel-profile
+06:05:06:556 Gdk Using portal setting for org.gnome.desktop.peripherals.mouse drag-threshold: 8
+06:05:06:556 Gdk Ignoring portal setting for org.gnome.desktop.input-sources sources
+06:05:06:556 Gdk Ignoring portal setting for org.gnome.desktop.input-sources mru-sources
+06:05:06:556 Gdk Ignoring portal setting for org.gnome.desktop.input-sources show-all-sources
+06:05:06:556 Gdk Ignoring portal setting for org.gnome.desktop.input-sources current
+06:05:06:556 Gdk Ignoring portal setting for org.gnome.desktop.input-sources xkb-options
+06:05:06:556 Gdk Ignoring portal setting for org.gnome.desktop.input-sources xkb-model
+06:05:06:556 Gdk Ignoring portal setting for org.gnome.desktop.input-sources per-window
+06:05:06:556 Gdk Ignoring portal setting for org.gnome.desktop.calendar show-weekdate
+06:05:06:556 Gdk Ignoring portal setting for org.gnome.desktop.wm.preferences theme
+06:05:06:556 Gdk Ignoring portal setting for org.gnome.desktop.wm.preferences focus-new-windows
+06:05:06:556 Gdk Ignoring portal setting for org.gnome.desktop.wm.preferences disable-workarounds
+06:05:06:556 Gdk Ignoring portal setting for org.gnome.desktop.wm.preferences num-workspaces
+06:05:06:556 Gdk Ignoring portal setting for org.gnome.desktop.wm.preferences titlebar-uses-system-font
+06:05:06:556 Gdk Ignoring portal setting for org.gnome.desktop.wm.preferences raise-on-click
+06:05:06:556 Gdk Ignoring portal setting for org.gnome.desktop.wm.preferences titlebar-font
+06:05:06:556 Gdk Ignoring portal setting for org.gnome.desktop.wm.preferences resize-with-right-button
+06:05:06:556 Gdk Ignoring portal setting for org.gnome.desktop.wm.preferences auto-raise
+06:05:06:556 Gdk Using portal setting for org.gnome.desktop.wm.preferences action-right-click-titlebar: 'menu'
+06:05:06:556 Gdk Ignoring portal setting for org.gnome.desktop.wm.preferences mouse-button-modifier
+06:05:06:557 Gdk Using portal setting for org.gnome.desktop.wm.preferences action-double-click-titlebar: 'toggle-maximize'
+06:05:06:557 Gdk Ignoring portal setting for org.gnome.desktop.wm.preferences workspace-names
+06:05:06:557 Gdk Ignoring portal setting for org.gnome.desktop.wm.preferences visual-bell-type
+06:05:06:557 Gdk Using portal setting for org.gnome.desktop.wm.preferences action-middle-click-titlebar: 'none'
+06:05:06:557 Gdk Ignoring portal setting for org.gnome.desktop.wm.preferences focus-mode
+06:05:06:557 Gdk Using portal setting for org.gnome.desktop.wm.preferences button-layout: 'appmenu:close'
+06:05:06:557 Gdk Ignoring portal setting for org.gnome.desktop.wm.preferences auto-raise-delay
+06:05:06:557 Gdk Ignoring portal setting for org.gnome.desktop.wm.preferences audible-bell
+06:05:06:557 Gdk Ignoring portal setting for org.gnome.desktop.wm.preferences visual-bell
+06:05:06:557 Gdk Ignoring portal setting for org.gnome.settings-daemon.plugins.xsettings overrides
+06:05:06:557 Gdk Ignoring portal setting for org.gnome.settings-daemon.plugins.xsettings disabled-gtk-modules
+06:05:06:557 Gdk Ignoring portal setting for org.gnome.settings-daemon.plugins.xsettings enabled-gtk-modules
+06:05:06:559 Gtk Not using session manager
+06:05:06:580 Adwaita Setting org.freedesktop.appearance.accent-color of type (ddd) not found
+06:05:06:607 Gs  Using locale = C.UTF-8, language = C
+06:05:06:609 Gs  network status change: offline [unmetered]
+06:05:06:609 Gs  compatible-project: GNOME
+06:05:06:609 Gs  compatible-project: KDE
+06:05:06:609 Gs  compatible-project: XFCE
+06:05:06:615 Gs  File '/etc/gnome-software/deployment-featured.ini' does not exist, trying next
+06:05:06:615 Gs  File '/etc/xdg/gnome-software/deployment-featured.ini' does not exist, trying next
+06:05:06:615 Gs  File '/usr/local/share/gnome-software/deployment-featured.ini' does not exist, trying next
+06:05:06:615 Gs  File '/usr/share/gnome-software/deployment-featured.ini' does not exist, no more files to try
+06:05:06:644 Gs  acquired session service
+06:05:06:645 Gs  monitoring plugin location /usr/lib/x86_64-linux-gnu/gnome-software/plugins-22
+06:05:06:645 Gs  searching for plugins in /usr/lib/x86_64-linux-gnu/gnome-software/plugins-22
+06:05:06:645 Gs  opened plugin /usr/lib/x86_64-linux-gnu/gnome-software/plugins-22/libgs_plugin_appstream.so: appstream
+06:05:06:646 Gs  opened plugin /usr/lib/x86_64-linux-gnu/gnome-software/plugins-22/libgs_plugin_dpkg.so: dpkg
+06:05:06:646 GsPluginDummy disabling itself as not in self test
+06:05:06:646 Gs  opened plugin /usr/lib/x86_64-linux-gnu/gnome-software/plugins-22/libgs_plugin_dummy.so: dummy
+06:05:06:647 Gs  opened plugin /usr/lib/x86_64-linux-gnu/gnome-software/plugins-22/libgs_plugin_epiphany.so: epiphany
+06:05:06:651 pxbackend px_config_sysconfig_set_config_file: Could not read file /etc/sysconfig/proxy
+06:05:06:651 pxbackend Active config plugins:
+06:05:06:651 pxbackend  - config-env
+06:05:06:651 pxbackend  - config-xdp
+06:05:06:651 pxbackend  - config-kde
+06:05:06:651 pxbackend  - config-gnome
+06:05:06:651 pxbackend  - config-sysconfig
+06:05:06:652 pxbackend px_manager_constructed: Up and running
+06:05:06:652 Gs  opened plugin /usr/lib/x86_64-linux-gnu/gnome-software/plugins-22/libgs_plugin_fwupd.so: fwupd
+06:05:06:652 Gs  opened plugin /usr/lib/x86_64-linux-gnu/gnome-software/plugins-22/libgs_plugin_generic-updates.so: generic-updates
+06:05:06:653 Gs  opened plugin /usr/lib/x86_64-linux-gnu/gnome-software/plugins-22/libgs_plugin_hardcoded-blocklist.so: hardcoded-blocklist
+06:05:06:653 Gs  opened plugin /usr/lib/x86_64-linux-gnu/gnome-software/plugins-22/libgs_plugin_icons.so: icons
+06:05:06:654 Gs  opened plugin /usr/lib/x86_64-linux-gnu/gnome-software/plugins-22/libgs_plugin_malcontent.so: malcontent
+06:05:06:655 Gs  opened plugin /usr/lib/x86_64-linux-gnu/gnome-software/plugins-22/libgs_plugin_modalias.so: modalias
+06:05:06:655 Gs  opened plugin /usr/lib/x86_64-linux-gnu/gnome-software/plugins-22/libgs_plugin_os-release.so: os-release
+06:05:06:656 GsPluginPackageKit Connecting to PkControl::installed-changed signal
+06:05:06:656 Gs  opened plugin /usr/lib/x86_64-linux-gnu/gnome-software/plugins-22/libgs_plugin_packagekit.so: packagekit
+06:05:06:656 Gs  opened plugin /usr/lib/x86_64-linux-gnu/gnome-software/plugins-22/libgs_plugin_provenance-license.so: provenance-license
+06:05:06:657 Gs  opened plugin /usr/lib/x86_64-linux-gnu/gnome-software/plugins-22/libgs_plugin_provenance.so: provenance
+06:05:06:657 Gs  opened plugin /usr/lib/x86_64-linux-gnu/gnome-software/plugins-22/libgs_plugin_repos.so: repos
+06:05:06:657 Gs  cannot find plugin 'flatpak' requested by 'malcontent'
+06:05:06:657 Gs  cannot find plugin 'flatpak' requested by 'malcontent'
+06:05:06:657 Gs  cannot find plugin 'flatpak' requested by 'malcontent'
+06:05:06:657 Gs  cannot find plugin 'flatpak' requested by 'malcontent'
+06:05:06:657 Gs  cannot find plugin 'flatpak' requested by 'malcontent'
+06:05:06:657 Gs  cannot find plugin 'flatpak' requested by 'malcontent'
+06:05:06:657 Gs  cannot find plugin 'rpm-ostree' requested by 'provenance'
+06:05:06:657 Gs  cannot find plugin 'flatpak' requested by 'malcontent'
+06:05:06:657 Gs  cannot find plugin 'flatpak' requested by 'malcontent'
+06:05:06:657 Gs  cannot find plugin 'flatpak' requested by 'malcontent'
+06:05:06:657 Gs  cannot find plugin 'flatpak' requested by 'malcontent'
+06:05:06:657 Gs  cannot find plugin 'flatpak' requested by 'malcontent'
+06:05:06:657 Gs  cannot find plugin 'rpm-ostree' requested by 'provenance'
+06:05:06:657 Gs  cannot find plugin 'flatpak' requested by 'malcontent'
+06:05:06:657 Gs  cannot find plugin 'rpm-ostree' requested by 'provenance'
+06:05:06:657 Gs  cannot find plugin 'flatpak' requested by 'malcontent'
+06:05:06:657 Gs  cannot find plugin 'rpm-ostree' requested by 'provenance'
+06:05:06:657 Gs  disabling dpkg as conflicts with packagekit
+06:05:06:658 GsPluginEpiphany gs_plugin_epiphany_setup_async
+06:05:06:658 Gs  Setting I/O priority of thread 0x55c3955fc5a0 to BE, 4
+06:05:06:658 GsPluginCore appstream: Skipping appstream path '/usr/share/app-info/xml' as does not exist
+06:05:06:658 GsPluginCore appstream: Skipping appstream path '/usr/share/app-info/xmls' as does not exist
+06:05:06:658 GsPluginCore appstream: Skipping appstream path '/usr/share/app-info/yaml' as does not exist
+06:05:06:658 GsPluginCore appstream: Loading appstream path '/usr/share/swcatalog/xml'
+06:05:06:658 GsPluginCore appstream: Skipping appstream path '/usr/share/swcatalog/yaml' as does not exist
+06:05:06:658 GsPluginCore appstream: Skipping appstream path '/var/cache/app-info/xml' as does not exist
+06:05:06:658 GsPluginCore appstream: Loading appstream path '/var/cache/app-info/xmls'
+06:05:06:658 GsPluginCore appstream: Skipping appstream path '/var/cache/app-info/yaml' as does not exist
+06:05:06:658 GsPluginCore appstream: Skipping appstream path '/var/cache/swcatalog/xml' as does not exist
+06:05:06:658 GsPluginCore appstream: Skipping appstream path '/var/cache/swcatalog/yaml' as does not exist
+06:05:06:658 GsPluginCore appstream: Skipping appstream path '/var/lib/app-info/xml' as does not exist
+06:05:06:658 GsPluginCore appstream: Skipping appstream path '/var/lib/app-info/xmls' as does not exist
+06:05:06:658 GsPluginCore appstream: Skipping appstream path '/var/lib/app-info/yaml' as does not exist
+06:05:06:658 GsPluginCore appstream: Skipping appstream path '/var/lib/swcatalog/xml' as does not exist
+06:05:06:658 GsPluginCore appstream: Skipping appstream path '/var/lib/swcatalog/yaml' as does not exist
+06:05:06:658 GsPluginCore appstream: Loading appdata path '/usr/share/metainfo'
+06:05:06:658 PackageKit notify::connected
+06:05:06:659 GsPluginCore appstream: Skipping appdata path '/usr/share/appdata' as does not exist
+06:05:06:659 Gs  appstream: Loading desktop path '/usr/share/applications'
+06:05:06:659 Gs  disabling epiphany as setup failed: Couldn’t create Epiphany WebAppProvider proxy: couldn’t get name owner
+06:05:06:661 Gs  Failed to load appstream file '/usr/share/app-info/xml': Error when getting information for file “/usr/share/app-info/xml”: No such file or directory
+06:05:06:661 Gs  Failed to load appstream file '/usr/share/app-info/xmls': Error when getting information for file “/usr/share/app-info/xmls”: No such file or directory
+06:05:06:661 Gs  Failed to load appstream file '/usr/share/app-info/yaml': Error when getting information for file “/usr/share/app-info/yaml”: No such file or directory
+06:05:06:661 Gs  Failed to load appstream file '/usr/share/swcatalog/yaml': Error when getting information for file “/usr/share/swcatalog/yaml”: No such file or directory
+06:05:06:661 Gs  Failed to load appstream file '/var/cache/app-info/xml': Error when getting information for file “/var/cache/app-info/xml”: No such file or directory
+06:05:06:661 Gs  Failed to load appstream file '/var/cache/app-info/yaml': Error when getting information for file “/var/cache/app-info/yaml”: No such file or directory
+06:05:06:661 Gs  Failed to load appstream file '/var/cache/swcatalog/xml': Error when getting information for file “/var/cache/swcatalog/xml”: No such file or directory
+06:05:06:661 Gs  Failed to load appstream file '/var/cache/swcatalog/yaml': Error when getting information for file “/var/cache/swcatalog/yaml”: No such file or directory
+06:05:06:661 Gs  Failed to load appstream file '/var/lib/app-info/xml': Error when getting information for file “/var/lib/app-info/xml”: No such file or directory
+06:05:06:661 Gs  Failed to load appstream file '/var/lib/app-info/xmls': Error when getting information for file “/var/lib/app-info/xmls”: No such file or directory
+06:05:06:661 Gs  Failed to load appstream file '/var/lib/app-info/yaml': Error when getting information for file “/var/lib/app-info/yaml”: No such file or directory
+06:05:06:661 Gs  Failed to load appstream file '/var/lib/swcatalog/xml': Error when getting information for file “/var/lib/swcatalog/xml”: No such file or directory
+06:05:06:661 Gs  Failed to load appstream file '/var/lib/swcatalog/yaml': Error when getting information for file “/var/lib/swcatalog/yaml”: No such file or directory
+06:05:06:661 XbSilo detected content type of gnome-pwa-list-foss.xml to be application/xml
+06:05:06:662 XbSilo detected content type of org.gnome.Software.Featured.xml to be application/xml
+06:05:06:662 XbSilo detected content type of gnome-pwa-list-proprietary.xml to be application/xml
+06:05:06:664 Gs  appstream: Loading desktop path '/usr/share/applications'
+06:05:06:665 XbSilo detected content type of libreoffice-draw.desktop to be application/x-desktop
+06:05:06:666 XbSilo detected content type of org.gnome.tweaks.desktop to be application/x-desktop
+06:05:06:667 XbSilo detected content type of gnome-background-panel.desktop to be application/x-desktop
+06:05:06:670 XbSilo detected content type of gnome-wifi-panel.desktop to be application/x-desktop
+06:05:06:672 XbSilo detected content type of gnome-search-panel.desktop to be application/x-desktop
+06:05:06:675 XbSilo detected content type of org.gnome.SoundRecorder.desktop to be application/x-desktop
+06:05:06:676 XbSilo detected content type of gnome-datetime-panel.desktop to be application/x-desktop
+06:05:06:678 XbSilo detected content type of xdg-desktop-portal-gnome.desktop to be application/x-desktop
+06:05:06:679 XbSilo detected content type of org.pulseaudio.pavucontrol.desktop to be application/x-desktop
+06:05:06:679 XbSilo detected content type of org.gnome.RemoteDesktop.Handover.desktop to be application/x-desktop
+06:05:06:680 XbSilo detected content type of org.freedesktop.IBus.Panel.Wayland.Gtk3.desktop to be application/x-desktop
+06:05:06:680 XbSilo detected content type of org.gnome.Terminal.Preferences.desktop to be application/x-desktop
+06:05:06:681 XbSilo detected content type of blueman-adapters.desktop to be application/x-desktop
+06:05:06:682 XbSilo detected content type of org.gnome.OnlineAccounts.OAuth2.desktop to be application/x-desktop
+06:05:06:682 XbSilo detected content type of org.gnome.Snapshot.desktop to be application/x-desktop
+06:05:06:684 XbSilo detected content type of libreoffice-calc.desktop to be application/x-desktop
+06:05:06:684 XbSilo detected content type of org.gnome.TextEditor.desktop to be application/x-desktop
+06:05:06:685 XbSilo detected content type of gnome-system-monitor-kde.desktop to be application/x-desktop
+06:05:06:689 XbSilo detected content type of libreoffice-xsltfilter.desktop to be application/x-desktop
+06:05:06:689 XbSilo detected content type of org.freedesktop.IBus.Panel.Extension.Gtk3.desktop to be application/x-desktop
+06:05:06:690 XbSilo detected content type of org.gnome.Loupe.desktop to be application/x-desktop
+06:05:06:691 XbSilo detected content type of gnome-sharing-panel.desktop to be application/x-desktop
+06:05:06:694 XbSilo detected content type of org.gnome.Contacts.desktop to be application/x-desktop
+06:05:06:696 XbSilo detected content type of org.gnome.Software.desktop to be application/x-desktop
+06:05:06:699 XbSilo detected content type of org.gnome.Evolution.desktop to be application/x-desktop
+06:05:06:702 XbSilo detected content type of gnome-software-local-file-fwupd.desktop to be application/x-desktop
+06:05:06:703 XbSilo detected content type of gnome-mouse-panel.desktop to be application/x-desktop
+06:05:06:707 XbSilo detected content type of org.freedesktop.IBus.Setup.desktop to be application/x-desktop
+06:05:06:707 XbSilo detected content type of libreoffice-math.desktop to be application/x-desktop
+06:05:06:707 XbSilo detected content type of org.gnome.Tour.desktop to be application/x-desktop
+06:05:06:708 XbSilo detected content type of org.gnome.clocks.desktop to be application/x-desktop
+06:05:06:711 XbSilo detected content type of org.freedesktop.IBus.Panel.Emojier.desktop to be application/x-desktop
+06:05:06:711 XbSilo detected content type of system-config-printer.desktop to be application/x-desktop
+06:05:06:712 XbSilo detected content type of gnome-notifications-panel.desktop to be application/x-desktop
+06:05:06:715 XbSilo detected content type of gnome-applications-panel.desktop to be application/x-desktop
+06:05:06:719 XbSilo detected content type of thunar-volman-settings.desktop to be application/x-desktop
+06:05:06:720 XbSilo detected content type of org.gnome.FileRoller.desktop to be application/x-desktop
+06:05:06:722 XbSilo detected content type of org.gnome.Shotwell.Auth.desktop to be application/x-desktop
+06:05:06:722 XbSilo detected content type of libreoffice-impress.desktop to be application/x-desktop
+06:05:06:723 XbSilo detected content type of org.gnome.Calculator.desktop to be application/x-desktop
+06:05:06:725 XbSilo detected content type of org.gnome.DiskUtility.desktop to be application/x-desktop
+06:05:06:728 XbSilo detected content type of gnome-multitasking-panel.desktop to be application/x-desktop
+06:05:06:730 XbSilo detected content type of firefox-esr.desktop to be application/x-desktop
+06:05:06:730 XbSilo detected content type of simple-scan.desktop to be application/x-desktop
+06:05:06:731 XbSilo detected content type of org.gnome.font-viewer.desktop to be application/x-desktop
+06:05:06:732 XbSilo detected content type of gnome-sound-panel.desktop to be application/x-desktop
+06:05:06:734 XbSilo detected content type of foot.desktop to be application/x-desktop
+06:05:06:734 XbSilo detected content type of user-dirs-update-gtk.desktop to be application/x-desktop
+06:05:06:735 XbSilo detected content type of gnome-printers-panel.desktop to be application/x-desktop
+06:05:06:736 XbSilo detected content type of org.gnome.Nautilus.desktop to be application/x-desktop
+06:05:06:738 XbSilo detected content type of org.gnome.Terminal.desktop to be application/x-desktop
+06:05:06:739 XbSilo detected content type of org.gnome.Calendar.desktop to be application/x-desktop
+06:05:06:740 XbSilo detected content type of org.gnome.SystemMonitor.desktop to be application/x-desktop
+06:05:06:743 XbSilo detected content type of gnome-online-accounts-panel.desktop to be application/x-desktop
+06:05:06:745 XbSilo detected content type of org.gnome.Evince-previewer.desktop to be application/x-desktop
+06:05:06:746 XbSilo detected content type of blueman-manager.desktop to be application/x-desktop
+06:05:06:746 XbSilo detected content type of org.gnome.Settings.desktop to be application/x-desktop
+06:05:06:747 XbSilo detected content type of gcr-prompter.desktop to be application/x-desktop
+06:05:06:748 XbSilo detected content type of thunar-bulk-rename.desktop to be application/x-desktop
+06:05:06:749 XbSilo detected content type of org.gnome.Shotwell-Viewer.desktop to be application/x-desktop
+06:05:06:749 XbSilo detected content type of gnome-privacy-panel.desktop to be application/x-desktop
+06:05:06:752 XbSilo detected content type of org.gnome.Connections.desktop to be application/x-desktop
+06:05:06:753 XbSilo detected content type of org.gnome.Evince.desktop to be application/x-desktop
+06:05:06:754 XbSilo detected content type of org.gnome.Tecla.desktop to be application/x-desktop
+06:05:06:755 XbSilo detected content type of gnome-bluetooth-panel.desktop to be application/x-desktop
+06:05:06:756 XbSilo detected content type of gnome-region-panel.desktop to be application/x-desktop
+06:05:06:757 XbSilo detected content type of org.freedesktop.MalcontentControl.desktop to be application/x-desktop
+06:05:06:758 XbSilo detected content type of chromium.desktop to be application/x-desktop
+06:05:06:758 XbSilo detected content type of gnome-disk-image-writer.desktop to be application/x-desktop
+06:05:06:759 XbSilo detected content type of gnome-about-panel.desktop to be application/x-desktop
+06:05:06:762 XbSilo detected content type of org.gnome.Weather.desktop to be application/x-desktop
+06:05:06:763 XbSilo detected content type of bluetooth-sendto.desktop to be application/x-desktop
+06:05:06:763 XbSilo detected content type of python3.13.desktop to be application/x-desktop
+06:05:06:764 XbSilo detected content type of gnome-disk-image-mounter.desktop to be application/x-desktop
+06:05:06:764 XbSilo detected content type of org.gnome.Shotwell.desktop to be application/x-desktop
+06:05:06:765 XbSilo detected content type of thunar-settings.desktop to be application/x-desktop
+06:05:06:767 XbSilo detected content type of yelp.desktop to be application/x-desktop
+06:05:06:768 XbSilo detected content type of gnome-software-local-file-packagekit.desktop to be application/x-desktop
+06:05:06:768 XbSilo detected content type of org.gnome.Totem.desktop to be application/x-desktop
+06:05:06:770 XbSilo detected content type of xdg-desktop-portal-gtk.desktop to be application/x-desktop
+06:05:06:770 XbSilo detected content type of gnome-network-panel.desktop to be application/x-desktop
+06:05:06:772 XbSilo detected content type of gnome-system-panel.desktop to be application/x-desktop
+06:05:06:775 XbSilo detected content type of org.gnome.Characters.desktop to be application/x-desktop
+06:05:06:776 XbSilo detected content type of nautilus-autorun-software.desktop to be application/x-desktop
+06:05:06:776 XbSilo detected content type of org.quickshell.desktop to be application/x-desktop
+06:05:06:776 XbSilo detected content type of org.gnome.Music.desktop to be application/x-desktop
+06:05:06:777 XbSilo detected content type of geoclue-demo-agent.desktop to be application/x-desktop
+06:05:06:778 XbSilo detected content type of org.gnome.Shell.desktop to be application/x-desktop
+06:05:06:778 XbSilo detected content type of btop.desktop to be application/x-desktop
+06:05:06:778 XbSilo detected content type of footclient.desktop to be application/x-desktop
+06:05:06:778 XbSilo detected content type of foot-server.desktop to be application/x-desktop
+06:05:06:778 XbSilo detected content type of gnome-keyboard-panel.desktop to be application/x-desktop
+06:05:06:781 XbSilo detected content type of org.gnome.Logs.desktop to be application/x-desktop
+06:05:06:782 XbSilo detected content type of org.gnome.Evolution-alarm-notify.desktop to be application/x-desktop
+06:05:06:782 XbSilo detected content type of org.gnome.Zenity.desktop to be application/x-desktop
+06:05:06:782 XbSilo detected content type of nm-connection-editor.desktop to be application/x-desktop
+06:05:06:783 XbSilo detected content type of gnome-wellbeing-panel.desktop to be application/x-desktop
+06:05:06:784 XbSilo detected content type of gnome-users-panel.desktop to be application/x-desktop
+06:05:06:786 XbSilo detected content type of im-config.desktop to be application/x-desktop
+06:05:06:786 XbSilo detected content type of gcr-viewer.desktop to be application/x-desktop
+06:05:06:786 XbSilo detected content type of gnome-color-panel.desktop to be application/x-desktop
+06:05:06:788 XbSilo detected content type of gnome-power-panel.desktop to be application/x-desktop
+06:05:06:790 XbSilo detected content type of debian-xterm.desktop to be application/x-desktop
+06:05:06:790 XbSilo detected content type of thunar.desktop to be application/x-desktop
+06:05:06:791 XbSilo detected content type of org.gnome.seahorse.Application.desktop to be application/x-desktop
+06:05:06:792 XbSilo detected content type of org.gnome.BrowserConnector.desktop to be application/x-desktop
+06:05:06:792 XbSilo detected content type of gnome-wwan-panel.desktop to be application/x-desktop
+06:05:06:793 XbSilo detected content type of gnome-display-panel.desktop to be application/x-desktop
+06:05:06:796 XbSilo detected content type of org.gnome.Shell.Extensions.desktop to be application/x-desktop
+06:05:06:796 XbSilo detected content type of gnome-universal-access-panel.desktop to be application/x-desktop
+06:05:06:800 XbSilo detected content type of debian-uxterm.desktop to be application/x-desktop
+06:05:06:800 XbSilo detected content type of org.gnome.Maps.desktop to be application/x-desktop
+06:05:06:801 XbSilo detected content type of libreoffice-writer.desktop to be application/x-desktop
+06:05:06:801 XbSilo detected content type of gnome-wacom-panel.desktop to be application/x-desktop
+06:05:06:803 XbSilo detected content type of rygel.desktop to be application/x-desktop
+06:05:06:804 XbSilo detected content type of org.gnome.evolution-data-server.OAuth2-handler.desktop to be application/x-desktop
+06:05:06:804 XbSilo detected content type of gnome-user-share-webdav.desktop to be application/x-desktop
+06:05:06:805 XbSilo detected content type of org.freedesktop.Xwayland.desktop to be application/x-desktop
+06:05:06:805 XbSilo detected content type of org.gnome.baobab.desktop to be application/x-desktop
+06:05:06:807 XbSilo detected content type of libreoffice-startcenter.desktop to be application/x-desktop
+06:05:06:836 GsPluginCore ensuring /home/cipher/.cache/gnome-software/appstream/components.xmlb
+06:05:06:836 XbSilo attempting to load /home/cipher/.cache/gnome-software/appstream/components.xmlb
+06:05:06:836 XbSilo file: 0713dfbc-3d0e-855c-94f9-dd74842d7810, current:0713dfbc-3d0e-855c-94f9-dd74842d7810
+06:05:06:836 XbSilo loading silo with existing file contents
+06:05:31:683 Gs  disabling fwupd as setup failed: Error calling StartServiceByName for org.freedesktop.fwupd: Timeout was reached
+06:05:31:683 GsPluginPackageKit Failed to get PackageKit properties: Error calling StartServiceByName for org.freedesktop.PackageKit: Timeout was reached (build version: 1.3.1)
+06:05:31:683 Gs  disabling malcontent as setup failed: Timeout was reached
+06:05:31:683 GsPluginPackageKit not setting proxy as no permission: Error initializing authority: Error calling StartServiceByName for org.freedesktop.PolicyKit1: Timeout was reached
+06:05:56:698 Gs  [disabld]	0	->	dpkg
+06:05:56:698 Gs  [disabld]	0	->	dummy
+06:05:56:698 Gs  [disabld]	0	->	fwupd
+06:05:56:698 Gs  [enabled]	0	->	os-release
+06:05:56:698 Gs  [disabld]	0	->	repos
+06:05:56:698 Gs  [enabled]	1	->	appstream
+06:05:56:698 Gs  [disabld]	2	->	epiphany
+06:05:56:698 Gs  [enabled]	2	->	hardcoded-blocklist
+06:05:56:698 Gs  [disabld]	2	->	malcontent
+06:05:56:698 Gs  [enabled]	2	->	modalias
+06:05:56:698 Gs  [enabled]	2	->	packagekit
+06:05:56:698 Gs  [enabled]	3	->	generic-updates
+06:05:56:698 Gs  [enabled]	3	->	provenance
+06:05:56:698 Gs  [enabled]	4	->	icons
+06:05:56:698 Gs  [enabled]	4	->	provenance-license
+06:05:56:698 Gs  enabled plugins: os-release, appstream, hardcoded-blocklist, modalias, packagekit, generic-updates, provenance, icons, provenance-license
+06:05:56:698 Gs  disabled plugins: dpkg, dummy, fwupd, repos, epiphany, malcontent
+06:06:21:713 Gs  failed to connect to upower: Error calling StartServiceByName for org.freedesktop.UPower: Failed to activate service 'org.freedesktop.UPower': timed out (service_start_timeout=25000ms)
+06:06:21:721 Gs  Setting I/O priority of thread 0x55c3955fc5a0 to IDLE, 7
+06:06:21:721 PackageKit role now refresh-cache
+06:06:21:722 Gs  Updating ODRS cache from https://odrs.gnome.org/1.0/reviews/api/ratings to /home/cipher/.cache/gnome-software/odrs/ratings.json
+06:06:21:722 Gs  Error getting attribute ‘xattr::gnome-software::etag’ for file ‘/home/cipher/.cache/gnome-software/odrs/ratings.json’: Error when getting information for file “/home/cipher/.cache/gnome-software/odrs/ratings.json”: No such file or directory
+06:06:21:814 Gtk snapshot symbolic icon using mask
+06:06:21:964 Gs  getting historical updates for fresh session
+06:06:21:965 Gs  Setting I/O priority of thread 0x55c3955fc5a0 to IDLE, 7
+06:06:21:965 Gs  emitting global waiting
+06:06:21:965 Gs  emitting global finished
+06:06:21:965 Gs  plugin 'appstream' failed to list apps: Unsupported query
+06:06:21:965 Gs  No apps to refine
+06:06:21:965 Gs  no ->sort_func() set, using random!
+06:06:21:965 Gs  running ListApps job with dedupe-flags=7 with propagate-error=True
+06:06:21:965 Gs  no historical updates; withdrawing notification
+06:06:21:999 Gs  emitting global waiting
+06:06:22:000 Gs  emitting global finished
+06:06:22:000 Gs  Downloading https://odrs.gnome.org/1.0/reviews/api/ratings to GLocalFileOutputStream
+06:06:22:000 libsoup [SESSION QUEUE] [0x55c39588de50] [STARTING] Processing item, paused=0 state=0
+06:06:22:000 pxbackend px_manager_get_proxies_sync: url=https://odrs.gnome.org:443 online=1
+06:06:22:000 pxbackend px_manager_get_proxies_sync: Proxy[0] = direct://
+06:06:22:074 libsoup-http2 [CLIENT] [[32mC1[00m-[31mS0[00m] [-] [SEND] [SETTINGS] stream_id=0
+06:06:22:074 libsoup-http2 [CLIENT] [[32mC1[00m-[31mS0[00m] [-] [SEND] [WINDOW_UPDATE] stream_id=0 increment=15663105
+06:06:22:074 libsoup [SESSION QUEUE] [0x55c39588de50] [CONNECTED] Processing item, paused=0 state=2
+06:06:22:074 libsoup [SESSION QUEUE] [0x55c39588de50] [READY] Processing item, paused=0 state=4
+06:06:22:074 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [NONE] [SESSION] Request made for odrs.gnome.org/1.0/reviews/api/ratings
+06:06:22:074 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [NONE] [SESSION] State NONE -> WRITE_HEADERS
+06:06:22:074 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [WRITE_HEADERS] [SEND] [HEADERS] stream_id=1, category=REQUEST finished=1
+06:06:22:074 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [WRITE_HEADERS] [SESSION] State WRITE_HEADERS -> WRITE_DONE
+06:06:22:082 libsoup-http2 [CLIENT] [[32mC1[00m-[31mS0[00m] [-] [RECV] [SETTINGS] Beginning: stream_id=0
+06:06:22:082 libsoup-http2 [CLIENT] [[32mC1[00m-[31mS0[00m] [-] [RECV] [SETTINGS] Received: stream_id=0, flags=0
+06:06:22:082 libsoup-http2 [CLIENT] [[32mC1[00m-[31mS0[00m] [-] [RECV] [WINDOW_UPDATE] Beginning: stream_id=0
+06:06:22:082 libsoup-http2 [CLIENT] [[32mC1[00m-[31mS0[00m] [-] [RECV] [WINDOW_UPDATE] Received: stream_id=0, flags=0
+06:06:22:082 libsoup-http2 [CLIENT] [[32mC1[00m-[31mS0[00m] [-] [RECV] WINDOW_UPDATE: increment=2147418112, total=2147483647
+06:06:22:082 libsoup-http2 [CLIENT] [[32mC1[00m-[31mS0[00m] [-] [SEND] [SETTINGS] stream_id=0
+06:06:22:082 libsoup-http2 [CLIENT] [[32mC1[00m-[31mS0[00m] [-] [RECV] [SETTINGS] Beginning: stream_id=0
+06:06:22:082 libsoup-http2 [CLIENT] [[32mC1[00m-[31mS0[00m] [-] [RECV] [SETTINGS] Received: stream_id=0, flags=1
+06:06:22:091 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [WRITE_DONE] [RECV] [HEADERS] Beginning: stream_id=1
+06:06:22:091 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [WRITE_DONE] [SESSION] State WRITE_DONE -> READ_HEADERS
+06:06:22:091 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_HEADERS] [RECV] [HEADERS] Received: stream_id=1, flags=4
+06:06:22:091 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_HEADERS] [HEADERS] category=RESPONSE status=200
+06:06:22:091 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_HEADERS] [RECV] [DATA] Beginning: stream_id=1
+06:06:22:091 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_HEADERS] [SESSION] State READ_HEADERS -> READ_DATA_START
+06:06:22:091 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA_START] [DATA] Received chunk, stream_id=1 len=8183, flags=0, paused=0
+06:06:22:091 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA_START] [DATA] Sniffed content
+06:06:22:091 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA_START] [SESSION] State READ_DATA_START -> READ_DATA
+06:06:22:091 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] Received: stream_id=1, flags=0
+06:06:22:091 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] window=8183/6291456
+06:06:22:091 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] Beginning: stream_id=1
+06:06:22:091 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [DATA] Received chunk, stream_id=1 len=7886, flags=0, paused=0
+06:06:22:091 libsoup [SESSION QUEUE] [0x55c39588de50] [RUNNING] run_until_read_done
+06:06:22:093 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [DATA] Received chunk, stream_id=1 len=297, flags=0, paused=0
+06:06:22:094 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] Received: stream_id=1, flags=0
+06:06:22:094 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] window=16366/6291456
+06:06:22:094 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] Beginning: stream_id=1
+06:06:22:094 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [DATA] Received chunk, stream_id=1 len=8183, flags=0, paused=0
+06:06:22:094 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] Received: stream_id=1, flags=0
+06:06:22:094 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] window=24549/6291456
+06:06:22:094 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] Beginning: stream_id=1
+06:06:22:094 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [DATA] Received chunk, stream_id=1 len=7886, flags=0, paused=0
+06:06:22:094 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [DATA] Received chunk, stream_id=1 len=297, flags=0, paused=0
+06:06:22:094 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] Received: stream_id=1, flags=0
+06:06:22:094 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] window=32732/6291456
+06:06:22:094 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] Beginning: stream_id=1
+06:06:22:094 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [DATA] Received chunk, stream_id=1 len=36, flags=0, paused=0
+06:06:22:094 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] Received: stream_id=1, flags=0
+06:06:22:094 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] window=32768/6291456
+06:06:22:099 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] Beginning: stream_id=1
+06:06:22:099 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [DATA] Received chunk, stream_id=1 len=8183, flags=0, paused=0
+06:06:22:099 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] Received: stream_id=1, flags=0
+06:06:22:099 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] window=40951/6291456
+06:06:22:099 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] Beginning: stream_id=1
+06:06:22:099 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [DATA] Received chunk, stream_id=1 len=8183, flags=0, paused=0
+06:06:22:099 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] Received: stream_id=1, flags=0
+06:06:22:099 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] window=49134/6291456
+06:06:22:100 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] Beginning: stream_id=1
+06:06:22:100 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [DATA] Received chunk, stream_id=1 len=8183, flags=0, paused=0
+06:06:22:100 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] Received: stream_id=1, flags=0
+06:06:22:100 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] window=57317/6291456
+06:06:22:100 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] Beginning: stream_id=1
+06:06:22:100 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [DATA] Received chunk, stream_id=1 len=8183, flags=0, paused=0
+06:06:22:100 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] Received: stream_id=1, flags=0
+06:06:22:100 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] window=65500/6291456
+06:06:22:103 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] Beginning: stream_id=1
+06:06:22:103 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [DATA] Received chunk, stream_id=1 len=36, flags=0, paused=0
+06:06:22:103 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] Received: stream_id=1, flags=0
+06:06:22:103 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] window=65536/6291456
+06:06:22:103 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] Beginning: stream_id=1
+06:06:22:103 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [DATA] Received chunk, stream_id=1 len=8183, flags=0, paused=0
+06:06:22:103 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] Received: stream_id=1, flags=0
+06:06:22:103 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] window=73719/6291456
+06:06:22:103 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] Beginning: stream_id=1
+06:06:22:103 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [DATA] Received chunk, stream_id=1 len=8138, flags=0, paused=0
+06:06:22:105 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [DATA] Received chunk, stream_id=1 len=45, flags=0, paused=0
+06:06:22:105 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] Received: stream_id=1, flags=0
+06:06:22:105 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] window=81902/6291456
+06:06:22:105 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] Beginning: stream_id=1
+06:06:22:105 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [DATA] Received chunk, stream_id=1 len=8183, flags=0, paused=0
+06:06:22:105 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] Received: stream_id=1, flags=0
+06:06:22:105 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] window=90085/6291456
+06:06:22:105 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] Beginning: stream_id=1
+06:06:22:105 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [DATA] Received chunk, stream_id=1 len=8138, flags=0, paused=0
+06:06:22:107 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [DATA] Received chunk, stream_id=1 len=45, flags=0, paused=0
+06:06:22:107 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] Received: stream_id=1, flags=0
+06:06:22:107 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] window=98268/6291456
+06:06:22:107 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] Beginning: stream_id=1
+06:06:22:107 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [DATA] Received chunk, stream_id=1 len=36, flags=0, paused=0
+06:06:22:107 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] Received: stream_id=1, flags=0
+06:06:22:107 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] window=98304/6291456
+06:06:22:107 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] Beginning: stream_id=1
+06:06:22:107 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [DATA] Received chunk, stream_id=1 len=8183, flags=0, paused=0
+06:06:22:107 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] Received: stream_id=1, flags=0
+06:06:22:107 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] window=106487/6291456
+06:06:22:107 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] Beginning: stream_id=1
+06:06:22:107 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [DATA] Received chunk, stream_id=1 len=8093, flags=0, paused=0
+06:06:22:108 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [DATA] Received chunk, stream_id=1 len=90, flags=0, paused=0
+06:06:22:108 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] Received: stream_id=1, flags=0
+06:06:22:108 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] window=114670/6291456
+06:06:22:108 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] Beginning: stream_id=1
+06:06:22:108 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [DATA] Received chunk, stream_id=1 len=8183, flags=0, paused=0
+06:06:22:108 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] Received: stream_id=1, flags=0
+06:06:22:108 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] window=122853/6291456
+06:06:22:108 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] Beginning: stream_id=1
+06:06:22:108 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [DATA] Received chunk, stream_id=1 len=8093, flags=0, paused=0
+06:06:22:109 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [DATA] Received chunk, stream_id=1 len=90, flags=0, paused=0
+06:06:22:109 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] Received: stream_id=1, flags=0
+06:06:22:109 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] window=131036/6291456
+06:06:22:109 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] Beginning: stream_id=1
+06:06:22:109 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [DATA] Received chunk, stream_id=1 len=36, flags=0, paused=0
+06:06:22:109 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] Received: stream_id=1, flags=0
+06:06:22:109 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] window=131072/6291456
+06:06:22:109 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] Beginning: stream_id=1
+06:06:22:109 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [DATA] Received chunk, stream_id=1 len=8183, flags=0, paused=0
+06:06:22:109 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] Received: stream_id=1, flags=0
+06:06:22:109 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] window=139255/6291456
+06:06:22:109 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] Beginning: stream_id=1
+06:06:22:109 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [DATA] Received chunk, stream_id=1 len=8048, flags=0, paused=0
+06:06:22:111 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [DATA] Received chunk, stream_id=1 len=135, flags=0, paused=0
+06:06:22:111 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] Received: stream_id=1, flags=0
+06:06:22:111 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] window=147438/6291456
+06:06:22:111 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] Beginning: stream_id=1
+06:06:22:111 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [DATA] Received chunk, stream_id=1 len=8183, flags=0, paused=0
+06:06:22:111 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] Received: stream_id=1, flags=0
+06:06:22:111 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] window=155621/6291456
+06:06:22:111 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] Beginning: stream_id=1
+06:06:22:111 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [DATA] Received chunk, stream_id=1 len=8048, flags=0, paused=0
+06:06:22:111 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [DATA] Received chunk, stream_id=1 len=135, flags=0, paused=0
+06:06:22:111 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] Received: stream_id=1, flags=0
+06:06:22:111 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] window=163804/6291456
+06:06:22:111 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] Beginning: stream_id=1
+06:06:22:111 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [DATA] Received chunk, stream_id=1 len=36, flags=0, paused=0
+06:06:22:111 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] Received: stream_id=1, flags=0
+06:06:22:111 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] window=163840/6291456
+06:06:22:111 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] Beginning: stream_id=1
+06:06:22:111 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [DATA] Received chunk, stream_id=1 len=8183, flags=0, paused=0
+06:06:22:111 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] Received: stream_id=1, flags=0
+06:06:22:111 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] window=172023/6291456
+06:06:22:111 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] Beginning: stream_id=1
+06:06:22:111 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [DATA] Received chunk, stream_id=1 len=8183, flags=0, paused=0
+06:06:22:111 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] Received: stream_id=1, flags=0
+06:06:22:111 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] window=180206/6291456
+06:06:22:114 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] Beginning: stream_id=1
+06:06:22:114 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [DATA] Received chunk, stream_id=1 len=8183, flags=0, paused=0
+06:06:22:114 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] Received: stream_id=1, flags=0
+06:06:22:114 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] window=188389/6291456
+06:06:22:114 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] Beginning: stream_id=1
+06:06:22:114 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [DATA] Received chunk, stream_id=1 len=8183, flags=0, paused=0
+06:06:22:114 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] Received: stream_id=1, flags=0
+06:06:22:114 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] window=196572/6291456
+06:06:22:116 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] Beginning: stream_id=1
+06:06:22:116 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [DATA] Received chunk, stream_id=1 len=8183, flags=0, paused=0
+06:06:22:116 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] Received: stream_id=1, flags=0
+06:06:22:116 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] window=204755/6291456
+06:06:22:116 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] Beginning: stream_id=1
+06:06:22:116 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [DATA] Received chunk, stream_id=1 len=8183, flags=0, paused=0
+06:06:22:116 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] Received: stream_id=1, flags=0
+06:06:22:116 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] window=212938/6291456
+06:06:22:116 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] Beginning: stream_id=1
+06:06:22:116 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [DATA] Received chunk, stream_id=1 len=8183, flags=0, paused=0
+06:06:22:116 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] Received: stream_id=1, flags=0
+06:06:22:116 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] window=221121/6291456
+06:06:22:116 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] Beginning: stream_id=1
+06:06:22:116 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [DATA] Received chunk, stream_id=1 len=8183, flags=0, paused=0
+06:06:22:116 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] Received: stream_id=1, flags=0
+06:06:22:116 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] window=229304/6291456
+06:06:22:116 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] Beginning: stream_id=1
+06:06:22:116 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [DATA] Received chunk, stream_id=1 len=72, flags=0, paused=0
+06:06:22:116 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] Received: stream_id=1, flags=0
+06:06:22:116 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] window=229376/6291456
+06:06:22:116 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] Beginning: stream_id=1
+06:06:22:116 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [DATA] Received chunk, stream_id=1 len=8183, flags=0, paused=0
+06:06:22:116 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] Received: stream_id=1, flags=0
+06:06:22:116 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] window=237559/6291456
+06:06:22:116 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] Beginning: stream_id=1
+06:06:22:116 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [DATA] Received chunk, stream_id=1 len=8102, flags=0, paused=0
+06:06:22:116 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [DATA] Received chunk, stream_id=1 len=81, flags=0, paused=0
+06:06:22:116 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] Received: stream_id=1, flags=0
+06:06:22:116 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] window=245742/6291456
+06:06:22:116 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] Beginning: stream_id=1
+06:06:22:116 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [DATA] Received chunk, stream_id=1 len=8183, flags=0, paused=0
+06:06:22:116 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] Received: stream_id=1, flags=0
+06:06:22:116 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] window=253925/6291456
+06:06:22:116 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] Beginning: stream_id=1
+06:06:22:116 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [DATA] Received chunk, stream_id=1 len=8102, flags=0, paused=0
+06:06:22:116 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [DATA] Received chunk, stream_id=1 len=81, flags=0, paused=0
+06:06:22:116 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] Received: stream_id=1, flags=0
+06:06:22:116 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] window=262108/6291456
+06:06:22:116 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] Beginning: stream_id=1
+06:06:22:116 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [DATA] Received chunk, stream_id=1 len=36, flags=0, paused=0
+06:06:22:116 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] Received: stream_id=1, flags=0
+06:06:22:116 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] window=262144/6291456
+06:06:22:116 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] Beginning: stream_id=1
+06:06:22:116 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [DATA] Received chunk, stream_id=1 len=2333, flags=1, paused=0
+06:06:22:116 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] Received: stream_id=1, flags=1
+06:06:22:116 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [RECV] [DATA] window=264477/6291456
+06:06:22:116 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [SESSION] Closed stream 1: NO_ERROR
+06:06:22:123 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] Client stream EOF
+06:06:22:123 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DATA] [SESSION] State READ_DATA -> READ_DONE
+06:06:22:123 libsoup-http2 [CLIENT] [[32mC1[00m-[32mS1[00m] [READ_DONE] Finished stream 1: completed
+06:06:22:123 libsoup [SESSION QUEUE] [0x55c39588de50] [RUNNING] Message completed
+06:06:22:123 libsoup [SESSION QUEUE] [0x55c39588de50] [FINISHING] Processing item, paused=0 state=9
+06:06:22:123 Gs  Error clearing attribute ‘xattr::gnome-software::etag’ on file ‘/home/cipher/.cache/gnome-software/odrs/ratings.json’: Error setting extended attribute “gnome-software::etag”: No data available

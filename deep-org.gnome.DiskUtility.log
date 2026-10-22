@@ -1,0 +1,25 @@
+(gnome-disks:36812): GLib-GIO-DEBUG: 06:03:34.807: _g_io_module_get_default: Found default implementation dconf (DConfSettingsBackend) for ‘gsettings-backend’
+(gnome-disks:36812): dconf-DEBUG: 06:03:34.807: watch_fast: "/org/gnome/desktop/interface/" (establishing: 0, active: 0)
+(gnome-disks:36812): dconf-DEBUG: 06:03:34.807: watch_fast: "/org/gnome/desktop/peripherals/mouse/" (establishing: 0, active: 0)
+(gnome-disks:36812): dconf-DEBUG: 06:03:34.807: watch_fast: "/org/gnome/desktop/sound/" (establishing: 0, active: 0)
+(gnome-disks:36812): dconf-DEBUG: 06:03:34.807: watch_fast: "/org/gnome/desktop/privacy/" (establishing: 0, active: 0)
+(gnome-disks:36812): dconf-DEBUG: 06:03:34.807: watch_fast: "/org/gnome/desktop/wm/preferences/" (establishing: 0, active: 0)
+(gnome-disks:36812): dconf-DEBUG: 06:03:34.807: watch_fast: "/org/gnome/settings-daemon/plugins/xsettings/" (establishing: 0, active: 0)
+(gnome-disks:36812): dconf-DEBUG: 06:03:34.807: watch_fast: "/org/gnome/desktop/a11y/" (establishing: 0, active: 0)
+(gnome-disks:36812): dconf-DEBUG: 06:03:34.807: watch_fast: "/org/gnome/desktop/a11y/interface/" (establishing: 0, active: 0)
+(gnome-disks:36812): dconf-DEBUG: 06:03:34.807: watch_established: "/org/gnome/desktop/interface/" (establishing: 1)
+(gnome-disks:36812): dconf-DEBUG: 06:03:34.807: watch_established: "/org/gnome/desktop/peripherals/mouse/" (establishing: 1)
+(gnome-disks:36812): dconf-DEBUG: 06:03:34.807: watch_established: "/org/gnome/desktop/sound/" (establishing: 1)
+(gnome-disks:36812): dconf-DEBUG: 06:03:34.807: watch_established: "/org/gnome/desktop/privacy/" (establishing: 1)
+(gnome-disks:36812): dconf-DEBUG: 06:03:34.807: watch_established: "/org/gnome/desktop/wm/preferences/" (establishing: 1)
+(gnome-disks:36812): dconf-DEBUG: 06:03:34.807: watch_established: "/org/gnome/settings-daemon/plugins/xsettings/" (establishing: 1)
+(gnome-disks:36812): dconf-DEBUG: 06:03:34.807: watch_established: "/org/gnome/desktop/a11y/" (establishing: 1)
+(gnome-disks:36812): dconf-DEBUG: 06:03:34.807: watch_established: "/org/gnome/desktop/a11y/interface/" (establishing: 1)
+(gnome-disks:36812): Gdk-DEBUG: 06:03:34.818: Compositor prefers decoration mode 'server'
+(gnome-disks:36812): GLib-GIO-DEBUG: 06:03:34.822: _g_io_module_get_default: Found default implementation gvfs (GDaemonVfs) for ‘gio-vfs’
+(gnome-disks:36812): GLib-DEBUG: 06:03:34.838: unsetenv() is not thread-safe and should not be used after threads are created
+(gnome-disks:36812): Gtk-DEBUG: 06:03:34.838: Connecting to session manager
+(gnome-disks:36812): Gtk-DEBUG: 06:03:34.838: Failed to get the GNOME session proxy: The name org.gnome.SessionManager is not owned
+(gnome-disks:36812): Gtk-DEBUG: 06:03:34.839: Failed to get the Xfce session proxy: The name org.xfce.SessionManager is not owned
+
+(gnome-disks:36812): GNOME-Disks-ERROR **: 06:03:34.914: Error getting udisks client: Error calling StartServiceByName for org.freedesktop.UDisks2: Unit udisks2.service is masked.

@@ -1,0 +1,15 @@
+total 0
+srw-rw-rw- 1 cipher cipher   0 Oct 22 05:55 bus
+drwx------ 3 cipher cipher  60 Oct 22 05:55 dbus-1
+drwx------ 2 cipher cipher  60 Oct 22 05:55 gcr
+drwx------ 2 cipher cipher 160 Oct 22 05:55 gnupg
+drwx------ 2 cipher cipher  60 Oct 22 05:55 keyring
+srw------- 1 cipher cipher   0 Oct 22 05:55 openssh_agent
+srw-rw-rw- 1 cipher cipher   0 Oct 22 05:55 pipewire-0
+srw-rw-rw- 1 cipher cipher   0 Oct 22 05:55 pipewire-0-manager
+-rw-rw---- 1 cipher cipher   0 Oct 22 05:55 pipewire-0-manager.lock
+-rw-rw---- 1 cipher cipher   0 Oct 22 05:55 pipewire-0.lock
+srw-rw-rw- 1 cipher cipher   0 Oct 22 05:55 pk-debconf-socket
+drwxr-xr-x 2 cipher cipher  80 Oct 22 05:55 pulse
+drwxr-xr-x 2 cipher cipher  60 Oct 22 05:55 speech-dispatcher
+drwxr-xr-x 6 cipher cipher 160 Oct 22 05:55 systemd

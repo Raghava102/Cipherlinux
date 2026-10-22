@@ -1,0 +1,60 @@
+PASS blueman-manager (Bluetooth Manager) 1s
+PASS btop (btop++) 1s
+FAIL chromium (Chromium Web Browser) 25s
+PASS firefox-esr (Firefox ESR) 2s
+PASS foot (Foot) 1s
+PASS libreoffice-calc (LibreOffice Calc) 1s
+PASS libreoffice-draw (LibreOffice Draw) 1s
+PASS libreoffice-impress (LibreOffice Impress) 1s
+PASS libreoffice-math (LibreOffice Math) 1s
+PASS libreoffice-startcenter (LibreOffice) 1s
+PASS libreoffice-writer (LibreOffice Writer) 2s
+PASS nm-connection-editor (Advanced Network Configuration) 1s
+PASS org.freedesktop.IBus.Setup (IBus Preferences) 1s
+FAIL org.freedesktop.MalcontentControl (Parental Controls) 26s
+PASS org.gnome.Calculator (Calculator) 2s
+PASS org.gnome.Calendar (Calendar) 1s
+PASS org.gnome.Characters (Characters) 1s
+PASS org.gnome.Connections (Connections) 1s
+PASS org.gnome.Contacts (Contacts) 1s
+FAIL org.gnome.DiskUtility (Disks) 25s
+PASS org.gnome.Evince (Document Viewer) 2s
+PASS org.gnome.Evolution (Evolution) 1s
+PASS org.gnome.FileRoller (File Roller) 1s
+PASS org.gnome.Logs (Logs) 1s
+PASS org.gnome.Loupe (Image Viewer) 1s
+PASS org.gnome.Maps (Maps) 2s
+PASS org.gnome.Music (Music) 1s
+PASS org.gnome.Nautilus (Files) 1s
+PASS org.gnome.Settings (Settings) 14s
+PASS org.gnome.Shotwell (Shotwell) 1s
+PASS org.gnome.Snapshot (Camera) 1s
+FAIL org.gnome.Software (Software) 25s
+PASS org.gnome.SoundRecorder (Sound Recorder) 1s
+PASS org.gnome.SystemMonitor (System Monitor) 2s
+PASS org.gnome.Terminal (Terminal) 1s
+PASS org.gnome.TextEditor (Text Editor) 1s
+PASS org.gnome.Totem (Videos) 1s
+PASS org.gnome.Tour (Tour) 1s
+PASS org.gnome.Weather (Weather) 1s
+PASS org.gnome.baobab (Disk Usage Analyzer) 1s
+PASS org.gnome.clocks (Clocks) 1s
+PASS org.gnome.font-viewer (Fonts) 1s
+PASS org.gnome.seahorse.Application (Passwords and Keys) 1s
+PASS org.gnome.tweaks (Tweaks) 1s
+PASS org.pulseaudio.pavucontrol (Volume Control) 1s
+PASS simple-scan (Document Scanner) 1s
+FAIL system-config-printer (Print Settings) 25s
+PASS thunar-bulk-rename (Bulk Rename) 1s
+PASS thunar-volman-settings (Removable Drives and Media) 2s
+PASS thunar (Thunar File Manager) 1s
+PASS yelp (Help) 1s
+DEEP chromium direct-start window: no
+DEEP org.freedesktop.MalcontentControl direct-start window: yes after 50s
+Terminated
+/tmp/run-tests.sh: line 73: 36811 Trace/breakpoint trap   timeout 120 sh -c "exec $exe" > "$OUT/deep-$id.log" 2>&1
+DEEP org.gnome.DiskUtility direct-start window: no
+DEEP org.gnome.Software direct-start window: yes after 75s
+Terminated
+DEEP system-config-printer direct-start window: yes after 24s
+Terminated

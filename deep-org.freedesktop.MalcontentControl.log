@@ -1,0 +1,183 @@
+(malcontent-control:36181): Gdk-DEBUG: 06:02:43.340: Using portal setting for org.gnome.fontconfig serial: 0
+(malcontent-control:36181): Gdk-DEBUG: 06:02:43.340: Ignoring portal setting for org.gnome.desktop.privacy disable-microphone
+(malcontent-control:36181): Gdk-DEBUG: 06:02:43.340: Ignoring portal setting for org.gnome.desktop.privacy disable-camera
+(malcontent-control:36181): Gdk-DEBUG: 06:02:43.340: Ignoring portal setting for org.gnome.desktop.privacy old-files-age
+(malcontent-control:36181): Gdk-DEBUG: 06:02:43.340: Using portal setting for org.gnome.desktop.privacy remember-recent-files: true
+(malcontent-control:36181): Gdk-DEBUG: 06:02:43.340: Ignoring portal setting for org.gnome.desktop.privacy disable-sound-output
+(malcontent-control:36181): Gdk-DEBUG: 06:02:43.340: Ignoring portal setting for org.gnome.desktop.privacy send-software-usage-stats
+(malcontent-control:36181): Gdk-DEBUG: 06:02:43.340: Ignoring portal setting for org.gnome.desktop.privacy report-technical-problems
+(malcontent-control:36181): Gdk-DEBUG: 06:02:43.340: Ignoring portal setting for org.gnome.desktop.privacy remove-old-trash-files
+(malcontent-control:36181): Gdk-DEBUG: 06:02:43.340: Ignoring portal setting for org.gnome.desktop.privacy remove-old-temp-files
+(malcontent-control:36181): Gdk-DEBUG: 06:02:43.340: Ignoring portal setting for org.gnome.desktop.privacy privacy-screen
+(malcontent-control:36181): Gdk-DEBUG: 06:02:43.340: Ignoring portal setting for org.gnome.desktop.privacy usb-protection
+(malcontent-control:36181): Gdk-DEBUG: 06:02:43.340: Ignoring portal setting for org.gnome.desktop.privacy usb-protection-level
+(malcontent-control:36181): Gdk-DEBUG: 06:02:43.340: Ignoring portal setting for org.gnome.desktop.privacy remember-app-usage
+(malcontent-control:36181): Gdk-DEBUG: 06:02:43.340: Ignoring portal setting for org.gnome.desktop.privacy show-full-name-in-top-bar
+(malcontent-control:36181): Gdk-DEBUG: 06:02:43.340: Ignoring portal setting for org.gnome.desktop.privacy hide-identity
+(malcontent-control:36181): Gdk-DEBUG: 06:02:43.340: Using portal setting for org.gnome.desktop.privacy recent-files-max-age: -1
+(malcontent-control:36181): Gdk-DEBUG: 06:02:43.340: Using portal setting for org.gnome.desktop.a11y.interface show-status-shapes: false
+(malcontent-control:36181): Gdk-DEBUG: 06:02:43.340: Using portal setting for org.gnome.desktop.a11y.interface high-contrast: false
+(malcontent-control:36181): Gdk-DEBUG: 06:02:43.340: Ignoring portal setting for org.gnome.desktop.a11y always-show-universal-access-status
+(malcontent-control:36181): Gdk-DEBUG: 06:02:43.340: Using portal setting for org.gnome.desktop.a11y always-show-text-caret: false
+(malcontent-control:36181): Gdk-DEBUG: 06:02:43.340: Ignoring portal setting for org.gnome.desktop.interface toolkit-accessibility
+(malcontent-control:36181): Gdk-DEBUG: 06:02:43.340: Ignoring portal setting for org.gnome.desktop.interface gtk-color-palette
+(malcontent-control:36181): Gdk-DEBUG: 06:02:43.340: Ignoring portal setting for org.gnome.desktop.interface can-change-accels
+(malcontent-control:36181): Gdk-DEBUG: 06:02:43.340: Ignoring portal setting for org.gnome.desktop.interface document-font-name
+(malcontent-control:36181): Gdk-DEBUG: 06:02:43.340: Using portal setting for org.gnome.desktop.interface enable-animations: true
+(malcontent-control:36181): Gdk-DEBUG: 06:02:43.340: Using portal setting for org.gnome.desktop.interface cursor-blink: true
+(malcontent-control:36181): Gdk-DEBUG: 06:02:43.340: Ignoring portal setting for org.gnome.desktop.interface clock-show-weekday
+(malcontent-control:36181): Gdk-DEBUG: 06:02:43.340: Using portal setting for org.gnome.desktop.interface icon-theme: 'Adwaita'
+(malcontent-control:36181): Gdk-DEBUG: 06:02:43.340: Ignoring portal setting for org.gnome.desktop.interface gtk-im-preedit-style
+(malcontent-control:36181): Gdk-DEBUG: 06:02:43.340: Ignoring portal setting for org.gnome.desktop.interface scaling-factor
+(malcontent-control:36181): Gdk-DEBUG: 06:02:43.340: Ignoring portal setting for org.gnome.desktop.interface menus-have-tearoff
+(malcontent-control:36181): Gdk-DEBUG: 06:02:43.340: Using portal setting for org.gnome.desktop.interface cursor-size: 24
+(malcontent-control:36181): Gdk-DEBUG: 06:02:43.340: Ignoring portal setting for org.gnome.desktop.interface clock-show-seconds
+(malcontent-control:36181): Gdk-DEBUG: 06:02:43.340: Using portal setting for org.gnome.desktop.interface gtk-im-module: ''
+(malcontent-control:36181): Gdk-DEBUG: 06:02:43.340: Ignoring portal setting for org.gnome.desktop.interface gtk-timeout-initial
+(malcontent-control:36181): Gdk-DEBUG: 06:02:43.340: Ignoring portal setting for org.gnome.desktop.interface accent-color
+(malcontent-control:36181): Gdk-DEBUG: 06:02:43.340: Using portal setting for org.gnome.desktop.interface gtk-theme: 'Adwaita-dark'
+(malcontent-control:36181): Gdk-DEBUG: 06:02:43.340: Ignoring portal setting for org.gnome.desktop.interface gtk-color-scheme
+(malcontent-control:36181): Gdk-DEBUG: 06:02:43.340: Ignoring portal setting for org.gnome.desktop.interface clock-show-date
+(malcontent-control:36181): Gdk-DEBUG: 06:02:43.340: Using portal setting for org.gnome.desktop.interface cursor-blink-time: 1200
+(malcontent-control:36181): Gdk-DEBUG: 06:02:43.340: Ignoring portal setting for org.gnome.desktop.interface toolbar-icons-size
+(malcontent-control:36181): Gdk-DEBUG: 06:02:43.340: Using portal setting for org.gnome.desktop.interface font-antialiasing: 'grayscale'
+(malcontent-control:36181): Gdk-DEBUG: 06:02:43.340: Ignoring portal setting for org.gnome.desktop.interface toolbar-style
+(malcontent-control:36181): Gdk-DEBUG: 06:02:43.340: Ignoring portal setting for org.gnome.desktop.interface enable-hot-corners
+(malcontent-control:36181): Gdk-DEBUG: 06:02:43.340: Ignoring portal setting for org.gnome.desktop.interface monospace-font-name
+(malcontent-control:36181): Gdk-DEBUG: 06:02:43.340: Ignoring portal setting for org.gnome.desktop.interface gtk-timeout-repeat
+(malcontent-control:36181): Gdk-DEBUG: 06:02:43.340: Using portal setting for org.gnome.desktop.interface overlay-scrolling: true
+(malcontent-control:36181): Gdk-DEBUG: 06:02:43.340: Using portal setting for org.gnome.desktop.interface cursor-blink-timeout: 10
+(malcontent-control:36181): Gdk-DEBUG: 06:02:43.340: Ignoring portal setting for org.gnome.desktop.interface gtk-key-theme
+(malcontent-control:36181): Gdk-DEBUG: 06:02:43.340: Ignoring portal setting for org.gnome.desktop.interface toolbar-detachable
+(malcontent-control:36181): Gdk-DEBUG: 06:02:43.341: Using portal setting for org.gnome.desktop.interface font-rendering: 'automatic'
+(malcontent-control:36181): Gdk-DEBUG: 06:02:43.341: Using portal setting for org.gnome.desktop.interface cursor-theme: 'Adwaita'
+(malcontent-control:36181): Gdk-DEBUG: 06:02:43.341: Ignoring portal setting for org.gnome.desktop.interface avatar-directories
+(malcontent-control:36181): Gdk-DEBUG: 06:02:43.341: Ignoring portal setting for org.gnome.desktop.interface gtk-im-status-style
+(malcontent-control:36181): Gdk-DEBUG: 06:02:43.341: Ignoring portal setting for org.gnome.desktop.interface menubar-detachable
+(malcontent-control:36181): Gdk-DEBUG: 06:02:43.341: Using portal setting for org.gnome.desktop.interface text-scaling-factor: 1.0
+(malcontent-control:36181): Gdk-DEBUG: 06:02:43.341: Ignoring portal setting for org.gnome.desktop.interface show-battery-percentage
+(malcontent-control:36181): Gdk-DEBUG: 06:02:43.341: Ignoring portal setting for org.gnome.desktop.interface clock-format
+(malcontent-control:36181): Gdk-DEBUG: 06:02:43.341: Ignoring portal setting for org.gnome.desktop.interface menubar-accel
+(malcontent-control:36181): Gdk-DEBUG: 06:02:43.341: Using portal setting for org.gnome.desktop.interface gtk-enable-primary-paste: true
+(malcontent-control:36181): Gdk-DEBUG: 06:02:43.341: Ignoring portal setting for org.gnome.desktop.interface color-scheme
+(malcontent-control:36181): Gdk-DEBUG: 06:02:43.341: Ignoring portal setting for org.gnome.desktop.interface locate-pointer
+(malcontent-control:36181): Gdk-DEBUG: 06:02:43.341: Using portal setting for org.gnome.desktop.interface font-rgba-order: 'rgb'
+(malcontent-control:36181): Gdk-DEBUG: 06:02:43.341: Using portal setting for org.gnome.desktop.interface font-hinting: 'slight'
+(malcontent-control:36181): Gdk-DEBUG: 06:02:43.341: Using portal setting for org.gnome.desktop.interface font-name: 'Cantarell 11'
+(malcontent-control:36181): Gdk-DEBUG: 06:02:43.341: Using portal setting for org.gnome.desktop.sound theme-name: 'freedesktop'
+(malcontent-control:36181): Gdk-DEBUG: 06:02:43.341: Using portal setting for org.gnome.desktop.sound event-sounds: true
+(malcontent-control:36181): Gdk-DEBUG: 06:02:43.341: Using portal setting for org.gnome.desktop.sound input-feedback-sounds: false
+(malcontent-control:36181): Gdk-DEBUG: 06:02:43.341: Ignoring portal setting for org.gnome.desktop.sound allow-volume-above-100-percent
+(malcontent-control:36181): Gdk-DEBUG: 06:02:43.341: Ignoring portal setting for org.gnome.desktop.peripherals.mouse left-handed
+(malcontent-control:36181): Gdk-DEBUG: 06:02:43.341: Using portal setting for org.gnome.desktop.peripherals.mouse double-click: 400
+(malcontent-control:36181): Gdk-DEBUG: 06:02:43.341: Ignoring portal setting for org.gnome.desktop.peripherals.mouse natural-scroll
+(malcontent-control:36181): Gdk-DEBUG: 06:02:43.341: Ignoring portal setting for org.gnome.desktop.peripherals.mouse middle-click-emulation
+(malcontent-control:36181): Gdk-DEBUG: 06:02:43.341: Ignoring portal setting for org.gnome.desktop.peripherals.mouse speed
+(malcontent-control:36181): Gdk-DEBUG: 06:02:43.341: Ignoring portal setting for org.gnome.desktop.peripherals.mouse accel-profile
+(malcontent-control:36181): Gdk-DEBUG: 06:02:43.341: Using portal setting for org.gnome.desktop.peripherals.mouse drag-threshold: 8
+(malcontent-control:36181): Gdk-DEBUG: 06:02:43.341: Ignoring portal setting for org.gnome.desktop.input-sources sources
+(malcontent-control:36181): Gdk-DEBUG: 06:02:43.341: Ignoring portal setting for org.gnome.desktop.input-sources mru-sources
+(malcontent-control:36181): Gdk-DEBUG: 06:02:43.341: Ignoring portal setting for org.gnome.desktop.input-sources show-all-sources
+(malcontent-control:36181): Gdk-DEBUG: 06:02:43.341: Ignoring portal setting for org.gnome.desktop.input-sources current
+(malcontent-control:36181): Gdk-DEBUG: 06:02:43.341: Ignoring portal setting for org.gnome.desktop.input-sources xkb-options
+(malcontent-control:36181): Gdk-DEBUG: 06:02:43.341: Ignoring portal setting for org.gnome.desktop.input-sources xkb-model
+(malcontent-control:36181): Gdk-DEBUG: 06:02:43.341: Ignoring portal setting for org.gnome.desktop.input-sources per-window
+(malcontent-control:36181): Gdk-DEBUG: 06:02:43.341: Ignoring portal setting for org.gnome.desktop.calendar show-weekdate
+(malcontent-control:36181): Gdk-DEBUG: 06:02:43.341: Ignoring portal setting for org.gnome.desktop.wm.preferences theme
+(malcontent-control:36181): Gdk-DEBUG: 06:02:43.341: Ignoring portal setting for org.gnome.desktop.wm.preferences focus-new-windows
+(malcontent-control:36181): Gdk-DEBUG: 06:02:43.341: Ignoring portal setting for org.gnome.desktop.wm.preferences disable-workarounds
+(malcontent-control:36181): Gdk-DEBUG: 06:02:43.341: Ignoring portal setting for org.gnome.desktop.wm.preferences num-workspaces
+(malcontent-control:36181): Gdk-DEBUG: 06:02:43.341: Ignoring portal setting for org.gnome.desktop.wm.preferences titlebar-uses-system-font
+(malcontent-control:36181): Gdk-DEBUG: 06:02:43.341: Ignoring portal setting for org.gnome.desktop.wm.preferences raise-on-click
+(malcontent-control:36181): Gdk-DEBUG: 06:02:43.341: Ignoring portal setting for org.gnome.desktop.wm.preferences titlebar-font
+(malcontent-control:36181): Gdk-DEBUG: 06:02:43.341: Ignoring portal setting for org.gnome.desktop.wm.preferences resize-with-right-button
+(malcontent-control:36181): Gdk-DEBUG: 06:02:43.341: Ignoring portal setting for org.gnome.desktop.wm.preferences auto-raise
+(malcontent-control:36181): Gdk-DEBUG: 06:02:43.341: Using portal setting for org.gnome.desktop.wm.preferences action-right-click-titlebar: 'menu'
+(malcontent-control:36181): Gdk-DEBUG: 06:02:43.341: Ignoring portal setting for org.gnome.desktop.wm.preferences mouse-button-modifier
+(malcontent-control:36181): Gdk-DEBUG: 06:02:43.341: Using portal setting for org.gnome.desktop.wm.preferences action-double-click-titlebar: 'toggle-maximize'
+(malcontent-control:36181): Gdk-DEBUG: 06:02:43.341: Ignoring portal setting for org.gnome.desktop.wm.preferences workspace-names
+(malcontent-control:36181): Gdk-DEBUG: 06:02:43.341: Ignoring portal setting for org.gnome.desktop.wm.preferences visual-bell-type
+(malcontent-control:36181): Gdk-DEBUG: 06:02:43.341: Using portal setting for org.gnome.desktop.wm.preferences action-middle-click-titlebar: 'none'
+(malcontent-control:36181): Gdk-DEBUG: 06:02:43.341: Ignoring portal setting for org.gnome.desktop.wm.preferences focus-mode
+(malcontent-control:36181): Gdk-DEBUG: 06:02:43.341: Using portal setting for org.gnome.desktop.wm.preferences button-layout: 'appmenu:close'
+(malcontent-control:36181): Gdk-DEBUG: 06:02:43.341: Ignoring portal setting for org.gnome.desktop.wm.preferences auto-raise-delay
+(malcontent-control:36181): Gdk-DEBUG: 06:02:43.341: Ignoring portal setting for org.gnome.desktop.wm.preferences audible-bell
+(malcontent-control:36181): Gdk-DEBUG: 06:02:43.341: Ignoring portal setting for org.gnome.desktop.wm.preferences visual-bell
+(malcontent-control:36181): Gdk-DEBUG: 06:02:43.341: Ignoring portal setting for org.gnome.settings-daemon.plugins.xsettings overrides
+(malcontent-control:36181): Gdk-DEBUG: 06:02:43.341: Ignoring portal setting for org.gnome.settings-daemon.plugins.xsettings disabled-gtk-modules
+(malcontent-control:36181): Gdk-DEBUG: 06:02:43.341: Ignoring portal setting for org.gnome.settings-daemon.plugins.xsettings enabled-gtk-modules
+(malcontent-control:36181): Gtk-DEBUG: 06:02:43.344: Not using session manager
+(malcontent-control:36181): GLib-GIO-DEBUG: 06:02:43.346: _g_io_module_get_default: Found default implementation gvfs (GDaemonVfs) for ‘gio-vfs’
+(malcontent-control:36181): Adwaita-DEBUG: 06:02:43.365: Setting org.freedesktop.appearance.accent-color of type (ddd) not found
+(malcontent-control:36181): GLib-GIO-DEBUG: 06:02:43.366: _g_io_module_get_default: Found default implementation dconf (DConfSettingsBackend) for ‘gsettings-backend’
+(malcontent-control:36181): dconf-DEBUG: 06:02:43.366: watch_fast: "/org/gnome/desktop/interface/" (establishing: 0, active: 0)
+(malcontent-control:36181): dconf-DEBUG: 06:02:43.366: watch_established: "/org/gnome/desktop/interface/" (establishing: 1)
+(malcontent-control:36181): accountsservice-DEBUG: 06:03:08.418: ActUserManager: getting account proxy failed: Error calling StartServiceByName for org.freedesktop.Accounts: Timeout was reached
+(malcontent-control:36181): accountsservice-DEBUG: 06:03:33.430: ActUserManager: getting account proxy failed: Error calling StartServiceByName for org.freedesktop.Accounts: Timeout was reached
+** (malcontent-control:36181): DEBUG: 06:03:33.430: Got 0 users
+flatpak-INFO: 06:03:33.442: Calling system helper: EnsureRepo
+flatpak-INFO: 06:03:33.443: Calling system helper: EnsureRepo
+(malcontent-control:36181): OSTree-DEBUG: 06:03:33.444: using fuse: 0
+(malcontent-control:36181): OSTree-DEBUG: 06:03:33.445: Both min-free-space-percent and -size are mentioned in config. Enforcing min-free-space-size check only.
+** (malcontent-control:36181): DEBUG: 06:03:33.452: reload_apps: Diffed old and new app lists: 120 apps added, 0 apps removed
+** (malcontent-control:36181): DEBUG: 06:03:33.452: Processing app ‘btop.desktop’ (Exec=btop)
+** (malcontent-control:36181): DEBUG: 06:03:33.452: Processing app ‘foot.desktop’ (Exec=foot)
+** (malcontent-control:36181): DEBUG: 06:03:33.453: Processing app ‘thunar.desktop’ (Exec=thunar)
+** (malcontent-control:36181): DEBUG: 06:03:33.453: Processing app ‘simple-scan.desktop’ (Exec=simple-scan)
+** (malcontent-control:36181): DEBUG: 06:03:33.453: Processing app ‘org.gnome.Logs.desktop’ (Exec=gnome-logs)
+** (malcontent-control:36181): DEBUG: 06:03:33.454: Processing app ‘org.gnome.Maps.desktop’ (Exec=gapplication)
+** (malcontent-control:36181): DEBUG: 06:03:33.454: Processing app ‘blueman-manager.desktop’ (Exec=blueman-manager)
+** (malcontent-control:36181): DEBUG: 06:03:33.454: Processing app ‘org.gnome.Loupe.desktop’ (Exec=loupe)
+** (malcontent-control:36181): DEBUG: 06:03:33.454: Processing app ‘org.gnome.Music.desktop’ (Exec=gnome-music)
+** (malcontent-control:36181): DEBUG: 06:03:33.455: Processing app ‘org.gnome.Totem.desktop’ (Exec=totem)
+** (malcontent-control:36181): DEBUG: 06:03:33.455: Processing app ‘libreoffice-calc.desktop’ (Exec=libreoffice)
+** (malcontent-control:36181): DEBUG: 06:03:33.455: Processing app ‘libreoffice-draw.desktop’ (Exec=libreoffice)
+** (malcontent-control:36181): DEBUG: 06:03:33.455:  → Skipping ‘libreoffice-draw.desktop’ due to seeing its executable already
+** (malcontent-control:36181): DEBUG: 06:03:33.455: Processing app ‘libreoffice-math.desktop’ (Exec=libreoffice)
+** (malcontent-control:36181): DEBUG: 06:03:33.455:  → Skipping ‘libreoffice-math.desktop’ due to seeing its executable already
+** (malcontent-control:36181): DEBUG: 06:03:33.455: Processing app ‘org.gnome.Evince.desktop’ (Exec=evince)
+** (malcontent-control:36181): DEBUG: 06:03:33.455: Processing app ‘org.gnome.baobab.desktop’ (Exec=baobab)
+** (malcontent-control:36181): DEBUG: 06:03:33.456: Processing app ‘org.gnome.clocks.desktop’ (Exec=gnome-clocks)
+** (malcontent-control:36181): DEBUG: 06:03:33.456: Processing app ‘org.gnome.Weather.desktop’ (Exec=gapplication)
+** (malcontent-control:36181): DEBUG: 06:03:33.456:  → Skipping ‘org.gnome.Weather.desktop’ due to seeing its executable already
+** (malcontent-control:36181): DEBUG: 06:03:33.456: Processing app ‘libreoffice-writer.desktop’ (Exec=libreoffice)
+** (malcontent-control:36181): DEBUG: 06:03:33.456:  → Skipping ‘libreoffice-writer.desktop’ due to seeing its executable already
+** (malcontent-control:36181): DEBUG: 06:03:33.456: Processing app ‘org.gnome.Calendar.desktop’ (Exec=gnome-calendar)
+** (malcontent-control:36181): DEBUG: 06:03:33.456: Processing app ‘org.gnome.Contacts.desktop’ (Exec=gnome-contacts)
+** (malcontent-control:36181): DEBUG: 06:03:33.457: Processing app ‘org.gnome.Nautilus.desktop’ (Exec=nautilus)
+** (malcontent-control:36181): DEBUG: 06:03:33.457: Processing app ‘org.gnome.Shotwell.desktop’ (Exec=shotwell)
+** (malcontent-control:36181): DEBUG: 06:03:33.457: Processing app ‘org.gnome.Snapshot.desktop’ (Exec=snapshot)
+** (malcontent-control:36181): DEBUG: 06:03:33.458: Processing app ‘org.gnome.Software.desktop’ (Exec=gnome-software)
+** (malcontent-control:36181): DEBUG: 06:03:33.458: Processing app ‘thunar-bulk-rename.desktop’ (Exec=thunar)
+** (malcontent-control:36181): DEBUG: 06:03:33.458:  → Skipping ‘thunar-bulk-rename.desktop’ due to seeing its executable already
+** (malcontent-control:36181): DEBUG: 06:03:33.458: Processing app ‘libreoffice-impress.desktop’ (Exec=libreoffice)
+** (malcontent-control:36181): DEBUG: 06:03:33.458:  → Skipping ‘libreoffice-impress.desktop’ due to seeing its executable already
+** (malcontent-control:36181): DEBUG: 06:03:33.458: Processing app ‘org.gnome.Evolution.desktop’ (Exec=evolution)
+** (malcontent-control:36181): DEBUG: 06:03:33.458: Processing app ‘nm-connection-editor.desktop’ (Exec=nm-connection-editor)
+** (malcontent-control:36181): DEBUG: 06:03:33.458: Processing app ‘org.gnome.Calculator.desktop’ (Exec=gnome-calculator)
+** (malcontent-control:36181): DEBUG: 06:03:33.459: Processing app ‘org.gnome.Characters.desktop’ (Exec=/usr/bin/gnome-characters)
+** (malcontent-control:36181): DEBUG: 06:03:33.459: Processing app ‘org.gnome.FileRoller.desktop’ (Exec=file-roller)
+** (malcontent-control:36181): DEBUG: 06:03:33.459: Processing app ‘org.gnome.TextEditor.desktop’ (Exec=gnome-text-editor)
+** (malcontent-control:36181): DEBUG: 06:03:33.459: Processing app ‘org.gnome.Connections.desktop’ (Exec=gnome-connections)
+** (malcontent-control:36181): DEBUG: 06:03:33.460: Processing app ‘org.gnome.DiskUtility.desktop’ (Exec=gnome-disks)
+** (malcontent-control:36181): DEBUG: 06:03:33.460: Processing app ‘org.gnome.font-viewer.desktop’ (Exec=gnome-font-viewer)
+** (malcontent-control:36181): DEBUG: 06:03:33.460: Processing app ‘system-config-printer.desktop’ (Exec=system-config-printer)
+** (malcontent-control:36181): DEBUG: 06:03:33.460: Processing app ‘thunar-volman-settings.desktop’ (Exec=thunar-volman-settings)
+** (malcontent-control:36181): DEBUG: 06:03:33.461: Processing app ‘libreoffice-startcenter.desktop’ (Exec=libreoffice)
+** (malcontent-control:36181): DEBUG: 06:03:33.461:  → Skipping ‘libreoffice-startcenter.desktop’ due to seeing its executable already
+** (malcontent-control:36181): DEBUG: 06:03:33.461: Processing app ‘org.gnome.SoundRecorder.desktop’ (Exec=gnome-sound-recorder)
+** (malcontent-control:36181): DEBUG: 06:03:33.461: Processing app ‘org.gnome.SystemMonitor.desktop’ (Exec=gnome-system-monitor)
+** (malcontent-control:36181): DEBUG: 06:03:33.461: Processing app ‘org.freedesktop.IBus.Setup.desktop’ (Exec=ibus-setup)
+** (malcontent-control:36181): DEBUG: 06:03:33.461: Processing app ‘org.pulseaudio.pavucontrol.desktop’ (Exec=pavucontrol)
+** (malcontent-control:36181): DEBUG: 06:03:33.462: Processing app ‘org.gnome.seahorse.Application.desktop’ (Exec=seahorse)
+** (malcontent-control:36181): DEBUG: 06:03:33.462: Processing app ‘org.freedesktop.MalcontentControl.desktop’ (Exec=malcontent-control)
+** (malcontent-control:36181): DEBUG: 06:03:33.528: Error getting permission: Error initializing authority: Error calling StartServiceByName for org.freedesktop.PolicyKit1: Timeout was reached
+(malcontent-control:36181): Gtk-DEBUG: 06:03:33.534: snapshot symbolic icon using mask
+(malcontent-control:36181): Gtk-DEBUG: 06:03:33.534: snapshot symbolic icon using mask
+(malcontent-control:36181): Gtk-DEBUG: 06:03:33.534: snapshot symbolic icon using mask
+(malcontent-control:36181): accountsservice-DEBUG: 06:03:33.601: Finding a graphical session for user 1000
+(malcontent-control:36181): accountsservice-DEBUG: 06:03:33.601: Considering session 'c1'
+(malcontent-control:36181): accountsservice-DEBUG: 06:03:33.601: Session 'c1' is not a graphical session (type: 'unspecified')
+(malcontent-control:36181): accountsservice-DEBUG: 06:03:33.601: Failed to identify the current session
+(malcontent-control:36181): accountsservice-DEBUG: 06:03:33.601: ActUserManager: seat unloaded, so trying to set loaded property
+(malcontent-control:36181): accountsservice-DEBUG: 06:03:33.601: ActUserManager: Seat wouldn't load, so giving up on it and setting loaded property

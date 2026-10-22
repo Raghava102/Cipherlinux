@@ -1,0 +1,269 @@
+Oct 22 05:55:28 71c0fe2f89dc systemd[28434]: Failed to open libbpf, cgroup BPF features disabled: Operation not supported
+Oct 22 05:55:28 71c0fe2f89dc systemd[28434]: Queued start job for default target default.target.
+Oct 22 05:55:28 71c0fe2f89dc systemd[28434]: Created slice app.slice - User Application Slice.
+Oct 22 05:55:28 71c0fe2f89dc systemd[28434]: Created slice session.slice - User Core Session Slice.
+Oct 22 05:55:28 71c0fe2f89dc systemd[28434]: Reached target paths.target - Paths.
+Oct 22 05:55:28 71c0fe2f89dc systemd[28434]: Reached target timers.target - Timers.
+Oct 22 05:55:28 71c0fe2f89dc systemd[28434]: Starting dbus.socket - D-Bus User Message Bus Socket...
+Oct 22 05:55:28 71c0fe2f89dc systemd[28434]: Listening on dirmngr.socket - GnuPG network certificate management daemon.
+Oct 22 05:55:28 71c0fe2f89dc systemd[28434]: Starting gcr-ssh-agent.socket - GCR ssh-agent wrapper...
+Oct 22 05:55:28 71c0fe2f89dc systemd[28434]: Listening on gnome-keyring-daemon.socket - GNOME Keyring daemon.
+Oct 22 05:55:28 71c0fe2f89dc systemd[28434]: Listening on gpg-agent-browser.socket - GnuPG cryptographic agent and passphrase cache (access for web browsers).
+Oct 22 05:55:28 71c0fe2f89dc systemd[28434]: Listening on gpg-agent-extra.socket - GnuPG cryptographic agent and passphrase cache (restricted).
+Oct 22 05:55:28 71c0fe2f89dc systemd[28434]: Starting gpg-agent-ssh.socket - GnuPG cryptographic agent (ssh-agent emulation)...
+Oct 22 05:55:28 71c0fe2f89dc systemd[28434]: Starting gpg-agent.socket - GnuPG cryptographic agent and passphrase cache...
+Oct 22 05:55:28 71c0fe2f89dc systemd[28434]: Listening on keyboxd.socket - GnuPG public key management service.
+Oct 22 05:55:28 71c0fe2f89dc systemd[28434]: Listening on pipewire-pulse.socket - PipeWire PulseAudio.
+Oct 22 05:55:28 71c0fe2f89dc systemd[28434]: Listening on pipewire.socket - PipeWire Multimedia System Sockets.
+Oct 22 05:55:28 71c0fe2f89dc systemd[28434]: Listening on pk-debconf-helper.socket - debconf communication socket.
+Oct 22 05:55:28 71c0fe2f89dc systemd[28434]: Listening on speech-dispatcher.socket - Speech Dispatcher Socket.
+Oct 22 05:55:28 71c0fe2f89dc systemd[28434]: Starting ssh-agent.socket - OpenSSH Agent socket...
+Oct 22 05:55:28 71c0fe2f89dc systemd[28434]: Listening on dbus.socket - D-Bus User Message Bus Socket.
+Oct 22 05:55:28 71c0fe2f89dc systemd[28434]: Listening on gpg-agent-ssh.socket - GnuPG cryptographic agent (ssh-agent emulation).
+Oct 22 05:55:28 71c0fe2f89dc systemd[28434]: Listening on gcr-ssh-agent.socket - GCR ssh-agent wrapper.
+Oct 22 05:55:28 71c0fe2f89dc systemd[28434]: Listening on gpg-agent.socket - GnuPG cryptographic agent and passphrase cache.
+Oct 22 05:55:28 71c0fe2f89dc systemd[28434]: Listening on ssh-agent.socket - OpenSSH Agent socket.
+Oct 22 05:55:28 71c0fe2f89dc systemd[28434]: Reached target sockets.target - Sockets.
+Oct 22 05:55:28 71c0fe2f89dc systemd[28434]: Reached target basic.target - Basic System.
+Oct 22 05:55:28 71c0fe2f89dc systemd[28434]: Starting dbus.service - D-Bus User Message Bus...
+Oct 22 05:55:28 71c0fe2f89dc systemd[28434]: Started pipewire.service - PipeWire Multimedia Service.
+Oct 22 05:55:28 71c0fe2f89dc systemd[28434]: Started filter-chain.service - PipeWire filter chain daemon.
+Oct 22 05:55:28 71c0fe2f89dc systemd[28434]: Started wireplumber.service - Multimedia Service Session Manager.
+Oct 22 05:55:28 71c0fe2f89dc systemd[28434]: Started pipewire-pulse.service - PipeWire PulseAudio.
+Oct 22 05:55:28 71c0fe2f89dc systemd[28434]: Started dbus.service - D-Bus User Message Bus.
+Oct 22 05:55:28 71c0fe2f89dc systemd[28434]: Started mpris-proxy.service - Bluetooth mpris proxy.
+Oct 22 05:55:28 71c0fe2f89dc systemd[28434]: Reached target default.target - Main User Target.
+Oct 22 05:55:28 71c0fe2f89dc systemd[28434]: Startup finished in 86ms.
+Oct 22 05:55:28 71c0fe2f89dc pipewire-pulse[28460]: mod.rt: RTKit error: org.freedesktop.systemd1.UnitMasked
+Oct 22 05:55:28 71c0fe2f89dc pipewire-pulse[28460]: mod.rt: RTKit does not give us MaxRealtimePriority, using 1
+Oct 22 05:55:28 71c0fe2f89dc pipewire-pulse[28460]: mod.rt: RTKit error: org.freedesktop.systemd1.UnitMasked
+Oct 22 05:55:28 71c0fe2f89dc pipewire-pulse[28460]: mod.rt: RTKit does not give us MinNiceLevel, using 0
+Oct 22 05:55:28 71c0fe2f89dc pipewire-pulse[28460]: mod.rt: RTKit error: org.freedesktop.systemd1.UnitMasked
+Oct 22 05:55:28 71c0fe2f89dc pipewire-pulse[28460]: mod.rt: RTKit does not give us RTTimeUSecMax, using -1
+Oct 22 05:55:28 71c0fe2f89dc pipewire[28457]: mod.rt: RTKit error: org.freedesktop.systemd1.UnitMasked
+Oct 22 05:55:28 71c0fe2f89dc pipewire[28457]: mod.rt: RTKit does not give us MaxRealtimePriority, using 1
+Oct 22 05:55:28 71c0fe2f89dc pipewire[28457]: mod.rt: RTKit error: org.freedesktop.systemd1.UnitMasked
+Oct 22 05:55:28 71c0fe2f89dc pipewire[28457]: mod.rt: RTKit does not give us MinNiceLevel, using 0
+Oct 22 05:55:28 71c0fe2f89dc pipewire[28457]: mod.rt: RTKit error: org.freedesktop.systemd1.UnitMasked
+Oct 22 05:55:28 71c0fe2f89dc pipewire[28457]: mod.rt: RTKit does not give us RTTimeUSecMax, using -1
+Oct 22 05:55:28 71c0fe2f89dc wireplumber[28459]: mod.rt: RTKit error: org.freedesktop.systemd1.UnitMasked
+Oct 22 05:55:28 71c0fe2f89dc wireplumber[28459]: mod.rt: RTKit does not give us MaxRealtimePriority, using 1
+Oct 22 05:55:28 71c0fe2f89dc wireplumber[28459]: mod.rt: RTKit error: org.freedesktop.systemd1.UnitMasked
+Oct 22 05:55:28 71c0fe2f89dc wireplumber[28459]: mod.rt: RTKit does not give us MinNiceLevel, using 0
+Oct 22 05:55:28 71c0fe2f89dc wireplumber[28459]: wp-internal-comp-loader: Loading profile 'main'
+Oct 22 05:55:28 71c0fe2f89dc wireplumber[28459]: mod.rt: RTKit error: org.freedesktop.systemd1.UnitMasked
+Oct 22 05:55:28 71c0fe2f89dc wireplumber[28459]: mod.rt: RTKit does not give us RTTimeUSecMax, using -1
+Oct 22 05:55:28 71c0fe2f89dc wireplumber[28459]: [0:05:54.631407145] [28459]  INFO Camera camera_manager.cpp:327 libcamera v0.4.0
+Oct 22 05:55:28 71c0fe2f89dc wireplumber[28459]: [0:05:54.631746906] [28477] ERROR DmaBufAllocator dma_buf_allocator.cpp:119 Could not open any dma-buf provider
+Oct 22 05:55:29 71c0fe2f89dc systemd[28434]: Reload requested from client PID 28506 ('systemctl')...
+Oct 22 05:55:29 71c0fe2f89dc systemd[28434]: Reloading...
+Oct 22 05:55:29 71c0fe2f89dc systemd[28434]: Reloading finished in 30 ms.
+Oct 22 05:55:29 71c0fe2f89dc systemd[28434]: Reload requested from client PID 28511 ('systemctl')...
+Oct 22 05:55:29 71c0fe2f89dc systemd[28434]: Reloading...
+Oct 22 05:55:29 71c0fe2f89dc systemd[28434]: Reloading finished in 30 ms.
+Oct 22 05:55:29 71c0fe2f89dc systemd[28434]: Starting xdg-desktop-portal.service - Portal service...
+Oct 22 05:55:29 71c0fe2f89dc dbus-daemon[28456]: [session uid=1000 pid=28456 pidfd=5] Activating via systemd: service name='org.freedesktop.impl.portal.PermissionStore' unit='xdg-permission-store.service' requested by ':1.11' (uid=1000 pid=28517 comm="/usr/libexec/xdg-desktop-portal" label="unconfined")
+Oct 22 05:55:29 71c0fe2f89dc systemd[28434]: Starting xdg-permission-store.service - sandboxed app permission store...
+Oct 22 05:55:29 71c0fe2f89dc dbus-daemon[28456]: [session uid=1000 pid=28456 pidfd=5] Successfully activated service 'org.freedesktop.impl.portal.PermissionStore'
+Oct 22 05:55:29 71c0fe2f89dc systemd[28434]: Started xdg-permission-store.service - sandboxed app permission store.
+Oct 22 05:55:29 71c0fe2f89dc dbus-daemon[28456]: [session uid=1000 pid=28456 pidfd=5] Activating via systemd: service name='org.freedesktop.portal.Documents' unit='xdg-document-portal.service' requested by ':1.11' (uid=1000 pid=28517 comm="/usr/libexec/xdg-desktop-portal" label="unconfined")
+Oct 22 05:55:29 71c0fe2f89dc systemd[28434]: Starting xdg-document-portal.service - flatpak document portal service...
+Oct 22 05:55:29 71c0fe2f89dc dbus-daemon[28456]: [session uid=1000 pid=28456 pidfd=5] Successfully activated service 'org.freedesktop.portal.Documents'
+Oct 22 05:55:29 71c0fe2f89dc systemd[28434]: Started xdg-document-portal.service - flatpak document portal service.
+Oct 22 05:55:29 71c0fe2f89dc dbus-daemon[28456]: [session uid=1000 pid=28456 pidfd=5] Activating via systemd: service name='org.freedesktop.impl.portal.desktop.gtk' unit='xdg-desktop-portal-gtk.service' requested by ':1.11' (uid=1000 pid=28517 comm="/usr/libexec/xdg-desktop-portal" label="unconfined")
+Oct 22 05:55:29 71c0fe2f89dc systemd[28434]: Starting xdg-desktop-portal-gtk.service - Portal service (GTK/GNOME implementation)...
+Oct 22 05:55:30 71c0fe2f89dc dbus-daemon[28456]: [session uid=1000 pid=28456 pidfd=5] Activating via systemd: service name='org.a11y.Bus' unit='at-spi-dbus-bus.service' requested by ':1.15' (uid=1000 pid=28537 comm="/usr/libexec/xdg-desktop-portal-gtk" label="unconfined")
+Oct 22 05:55:30 71c0fe2f89dc systemd[28434]: Starting at-spi-dbus-bus.service - Accessibility services bus...
+Oct 22 05:55:30 71c0fe2f89dc dbus-daemon[28456]: [session uid=1000 pid=28456 pidfd=5] Successfully activated service 'org.a11y.Bus'
+Oct 22 05:55:30 71c0fe2f89dc systemd[28434]: Started at-spi-dbus-bus.service - Accessibility services bus.
+Oct 22 05:55:30 71c0fe2f89dc dbus-daemon[28456]: [session uid=1000 pid=28456 pidfd=5] Activating via systemd: service name='org.gtk.vfs.Daemon' unit='gvfs-daemon.service' requested by ':1.14' (uid=1000 pid=28537 comm="/usr/libexec/xdg-desktop-portal-gtk" label="unconfined")
+Oct 22 05:55:30 71c0fe2f89dc systemd[28434]: Starting gvfs-daemon.service - Virtual filesystem service...
+Oct 22 05:55:30 71c0fe2f89dc dbus-daemon[28456]: [session uid=1000 pid=28456 pidfd=5] Successfully activated service 'org.gtk.vfs.Daemon'
+Oct 22 05:55:30 71c0fe2f89dc systemd[28434]: Started gvfs-daemon.service - Virtual filesystem service.
+Oct 22 05:55:30 71c0fe2f89dc at-spi-bus-launcher[28550]: dbus-daemon[28550]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=28537 comm="/usr/libexec/xdg-desktop-portal-gtk" label="unconfined")
+Oct 22 05:55:30 71c0fe2f89dc at-spi-bus-launcher[28550]: dbus-daemon[28550]: Successfully activated service 'org.a11y.atspi.Registry'
+Oct 22 05:55:30 71c0fe2f89dc at-spi-bus-launcher[28567]: SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+Oct 22 05:55:30 71c0fe2f89dc dbus-daemon[28456]: [session uid=1000 pid=28456 pidfd=5] Successfully activated service 'org.freedesktop.impl.portal.desktop.gtk'
+Oct 22 05:55:30 71c0fe2f89dc systemd[28434]: Started xdg-desktop-portal-gtk.service - Portal service (GTK/GNOME implementation).
+Oct 22 05:55:30 71c0fe2f89dc xdg-desktop-por[28517]: Failed to create RealtimeKit proxy: Error calling StartServiceByName for org.freedesktop.RealtimeKit1: Unit rtkit-daemon.service is masked.
+Oct 22 05:55:30 71c0fe2f89dc dbus-daemon[28456]: [session uid=1000 pid=28456 pidfd=5] Activating via systemd: service name='org.freedesktop.impl.portal.desktop.hyprland' unit='xdg-desktop-portal-hyprland.service' requested by ':1.11' (uid=1000 pid=28517 comm="/usr/libexec/xdg-desktop-portal" label="unconfined")
+Oct 22 05:55:30 71c0fe2f89dc dbus-daemon[28456]: [session uid=1000 pid=28456 pidfd=5] Activation via systemd failed for unit 'xdg-desktop-portal-hyprland.service': Unit xdg-desktop-portal-hyprland.service is masked.
+Oct 22 05:55:30 71c0fe2f89dc xdg-desktop-por[28517]: Failed to create screenshot proxy: Error calling StartServiceByName for org.freedesktop.impl.portal.desktop.hyprland: Unit xdg-desktop-portal-hyprland.service is masked.
+Oct 22 05:55:30 71c0fe2f89dc xdg-desktop-por[28517]: No skeleton to export
+Oct 22 05:55:30 71c0fe2f89dc dbus-daemon[28456]: [session uid=1000 pid=28456 pidfd=5] Activating service name='org.freedesktop.secrets' requested by ':1.11' (uid=1000 pid=28517 comm="/usr/libexec/xdg-desktop-portal" label="unconfined")
+Oct 22 05:55:30 71c0fe2f89dc systemd[28434]: Started gnome-keyring-daemon.service - GNOME Keyring daemon.
+Oct 22 05:55:30 71c0fe2f89dc gnome-keyring-daemon[28576]: GNOME_KEYRING_CONTROL=/run/user/1000/keyring
+Oct 22 05:55:30 71c0fe2f89dc dbus-daemon[28456]: [session uid=1000 pid=28456 pidfd=5] Successfully activated service 'org.freedesktop.secrets'
+Oct 22 05:55:30 71c0fe2f89dc gnome-keyring-daemon[28576]: The Secret Service was already initialized
+Oct 22 05:55:30 71c0fe2f89dc gnome-keyring-d[28576]: The Secret Service was already initialized
+Oct 22 05:55:30 71c0fe2f89dc gnome-keyring-daemon[28575]: discover_other_daemon: 1
+Oct 22 05:55:30 71c0fe2f89dc org.freedesktop.secrets[28575]: GNOME_KEYRING_CONTROL=/run/user/1000/keyring
+Oct 22 05:55:30 71c0fe2f89dc dbus-daemon[28456]: [session uid=1000 pid=28456 pidfd=5] Activating via systemd: service name='org.freedesktop.impl.portal.desktop.hyprland' unit='xdg-desktop-portal-hyprland.service' requested by ':1.11' (uid=1000 pid=28517 comm="/usr/libexec/xdg-desktop-portal" label="unconfined")
+Oct 22 05:55:30 71c0fe2f89dc dbus-daemon[28456]: [session uid=1000 pid=28456 pidfd=5] Activation via systemd failed for unit 'xdg-desktop-portal-hyprland.service': Unit xdg-desktop-portal-hyprland.service is masked.
+Oct 22 05:55:30 71c0fe2f89dc xdg-desktop-por[28517]: Failed to create global_shortcuts proxy: Error calling StartServiceByName for org.freedesktop.impl.portal.desktop.hyprland: Unit xdg-desktop-portal-hyprland.service is masked.
+Oct 22 05:55:30 71c0fe2f89dc xdg-desktop-por[28517]: No skeleton to export
+Oct 22 05:55:30 71c0fe2f89dc dbus-daemon[28456]: [session uid=1000 pid=28456 pidfd=5] Activating via systemd: service name='org.freedesktop.impl.portal.desktop.hyprland' unit='xdg-desktop-portal-hyprland.service' requested by ':1.11' (uid=1000 pid=28517 comm="/usr/libexec/xdg-desktop-portal" label="unconfined")
+Oct 22 05:55:30 71c0fe2f89dc dbus-daemon[28456]: [session uid=1000 pid=28456 pidfd=5] Activation via systemd failed for unit 'xdg-desktop-portal-hyprland.service': Unit xdg-desktop-portal-hyprland.service is masked.
+Oct 22 05:55:30 71c0fe2f89dc xdg-desktop-por[28517]: Failed to create screen cast proxy: Error calling StartServiceByName for org.freedesktop.impl.portal.desktop.hyprland: Unit xdg-desktop-portal-hyprland.service is masked.
+Oct 22 05:55:30 71c0fe2f89dc xdg-desktop-por[28517]: No skeleton to export
+Oct 22 05:55:30 71c0fe2f89dc dbus-daemon[28456]: [session uid=1000 pid=28456 pidfd=5] Activating via systemd: service name='org.freedesktop.impl.portal.desktop.hyprland' unit='xdg-desktop-portal-hyprland.service' requested by ':1.11' (uid=1000 pid=28517 comm="/usr/libexec/xdg-desktop-portal" label="unconfined")
+Oct 22 05:55:30 71c0fe2f89dc dbus-daemon[28456]: [session uid=1000 pid=28456 pidfd=5] Activation via systemd failed for unit 'xdg-desktop-portal-hyprland.service': Unit xdg-desktop-portal-hyprland.service is masked.
+Oct 22 05:55:30 71c0fe2f89dc xdg-desktop-por[28517]: Failed to create capture input proxy: Error calling StartServiceByName for org.freedesktop.impl.portal.desktop.hyprland: Unit xdg-desktop-portal-hyprland.service is masked.
+Oct 22 05:55:30 71c0fe2f89dc xdg-desktop-por[28517]: No skeleton to export
+Oct 22 05:55:30 71c0fe2f89dc systemd[28434]: Started xdg-desktop-portal.service - Portal service.
+Oct 22 05:55:30 71c0fe2f89dc dbus-daemon[28456]: [session uid=1000 pid=28456 pidfd=5] Activating via systemd: service name='ca.desrt.dconf' unit='dconf.service' requested by ':1.24' (uid=1000 pid=28615 comm="gsettings set org.gnome.desktop.interface color-sc" label="unconfined")
+Oct 22 05:55:30 71c0fe2f89dc systemd[28434]: Starting dconf.service - User preferences database...
+Oct 22 05:55:30 71c0fe2f89dc dbus-daemon[28456]: [session uid=1000 pid=28456 pidfd=5] Successfully activated service 'ca.desrt.dconf'
+Oct 22 05:55:30 71c0fe2f89dc systemd[28434]: Started dconf.service - User preferences database.
+Oct 22 05:57:20 71c0fe2f89dc dbus-daemon[28456]: [session uid=1000 pid=28456 pidfd=5] Activating service name='org.gnome.Calendar' requested by ':1.78' (uid=1000 pid=30869 comm="gtk-launch org.gnome.Calendar" label="unconfined")
+Oct 22 05:57:20 71c0fe2f89dc dbus-daemon[28456]: [session uid=1000 pid=28456 pidfd=5] Successfully activated service 'org.gnome.Calendar'
+Oct 22 05:57:20 71c0fe2f89dc gnome-calendar[30877]: Running Calendar as a service
+Oct 22 05:57:20 71c0fe2f89dc dbus-daemon[28456]: [session uid=1000 pid=28456 pidfd=5] Activating via systemd: service name='org.gnome.evolution.dataserver.Sources5' unit='evolution-source-registry.service' requested by ':1.80' (uid=1000 pid=30877 comm="/usr/bin/gnome-calendar --gapplication-service" label="unconfined")
+Oct 22 05:57:20 71c0fe2f89dc systemd[28434]: Starting evolution-source-registry.service - Evolution source registry...
+Oct 22 05:57:20 71c0fe2f89dc dbus-daemon[28456]: [session uid=1000 pid=28456 pidfd=5] Activating service name='org.gnome.OnlineAccounts' requested by ':1.81' (uid=1000 pid=30888 comm="/usr/libexec/evolution-source-registry" label="unconfined")
+Oct 22 05:57:20 71c0fe2f89dc dbus-daemon[28456]: [session uid=1000 pid=28456 pidfd=5] Successfully activated service 'org.gnome.evolution.dataserver.Sources5'
+Oct 22 05:57:20 71c0fe2f89dc systemd[28434]: Started evolution-source-registry.service - Evolution source registry.
+Oct 22 05:57:20 71c0fe2f89dc goa-daemon[30895]: goa-daemon version 3.54.5 starting
+Oct 22 05:57:20 71c0fe2f89dc dbus-daemon[28456]: [session uid=1000 pid=28456 pidfd=5] Activating service name='org.gnome.Identity' requested by ':1.82' (uid=1000 pid=30895 comm="/usr/libexec/goa-daemon" label="unconfined")
+Oct 22 05:57:20 71c0fe2f89dc dbus-daemon[28456]: [session uid=1000 pid=28456 pidfd=5] Activating via systemd: service name='org.gnome.evolution.dataserver.Calendar8' unit='evolution-calendar-factory.service' requested by ':1.80' (uid=1000 pid=30877 comm="/usr/bin/gnome-calendar --gapplication-service" label="unconfined")
+Oct 22 05:57:20 71c0fe2f89dc dbus-daemon[28456]: [session uid=1000 pid=28456 pidfd=5] Successfully activated service 'org.gnome.OnlineAccounts'
+Oct 22 05:57:20 71c0fe2f89dc systemd[28434]: Starting evolution-calendar-factory.service - Evolution calendar service...
+Oct 22 05:57:20 71c0fe2f89dc dbus-daemon[28456]: [session uid=1000 pid=28456 pidfd=5] Successfully activated service 'org.gnome.Identity'
+Oct 22 05:57:20 71c0fe2f89dc dbus-daemon[28456]: [session uid=1000 pid=28456 pidfd=5] Successfully activated service 'org.gnome.evolution.dataserver.Calendar8'
+Oct 22 05:57:20 71c0fe2f89dc systemd[28434]: Started evolution-calendar-factory.service - Evolution calendar service.
+Oct 22 05:57:20 71c0fe2f89dc dbus-daemon[28456]: [session uid=1000 pid=28456 pidfd=5] Activating via systemd: service name='org.gtk.vfs.Metadata' unit='gvfs-metadata.service' requested by ':1.84' (uid=1000 pid=30908 comm="/usr/libexec/evolution-calendar-factory" label="unconfined")
+Oct 22 05:57:20 71c0fe2f89dc systemd[28434]: Starting gvfs-metadata.service - Virtual filesystem metadata service...
+Oct 22 05:57:20 71c0fe2f89dc dbus-daemon[28456]: [session uid=1000 pid=28456 pidfd=5] Successfully activated service 'org.gtk.vfs.Metadata'
+Oct 22 05:57:20 71c0fe2f89dc systemd[28434]: Started gvfs-metadata.service - Virtual filesystem metadata service.
+Oct 22 05:57:20 71c0fe2f89dc dbus-daemon[28456]: [session uid=1000 pid=28456 pidfd=5] Activating via systemd: service name='org.gnome.evolution.dataserver.AddressBook10' unit='evolution-addressbook-factory.service' requested by ':1.84' (uid=1000 pid=30908 comm="/usr/libexec/evolution-calendar-factory" label="unconfined")
+Oct 22 05:57:20 71c0fe2f89dc systemd[28434]: Starting evolution-addressbook-factory.service - Evolution address book service...
+Oct 22 05:57:20 71c0fe2f89dc dbus-daemon[28456]: [session uid=1000 pid=28456 pidfd=5] Successfully activated service 'org.gnome.evolution.dataserver.AddressBook10'
+Oct 22 05:57:20 71c0fe2f89dc systemd[28434]: Started evolution-addressbook-factory.service - Evolution address book service.
+Oct 22 05:57:24 71c0fe2f89dc dbus-daemon[28456]: [session uid=1000 pid=28456 pidfd=5] Activating service name='org.gnome.Characters' requested by ':1.87' (uid=1000 pid=31043 comm="gtk-launch org.gnome.Characters" label="unconfined")
+Oct 22 05:57:24 71c0fe2f89dc dbus-daemon[28456]: [session uid=1000 pid=28456 pidfd=5] Successfully activated service 'org.gnome.Characters'
+Oct 22 05:57:24 71c0fe2f89dc gnome-character[31051]: JS LOG: Characters Application started
+Oct 22 05:57:24 71c0fe2f89dc gnome-character[31051]: AdwNavigationPage 0x561bfc051f80 is missing a title. To hide a header bar title, consider using AdwHeaderBar:show-title instead.
+Oct 22 05:57:24 71c0fe2f89dc gnome-character[31051]: JS LOG: Characters Application activated
+Oct 22 05:57:28 71c0fe2f89dc dbus-daemon[28456]: [session uid=1000 pid=28456 pidfd=5] Activating service name='org.gnome.Connections' requested by ':1.90' (uid=1000 pid=31136 comm="gtk-launch org.gnome.Connections" label="unconfined")
+Oct 22 05:57:28 71c0fe2f89dc dbus-daemon[28456]: [session uid=1000 pid=28456 pidfd=5] Successfully activated service 'org.gnome.Connections'
+Oct 22 05:57:29 71c0fe2f89dc gnome-connectio[31144]: GtkFlowBox with a model will ignore sort and filter functions
+Oct 22 05:57:33 71c0fe2f89dc dbus-daemon[28456]: [session uid=1000 pid=28456 pidfd=5] Activating service name='org.gnome.Contacts' requested by ':1.94' (uid=1000 pid=31203 comm="gtk-launch org.gnome.Contacts" label="unconfined")
+Oct 22 05:57:33 71c0fe2f89dc dbus-daemon[28456]: [session uid=1000 pid=28456 pidfd=5] Successfully activated service 'org.gnome.Contacts'
+Oct 22 05:57:37 71c0fe2f89dc dbus-daemon[28456]: [session uid=1000 pid=28456 pidfd=5] Activating service name='org.gnome.DiskUtility' requested by ':1.98' (uid=1000 pid=31301 comm="gtk-launch org.gnome.DiskUtility" label="unconfined")
+Oct 22 05:57:37 71c0fe2f89dc dbus-daemon[28456]: [session uid=1000 pid=28456 pidfd=5] Successfully activated service 'org.gnome.DiskUtility'
+Oct 22 05:57:37 71c0fe2f89dc gnome-disks[31309]: Error getting udisks client: Error calling StartServiceByName for org.freedesktop.UDisks2: Unit udisks2.service is masked.
+Oct 22 05:58:09 71c0fe2f89dc dbus-daemon[28456]: [session uid=1000 pid=28456 pidfd=5] Activating via systemd: service name='org.gtk.vfs.UDisks2VolumeMonitor' unit='gvfs-udisks2-volume-monitor.service' requested by ':1.108' (uid=1000 pid=31693 comm="/usr/bin/evolution" label="evolution (unconfined)")
+Oct 22 05:58:09 71c0fe2f89dc systemd[28434]: Starting gvfs-udisks2-volume-monitor.service - Virtual filesystem service - disk device monitor...
+Oct 22 05:58:09 71c0fe2f89dc gvfs-udisks2-vo[31793]: Failed to connect to UDisks: Error calling StartServiceByName for org.freedesktop.UDisks2: Unit udisks2.service is masked.
+Oct 22 05:58:09 71c0fe2f89dc gvfs-udisks2-vo[31793]: monitor says it's not supported
+Oct 22 05:58:09 71c0fe2f89dc dbus-daemon[28456]: [session uid=1000 pid=28456 pidfd=5] Successfully activated service 'org.gtk.vfs.UDisks2VolumeMonitor'
+Oct 22 05:58:09 71c0fe2f89dc systemd[28434]: Started gvfs-udisks2-volume-monitor.service - Virtual filesystem service - disk device monitor.
+Oct 22 05:58:09 71c0fe2f89dc gvfs-udisks2-vo[31793]: monitor says it's not supported
+Oct 22 05:58:09 71c0fe2f89dc dbus-daemon[28456]: [session uid=1000 pid=28456 pidfd=5] Activating via systemd: service name='org.gtk.vfs.MTPVolumeMonitor' unit='gvfs-mtp-volume-monitor.service' requested by ':1.108' (uid=1000 pid=31693 comm="/usr/bin/evolution" label="evolution (unconfined)")
+Oct 22 05:58:09 71c0fe2f89dc systemd[28434]: Starting gvfs-mtp-volume-monitor.service - Virtual filesystem service - Media Transfer Protocol monitor...
+Oct 22 05:58:09 71c0fe2f89dc dbus-daemon[28456]: [session uid=1000 pid=28456 pidfd=5] Successfully activated service 'org.gtk.vfs.MTPVolumeMonitor'
+Oct 22 05:58:09 71c0fe2f89dc systemd[28434]: Started gvfs-mtp-volume-monitor.service - Virtual filesystem service - Media Transfer Protocol monitor.
+Oct 22 05:58:09 71c0fe2f89dc dbus-daemon[28456]: [session uid=1000 pid=28456 pidfd=5] Activating via systemd: service name='org.gtk.vfs.GoaVolumeMonitor' unit='gvfs-goa-volume-monitor.service' requested by ':1.108' (uid=1000 pid=31693 comm="/usr/bin/evolution" label="evolution (unconfined)")
+Oct 22 05:58:09 71c0fe2f89dc systemd[28434]: Starting gvfs-goa-volume-monitor.service - Virtual filesystem service - GNOME Online Accounts monitor...
+Oct 22 05:58:09 71c0fe2f89dc dbus-daemon[28456]: [session uid=1000 pid=28456 pidfd=5] Successfully activated service 'org.gtk.vfs.GoaVolumeMonitor'
+Oct 22 05:58:09 71c0fe2f89dc systemd[28434]: Started gvfs-goa-volume-monitor.service - Virtual filesystem service - GNOME Online Accounts monitor.
+Oct 22 05:58:09 71c0fe2f89dc dbus-daemon[28456]: [session uid=1000 pid=28456 pidfd=5] Activating via systemd: service name='org.gtk.vfs.AfcVolumeMonitor' unit='gvfs-afc-volume-monitor.service' requested by ':1.108' (uid=1000 pid=31693 comm="/usr/bin/evolution" label="evolution (unconfined)")
+Oct 22 05:58:09 71c0fe2f89dc systemd[28434]: Starting gvfs-afc-volume-monitor.service - Virtual filesystem service - Apple File Conduit monitor...
+Oct 22 05:58:09 71c0fe2f89dc dbus-daemon[28456]: [session uid=1000 pid=28456 pidfd=5] Successfully activated service 'org.gtk.vfs.AfcVolumeMonitor'
+Oct 22 05:58:09 71c0fe2f89dc systemd[28434]: Started gvfs-afc-volume-monitor.service - Virtual filesystem service - Apple File Conduit monitor.
+Oct 22 05:58:09 71c0fe2f89dc dbus-daemon[28456]: [session uid=1000 pid=28456 pidfd=5] Activating via systemd: service name='org.gtk.vfs.GPhoto2VolumeMonitor' unit='gvfs-gphoto2-volume-monitor.service' requested by ':1.108' (uid=1000 pid=31693 comm="/usr/bin/evolution" label="evolution (unconfined)")
+Oct 22 05:58:09 71c0fe2f89dc systemd[28434]: Starting gvfs-gphoto2-volume-monitor.service - Virtual filesystem service - digital camera monitor...
+Oct 22 05:58:09 71c0fe2f89dc dbus-daemon[28456]: [session uid=1000 pid=28456 pidfd=5] Successfully activated service 'org.gtk.vfs.GPhoto2VolumeMonitor'
+Oct 22 05:58:09 71c0fe2f89dc systemd[28434]: Started gvfs-gphoto2-volume-monitor.service - Virtual filesystem service - digital camera monitor.
+Oct 22 05:58:09 71c0fe2f89dc gvfsd-wsdd[31862]: Failed to spawn the wsdd daemon: Failed to execute child process “wsdd” (No such file or directory)
+Oct 22 05:58:09 71c0fe2f89dc gvfsd-network[31847]: Couldn't create directory monitor on wsdd:///. Error: Automount failed: Failed to spawn the underlying wsdd daemon.
+Oct 22 05:58:11 71c0fe2f89dc xdg-desktop-por[28517]: A backend call failed: Inhibiting other than idle not supported
+Oct 22 05:58:11 71c0fe2f89dc dbus-daemon[28456]: [session uid=1000 pid=28456 pidfd=5] Activating via systemd: service name='org.gnome.evolution.dataserver.Calendar8' unit='evolution-calendar-factory.service' requested by ':1.108' (uid=1000 pid=31693 comm="/usr/bin/evolution" label="evolution (unconfined)")
+Oct 22 05:58:11 71c0fe2f89dc systemd[28434]: Starting evolution-calendar-factory.service - Evolution calendar service...
+Oct 22 05:58:11 71c0fe2f89dc dbus-daemon[28456]: [session uid=1000 pid=28456 pidfd=5] Activating via systemd: service name='org.gnome.evolution.dataserver.Sources5' unit='evolution-source-registry.service' requested by ':1.129' (uid=1000 pid=31893 comm="/usr/libexec/evolution-calendar-factory" label="unconfined")
+Oct 22 05:58:11 71c0fe2f89dc systemd[28434]: Starting evolution-source-registry.service - Evolution source registry...
+Oct 22 05:58:11 71c0fe2f89dc dbus-daemon[28456]: [session uid=1000 pid=28456 pidfd=5] Successfully activated service 'org.gnome.evolution.dataserver.Sources5'
+Oct 22 05:58:11 71c0fe2f89dc systemd[28434]: Started evolution-source-registry.service - Evolution source registry.
+Oct 22 05:58:11 71c0fe2f89dc dbus-daemon[28456]: [session uid=1000 pid=28456 pidfd=5] Successfully activated service 'org.gnome.evolution.dataserver.Calendar8'
+Oct 22 05:58:11 71c0fe2f89dc systemd[28434]: Started evolution-calendar-factory.service - Evolution calendar service.
+Oct 22 05:58:12 71c0fe2f89dc dbus-daemon[28456]: [session uid=1000 pid=28456 pidfd=5] Activating service name='org.gnome.FileRoller' requested by ':1.131' (uid=1000 pid=31934 comm="gtk-launch org.gnome.FileRoller" label="unconfined")
+Oct 22 05:58:12 71c0fe2f89dc dbus-daemon[28456]: [session uid=1000 pid=28456 pidfd=5] Successfully activated service 'org.gnome.FileRoller'
+Oct 22 05:58:16 71c0fe2f89dc dbus-daemon[28456]: [session uid=1000 pid=28456 pidfd=5] Activating service name='org.gnome.Logs' requested by ':1.137' (uid=1000 pid=32024 comm="gtk-launch org.gnome.Logs" label="unconfined")
+Oct 22 05:58:16 71c0fe2f89dc dbus-daemon[28456]: [session uid=1000 pid=28456 pidfd=5] Successfully activated service 'org.gnome.Logs'
+Oct 22 05:58:16 71c0fe2f89dc gnome-logs[32032]: gtk_label_set_label: assertion 'GTK_IS_LABEL (self)' failed
+Oct 22 05:58:20 71c0fe2f89dc dbus-daemon[28456]: [session uid=1000 pid=28456 pidfd=5] Activating service name='org.gnome.Loupe' requested by ':1.140' (uid=1000 pid=32106 comm="gtk-launch org.gnome.Loupe" label="unconfined")
+Oct 22 05:58:20 71c0fe2f89dc dbus-daemon[28456]: [session uid=1000 pid=28456 pidfd=5] Successfully activated service 'org.gnome.Loupe'
+Oct 22 05:58:25 71c0fe2f89dc dbus-daemon[28456]: [session uid=1000 pid=28456 pidfd=5] Activating service name='org.gnome.Maps' requested by ':1.143' (uid=1000 pid=32195 comm="gtk-launch org.gnome.Maps" label="unconfined")
+Oct 22 05:58:25 71c0fe2f89dc dbus-daemon[28456]: [session uid=1000 pid=28456 pidfd=5] Successfully activated service 'org.gnome.Maps'
+Oct 22 05:58:29 71c0fe2f89dc dbus-daemon[28456]: [session uid=1000 pid=28456 pidfd=5] Activating via systemd: service name='org.freedesktop.Tracker3.Miner.Files' unit='localsearch-3.service' requested by ':1.149' (uid=1000 pid=32326 comm="/usr/bin/python3 /usr/bin/gnome-music" label="unconfined")
+Oct 22 05:58:29 71c0fe2f89dc dbus-daemon[28456]: [session uid=1000 pid=28456 pidfd=5] Activation via systemd failed for unit 'localsearch-3.service': Unit localsearch-3.service is masked.
+Oct 22 05:58:29 71c0fe2f89dc gvfs-udisks2-vo[31793]: monitor says it's not supported
+Oct 22 05:58:33 71c0fe2f89dc dbus-daemon[28456]: [session uid=1000 pid=28456 pidfd=5] Activating service name='org.gnome.Nautilus' requested by ':1.150' (uid=1000 pid=32400 comm="gtk-launch org.gnome.Nautilus" label="unconfined")
+Oct 22 05:58:33 71c0fe2f89dc nautilus[32408]: Connecting to org.freedesktop.Tracker3.Miner.Files
+Oct 22 05:58:33 71c0fe2f89dc dbus-daemon[28456]: [session uid=1000 pid=28456 pidfd=5] Successfully activated service 'org.gnome.Nautilus'
+Oct 22 05:58:33 71c0fe2f89dc nautilus[32408]: Failed to initialize display server connection: Cannot invoke method; proxy is for the well-known name org.gnome.Mutter.ServiceChannel without an owner, and proxy was constructed with the G_DBUS_PROXY_FLAGS_DO_NOT_AUTO_START flag
+Oct 22 05:58:33 71c0fe2f89dc dbus-daemon[28456]: [session uid=1000 pid=28456 pidfd=5] Activating via systemd: service name='org.freedesktop.Tracker3.Miner.Files' unit='localsearch-3.service' requested by ':1.152' (uid=1000 pid=32408 comm="/usr/bin/nautilus --gapplication-service" label="nautilus (unconfined)")
+Oct 22 05:58:33 71c0fe2f89dc dbus-daemon[28456]: [session uid=1000 pid=28456 pidfd=5] Activation via systemd failed for unit 'localsearch-3.service': Unit localsearch-3.service is masked.
+Oct 22 05:58:33 71c0fe2f89dc gvfs-udisks2-vo[31793]: monitor says it's not supported
+Oct 22 05:58:33 71c0fe2f89dc nautilus[32408]: remote volume monitor with dbus name org.gtk.vfs.UDisks2VolumeMonitor is not supported
+Oct 22 05:58:33 71c0fe2f89dc nautilus[32408]: Unable to create connection for session-wide Tracker indexer: Unit localsearch-3.service is masked.
+Oct 22 05:58:33 71c0fe2f89dc dbus-daemon[28456]: [session uid=1000 pid=28456 pidfd=5] Activating service name='org.gnome.NautilusPreviewer' requested by ':1.152' (uid=1000 pid=32408 comm="/usr/bin/nautilus --gapplication-service" label="nautilus (unconfined)")
+Oct 22 05:58:33 71c0fe2f89dc nautilus[32408]: Unable to get contents of the bookmarks file: Error opening file /home/cipher/.config/gtk-3.0/bookmarks: No such file or directory
+Oct 22 05:58:34 71c0fe2f89dc dbus-daemon[28456]: [session uid=1000 pid=28456 pidfd=5] Successfully activated service 'org.gnome.NautilusPreviewer'
+Oct 22 05:58:37 71c0fe2f89dc dbus-daemon[28456]: [session uid=1000 pid=28456 pidfd=5] Activating service name='org.gnome.Settings' requested by ':1.157' (uid=1000 pid=32529 comm="gtk-launch org.gnome.Settings" label="unconfined")
+Oct 22 05:58:37 71c0fe2f89dc org.gnome.Settings[32539]: Running gnome-control-center is only supported under GNOME and Unity, exiting
+Oct 22 05:58:37 71c0fe2f89dc dbus-daemon[28456]: [session uid=1000 pid=28456 pidfd=5] Successfully activated service 'org.gnome.Settings'
+Oct 22 05:58:54 71c0fe2f89dc gvfs-udisks2-vo[31793]: monitor says it's not supported
+Oct 22 05:59:02 71c0fe2f89dc dbus-daemon[28456]: [session uid=1000 pid=28456 pidfd=5] Activating service name='org.gnome.Software' requested by ':1.167' (uid=1000 pid=32958 comm="gtk-launch org.gnome.Software" label="unconfined")
+Oct 22 05:59:02 71c0fe2f89dc dbus-daemon[28456]: [session uid=1000 pid=28456 pidfd=5] Successfully activated service 'org.gnome.Software'
+Oct 22 05:59:33 71c0fe2f89dc gvfs-udisks2-vo[31793]: monitor says it's not supported
+Oct 22 05:59:37 71c0fe2f89dc dbus-daemon[28456]: [session uid=1000 pid=28456 pidfd=5] Activating via systemd: service name='org.gnome.Terminal' unit='gnome-terminal-server.service' requested by ':1.177' (uid=1000 pid=33515 comm="gtk-launch org.gnome.Terminal" label="unconfined")
+Oct 22 05:59:37 71c0fe2f89dc systemd[28434]: Created slice app-org.gnome.Terminal.slice - Slice /app/org.gnome.Terminal.
+Oct 22 05:59:37 71c0fe2f89dc systemd[28434]: Starting gnome-terminal-server.service - GNOME Terminal Server...
+Oct 22 05:59:37 71c0fe2f89dc dbus-daemon[28456]: [session uid=1000 pid=28456 pidfd=5] Successfully activated service 'org.gnome.Terminal'
+Oct 22 05:59:37 71c0fe2f89dc systemd[28434]: Started gnome-terminal-server.service - GNOME Terminal Server.
+Oct 22 05:59:37 71c0fe2f89dc systemd[28434]: Started vte-spawn-4a9a3a2f-b130-4db1-be29-b75763020280.scope - VTE child process 33538 launched by org.gnome.Terminal process 33524.
+Oct 22 05:59:41 71c0fe2f89dc dbus-daemon[28456]: [session uid=1000 pid=28456 pidfd=5] Activating service name='org.gnome.TextEditor' requested by ':1.183' (uid=1000 pid=33590 comm="gtk-launch org.gnome.TextEditor" label="unconfined")
+Oct 22 05:59:41 71c0fe2f89dc dbus-daemon[28456]: [session uid=1000 pid=28456 pidfd=5] Successfully activated service 'org.gnome.TextEditor'
+Oct 22 05:59:41 71c0fe2f89dc org.gnome.TextEditor[33600]: Failed to register: Unable to acquire bus name 'org.gnome.TextEditor'
+Oct 22 05:59:45 71c0fe2f89dc dbus-daemon[28456]: [session uid=1000 pid=28456 pidfd=5] Activating service name='org.gnome.Totem' requested by ':1.187' (uid=1000 pid=33686 comm="gtk-launch org.gnome.Totem" label="unconfined")
+Oct 22 05:59:45 71c0fe2f89dc dbus-daemon[28456]: [session uid=1000 pid=28456 pidfd=5] Successfully activated service 'org.gnome.Totem'
+Oct 22 05:59:45 71c0fe2f89dc gvfs-udisks2-vo[31793]: monitor says it's not supported
+Oct 22 05:59:45 71c0fe2f89dc totem[33694]: remote volume monitor with dbus name org.gtk.vfs.UDisks2VolumeMonitor is not supported
+Oct 22 05:59:46 71c0fe2f89dc totem[33694]: [dleyna] ../src/dleyna/grl-dleyna-servers-manager.c:138: Unable to fetch the list of available servers: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name com.intel.dleyna-server was not provided by any .service files
+Oct 22 05:59:46 71c0fe2f89dc dbus-daemon[28456]: [session uid=1000 pid=28456 pidfd=5] Activating via systemd: service name='org.freedesktop.Tracker3.Miner.Files' unit='localsearch-3.service' requested by ':1.189' (uid=1000 pid=33694 comm="/usr/bin/totem --gapplication-service" label="unconfined")
+Oct 22 05:59:46 71c0fe2f89dc dbus-daemon[28456]: [session uid=1000 pid=28456 pidfd=5] Activation via systemd failed for unit 'localsearch-3.service': Unit localsearch-3.service is masked.
+Oct 22 05:59:46 71c0fe2f89dc totem[33694]: Error getting remote connection 'dbus:org.freedesktop.Tracker3.Miner.Files:/org/freedesktop/Tracker3/Endpoint': Unit localsearch-3.service is masked.
+Oct 22 05:59:46 71c0fe2f89dc dbus-daemon[28456]: [session uid=1000 pid=28456 pidfd=5] Activating via systemd: service name='org.freedesktop.Tracker3.Miner.Files' unit='localsearch-3.service' requested by ':1.189' (uid=1000 pid=33694 comm="/usr/bin/totem --gapplication-service" label="unconfined")
+Oct 22 05:59:46 71c0fe2f89dc dbus-daemon[28456]: [session uid=1000 pid=28456 pidfd=5] Activation via systemd failed for unit 'localsearch-3.service': Unit localsearch-3.service is masked.
+Oct 22 05:59:46 71c0fe2f89dc totem[33694]: [tracker-source-request] ../src/tracker3/grl-tracker-source-api.c:339:         error in parsing query id=3 : In service 'dbus:org.freedesktop.Tracker3.Miner.Files': Unit localsearch-3.service is masked.
+Oct 22 05:59:54 71c0fe2f89dc dbus-daemon[28456]: [session uid=1000 pid=28456 pidfd=5] Activating service name='org.gnome.Weather' requested by ':1.194' (uid=1000 pid=33852 comm="gtk-launch org.gnome.Weather" label="unconfined")
+Oct 22 05:59:54 71c0fe2f89dc dbus-daemon[28456]: [session uid=1000 pid=28456 pidfd=5] Successfully activated service 'org.gnome.Weather'
+Oct 22 05:59:54 71c0fe2f89dc org.gnome.Weath[33860]: The GObject property Adw.ViewSwitcherTitle.stack is deprecated.
+                                                     0 MainWindow() ["resource:///org/gnome/Weather/js/app/window.js":76:60]
+                                                     1 _createWindow() ["resource:///org/gnome/Weather/js/app/application.js":180:24]
+                                                     2 vfunc_activate() ["resource:///org/gnome/Weather/js/app/application.js":214:24]
+                                                     3 anonymous() ["resource:///org/gnome/Weather/js/app/main.js":46:30]
+                                                     4 setTimeout/source<() ["resource:///org/gnome/gjs/modules/esm/_timers.js":72:9]
+                                                     5 run() ["resource:///org/gnome/gjs/modules/script/mainloop.js":19:22]
+                                                     6 <TOP LEVEL> ["resource:///org/gnome/Weather/js/app/main.js":53:18]
+Oct 22 05:59:58 71c0fe2f89dc dbus-daemon[28456]: [session uid=1000 pid=28456 pidfd=5] Activating service name='org.gnome.baobab' requested by ':1.197' (uid=1000 pid=33972 comm="gtk-launch org.gnome.baobab" label="unconfined")
+Oct 22 05:59:58 71c0fe2f89dc dbus-daemon[28456]: [session uid=1000 pid=28456 pidfd=5] Successfully activated service 'org.gnome.baobab'
+Oct 22 05:59:58 71c0fe2f89dc gvfs-udisks2-vo[31793]: monitor says it's not supported
+Oct 22 05:59:58 71c0fe2f89dc baobab[33980]: remote volume monitor with dbus name org.gtk.vfs.UDisks2VolumeMonitor is not supported
+Oct 22 06:00:02 71c0fe2f89dc dbus-daemon[28456]: [session uid=1000 pid=28456 pidfd=5] Activating service name='org.gnome.clocks' requested by ':1.200' (uid=1000 pid=34057 comm="gtk-launch org.gnome.clocks" label="unconfined")
+Oct 22 06:00:02 71c0fe2f89dc dbus-daemon[28456]: [session uid=1000 pid=28456 pidfd=5] Successfully activated service 'org.gnome.clocks'
+Oct 22 06:00:10 71c0fe2f89dc dbus-daemon[28456]: [session uid=1000 pid=28456 pidfd=5] Activating service name='org.gnome.seahorse.Application' requested by ':1.204' (uid=1000 pid=34214 comm="gtk-launch org.gnome.seahorse.Application" label="unconfined")
+Oct 22 06:00:10 71c0fe2f89dc dbus-daemon[28456]: [session uid=1000 pid=28456 pidfd=5] Successfully activated service 'org.gnome.seahorse.Application'
+Oct 22 06:00:53 71c0fe2f89dc dbus-daemon[28456]: [session uid=1000 pid=28456 pidfd=5] Activating via systemd: service name='org.xfce.Xfconf' unit='xfconfd.service' requested by ':1.226' (uid=1000 pid=34884 comm="/usr/bin/thunar --bulk-rename" label="unconfined")
+Oct 22 06:00:53 71c0fe2f89dc systemd[28434]: Starting xfconfd.service - Xfce configuration service...
+Oct 22 06:00:53 71c0fe2f89dc dbus-daemon[28456]: [session uid=1000 pid=28456 pidfd=5] Successfully activated service 'org.xfce.Xfconf'
+Oct 22 06:00:53 71c0fe2f89dc systemd[28434]: Started xfconfd.service - Xfce configuration service.
+Oct 22 06:00:53 71c0fe2f89dc dbus-daemon[28456]: [session uid=1000 pid=28456 pidfd=5] Activating via systemd: service name='org.freedesktop.thumbnails.Thumbnailer1' unit='tumblerd.service' requested by ':1.226' (uid=1000 pid=34884 comm="/usr/bin/thunar --bulk-rename" label="unconfined")
+Oct 22 06:00:53 71c0fe2f89dc systemd[28434]: Starting tumblerd.service - Thumbnailing service...
+Oct 22 06:00:54 71c0fe2f89dc gvfs-udisks2-vo[31793]: monitor says it's not supported
+Oct 22 06:00:54 71c0fe2f89dc tumblerd[34900]: remote volume monitor with dbus name org.gtk.vfs.UDisks2VolumeMonitor is not supported
+Oct 22 06:00:54 71c0fe2f89dc dbus-daemon[28456]: [session uid=1000 pid=28456 pidfd=5] Successfully activated service 'org.freedesktop.thumbnails.Thumbnailer1'
+Oct 22 06:00:54 71c0fe2f89dc systemd[28434]: Started tumblerd.service - Thumbnailing service.
+Oct 22 06:01:02 71c0fe2f89dc gvfs-udisks2-vo[31793]: monitor says it's not supported
+Oct 22 06:06:46 71c0fe2f89dc gvfs-udisks2-vo[31793]: monitor says it's not supported

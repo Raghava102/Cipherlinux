@@ -1,0 +1,52 @@
+app	name	result	seconds	note
+blueman-manager	Bluetooth Manager	PASS	1	
+btop	btop++	PASS	1	terminal app; 
+chromium	Chromium Web Browser	FAIL	25	ntu 23.10+ or another Linux distro that has disabled unprivileged user namespaces with AppArmor, see https://chromium.googlesource.com/chromium/src/+/main/docs/security/apparmor-userns-restrictions.md. If you want to live dangerously and need an immediate workaround, you can try using --no-sandbox. 
+firefox-esr	Firefox ESR	PASS	2	
+foot	Foot	PASS	1	
+libreoffice-calc	LibreOffice Calc	PASS	1	
+libreoffice-draw	LibreOffice Draw	PASS	1	
+libreoffice-impress	LibreOffice Impress	PASS	1	
+libreoffice-math	LibreOffice Math	PASS	1	
+libreoffice-startcenter	LibreOffice	PASS	1	
+libreoffice-writer	LibreOffice Writer	PASS	2	
+nm-connection-editor	Advanced Network Configuration	PASS	1	
+org.freedesktop.IBus.Setup	IBus Preferences	PASS	1	
+org.freedesktop.MalcontentControl	Parental Controls	FAIL	26	
+org.gnome.Calculator	Calculator	PASS	2	
+org.gnome.Calendar	Calendar	PASS	1	
+org.gnome.Characters	Characters	PASS	1	
+org.gnome.Connections	Connections	PASS	1	
+org.gnome.Contacts	Contacts	PASS	1	
+org.gnome.DiskUtility	Disks	FAIL	25	
+org.gnome.Evince	Document Viewer	PASS	2	
+org.gnome.Evolution	Evolution	PASS	1	
+org.gnome.FileRoller	File Roller	PASS	1	
+org.gnome.Logs	Logs	PASS	1	
+org.gnome.Loupe	Image Viewer	PASS	1	
+org.gnome.Maps	Maps	PASS	2	
+org.gnome.Music	Music	PASS	1	
+org.gnome.Nautilus	Files	PASS	1	
+org.gnome.Settings	Settings	PASS	14	
+org.gnome.Shotwell	Shotwell	PASS	1	
+org.gnome.Snapshot	Camera	PASS	1	
+org.gnome.Software	Software	FAIL	25	
+org.gnome.SoundRecorder	Sound Recorder	PASS	1	
+org.gnome.SystemMonitor	System Monitor	PASS	2	
+org.gnome.Terminal	Terminal	PASS	1	
+org.gnome.TextEditor	Text Editor	PASS	1	
+org.gnome.Totem	Videos	PASS	1	
+org.gnome.Tour	Tour	PASS	1	
+org.gnome.Weather	Weather	PASS	1	
+org.gnome.baobab	Disk Usage Analyzer	PASS	1	
+org.gnome.clocks	Clocks	PASS	1	
+org.gnome.font-viewer	Fonts	PASS	1	
+org.gnome.seahorse.Application	Passwords and Keys	PASS	1	
+org.gnome.tweaks	Tweaks	PASS	1	
+org.pulseaudio.pavucontrol	Volume Control	PASS	1	
+simple-scan	Document Scanner	PASS	1	
+system-config-printer	Print Settings	FAIL	25	
+thunar-bulk-rename	Bulk Rename	PASS	1	
+thunar-volman-settings	Removable Drives and Media	PASS	2	
+thunar	Thunar File Manager	PASS	1	
+yelp	Help	PASS	1	

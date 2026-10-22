@@ -1,0 +1,5 @@
+DEEP chromium direct-start window: no
+DEEP org.freedesktop.MalcontentControl direct-start window: yes after 50s
+DEEP org.gnome.DiskUtility direct-start window: no
+DEEP org.gnome.Software direct-start window: yes after 75s
+DEEP system-config-printer direct-start window: yes after 24s

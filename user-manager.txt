@@ -1,0 +1,41 @@
+● user@1000.service - User Manager for UID 1000
+     Loaded: loaded (/usr/lib/systemd/system/user@.service; static)
+    Drop-In: /usr/lib/systemd/system/user@.service.d
+             └─10-login-barrier.conf
+     Active: active (running) since Thu 2026-10-22 05:55:28 UTC; 909ms ago
+ Invocation: 3b8d1f04af794e1bb60c5f1fa269f743
+       Docs: man:user@.service(5)
+   Main PID: 28434 (systemd)
+     Status: "Ready."
+      Tasks: 22
+     Memory: 16.3M (peak: 18.9M)
+        CPU: 251ms
+     CGroup: /system.slice/docker-71c0fe2f89dc2a4a15e1eece177ac0df3bf3b938724b952ae4cbd2d6782f12e4.scope/user.slice/user-1000.slice/user@1000.service
+             ├─app.slice
+             │ └─mpris-proxy.service
+             │   └─28461 /usr/bin/mpris-proxy
+             ├─init.scope
+             │ ├─28434 /usr/lib/systemd/systemd --user
+             │ └─28436 "(sd-pam)"
+             └─session.slice
+               ├─dbus.service
+               │ └─28456 /usr/bin/dbus-daemon --session --address=systemd: --nofork --nopidfile --systemd-activation --syslog-only
+               ├─filter-chain.service
+               │ └─28458 /usr/bin/pipewire -c filter-chain.conf
+               ├─pipewire-pulse.service
+               │ └─28460 /usr/bin/pipewire-pulse
+               ├─pipewire.service
+               │ └─28457 /usr/bin/pipewire
+               └─wireplumber.service
+                 └─28459 /usr/bin/wireplumber
+
+Oct 22 05:55:28 71c0fe2f89dc pipewire[28457]: mod.rt: RTKit does not give us RTTimeUSecMax, using -1
+Oct 22 05:55:28 71c0fe2f89dc wireplumber[28459]: mod.rt: RTKit error: org.freedesktop.systemd1.UnitMasked
+Oct 22 05:55:28 71c0fe2f89dc wireplumber[28459]: mod.rt: RTKit does not give us MaxRealtimePriority, using 1
+Oct 22 05:55:28 71c0fe2f89dc wireplumber[28459]: mod.rt: RTKit error: org.freedesktop.systemd1.UnitMasked
+Oct 22 05:55:28 71c0fe2f89dc wireplumber[28459]: mod.rt: RTKit does not give us MinNiceLevel, using 0
+Oct 22 05:55:28 71c0fe2f89dc wireplumber[28459]: wp-internal-comp-loader: Loading profile 'main'
+Oct 22 05:55:28 71c0fe2f89dc wireplumber[28459]: mod.rt: RTKit error: org.freedesktop.systemd1.UnitMasked
+Oct 22 05:55:28 71c0fe2f89dc wireplumber[28459]: mod.rt: RTKit does not give us RTTimeUSecMax, using -1
+Oct 22 05:55:28 71c0fe2f89dc wireplumber[28459]: [0:05:54.631407145] [28459]  INFO Camera camera_manager.cpp:327 libcamera v0.4.0
+Oct 22 05:55:28 71c0fe2f89dc wireplumber[28459]: [0:05:54.631746906] [28477] ERROR DmaBufAllocator dma_buf_allocator.cpp:119 Could not open any dma-buf provider
