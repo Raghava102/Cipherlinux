@@ -98,6 +98,23 @@ for f in /usr/share/applications/*.desktop; do
   [ -n "$exe" ] && [ "$exe" != env ] && pkill -f "$exe" 2>/dev/null
   sleep 1
 done
+# Deep check: apps that failed, started directly with debug output and a long wait
+for id in $(awk -F'\t' '$3=="FAIL"{print $1}' "$OUT/results.tsv"); do
+  f=/usr/share/applications/$id.desktop
+  exe=$(sed -n 's/^Exec=//p' "$f" | head -n1 | sed -E 's/ ?%[fFuUdDnNickvm]//g')
+  pkill -f "$(echo "$exe" | awk '{print $1}')" 2>/dev/null; sleep 1
+  before=$(wins)
+  ( export G_MESSAGES_DEBUG=all; unset QT_QUICK_BACKEND; [ "$id" = org.gnome.Settings ] && export XDG_CURRENT_DESKTOP=GNOME
+    timeout 120 sh -c "exec $exe" > "$OUT/deep-$id.log" 2>&1 ) &
+  got=no
+  for i in $(seq 1 90); do
+    sleep 1
+    [ -n "$(comm -13 <(echo "$before" | sort) <(wins | sort))" ] && { got="yes after ${i}s"; break; }
+  done
+  echo "DEEP $id direct-start window: $got" | tee -a "$OUT/deep.txt"
+  [ "$got" != no ] && grim -s 0.5 "$OUT/shots/deep-$id.png" 2>/dev/null
+  pkill -f "$(echo "$exe" | awk '{print $1}')" 2>/dev/null
+done
 TEST
 chmod +x /tmp/run-tests.sh
 if [ "$SYSTEMD" = 1 ]; then
