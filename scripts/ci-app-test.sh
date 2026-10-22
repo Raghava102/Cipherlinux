@@ -59,6 +59,11 @@ SD=""; [ "${CIPHER_SYSTEMD:-0}" = 1 ] && SD=--systemd
 dbus-update-activation-environment $SD WAYLAND_DISPLAY DISPLAY XDG_CURRENT_DESKTOP XDG_SESSION_TYPE XDG_SESSION_DESKTOP GDK_BACKEND QT_QPA_PLATFORM MOZ_ENABLE_WAYLAND
 # the rest of autostart.conf that matters for apps
 [ -n "$SD" ] && systemctl --user mask --runtime --now localsearch-3.service tracker-miner-fs-3.service localsearch-control-3.service >/dev/null 2>&1
+# Hyprland's portal can't run under the test compositor (sway); the session's
+# autostart then (re)starts the portal service with the display
+[ -n "$SD" ] && systemctl --user mask --runtime xdg-desktop-portal-hyprland.service >/dev/null 2>&1
+[ -n "$SD" ] && systemctl --user restart xdg-desktop-portal.service >/dev/null 2>&1
+[ -n "$SD" ] && systemctl --user --no-pager status xdg-desktop-portal.service > "$OUT/portal-status.txt" 2>&1
 export QT_QUICK_BACKEND=software   # what the shell has in a VM; the launcher must drop it
 cipher-theme init >/dev/null 2>&1
 

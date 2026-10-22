@@ -38,21 +38,30 @@ direct=0
 case "$id" in *-*) [ -n "$f" ] && grep -q '^DBusActivatable=true' "$f" && direct=1 ;; esac
 
 windows() { hyprctl clients -j 2>/dev/null | grep -c '"pid"'; }
+name=$( [ -n "$f" ] && sed -n 's/^Name=//p' "$f" | head -n1 )
+name=${name:-$id}
+
+# Some apps (Software, Settings) take a while the first time: say so, so a
+# slow start doesn't look like nothing happened.
+feedback() {
+  command -v hyprctl >/dev/null 2>&1 && [ -n "${HYPRLAND_INSTANCE_SIGNATURE:-}" ] || return 0
+  before=$1
+  for _ in 1 2 3 4 5 6; do
+    sleep 0.5
+    [ "$(windows)" -gt "$before" ] && return 0
+  done
+  notify-send -a Cipher -t 6000 -i "$(sed -n 's/^Icon=//p' "$f" 2>/dev/null | head -n1)" "Opening $name…" "This app can take a few seconds to start." 2>/dev/null
+}
 
 if [ "$direct" = 0 ] && command -v gtk-launch >/dev/null 2>&1; then
-  before=$(windows)
-  setsid -f gtk-launch "$id" "$@" >> "$log" 2>&1 < /dev/null
-  # Safety net: if no new window shows up, start the app directly instead
-  # (single-instance apps just raise the window they already opened)
-  if command -v hyprctl >/dev/null 2>&1 && [ -n "${HYPRLAND_INSTANCE_SIGNATURE:-}" ]; then
-    for _ in $(seq 1 16); do
-      sleep 0.5
-      [ "$(windows)" -gt "${before:-0}" ] && { echo "$(date -Is) ok $id" >> "$log"; exit 0; }
-    done
-    echo "$(date -Is) no window from gtk-launch $id after 8s; starting it directly" >> "$log"
-  else
+  before=$(windows 2>/dev/null || echo 0)
+  ( feedback "${before:-0}" & )
+  # Only if GIO itself fails (unknown id, broken D-Bus service) do we fall
+  # back to running the Exec line; a slow app is left to finish starting.
+  if timeout 40 setsid gtk-launch "$id" "$@" >> "$log" 2>&1 < /dev/null; then
     exit 0
   fi
+  echo "$(date -Is) gtk-launch failed for $id; starting it directly" >> "$log"
 fi
 # fallback: run the Exec line ourselves
 if [ -n "$f" ]; then
