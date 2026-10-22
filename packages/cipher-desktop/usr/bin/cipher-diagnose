@@ -1,0 +1,35 @@
+#!/bin/bash
+# cipher-diagnose — why is an app slow or not opening? Prints a short summary
+# and writes the full report to ~/cipher-report.txt (send that when asking for help).
+out="$HOME/cipher-report.txt"
+state="${XDG_STATE_HOME:-$HOME/.local/state}/cipher"
+{
+  echo "== Cipher report $(date -Is)"
+  . /usr/lib/os-release 2>/dev/null; echo "$PRETTY_NAME"
+  echo "virt: $(systemd-detect-virt 2>/dev/null)  mem: $(free -m | awk '/Mem:/{print $2" MB, "$7" MB free"}')  swap: $(free -m | awk '/Swap:/{print $3"/"$2" MB used"}')"
+  echo "session: XDG_CURRENT_DESKTOP=$XDG_CURRENT_DESKTOP WAYLAND_DISPLAY=$WAYLAND_DISPLAY"
+  echo; echo "== activation environment"
+  systemctl --user show-environment 2>&1 | grep -E 'WAYLAND|DISPLAY|XDG_CURRENT|XDG_SESSION' 
+  echo; echo "== failed services"
+  systemctl --failed --no-legend 2>&1; systemctl --user --failed --no-legend 2>&1
+  echo; echo "== portals"
+  systemctl --user --no-pager status xdg-desktop-portal.service xdg-desktop-portal-gtk.service xdg-desktop-portal-hyprland.service 2>&1 | grep -E '●|×|Active:|Loaded:'
+  echo; echo "== timeouts and errors this boot (user session)"
+  journalctl --user -b --no-pager 2>/dev/null | grep -i -E 'timed out|timeout|failed to activate|Failed to start|error' | tail -40
+  echo; echo "== timeouts this boot (system)"
+  journalctl -b --no-pager 2>/dev/null | grep -i -E 'timed out|Failed to activate' | tail -15
+  echo; echo "== last app launches"
+  tail -30 "$state/apps.log" 2>/dev/null
+  echo; echo "== shell log (tail)"
+  tail -20 "$state/shell.log" 2>/dev/null
+  echo; echo "== slowest boot units"
+  systemd-analyze 2>/dev/null; systemd-analyze blame 2>/dev/null | head -12
+} > "$out" 2>&1
+
+echo "Cipher diagnose — full report saved to $out"
+echo
+grep -A1 '^virt:' "$out" | head -1
+echo "Failed services:"; sed -n '/== failed services/,/== portals/p' "$out" | grep -v '==' | grep . | head -6 | sed 's/^/  /'
+echo "Portals:"; sed -n '/== portals/,/== timeouts and errors/p' "$out" | grep -E 'Active:' | head -3 | sed 's/^/  /'
+echo "Recent timeouts:"; sed -n '/== timeouts and errors/,/== timeouts this boot/p' "$out" | grep -v '==' | grep . | tail -6 | cut -c1-150 | sed 's/^/  /'
+echo "Last apps:"; sed -n '/== last app launches/,/== shell log/p' "$out" | grep -v '==' | grep . | tail -5 | cut -c1-150 | sed 's/^/  /'

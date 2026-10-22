@@ -123,6 +123,10 @@ done
 TEST
 chmod +x /tmp/run-tests.sh
 if [ "$SYSTEMD" = 1 ]; then
+  # services that can't work inside a container (no real-time scheduling, no
+  # block devices) would make apps wait for D-Bus timeouts that a real PC
+  # never has: make them fail fast instead
+  systemctl mask --now rtkit-daemon.service udisks2.service >/dev/null 2>&1
   # a real logged-in user: systemd user manager + session bus (dbus-broker),
   # exactly what GDM gives the Cipher session
   loginctl enable-linger cipher
