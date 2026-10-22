@@ -1,0 +1,13 @@
+[1;32mDEBUG [0m]: User-specified config location: '/home/cipher/.config/hypr/hyprland.conf'
+[1;32mDEBUG [0m]: [cfg] Config is either explicit or special.
+[1;32mDEBUG [0m]: [cfg] Config is NOT lua, loading regular mgr
+[1;32mDEBUG [0m]: Using config: /home/cipher/.config/hypr/hyprland.conf
+[1;32mDEBUG [0m]: Using config: /home/cipher/.config/hypr/hyprland.conf
+[1;32mDEBUG [0m]: Disabling stdout logs! Check the log for further logs.
+[1;32mDEBUG [0m]: Using config: /home/cipher/.config/hypr/hyprland.conf
+
+
+======== Config parsing result:
+
+config ok
+verify-config exit 0

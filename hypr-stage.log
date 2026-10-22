@@ -1,0 +1,15 @@
+== stage 2: Hyprland on card0 card1 
+hyprland socket: wayland-1  instance: 39d7e209c79d451efab1b21151d5938289da838d_1792648513_331993526
+failed to screenshoot all outputs
+--- configerrors
+Couldn't connect to /run/user/1000/hypr/39d7e209c79d451efab1b21151d5938289da838d_1792648513_331993526/.socket.sock. (4)
+--- layers
+Couldn't connect to /run/user/1000/hypr/39d7e209c79d451efab1b21151d5938289da838d_1792648513_331993526/.socket.sock. (4)
+--- processes
+cipher     16705       03:19 Sl   Hyprland --watchdog-fd 4
+Detected locale "C" with character encoding "ANSI_X3.4-1968", which is not UTF-8.
+Qt depends on a UTF-8 locale, and has switched to "C.UTF-8" instead.
+If this causes problems, reconfigure your locale. See the locale(1) manual
+for more information.
+No running instances for "/usr/share/cipher/shell/shell.qml"
+failed to create display

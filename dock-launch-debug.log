@@ -1,0 +1,60 @@
+--- apps.log
+2026-10-22T05:54:21+00:00 open foot
+warn: main.c:437: 'C' is not a UTF-8 locale, falling back to 'C.UTF-8'
+warn: wayland.c:1734: compositor does not implement the XDG toplevel icon protocol
+warn: terminal.c:2015: slave exited with signal 1 (Hangup)
+2026-10-22T05:54:23+00:00 open thunar
+
+(process:16321): thunar-WARNING **: 05:54:23.404: thunar: Failed to initialize Xfconf: Cannot autolaunch D-Bus without X11 $DISPLAY
+
+(thunar:16321): thunar-WARNING **: 05:54:23.476: Name 'org.xfce.FileManager' lost on the message dbus.
+
+(thunar:16321): thunar-WARNING **: 05:54:23.476: Name 'org.freedesktop.FileManager1' lost on the message dbus.
+
+(thunar:16321): thunar-WARNING **: 05:54:23.476: ThunarThumbnailer: failed to create proxy: Cannot autolaunch D-Bus without X11 $DISPLAY
+
+(thunar:16321): thunar-WARNING **: 05:54:23.608: Thumbnailer Proxy Failed ... starting attempt to re-initialize
+
+(thunar:16321): GLib-WARNING **: 05:54:24.355: Item for URI 'file:///root/Documents/Capstone%20report.docx' has no registered applications: skipping.
+
+(thunar:16321): GLib-WARNING **: 05:54:24.355: Item for URI 'file:///root/Study/ssh-brute-force.yml' has no registered applications: skipping.
+
+(thunar:16321): GLib-WARNING **: 05:54:24.355: Item for URI 'file:///root/Pictures/Evening%20coast.png' has no registered applications: skipping.
+2026-10-22T05:54:25+00:00 open org.pulseaudio.pavucontrol
+
+(pavucontrol:16366): Gtk-WARNING **: 05:54:25.498: Unable to acquire session bus: Cannot autolaunch D-Bus without X11 $DISPLAY
+2026-10-22T05:54:46+00:00 open blueman-manager
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/blueman/main/DBusProxies.py", line 31, in __init__
+    self.init()
+    ~~~~~~~~~^^
+gi.repository.GLib.GError: g-io-error-quark: Cannot autolaunch D-Bus without X11 $DISPLAY (0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/bin/blueman-manager", line 38, in <module>
+    app = Blueman()
+  File "/usr/lib/python3/dist-packages/blueman/main/Manager.py", line 32, in __init__
+    self._applet_was_running = DBus().NameHasOwner("(s)", AppletService.NAME)
+                               ~~~~^^
+  File "/usr/lib/python3/dist-packages/blueman/gobject.py", line 11, in __call__
+    cls._instance = super().__call__(*args, **kwargs)
+                    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/blueman/main/DBusProxies.py", line 48, in __init__
+    super().__init__(name="org.freedesktop.DBus", interface_name="org.freedesktop.DBus",
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                     object_path="/org/freedesktop/DBus")
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/blueman/main/DBusProxies.py", line 33, in __init__
+    raise DBusProxyFailed(e.message)
+blueman.main.DBusProxies.DBusProxyFailed: Cannot autolaunch D-Bus without X11 $DISPLAY
+--- direct run
+rc=0
+16630 foot
+--- ps
+  16630       1 /usr/bin/foot
+--- which
+/usr/bin/gtk-launch
+/usr/bin/setsid
+/usr/bin/cipher-open-app

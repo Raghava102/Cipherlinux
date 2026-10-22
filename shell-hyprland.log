@@ -1,0 +1,15 @@
+=== cipher-shell 2026-10-22T05:55:14+00:00
+WAYLAND_DISPLAY=wayland-1 XDG_CONFIG_DIRS= HYPRLAND_INSTANCE_SIGNATURE=set
+/usr/bin/qs
+/usr/bin/quickshell
+=== virtual machine (docker): using software rendering
+=== starting (software rendering) 2026-10-22T05:55:14+00:00
+[32m  INFO[0m: Launching config: "/usr/share/cipher/shell/shell.qml"
+[32m  INFO[0m: Shell ID: "ae74ef1768c55bbf2e5359da13c5f246" Path ID "ae74ef1768c55bbf2e5359da13c5f246"
+[32m  INFO[0m: Saving logs to "/run/user/1000/quickshell/by-id/hxc2goant/log.qslog"
+[33m  WARN[97m quickshell.service.upower[0m: Could not connect to DBus. UPower service will not work.
+[31m ERROR[97m quickshell.service.pipewire.loop[0m: Failed to connect pipewire context. Errno: 112
+[33m  WARN[97m quickshell.service.sni.watcher[0m: Could not connect to DBus. StatusNotifier service will not work.
+[33m  WARN[97m quickshell.service.sni.host[0m: Could not connect to DBus. StatusNotifier service will not work.
+[33m  WARN[97m quickshell.service.notifications[0m: Could not connect to DBus. Notification service will not work.
+[32m  INFO[0m: Configuration Loaded
