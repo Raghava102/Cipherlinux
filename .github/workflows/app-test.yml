@@ -46,3 +46,47 @@ jobs:
           git add -A
           git commit -q -m "App test for $SHA"
           git push -q -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" ci-apps
+
+  # Same test on a booted systemd (user manager + dbus-broker activation),
+  # like an installed Cipher login.
+  apps-systemd:
+    runs-on: ubuntu-latest
+    timeout-minutes: 75
+    steps:
+      - uses: actions/checkout@v4
+      - name: Free disk space
+        run: sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc /opt/hostedtoolcache/CodeQL || true
+      - name: Boot Debian 13 with systemd
+        run: |
+          printf 'FROM debian:trixie\nRUN apt-get update -q && DEBIAN_FRONTEND=noninteractive apt-get install -y -q systemd systemd-sysv dbus dbus-user-session libpam-systemd\nCMD ["/sbin/init"]\n' > Dockerfile.systemd
+          sudo docker build -q -t cipher-systemd -f Dockerfile.systemd .
+          sudo docker run -d --name sd --privileged --cgroupns=host -v /sys/fs/cgroup:/sys/fs/cgroup:rw \
+            --tmpfs /run --tmpfs /run/lock -v "$PWD":/src -w /src cipher-systemd
+          sleep 8
+          sudo docker exec sd systemctl is-system-running || true
+      - name: Open every app (systemd)
+        run: |
+          sudo docker exec -e CIPHER_SYSTEMD=1 -e APPTEST_OUT=apptest-systemd sd bash scripts/ci-app-test.sh
+          sudo chown -R "$(id -u):$(id -g)" apptest-systemd
+      - name: Report
+        if: always()
+        run: |
+          f=apptest-systemd/results.tsv
+          [ -f "$f" ] || exit 0
+          echo "::notice title=apps (systemd)::PASS $(grep -c $'\tPASS\t' $f)  FAIL $(grep -c $'\tFAIL\t' $f)"
+          awk -F'\t' '$3=="FAIL"{print}' "$f" | while IFS=$'\t' read -r id name res dt note; do
+            echo "::warning title=FAIL ${name} (${id})::${note:0:600}"
+          done
+      - name: Publish to ci-apps-systemd branch
+        if: always()
+        run: |
+          [ -d apptest-systemd ] || exit 0
+          cd apptest-systemd
+          git init -q
+          git config user.name "cipher-ci"
+          git config user.email "cipher-ci@users.noreply.github.com"
+          git checkout -q -b ci-apps-systemd
+          cp results.md README.md 2>/dev/null || echo "no results" > README.md
+          git add -A
+          git commit -q -m "App test (systemd)"
+          git push -q -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" ci-apps-systemd

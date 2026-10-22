@@ -5,7 +5,8 @@
 # Output: apptest/results.md, apptest/results.tsv, apptest/shots/*.png
 set -u
 cd "$(dirname "$0")/.." || exit 1
-OUT=$PWD/apptest
+OUT=$PWD/${APPTEST_OUT:-apptest}
+SYSTEMD=${CIPHER_SYSTEMD:-0}   # 1 = running under real systemd (like an installed system)
 rm -rf "$OUT"; mkdir -p "$OUT/shots"
 export DEBIAN_FRONTEND=noninteractive
 
@@ -27,7 +28,9 @@ apt-get install -y -q sway xwayland grim jq dbus dbus-user-session libgtk-3-bin 
 dpkg -l | awk '/^ii/{print $2" "$3}' > "$OUT/packages.txt"
 
 # system bus (polkit, NetworkManager, accounts-daemon... activate on demand)
-mkdir -p /run/dbus; dbus-daemon --system --fork 2>> "$OUT/apt.log"
+if [ "$SYSTEMD" = 0 ]; then
+  mkdir -p /run/dbus; dbus-daemon --system --fork 2>> "$OUT/apt.log"
+fi
 
 useradd -m -s /bin/bash cipher 2>/dev/null
 U=/home/cipher; RT=/run/user/$(id -u cipher)
@@ -52,7 +55,10 @@ export XDG_CURRENT_DESKTOP=Hyprland XDG_SESSION_DESKTOP=cipher XDG_SESSION_TYPE=
 export QT_QPA_PLATFORM="wayland;xcb" GDK_BACKEND="wayland,x11" MOZ_ENABLE_WAYLAND=1
 export DISPLAY=:0
 # like the session's autostart.conf: D-Bus-started apps get the display
-dbus-update-activation-environment WAYLAND_DISPLAY DISPLAY XDG_CURRENT_DESKTOP XDG_SESSION_TYPE XDG_SESSION_DESKTOP GDK_BACKEND QT_QPA_PLATFORM MOZ_ENABLE_WAYLAND
+SD=""; [ "${CIPHER_SYSTEMD:-0}" = 1 ] && SD=--systemd
+dbus-update-activation-environment $SD WAYLAND_DISPLAY DISPLAY XDG_CURRENT_DESKTOP XDG_SESSION_TYPE XDG_SESSION_DESKTOP GDK_BACKEND QT_QPA_PLATFORM MOZ_ENABLE_WAYLAND
+# the rest of autostart.conf that matters for apps
+[ -n "$SD" ] && systemctl --user mask --runtime --now localsearch-3.service tracker-miner-fs-3.service localsearch-control-3.service >/dev/null 2>&1
 export QT_QUICK_BACKEND=software   # what the shell has in a VM; the launcher must drop it
 cipher-theme init >/dev/null 2>&1
 
@@ -94,8 +100,23 @@ for f in /usr/share/applications/*.desktop; do
 done
 TEST
 chmod +x /tmp/run-tests.sh
-runuser -u cipher -- env -i HOME=$U USER=cipher LOGNAME=cipher PATH=/usr/local/bin:/usr/bin:/bin \
-  XDG_RUNTIME_DIR=$RT LANG=C.UTF-8 dbus-run-session -- /tmp/run-tests.sh "$OUT" 2>&1 | tee "$OUT/run.log"
+if [ "$SYSTEMD" = 1 ]; then
+  # a real logged-in user: systemd user manager + session bus (dbus-broker),
+  # exactly what GDM gives the Cipher session
+  loginctl enable-linger cipher
+  for _ in $(seq 1 60); do [ -S "$RT/bus" ] && break; sleep 1; done
+  ls -l "$RT" > "$OUT/runtime-dir.txt" 2>&1
+  systemctl --no-pager status "user@$(id -u cipher).service" > "$OUT/user-manager.txt" 2>&1
+  runuser -u cipher -- env -i HOME=$U USER=cipher LOGNAME=cipher PATH=/usr/local/bin:/usr/bin:/bin \
+    XDG_RUNTIME_DIR=$RT DBUS_SESSION_BUS_ADDRESS=unix:path=$RT/bus LANG=C.UTF-8 CIPHER_SYSTEMD=1 \
+    /tmp/run-tests.sh "$OUT" 2>&1 | tee "$OUT/run.log"
+  runuser -u cipher -- env XDG_RUNTIME_DIR=$RT DBUS_SESSION_BUS_ADDRESS=unix:path=$RT/bus \
+    journalctl --user --no-pager -n 400 > "$OUT/user-journal.txt" 2>&1
+  journalctl --no-pager -n 300 > "$OUT/system-journal.txt" 2>&1
+else
+  runuser -u cipher -- env -i HOME=$U USER=cipher LOGNAME=cipher PATH=/usr/local/bin:/usr/bin:/bin \
+    XDG_RUNTIME_DIR=$RT LANG=C.UTF-8 dbus-run-session -- /tmp/run-tests.sh "$OUT" 2>&1 | tee "$OUT/run.log"
+fi
 
 {
   echo "# Cipher app test"
