@@ -1,0 +1,265 @@
+dbus-daemon[27424]: [session uid=1000 pid=27424 pidfd=5] Activating service name='ca.desrt.dconf' requested by ':1.1' (uid=1000 pid=27449 comm="gsettings set org.gnome.desktop.interface color-sc" label="docker-default (enforce)")
+dbus-daemon[27424]: [session uid=1000 pid=27424 pidfd=5] Successfully activated service 'ca.desrt.dconf'
+dbus-daemon[27424]: [session uid=1000 pid=27424 pidfd=5] Activating service name='org.a11y.Bus' requested by ':1.5' (uid=1000 pid=27493 comm="gtk-launch blueman-manager" label="docker-default (enforce)")
+dbus-daemon[27424]: [session uid=1000 pid=27424 pidfd=5] Successfully activated service 'org.a11y.Bus'
+dbus-daemon[27424]: [session uid=1000 pid=27424 pidfd=5] Activating service name='org.gtk.vfs.Daemon' requested by ':1.4' (uid=1000 pid=27493 comm="gtk-launch blueman-manager" label="docker-default (enforce)")
+dbus-daemon[27424]: [session uid=1000 pid=27424 pidfd=5] Successfully activated service 'org.gtk.vfs.Daemon'
+fuse: device not found, try 'modprobe fuse' first
+dbus-daemon[27424]: [session uid=1000 pid=27424 pidfd=5] Activating service name='org.freedesktop.portal.Desktop' requested by ':1.8' (uid=1000 pid=27516 comm="/usr/bin/python3 /usr/bin/blueman-manager" label="docker-default (enforce)")
+dbus-daemon[27424]: [session uid=1000 pid=27424 pidfd=5] Activating service name='org.freedesktop.impl.portal.PermissionStore' requested by ':1.10' (uid=1000 pid=27526 comm="/usr/libexec/xdg-desktop-portal" label="docker-default (enforce)")
+dbus-daemon[27424]: [session uid=1000 pid=27424 pidfd=5] Successfully activated service 'org.freedesktop.impl.portal.PermissionStore'
+dbus-daemon[27424]: [session uid=1000 pid=27424 pidfd=5] Activating service name='org.freedesktop.portal.Documents' requested by ':1.10' (uid=1000 pid=27526 comm="/usr/libexec/xdg-desktop-portal" label="docker-default (enforce)")
+dbus-daemon[27424]: [session uid=1000 pid=27424 pidfd=5] Successfully activated service 'org.freedesktop.portal.Documents'
+fuse: device not found, try 'modprobe fuse' first
+error: fuse init failed: Can't mount path /run/user/1000/doc
+
+(/usr/libexec/xdg-desktop-portal:27526): xdg-desktop-portal-WARNING **: 05:56:41.868: Document portal fuse mount point unknown: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name :1.12 was not provided by any .service files
+dbus-daemon[27424]: [session uid=1000 pid=27424 pidfd=5] Activating service name='org.freedesktop.impl.portal.desktop.gtk' requested by ':1.10' (uid=1000 pid=27526 comm="/usr/libexec/xdg-desktop-portal" label="docker-default (enforce)")
+dbus-daemon[27506]: Activating service name='org.a11y.atspi.Registry' requested by ':1.2' (uid=1000 pid=27545 comm="/usr/libexec/xdg-desktop-portal-gtk" label="docker-default (enforce)")
+dbus-daemon[27506]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+dbus-daemon[27424]: [session uid=1000 pid=27424 pidfd=5] Successfully activated service 'org.freedesktop.impl.portal.desktop.gtk'
+
+(/usr/libexec/xdg-desktop-portal:27526): xdg-desktop-portal-WARNING **: 05:56:41.958: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.NoReply: Message recipient disconnected from message bus without replying
+
+(/usr/libexec/xdg-desktop-portal:27526): xdg-desktop-portal-WARNING **: 05:56:41.962: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.NoReply: Message recipient disconnected from message bus without replying
+
+(/usr/libexec/xdg-desktop-portal:27526): xdg-desktop-portal-WARNING **: 05:56:41.967: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.NoReply: Message recipient disconnected from message bus without replying
+
+(/usr/libexec/xdg-desktop-portal:27526): xdg-desktop-portal-WARNING **: 05:56:41.989: Failed connect to PipeWire: Couldn't connect to PipeWire
+dbus-daemon[27424]: [session uid=1000 pid=27424 pidfd=5] Activating service name='org.freedesktop.impl.portal.desktop.hyprland' requested by ':1.10' (uid=1000 pid=27526 comm="/usr/libexec/xdg-desktop-portal" label="docker-default (enforce)")
+dbus-daemon[27424]: [session uid=1000 pid=27424 pidfd=5] Successfully activated service 'org.freedesktop.impl.portal.desktop.hyprland'
+dbus-daemon[27424]: [session uid=1000 pid=27424 pidfd=5] Activating service name='org.freedesktop.secrets' requested by ':1.10' (uid=1000 pid=27526 comm="/usr/libexec/xdg-desktop-portal" label="docker-default (enforce)")
+** Message: 05:56:42.008: couldn't access control socket: /run/user/1000/keyring/control: No such file or directory
+discover_other_daemon: 0dbus-daemon[27424]: [session uid=1000 pid=27424 pidfd=5] Successfully activated service 'org.freedesktop.secrets'
+dbus-daemon[27424]: [session uid=1000 pid=27424 pidfd=5] Successfully activated service 'org.freedesktop.portal.Desktop'
+PASS blueman-manager (Bluetooth Manager) 1s
+PASS btop (btop++) 1s
+FAIL chromium (Chromium Web Browser) 26s
+PASS firefox-esr (Firefox ESR) 2s
+PASS foot (Foot) 1s
+PASS libreoffice-calc (LibreOffice Calc) 2s
+PASS libreoffice-draw (LibreOffice Draw) 2s
+PASS libreoffice-impress (LibreOffice Impress) 1s
+PASS libreoffice-math (LibreOffice Math) 1s
+PASS libreoffice-startcenter (LibreOffice) 1s
+PASS libreoffice-writer (LibreOffice Writer) 1s
+PASS nm-connection-editor (Advanced Network Configuration) 2s
+PASS org.freedesktop.IBus.Setup (IBus Preferences) 1s
+PASS org.freedesktop.MalcontentControl (Parental Controls) 2s
+PASS org.gnome.Calculator (Calculator) 1s
+dbus-daemon[27424]: [session uid=1000 pid=27424 pidfd=5] Activating service name='org.gnome.Calendar' requested by ':1.68' (uid=1000 pid=29484 comm="gtk-launch org.gnome.Calendar" label="docker-default (enforce)")
+dbus-daemon[27424]: [session uid=1000 pid=27424 pidfd=5] Successfully activated service 'org.gnome.Calendar'
+GcalApplication-Message: 05:58:10.030: Running Calendar as a service
+dbus-daemon[27424]: [session uid=1000 pid=27424 pidfd=5] Activating service name='org.gnome.evolution.dataserver.Sources5' requested by ':1.70' (uid=1000 pid=29492 comm="/usr/bin/gnome-calendar --gapplication-service" label="docker-default (enforce)")
+dbus-daemon[27424]: [session uid=1000 pid=27424 pidfd=5] Activating service name='org.gnome.OnlineAccounts' requested by ':1.71' (uid=1000 pid=29505 comm="/usr/libexec/evolution-source-registry" label="docker-default (enforce)")
+dbus-daemon[27424]: [session uid=1000 pid=27424 pidfd=5] Successfully activated service 'org.gnome.evolution.dataserver.Sources5'
+goa-daemon-Message: 05:58:10.195: goa-daemon version 3.54.5 starting
+dbus-daemon[27424]: [session uid=1000 pid=27424 pidfd=5] Activating service name='org.gnome.Identity' requested by ':1.72' (uid=1000 pid=29512 comm="/usr/libexec/goa-daemon" label="docker-default (enforce)")
+dbus-daemon[27424]: [session uid=1000 pid=27424 pidfd=5] Activating service name='org.gnome.evolution.dataserver.Calendar8' requested by ':1.70' (uid=1000 pid=29492 comm="/usr/bin/gnome-calendar --gapplication-service" label="docker-default (enforce)")
+dbus-daemon[27424]: [session uid=1000 pid=27424 pidfd=5] Successfully activated service 'org.gnome.OnlineAccounts'
+dbus-daemon[27424]: [session uid=1000 pid=27424 pidfd=5] Successfully activated service 'org.gnome.Identity'
+dbus-daemon[27424]: [session uid=1000 pid=27424 pidfd=5] Successfully activated service 'org.gnome.evolution.dataserver.Calendar8'
+dbus-daemon[27424]: [session uid=1000 pid=27424 pidfd=5] Activating service name='org.gnome.evolution.dataserver.AddressBook10' requested by ':1.74' (uid=1000 pid=29527 comm="/usr/libexec/evolution-calendar-factory" label="docker-default (enforce)")
+dbus-daemon[27424]: [session uid=1000 pid=27424 pidfd=5] Activating service name='org.gtk.vfs.Metadata' requested by ':1.74' (uid=1000 pid=29527 comm="/usr/libexec/evolution-calendar-factory" label="docker-default (enforce)")
+dbus-daemon[27424]: [session uid=1000 pid=27424 pidfd=5] Successfully activated service 'org.gtk.vfs.Metadata'
+dbus-daemon[27424]: [session uid=1000 pid=27424 pidfd=5] Successfully activated service 'org.gnome.evolution.dataserver.AddressBook10'
+
+(gnome-calendar:29492): GcalClock-WARNING **: 05:58:10.490: Error acquiring logind DBus proxy: Error calling StartServiceByName for org.freedesktop.login1: Launch helper exited with unknown return code 1
+PASS org.gnome.Calendar (Calendar) 2s
+dbus-daemon[27424]: [session uid=1000 pid=27424 pidfd=5] Activating service name='org.gnome.Characters' requested by ':1.77' (uid=1000 pid=29656 comm="gtk-launch org.gnome.Characters" label="docker-default (enforce)")
+dbus-daemon[27424]: [session uid=1000 pid=27424 pidfd=5] Successfully activated service 'org.gnome.Characters'
+Gjs-Message: 05:58:15.323: JS LOG: Characters Application started
+
+(org.gnome.Characters:29664): Adwaita-WARNING **: 05:58:15.406: AdwNavigationPage 0x55d4d1fbd680 is missing a title. To hide a header bar title, consider using AdwHeaderBar:show-title instead.
+Gjs-Message: 05:58:15.407: JS LOG: Characters Application activated
+PASS org.gnome.Characters (Characters) 1s
+dbus-daemon[27424]: [session uid=1000 pid=27424 pidfd=5] Activating service name='org.gnome.Connections' requested by ':1.80' (uid=1000 pid=29743 comm="gtk-launch org.gnome.Connections" label="docker-default (enforce)")
+dbus-daemon[27424]: [session uid=1000 pid=27424 pidfd=5] Successfully activated service 'org.gnome.Connections'
+
+(gnome-connections:29751): Gtk-WARNING **: 05:58:19.659: GtkFlowBox with a model will ignore sort and filter functions
+PASS org.gnome.Connections (Connections) 1s
+dbus-daemon[27424]: [session uid=1000 pid=27424 pidfd=5] Activating service name='org.gnome.Contacts' requested by ':1.84' (uid=1000 pid=29807 comm="gtk-launch org.gnome.Contacts" label="docker-default (enforce)")
+dbus-daemon[27424]: [session uid=1000 pid=27424 pidfd=5] Successfully activated service 'org.gnome.Contacts'
+PASS org.gnome.Contacts (Contacts) 2s
+dbus-daemon[27424]: [session uid=1000 pid=27424 pidfd=5] Activating service name='org.gnome.DiskUtility' requested by ':1.88' (uid=1000 pid=29904 comm="gtk-launch org.gnome.DiskUtility" label="docker-default (enforce)")
+dbus-daemon[27424]: [session uid=1000 pid=27424 pidfd=5] Successfully activated service 'org.gnome.DiskUtility'
+PASS org.gnome.DiskUtility (Disks) 1s
+PASS org.gnome.Evince (Document Viewer) 1s
+FAIL org.gnome.Evolution (Evolution) 25s
+dbus-daemon[27424]: [session uid=1000 pid=27424 pidfd=5] Activating service name='org.gnome.FileRoller' requested by ':1.102' (uid=1000 pid=30406 comm="gtk-launch org.gnome.FileRoller" label="docker-default (enforce)")
+dbus-daemon[27424]: [session uid=1000 pid=27424 pidfd=5] Successfully activated service 'org.gnome.FileRoller'
+FAIL org.gnome.FileRoller (File Roller) 25s
+dbus-daemon[27424]: [session uid=1000 pid=27424 pidfd=5] Activating service name='org.gnome.Logs' requested by ':1.107' (uid=1000 pid=30721 comm="gtk-launch org.gnome.Logs" label="docker-default (enforce)")
+dbus-daemon[27424]: [session uid=1000 pid=27424 pidfd=5] Successfully activated service 'org.gnome.Logs'
+
+(gnome-logs:30729): Gtk-CRITICAL **: 05:59:29.533: gtk_label_set_label: assertion 'GTK_IS_LABEL (self)' failed
+PASS org.gnome.Logs (Logs) 1s
+dbus-daemon[27424]: [session uid=1000 pid=27424 pidfd=5] Activating service name='org.gnome.Loupe' requested by ':1.110' (uid=1000 pid=30803 comm="gtk-launch org.gnome.Loupe" label="docker-default (enforce)")
+dbus-daemon[27424]: [session uid=1000 pid=27424 pidfd=5] Successfully activated service 'org.gnome.Loupe'
+PASS org.gnome.Loupe (Image Viewer) 1s
+dbus-daemon[27424]: [session uid=1000 pid=27424 pidfd=5] Activating service name='org.gnome.Maps' requested by ':1.113' (uid=1000 pid=30886 comm="gtk-launch org.gnome.Maps" label="docker-default (enforce)")
+dbus-daemon[27424]: [session uid=1000 pid=27424 pidfd=5] Successfully activated service 'org.gnome.Maps'
+PASS org.gnome.Maps (Maps) 2s
+dbus-daemon[27424]: [session uid=1000 pid=27424 pidfd=5] Activating service name='org.freedesktop.Tracker3.Miner.Files' requested by ':1.119' (uid=1000 pid=30998 comm="/usr/bin/python3 /usr/bin/gnome-music" label="docker-default (enforce)")
+dbus-daemon[27424]: [session uid=1000 pid=27424 pidfd=5] Activating service name='org.gtk.vfs.UDisks2VolumeMonitor' requested by ':1.120' (uid=1000 pid=31010 comm="/usr/libexec/localsearch-3 " label="docker-default (enforce)")
+dbus-daemon[27424]: [session uid=1000 pid=27424 pidfd=5] Successfully activated service 'org.gtk.vfs.UDisks2VolumeMonitor'
+dbus-daemon[27424]: [session uid=1000 pid=27424 pidfd=5] Activating service name='org.gtk.vfs.MTPVolumeMonitor' requested by ':1.120' (uid=1000 pid=31010 comm="/usr/libexec/localsearch-3 " label="docker-default (enforce)")
+dbus-daemon[27424]: [session uid=1000 pid=27424 pidfd=5] Successfully activated service 'org.gtk.vfs.MTPVolumeMonitor'
+dbus-daemon[27424]: [session uid=1000 pid=27424 pidfd=5] Activating service name='org.gtk.vfs.GPhoto2VolumeMonitor' requested by ':1.120' (uid=1000 pid=31010 comm="/usr/libexec/localsearch-3 " label="docker-default (enforce)")
+dbus-daemon[27424]: [session uid=1000 pid=27424 pidfd=5] Successfully activated service 'org.gtk.vfs.GPhoto2VolumeMonitor'
+dbus-daemon[27424]: [session uid=1000 pid=27424 pidfd=5] Activating service name='org.gtk.vfs.GoaVolumeMonitor' requested by ':1.120' (uid=1000 pid=31010 comm="/usr/libexec/localsearch-3 " label="docker-default (enforce)")
+dbus-daemon[27424]: [session uid=1000 pid=27424 pidfd=5] Successfully activated service 'org.gtk.vfs.GoaVolumeMonitor'
+dbus-daemon[27424]: [session uid=1000 pid=27424 pidfd=5] Activating service name='org.gtk.vfs.AfcVolumeMonitor' requested by ':1.120' (uid=1000 pid=31010 comm="/usr/libexec/localsearch-3 " label="docker-default (enforce)")
+dbus-daemon[27424]: [session uid=1000 pid=27424 pidfd=5] Successfully activated service 'org.gtk.vfs.AfcVolumeMonitor'
+
+(localsearch-3:31010): Tracker-WARNING **: 05:59:42.676: Unable to get XDG user directory path for special directory &DOCUMENTS. Ignoring this location.
+
+(localsearch-3:31010): Tracker-WARNING **: 05:59:42.676: Unable to get XDG user directory path for special directory &MUSIC. Ignoring this location.
+
+(localsearch-3:31010): Tracker-WARNING **: 05:59:42.676: Unable to get XDG user directory path for special directory &PICTURES. Ignoring this location.
+
+(localsearch-3:31010): Tracker-WARNING **: 05:59:42.676: Unable to get XDG user directory path for special directory &VIDEOS. Ignoring this location.
+
+(localsearch-3:31010): Tracker-WARNING **: 05:59:42.676: Unable to get XDG user directory path for special directory &DOWNLOAD. Ignoring this location.
+
+(localsearch-3:31010): Tracker-WARNING **: 05:59:42.677: Unable to get XDG user directory path for special directory &DOCUMENTS. Ignoring this location.
+
+(localsearch-3:31010): Tracker-WARNING **: 05:59:42.677: Unable to get XDG user directory path for special directory &MUSIC. Ignoring this location.
+
+(localsearch-3:31010): Tracker-WARNING **: 05:59:42.677: Unable to get XDG user directory path for special directory &PICTURES. Ignoring this location.
+
+(localsearch-3:31010): Tracker-WARNING **: 05:59:42.677: Unable to get XDG user directory path for special directory &VIDEOS. Ignoring this location.
+
+(localsearch-3:31010): Tracker-WARNING **: 05:59:42.772: Unable to get XDG user directory path for special directory &DOCUMENTS. Ignoring this location.
+
+(localsearch-3:31010): Tracker-WARNING **: 05:59:42.772: Unable to get XDG user directory path for special directory &MUSIC. Ignoring this location.
+
+(localsearch-3:31010): Tracker-WARNING **: 05:59:42.772: Unable to get XDG user directory path for special directory &PICTURES. Ignoring this location.
+
+(localsearch-3:31010): Tracker-WARNING **: 05:59:42.772: Unable to get XDG user directory path for special directory &VIDEOS. Ignoring this location.
+
+(localsearch-3:31010): Tracker-WARNING **: 05:59:42.773: Unable to get XDG user directory path for special directory &DOWNLOAD. Ignoring this location.
+
+(localsearch-3:31010): Tracker-WARNING **: 05:59:42.773: Unable to get XDG user directory path for special directory &DOCUMENTS. Ignoring this location.
+
+(localsearch-3:31010): Tracker-WARNING **: 05:59:42.773: Unable to get XDG user directory path for special directory &MUSIC. Ignoring this location.
+
+(localsearch-3:31010): Tracker-WARNING **: 05:59:42.773: Unable to get XDG user directory path for special directory &PICTURES. Ignoring this location.
+
+(localsearch-3:31010): Tracker-WARNING **: 05:59:42.773: Unable to get XDG user directory path for special directory &VIDEOS. Ignoring this location.
+dbus-daemon[27424]: [session uid=1000 pid=27424 pidfd=5] Successfully activated service 'org.freedesktop.Tracker3.Miner.Files'
+PASS org.gnome.Music (Music) 1s
+dbus-daemon[27424]: [session uid=1000 pid=27424 pidfd=5] Activating service name='org.gnome.Nautilus' requested by ':1.126' (uid=1000 pid=31127 comm="gtk-launch org.gnome.Nautilus" label="docker-default (enforce)")
+** Message: 05:59:46.515: Connecting to org.freedesktop.Tracker3.Miner.Files
+dbus-daemon[27424]: [session uid=1000 pid=27424 pidfd=5] Successfully activated service 'org.gnome.Nautilus'
+nautilus-application-Message: 05:59:46.517: Failed to initialize display server connection: Cannot invoke method; proxy is for the well-known name org.gnome.Mutter.ServiceChannel without an owner, and proxy was constructed with the G_DBUS_PROXY_FLAGS_DO_NOT_AUTO_START flag
+
+** (org.gnome.Nautilus:31135): WARNING **: 05:59:46.709: Unable to get contents of the bookmarks file: Error opening file /home/cipher/.config/gtk-3.0/bookmarks: No such file or directory
+dbus-daemon[27424]: [session uid=1000 pid=27424 pidfd=5] Activating service name='org.gnome.NautilusPreviewer' requested by ':1.128' (uid=1000 pid=31135 comm="/usr/bin/nautilus --gapplication-service" label="docker-default (enforce)")
+dbus-daemon[27424]: [session uid=1000 pid=27424 pidfd=5] Successfully activated service 'org.gnome.NautilusPreviewer'
+
+** (process:31209): WARNING **: 05:59:47.000: Unable to load /home/cipher/.local/share/recently-used.xbel: Failed to open file “/home/cipher/.local/share/recently-used.xbel”: No such file or directory
+
+** (process:31227): WARNING **: 05:59:47.131: Failed to spawn the wsdd daemon: Failed to execute child process “wsdd” (No such file or directory)
+
+** (process:31214): WARNING **: 05:59:47.132: Couldn't create directory monitor on wsdd:///. Error: Automount failed: Failed to spawn the underlying wsdd daemon.
+PASS org.gnome.Nautilus (Files) 1s
+dbus-daemon[27424]: [session uid=1000 pid=27424 pidfd=5] Activating service name='org.gnome.Settings' requested by ':1.143' (uid=1000 pid=31289 comm="gtk-launch org.gnome.Settings" label="docker-default (enforce)")
+Running gnome-control-center is only supported under GNOME and Unity, exiting
+dbus-daemon[27424]: [session uid=1000 pid=27424 pidfd=5] Successfully activated service 'org.gnome.Settings'
+PASS org.gnome.Settings (Settings) 1s
+PASS org.gnome.Shotwell (Shotwell) 2s
+PASS org.gnome.Snapshot (Camera) 1s
+dbus-daemon[27424]: [session uid=1000 pid=27424 pidfd=5] Activating service name='org.gnome.Software' requested by ':1.153' (uid=1000 pid=31554 comm="gtk-launch org.gnome.Software" label="docker-default (enforce)")
+dbus-daemon[27424]: [session uid=1000 pid=27424 pidfd=5] Successfully activated service 'org.gnome.Software'
+06:00:05:456 Gs  failed to get featured apps: no apps to show
+06:00:05:456 Gs  Only 0 apps for curated list, hiding
+06:00:05:456 Gs  Only 0 apps for recent list, hiding
+PASS org.gnome.Software (Software) 2s
+PASS org.gnome.SoundRecorder (Sound Recorder) 1s
+PASS org.gnome.SystemMonitor (System Monitor) 1s
+dbus-daemon[27424]: [session uid=1000 pid=27424 pidfd=5] Activating service name='org.gnome.Terminal' requested by ':1.163' (uid=1000 pid=31948 comm="gtk-launch org.gnome.Terminal" label="docker-default (enforce)")
+dbus-daemon[27424]: [session uid=1000 pid=27424 pidfd=5] Successfully activated service 'org.gnome.Terminal'
+PASS org.gnome.Terminal (Terminal) 1s
+dbus-daemon[27424]: [session uid=1000 pid=27424 pidfd=5] Activating service name='org.gnome.TextEditor' requested by ':1.169' (uid=1000 pid=32039 comm="gtk-launch org.gnome.TextEditor" label="docker-default (enforce)")
+dbus-daemon[27424]: [session uid=1000 pid=27424 pidfd=5] Successfully activated service 'org.gnome.TextEditor'
+Failed to register: Unable to acquire bus name 'org.gnome.TextEditor'
+PASS org.gnome.TextEditor (Text Editor) 1s
+dbus-daemon[27424]: [session uid=1000 pid=27424 pidfd=5] Activating service name='org.gnome.Totem' requested by ':1.173' (uid=1000 pid=32132 comm="gtk-launch org.gnome.Totem" label="docker-default (enforce)")
+dbus-daemon[27424]: [session uid=1000 pid=27424 pidfd=5] Successfully activated service 'org.gnome.Totem'
+
+(org.gnome.Totem:32140): Grilo-WARNING **: 06:00:26.011: [dleyna] ../src/dleyna/grl-dleyna-servers-manager.c:138: Unable to fetch the list of available servers: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name com.intel.dleyna-server was not provided by any .service files
+PASS org.gnome.Totem (Videos) 1s
+PASS org.gnome.Tour (Tour) 1s
+dbus-daemon[27424]: [session uid=1000 pid=27424 pidfd=5] Activating service name='org.gnome.Weather' requested by ':1.180' (uid=1000 pid=32298 comm="gtk-launch org.gnome.Weather" label="docker-default (enforce)")
+dbus-daemon[27424]: [session uid=1000 pid=27424 pidfd=5] Successfully activated service 'org.gnome.Weather'
+
+(org.gnome.Weather:32306): Gjs-WARNING **: 06:00:34.262: The GObject property Adw.ViewSwitcherTitle.stack is deprecated.
+0 MainWindow() ["resource:///org/gnome/Weather/js/app/window.js":76:60]
+1 _createWindow() ["resource:///org/gnome/Weather/js/app/application.js":180:24]
+2 vfunc_activate() ["resource:///org/gnome/Weather/js/app/application.js":214:24]
+3 anonymous() ["resource:///org/gnome/Weather/js/app/main.js":46:30]
+4 setTimeout/source<() ["resource:///org/gnome/gjs/modules/esm/_timers.js":72:9]
+5 run() ["resource:///org/gnome/gjs/modules/script/mainloop.js":19:22]
+6 <TOP LEVEL> ["resource:///org/gnome/Weather/js/app/main.js":53:18]
+
+PASS org.gnome.Weather (Weather) 1s
+dbus-daemon[27424]: [session uid=1000 pid=27424 pidfd=5] Activating service name='org.gnome.baobab' requested by ':1.183' (uid=1000 pid=32385 comm="gtk-launch org.gnome.baobab" label="docker-default (enforce)")
+dbus-daemon[27424]: [session uid=1000 pid=27424 pidfd=5] Successfully activated service 'org.gnome.baobab'
+PASS org.gnome.baobab (Disk Usage Analyzer) 1s
+dbus-daemon[27424]: [session uid=1000 pid=27424 pidfd=5] Activating service name='org.gnome.clocks' requested by ':1.186' (uid=1000 pid=32470 comm="gtk-launch org.gnome.clocks" label="docker-default (enforce)")
+dbus-daemon[27424]: [session uid=1000 pid=27424 pidfd=5] Successfully activated service 'org.gnome.clocks'
+PASS org.gnome.clocks (Clocks) 1s
+PASS org.gnome.font-viewer (Fonts) 1s
+dbus-daemon[27424]: [session uid=1000 pid=27424 pidfd=5] Activating service name='org.gnome.seahorse.Application' requested by ':1.190' (uid=1000 pid=32635 comm="gtk-launch org.gnome.seahorse.Application" label="docker-default (enforce)")
+dbus-daemon[27424]: [session uid=1000 pid=27424 pidfd=5] Successfully activated service 'org.gnome.seahorse.Application'
+PASS org.gnome.seahorse.Application (Passwords and Keys) 2s
+PASS org.gnome.tweaks (Tweaks) 1s
+PASS org.pulseaudio.pavucontrol (Volume Control) 1s
+PASS simple-scan (Document Scanner) 1s
+PASS system-config-printer (Print Settings) 1s
+dbus-daemon[27424]: [session uid=1000 pid=27424 pidfd=5] Activating service name='org.xfce.Xfconf' requested by ':1.214' (uid=1000 pid=33041 comm="/usr/bin/thunar --bulk-rename" label="docker-default (enforce)")
+dbus-daemon[27424]: [session uid=1000 pid=27424 pidfd=5] Successfully activated service 'org.xfce.Xfconf'
+dbus-daemon[27424]: [session uid=1000 pid=27424 pidfd=5] Activating service name='org.freedesktop.thumbnails.Thumbnailer1' requested by ':1.214' (uid=1000 pid=33041 comm="/usr/bin/thunar --bulk-rename" label="docker-default (enforce)")
+dbus-daemon[27424]: [session uid=1000 pid=27424 pidfd=5] Successfully activated service 'org.freedesktop.thumbnails.Thumbnailer1'
+PASS thunar-bulk-rename (Bulk Rename) 1s
+PASS thunar-volman-settings (Removable Drives and Media) 1s
+PASS thunar (Thunar File Manager) 1s
+PASS yelp (Help) 1s
+DEEP chromium direct-start window: no
+dbus-daemon[27424]: [session uid=1000 pid=27424 pidfd=5] Activating service name='org.gnome.evolution.dataserver.Sources5' requested by ':1.232' (uid=1000 pid=34340 comm="evolution" label="docker-default (enforce)")
+dbus-daemon[27424]: [session uid=1000 pid=27424 pidfd=5] Successfully activated service 'org.gnome.evolution.dataserver.Sources5'
+dbus-daemon[27424]: [session uid=1000 pid=27424 pidfd=5] Activating service name='org.gnome.evolution.dataserver.Calendar8' requested by ':1.235' (uid=1000 pid=34367 comm="/usr/libexec/evolution-data-server/evolution-alarm" label="docker-default (enforce)")
+dbus-daemon[27424]: [session uid=1000 pid=27424 pidfd=5] Successfully activated service 'org.gnome.evolution.dataserver.Calendar8'
+dbus-daemon[27424]: [session uid=1000 pid=27424 pidfd=5] Activating service name='org.gnome.evolution.dataserver.AddressBook10' requested by ':1.237' (uid=1000 pid=34400 comm="/usr/libexec/evolution-calendar-factory" label="docker-default (enforce)")
+dbus-daemon[27424]: [session uid=1000 pid=27424 pidfd=5] Successfully activated service 'org.gnome.evolution.dataserver.AddressBook10'
+/tmp/run-tests.sh: line 73: 34339 Trace/breakpoint trap   timeout 120 sh -c "exec $exe" > "$OUT/deep-$id.log" 2>&1
+DEEP org.gnome.Evolution direct-start window: no
+DEEP org.gnome.FileRoller direct-start window: yes after 1s
+A connection to the bus can't be made
+A connection to the bus can't be made
+A connection to the bus can't be made
+A connection to the bus can't be made
+
+(xfconfd:33049): xfconfd-WARNING **: 06:04:34.352: Name org.xfce.Xfconf lost on the message dbus, exiting.
+
+(tumblerd:33059): GVFS-RemoteVolumeMonitor-WARNING **: 06:04:34.355: Owner of volume monitor org.gtk.vfs.UDisks2VolumeMonitor disconnected from the bus; removing drives/volumes/mounts
+
+(tumblerd:33059): GVFS-RemoteVolumeMonitor-WARNING **: 06:04:34.355: Owner of volume monitor org.gtk.vfs.MTPVolumeMonitor disconnected from the bus; removing drives/volumes/mounts
+
+(tumblerd:33059): GVFS-RemoteVolumeMonitor-WARNING **: 06:04:34.355: Owner of volume monitor org.gtk.vfs.GPhoto2VolumeMonitor disconnected from the bus; removing drives/volumes/mounts
+
+(tumblerd:33059): GVFS-RemoteVolumeMonitor-WARNING **: 06:04:34.355: Owner of volume monitor org.gtk.vfs.GoaVolumeMonitor disconnected from the bus; removing drives/volumes/mounts
+
+(tumblerd:33059): GVFS-RemoteVolumeMonitor-WARNING **: 06:04:34.356: Owner of volume monitor org.gtk.vfs.AfcVolumeMonitor disconnected from the bus; removing drives/volumes/mounts
+
+(tumblerd:33059): tumblerd-CRITICAL **: 06:04:34.356: Name org.freedesktop.thumbnails.Cache1 lost on the message dbus, exiting.
+
+(tumblerd:33059): tumblerd-CRITICAL **: 06:04:34.356: Name org.freedesktop.thumbnails.Manager1 lost on the message dbus, exiting.
+
+(tumblerd:33059): tumblerd-CRITICAL **: 06:04:34.356: Name org.freedesktop.thumbnails.Thumbnailer1 lost on the message dbus, exiting.
+A connection to the bus can't be made
+Terminated
+/bin/sh: 1: kill: No such process
+

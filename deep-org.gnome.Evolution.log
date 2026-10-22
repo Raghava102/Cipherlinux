@@ -1,0 +1,122 @@
+(org.gnome.Evolution:34340): GLib-GIO-DEBUG: 06:03:01.617: _g_io_module_get_default: Found default implementation dconf (DConfSettingsBackend) for ?gsettings-backend?
+(org.gnome.Evolution:34340): dconf-DEBUG: 06:03:01.617: watch_fast: "/org/gnome/evolution/" (establishing: 0, active: 0)
+(org.gnome.Evolution:34340): dconf-DEBUG: 06:03:01.624: watch_established: "/org/gnome/evolution/" (establishing: 1)
+(org.gnome.Evolution:34340): dconf-DEBUG: 06:03:01.649: watch_fast: "/org/gnome/evolution/shell/" (establishing: 0, active: 0)
+(org.gnome.Evolution:34340): dconf-DEBUG: 06:03:01.649: watch_established: "/org/gnome/evolution/shell/" (establishing: 1)
+(org.gnome.Evolution:34340): GLib-DEBUG: 06:03:01.674: unsetenv() is not thread-safe and should not be used after threads are created
+(org.gnome.Evolution:34340): dconf-DEBUG: 06:03:01.674: watch_fast: "/org/gnome/evolution-data-server/" (establishing: 0, active: 0)
+(org.gnome.Evolution:34340): GLib-GIO-DEBUG: 06:03:01.674: Failed to initialize portal (GNetworkMonitorPortal) for gio-network-monitor: Not using portals
+(org.gnome.Evolution:34340): dconf-DEBUG: 06:03:01.675: watch_established: "/org/gnome/evolution-data-server/" (establishing: 1)
+(org.gnome.Evolution:34340): GLib-GIO-DEBUG: 06:03:01.676: Failed to initialize networkmanager (GNetworkMonitorNM) for gio-network-monitor: NetworkManager not running
+(org.gnome.Evolution:34340): GLib-GIO-DEBUG: 06:03:01.676: _g_io_module_get_default: Found default implementation netlink (GNetworkMonitorNetlink) for ?gio-network-monitor?
+(org.gnome.Evolution:34340): dconf-DEBUG: 06:03:01.678: watch_fast: "/org/gnome/desktop/interface/" (establishing: 0, active: 0)
+(org.gnome.Evolution:34340): dconf-DEBUG: 06:03:01.678: watch_fast: "/org/gnome/desktop/peripherals/mouse/" (establishing: 0, active: 0)
+(org.gnome.Evolution:34340): dconf-DEBUG: 06:03:01.678: watch_fast: "/org/gnome/desktop/sound/" (establishing: 0, active: 0)
+(org.gnome.Evolution:34340): dconf-DEBUG: 06:03:01.678: watch_fast: "/org/gnome/desktop/privacy/" (establishing: 0, active: 0)
+(org.gnome.Evolution:34340): dconf-DEBUG: 06:03:01.678: watch_fast: "/org/gnome/desktop/wm/preferences/" (establishing: 0, active: 0)
+(org.gnome.Evolution:34340): dconf-DEBUG: 06:03:01.678: watch_fast: "/org/gnome/settings-daemon/plugins/xsettings/" (establishing: 0, active: 0)
+(org.gnome.Evolution:34340): dconf-DEBUG: 06:03:01.678: watch_established: "/org/gnome/desktop/interface/" (establishing: 1)
+(org.gnome.Evolution:34340): dconf-DEBUG: 06:03:01.678: watch_established: "/org/gnome/desktop/peripherals/mouse/" (establishing: 1)
+(org.gnome.Evolution:34340): dconf-DEBUG: 06:03:01.678: watch_established: "/org/gnome/desktop/sound/" (establishing: 1)
+(org.gnome.Evolution:34340): dconf-DEBUG: 06:03:01.678: watch_fast: "/org/gnome/desktop/a11y/" (establishing: 0, active: 0)
+(org.gnome.Evolution:34340): dconf-DEBUG: 06:03:01.678: watch_established: "/org/gnome/desktop/privacy/" (establishing: 1)
+(org.gnome.Evolution:34340): dconf-DEBUG: 06:03:01.678: watch_fast: "/org/gnome/desktop/a11y/interface/" (establishing: 0, active: 0)
+(org.gnome.Evolution:34340): dconf-DEBUG: 06:03:01.678: watch_established: "/org/gnome/desktop/wm/preferences/" (establishing: 1)
+(org.gnome.Evolution:34340): dconf-DEBUG: 06:03:01.678: watch_established: "/org/gnome/settings-daemon/plugins/xsettings/" (establishing: 1)
+(org.gnome.Evolution:34340): dconf-DEBUG: 06:03:01.678: watch_established: "/org/gnome/desktop/a11y/" (establishing: 1)
+(org.gnome.Evolution:34340): dconf-DEBUG: 06:03:01.678: watch_established: "/org/gnome/desktop/a11y/interface/" (establishing: 1)
+(org.gnome.Evolution:34340): Gdk-DEBUG: 06:03:01.689: Compositor prefers decoration mode 'server'
+(org.gnome.Evolution:34340): GLib-GIO-DEBUG: 06:03:01.694: _g_io_module_get_default: Found default implementation gvfs (GDaemonVfs) for ‘gio-vfs’
+(org.gnome.Evolution:34340): GLib-DEBUG: 06:03:01.710: unsetenv() is not thread-safe and should not be used after threads are created
+(org.gnome.Evolution:34340): Gtk-DEBUG: 06:03:01.710: Connecting to session manager
+(org.gnome.Evolution:34340): Gtk-DEBUG: 06:03:01.711: Failed to get the GNOME session proxy: The name org.gnome.SessionManager is not owned
+(org.gnome.Evolution:34340): Gtk-DEBUG: 06:03:01.711: Failed to get the Xfce session proxy: The name org.xfce.SessionManager is not owned
+(org.gnome.Evolution:34340): dconf-DEBUG: 06:03:01.712: watch_fast: "/org/gnome/evolution/" (establishing: 0, active: 1)
+(org.gnome.Evolution:34340): dconf-DEBUG: 06:03:01.713: watch_fast: "/org/gnome/evolution/calendar/" (establishing: 0, active: 0)
+(org.gnome.Evolution:34340): dconf-DEBUG: 06:03:01.713: watch_established: "/org/gnome/evolution/calendar/" (establishing: 1)
+(org.gnome.Evolution:34340): dconf-DEBUG: 06:03:01.933: watch_fast: "/org/gnome/evolution/mail/" (establishing: 0, active: 0)
+(org.gnome.Evolution:34340): dconf-DEBUG: 06:03:01.933: watch_established: "/org/gnome/evolution/mail/" (establishing: 1)
+(org.gnome.Evolution:34340): dconf-DEBUG: 06:03:01.935: watch_fast: "/org/gnome/evolution-data-server/" (establishing: 0, active: 1)
+(org.gnome.Evolution:34340): dconf-DEBUG: 06:03:01.947: watch_fast: "/system/proxy/" (establishing: 0, active: 0)
+(org.gnome.Evolution:34340): dconf-DEBUG: 06:03:01.947: watch_fast: "/system/proxy/http/" (establishing: 0, active: 0)
+(org.gnome.Evolution:34340): dconf-DEBUG: 06:03:01.947: watch_fast: "/system/proxy/https/" (establishing: 0, active: 0)
+(org.gnome.Evolution:34340): dconf-DEBUG: 06:03:01.947: watch_fast: "/system/proxy/ftp/" (establishing: 0, active: 0)
+(org.gnome.Evolution:34340): dconf-DEBUG: 06:03:01.947: watch_fast: "/system/proxy/socks/" (establishing: 0, active: 0)
+(org.gnome.Evolution:34340): dconf-DEBUG: 06:03:01.947: unwatch_fast: "/system/proxy/" (active: 0, establishing: 1)
+(org.gnome.Evolution:34340): dconf-DEBUG: 06:03:01.947: unwatch_fast: "/system/proxy/http/" (active: 0, establishing: 1)
+(org.gnome.Evolution:34340): dconf-DEBUG: 06:03:01.947: unwatch_fast: "/system/proxy/https/" (active: 0, establishing: 1)
+(org.gnome.Evolution:34340): dconf-DEBUG: 06:03:01.947: unwatch_fast: "/system/proxy/ftp/" (active: 0, establishing: 1)
+(org.gnome.Evolution:34340): dconf-DEBUG: 06:03:01.947: unwatch_fast: "/system/proxy/socks/" (active: 0, establishing: 1)
+(org.gnome.Evolution:34340): dconf-DEBUG: 06:03:01.947: watch_established: "/system/proxy/" (establishing: 0)
+(org.gnome.Evolution:34340): dconf-DEBUG: 06:03:01.947: watch_established: "/system/proxy/http/" (establishing: 0)
+(org.gnome.Evolution:34340): dconf-DEBUG: 06:03:01.947: watch_established: "/system/proxy/https/" (establishing: 0)
+(org.gnome.Evolution:34340): dconf-DEBUG: 06:03:01.947: watch_established: "/system/proxy/ftp/" (establishing: 0)
+(org.gnome.Evolution:34340): dconf-DEBUG: 06:03:01.947: watch_established: "/system/proxy/socks/" (establishing: 0)
+(org.gnome.Evolution:34340): pxbackend-DEBUG: 06:03:01.948: px_config_sysconfig_set_config_file: Could not read file /etc/sysconfig/proxy
+(org.gnome.Evolution:34340): pxbackend-DEBUG: 06:03:01.948: Active config plugins:
+(org.gnome.Evolution:34340): pxbackend-DEBUG: 06:03:01.948:  - config-env
+(org.gnome.Evolution:34340): pxbackend-DEBUG: 06:03:01.948:  - config-xdp
+(org.gnome.Evolution:34340): pxbackend-DEBUG: 06:03:01.948:  - config-kde
+(org.gnome.Evolution:34340): pxbackend-DEBUG: 06:03:01.948:  - config-gnome
+(org.gnome.Evolution:34340): pxbackend-DEBUG: 06:03:01.948:  - config-sysconfig
+(org.gnome.Evolution:34340): pxbackend-DEBUG: 06:03:01.949: px_manager_constructed: Up and running
+(org.gnome.Evolution:34340): GLib-GIO-DEBUG: 06:03:01.949: _g_io_module_get_default: Found default implementation libproxy (GLibproxyResolver) for ‘gio-proxy-resolver’
+(org.gnome.Evolution:34340): dconf-DEBUG: 06:03:01.955: watch_fast: "/org/gnome/evolution/bogofilter/" (establishing: 0, active: 0)
+(org.gnome.Evolution:34340): dconf-DEBUG: 06:03:01.955: watch_established: "/org/gnome/evolution/bogofilter/" (establishing: 1)
+(org.gnome.Evolution:34340): dconf-DEBUG: 06:03:01.968: change_fast
+(org.gnome.Evolution:34340): dconf-DEBUG: 06:03:01.968: change_fast
+(org.gnome.Evolution:34340): dconf-DEBUG: 06:03:01.968: change_fast
+(org.gnome.Evolution:34340): dconf-DEBUG: 06:03:01.968: change_fast
+(org.gnome.Evolution:34340): dconf-DEBUG: 06:03:01.968: change_fast
+(org.gnome.Evolution:34340): dconf-DEBUG: 06:03:01.968: change_fast
+(org.gnome.Evolution:34340): dconf-DEBUG: 06:03:01.968: change_fast
+(org.gnome.Evolution:34340): dconf-DEBUG: 06:03:01.968: change_fast
+(org.gnome.Evolution:34340): dconf-DEBUG: 06:03:01.968: change_fast
+(org.gnome.Evolution:34340): dconf-DEBUG: 06:03:01.968: change_fast
+(org.gnome.Evolution:34340): dconf-DEBUG: 06:03:01.968: change_fast
+(org.gnome.Evolution:34340): dconf-DEBUG: 06:03:01.968: change_fast
+(org.gnome.Evolution:34340): dconf-DEBUG: 06:03:01.968: change_fast
+(org.gnome.Evolution:34340): dconf-DEBUG: 06:03:01.986: change_fast
+(org.gnome.Evolution:34340): dconf-DEBUG: 06:03:01.994: watch_fast: "/org/gnome/desktop/lockdown/" (establishing: 0, active: 0)
+(org.gnome.Evolution:34340): dconf-DEBUG: 06:03:01.994: watch_established: "/org/gnome/desktop/lockdown/" (establishing: 1)
+(evolution-alarm-notify:34367): GLib-GIO-DEBUG: 06:03:02.076: _g_io_module_get_default: Found default implementation dconf (DConfSettingsBackend) for ‘gsettings-backend’
+(evolution-alarm-notify:34367): dconf-DEBUG: 06:03:02.077: watch_fast: "/org/gnome/desktop/interface/" (establishing: 0, active: 0)
+(evolution-alarm-notify:34367): dconf-DEBUG: 06:03:02.077: watch_fast: "/org/gnome/desktop/peripherals/mouse/" (establishing: 0, active: 0)
+(evolution-alarm-notify:34367): dconf-DEBUG: 06:03:02.077: watch_fast: "/org/gnome/desktop/sound/" (establishing: 0, active: 0)
+(evolution-alarm-notify:34367): dconf-DEBUG: 06:03:02.077: watch_fast: "/org/gnome/desktop/privacy/" (establishing: 0, active: 0)
+(evolution-alarm-notify:34367): dconf-DEBUG: 06:03:02.077: watch_fast: "/org/gnome/desktop/wm/preferences/" (establishing: 0, active: 0)
+(evolution-alarm-notify:34367): dconf-DEBUG: 06:03:02.077: watch_fast: "/org/gnome/settings-daemon/plugins/xsettings/" (establishing: 0, active: 0)
+(evolution-alarm-notify:34367): dconf-DEBUG: 06:03:02.077: watch_fast: "/org/gnome/desktop/a11y/" (establishing: 0, active: 0)
+(evolution-alarm-notify:34367): dconf-DEBUG: 06:03:02.077: watch_fast: "/org/gnome/desktop/a11y/interface/" (establishing: 0, active: 0)
+(evolution-alarm-notify:34367): dconf-DEBUG: 06:03:02.079: watch_established: "/org/gnome/desktop/interface/" (establishing: 1)
+(evolution-alarm-notify:34367): dconf-DEBUG: 06:03:02.079: watch_established: "/org/gnome/desktop/peripherals/mouse/" (establishing: 1)
+(evolution-alarm-notify:34367): dconf-DEBUG: 06:03:02.079: watch_established: "/org/gnome/desktop/sound/" (establishing: 1)
+(evolution-alarm-notify:34367): dconf-DEBUG: 06:03:02.079: watch_established: "/org/gnome/desktop/privacy/" (establishing: 1)
+(evolution-alarm-notify:34367): dconf-DEBUG: 06:03:02.079: watch_established: "/org/gnome/desktop/wm/preferences/" (establishing: 1)
+(evolution-alarm-notify:34367): dconf-DEBUG: 06:03:02.079: watch_established: "/org/gnome/settings-daemon/plugins/xsettings/" (establishing: 1)
+(evolution-alarm-notify:34367): dconf-DEBUG: 06:03:02.079: watch_established: "/org/gnome/desktop/a11y/" (establishing: 1)
+(evolution-alarm-notify:34367): dconf-DEBUG: 06:03:02.079: watch_established: "/org/gnome/desktop/a11y/interface/" (establishing: 1)
+(org.gnome.Evolution:34340): dconf-DEBUG: 06:03:02.082: watch_fast: "/org/gnome/desktop/interface/" (establishing: 0, active: 1)
+(evolution-alarm-notify:34367): Gdk-DEBUG: 06:03:02.095: Compositor prefers decoration mode 'server'
+(evolution-alarm-notify:34367): GLib-DEBUG: 06:03:02.095: unsetenv() is not thread-safe and should not be used after threads are created
+bwrap: No permissions to create a new namespace, likely because the kernel does not allow non-privileged user namespaces. See <https://deb.li/bubblewrap> or <file:///usr/share/doc/bubblewrap/README.Debian.gz>.
+
+** (org.gnome.Evolution:34340): ERROR **: 06:03:02.096: Failed to fully launch dbus-proxy: Child process exited with code 1
+(evolution-alarm-notify:34367): GLib-GIO-DEBUG: 06:03:02.105: _g_io_module_get_default: Found default implementation gvfs (GDaemonVfs) for ‘gio-vfs’
+(evolution-alarm-notify:34367): dconf-DEBUG: 06:03:02.133: watch_fast: "/org/gnome/evolution/" (establishing: 0, active: 0)
+(evolution-alarm-notify:34367): dconf-DEBUG: 06:03:02.135: watch_established: "/org/gnome/evolution/" (establishing: 1)
+(evolution-alarm-notify:34367): GLib-DEBUG: 06:03:02.158: unsetenv() is not thread-safe and should not be used after threads are created
+(evolution-alarm-notify:34367): Gtk-DEBUG: 06:03:02.158: Connecting to session manager
+(evolution-alarm-notify:34367): Gtk-DEBUG: 06:03:02.159: Failed to get the GNOME session proxy: The name org.gnome.SessionManager is not owned
+(evolution-alarm-notify:34367): Gtk-DEBUG: 06:03:02.160: Failed to get the Xfce session proxy: The name org.xfce.SessionManager is not owned
+(evolution-alarm-notify:34367): dconf-DEBUG: 06:03:02.167: watch_fast: "/org/gnome/evolution-data-server/calendar/" (establishing: 0, active: 0)
+(evolution-alarm-notify:34367): dconf-DEBUG: 06:03:02.167: watch_fast: "/org/gnome/desktop/interface/" (establishing: 0, active: 1)
+(evolution-alarm-notify:34367): dconf-DEBUG: 06:03:02.168: watch_fast: "/org/gnome/evolution-data-server/calendar/" (establishing: 1, active: 0)
+(evolution-alarm-notify:34367): dconf-DEBUG: 06:03:02.171: watch_established: "/org/gnome/evolution-data-server/calendar/" (establishing: 2)
+(process:34389): GLib-GIO-DEBUG: 06:03:02.189: Failed to initialize portal (GNetworkMonitorPortal) for gio-network-monitor: Not using portals
+(process:34389): GLib-GIO-DEBUG: 06:03:02.192: Failed to initialize networkmanager (GNetworkMonitorNM) for gio-network-monitor: NetworkManager not running
+(process:34389): GLib-GIO-DEBUG: 06:03:02.192: _g_io_module_get_default: Found default implementation netlink (GNetworkMonitorNetlink) for ?gio-network-monitor?
+(evolution-alarm-notify:34367): dconf-DEBUG: 06:03:02.254: watch_fast: "/org/gnome/evolution/calendar/" (establishing: 0, active: 0)
+(evolution-alarm-notify:34367): dconf-DEBUG: 06:03:02.255: watch_established: "/org/gnome/evolution/calendar/" (establishing: 1)
+timeout: the monitored command dumped core
+(evolution-alarm-notify:34367): dconf-DEBUG: 06:04:32.215: sync

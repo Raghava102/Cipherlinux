@@ -1,0 +1,3 @@
+DEEP chromium direct-start window: no
+DEEP org.gnome.Evolution direct-start window: no
+DEEP org.gnome.FileRoller direct-start window: yes after 1s

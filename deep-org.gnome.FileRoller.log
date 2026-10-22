@@ -1,0 +1,133 @@
+(process:35357): Gdk-DEBUG: 06:04:33.271: Using portal setting for org.gnome.fontconfig serial: 0
+(process:35357): Gdk-DEBUG: 06:04:33.271: Ignoring portal setting for org.gnome.desktop.privacy disable-microphone
+(process:35357): Gdk-DEBUG: 06:04:33.271: Ignoring portal setting for org.gnome.desktop.privacy disable-camera
+(process:35357): Gdk-DEBUG: 06:04:33.271: Ignoring portal setting for org.gnome.desktop.privacy old-files-age
+(process:35357): Gdk-DEBUG: 06:04:33.271: Using portal setting for org.gnome.desktop.privacy remember-recent-files: true
+(process:35357): Gdk-DEBUG: 06:04:33.271: Ignoring portal setting for org.gnome.desktop.privacy disable-sound-output
+(process:35357): Gdk-DEBUG: 06:04:33.271: Ignoring portal setting for org.gnome.desktop.privacy send-software-usage-stats
+(process:35357): Gdk-DEBUG: 06:04:33.271: Ignoring portal setting for org.gnome.desktop.privacy report-technical-problems
+(process:35357): Gdk-DEBUG: 06:04:33.271: Ignoring portal setting for org.gnome.desktop.privacy remove-old-trash-files
+(process:35357): Gdk-DEBUG: 06:04:33.271: Ignoring portal setting for org.gnome.desktop.privacy remove-old-temp-files
+(process:35357): Gdk-DEBUG: 06:04:33.271: Ignoring portal setting for org.gnome.desktop.privacy privacy-screen
+(process:35357): Gdk-DEBUG: 06:04:33.271: Ignoring portal setting for org.gnome.desktop.privacy usb-protection
+(process:35357): Gdk-DEBUG: 06:04:33.271: Ignoring portal setting for org.gnome.desktop.privacy usb-protection-level
+(process:35357): Gdk-DEBUG: 06:04:33.271: Ignoring portal setting for org.gnome.desktop.privacy remember-app-usage
+(process:35357): Gdk-DEBUG: 06:04:33.271: Ignoring portal setting for org.gnome.desktop.privacy show-full-name-in-top-bar
+(process:35357): Gdk-DEBUG: 06:04:33.271: Ignoring portal setting for org.gnome.desktop.privacy hide-identity
+(process:35357): Gdk-DEBUG: 06:04:33.271: Using portal setting for org.gnome.desktop.privacy recent-files-max-age: -1
+(process:35357): Gdk-DEBUG: 06:04:33.271: Using portal setting for org.gnome.desktop.a11y.interface show-status-shapes: false
+(process:35357): Gdk-DEBUG: 06:04:33.271: Using portal setting for org.gnome.desktop.a11y.interface high-contrast: false
+(process:35357): Gdk-DEBUG: 06:04:33.272: Ignoring portal setting for org.gnome.desktop.a11y always-show-universal-access-status
+(process:35357): Gdk-DEBUG: 06:04:33.272: Using portal setting for org.gnome.desktop.a11y always-show-text-caret: false
+(process:35357): Gdk-DEBUG: 06:04:33.272: Ignoring portal setting for org.gnome.desktop.interface toolkit-accessibility
+(process:35357): Gdk-DEBUG: 06:04:33.272: Ignoring portal setting for org.gnome.desktop.interface gtk-color-palette
+(process:35357): Gdk-DEBUG: 06:04:33.272: Ignoring portal setting for org.gnome.desktop.interface can-change-accels
+(process:35357): Gdk-DEBUG: 06:04:33.272: Ignoring portal setting for org.gnome.desktop.interface document-font-name
+(process:35357): Gdk-DEBUG: 06:04:33.272: Using portal setting for org.gnome.desktop.interface enable-animations: true
+(process:35357): Gdk-DEBUG: 06:04:33.272: Using portal setting for org.gnome.desktop.interface cursor-blink: true
+(process:35357): Gdk-DEBUG: 06:04:33.272: Ignoring portal setting for org.gnome.desktop.interface clock-show-weekday
+(process:35357): Gdk-DEBUG: 06:04:33.272: Using portal setting for org.gnome.desktop.interface icon-theme: 'Adwaita'
+(process:35357): Gdk-DEBUG: 06:04:33.272: Ignoring portal setting for org.gnome.desktop.interface gtk-im-preedit-style
+(process:35357): Gdk-DEBUG: 06:04:33.272: Ignoring portal setting for org.gnome.desktop.interface scaling-factor
+(process:35357): Gdk-DEBUG: 06:04:33.272: Ignoring portal setting for org.gnome.desktop.interface menus-have-tearoff
+(process:35357): Gdk-DEBUG: 06:04:33.272: Using portal setting for org.gnome.desktop.interface cursor-size: 24
+(process:35357): Gdk-DEBUG: 06:04:33.272: Ignoring portal setting for org.gnome.desktop.interface clock-show-seconds
+(process:35357): Gdk-DEBUG: 06:04:33.272: Using portal setting for org.gnome.desktop.interface gtk-im-module: ''
+(process:35357): Gdk-DEBUG: 06:04:33.272: Ignoring portal setting for org.gnome.desktop.interface gtk-timeout-initial
+(process:35357): Gdk-DEBUG: 06:04:33.272: Ignoring portal setting for org.gnome.desktop.interface accent-color
+(process:35357): Gdk-DEBUG: 06:04:33.272: Using portal setting for org.gnome.desktop.interface gtk-theme: 'Adwaita-dark'
+(process:35357): Gdk-DEBUG: 06:04:33.272: Ignoring portal setting for org.gnome.desktop.interface gtk-color-scheme
+(process:35357): Gdk-DEBUG: 06:04:33.272: Ignoring portal setting for org.gnome.desktop.interface clock-show-date
+(process:35357): Gdk-DEBUG: 06:04:33.272: Using portal setting for org.gnome.desktop.interface cursor-blink-time: 1200
+(process:35357): Gdk-DEBUG: 06:04:33.272: Ignoring portal setting for org.gnome.desktop.interface toolbar-icons-size
+(process:35357): Gdk-DEBUG: 06:04:33.272: Using portal setting for org.gnome.desktop.interface font-antialiasing: 'grayscale'
+(process:35357): Gdk-DEBUG: 06:04:33.272: Ignoring portal setting for org.gnome.desktop.interface toolbar-style
+(process:35357): Gdk-DEBUG: 06:04:33.272: Ignoring portal setting for org.gnome.desktop.interface enable-hot-corners
+(process:35357): Gdk-DEBUG: 06:04:33.272: Ignoring portal setting for org.gnome.desktop.interface monospace-font-name
+(process:35357): Gdk-DEBUG: 06:04:33.272: Ignoring portal setting for org.gnome.desktop.interface gtk-timeout-repeat
+(process:35357): Gdk-DEBUG: 06:04:33.272: Using portal setting for org.gnome.desktop.interface overlay-scrolling: true
+(process:35357): Gdk-DEBUG: 06:04:33.272: Using portal setting for org.gnome.desktop.interface cursor-blink-timeout: 10
+(process:35357): Gdk-DEBUG: 06:04:33.272: Ignoring portal setting for org.gnome.desktop.interface gtk-key-theme
+(process:35357): Gdk-DEBUG: 06:04:33.272: Ignoring portal setting for org.gnome.desktop.interface toolbar-detachable
+(process:35357): Gdk-DEBUG: 06:04:33.272: Using portal setting for org.gnome.desktop.interface font-rendering: 'automatic'
+(process:35357): Gdk-DEBUG: 06:04:33.272: Using portal setting for org.gnome.desktop.interface cursor-theme: 'Adwaita'
+(process:35357): Gdk-DEBUG: 06:04:33.272: Ignoring portal setting for org.gnome.desktop.interface avatar-directories
+(process:35357): Gdk-DEBUG: 06:04:33.272: Ignoring portal setting for org.gnome.desktop.interface gtk-im-status-style
+(process:35357): Gdk-DEBUG: 06:04:33.272: Ignoring portal setting for org.gnome.desktop.interface menubar-detachable
+(process:35357): Gdk-DEBUG: 06:04:33.272: Using portal setting for org.gnome.desktop.interface text-scaling-factor: 1.0
+(process:35357): Gdk-DEBUG: 06:04:33.272: Ignoring portal setting for org.gnome.desktop.interface show-battery-percentage
+(process:35357): Gdk-DEBUG: 06:04:33.272: Ignoring portal setting for org.gnome.desktop.interface clock-format
+(process:35357): Gdk-DEBUG: 06:04:33.272: Ignoring portal setting for org.gnome.desktop.interface menubar-accel
+(process:35357): Gdk-DEBUG: 06:04:33.272: Using portal setting for org.gnome.desktop.interface gtk-enable-primary-paste: true
+(process:35357): Gdk-DEBUG: 06:04:33.272: Ignoring portal setting for org.gnome.desktop.interface color-scheme
+(process:35357): Gdk-DEBUG: 06:04:33.272: Ignoring portal setting for org.gnome.desktop.interface locate-pointer
+(process:35357): Gdk-DEBUG: 06:04:33.272: Using portal setting for org.gnome.desktop.interface font-rgba-order: 'rgb'
+(process:35357): Gdk-DEBUG: 06:04:33.272: Using portal setting for org.gnome.desktop.interface font-hinting: 'slight'
+(process:35357): Gdk-DEBUG: 06:04:33.272: Using portal setting for org.gnome.desktop.interface font-name: 'Cantarell 11'
+(process:35357): Gdk-DEBUG: 06:04:33.272: Using portal setting for org.gnome.desktop.sound theme-name: 'freedesktop'
+(process:35357): Gdk-DEBUG: 06:04:33.272: Using portal setting for org.gnome.desktop.sound event-sounds: true
+(process:35357): Gdk-DEBUG: 06:04:33.272: Using portal setting for org.gnome.desktop.sound input-feedback-sounds: false
+(process:35357): Gdk-DEBUG: 06:04:33.272: Ignoring portal setting for org.gnome.desktop.sound allow-volume-above-100-percent
+(process:35357): Gdk-DEBUG: 06:04:33.272: Ignoring portal setting for org.gnome.desktop.peripherals.mouse left-handed
+(process:35357): Gdk-DEBUG: 06:04:33.272: Using portal setting for org.gnome.desktop.peripherals.mouse double-click: 400
+(process:35357): Gdk-DEBUG: 06:04:33.272: Ignoring portal setting for org.gnome.desktop.peripherals.mouse natural-scroll
+(process:35357): Gdk-DEBUG: 06:04:33.272: Ignoring portal setting for org.gnome.desktop.peripherals.mouse middle-click-emulation
+(process:35357): Gdk-DEBUG: 06:04:33.272: Ignoring portal setting for org.gnome.desktop.peripherals.mouse speed
+(process:35357): Gdk-DEBUG: 06:04:33.272: Ignoring portal setting for org.gnome.desktop.peripherals.mouse accel-profile
+(process:35357): Gdk-DEBUG: 06:04:33.272: Using portal setting for org.gnome.desktop.peripherals.mouse drag-threshold: 8
+(process:35357): Gdk-DEBUG: 06:04:33.272: Ignoring portal setting for org.gnome.desktop.input-sources sources
+(process:35357): Gdk-DEBUG: 06:04:33.272: Ignoring portal setting for org.gnome.desktop.input-sources mru-sources
+(process:35357): Gdk-DEBUG: 06:04:33.272: Ignoring portal setting for org.gnome.desktop.input-sources show-all-sources
+(process:35357): Gdk-DEBUG: 06:04:33.272: Ignoring portal setting for org.gnome.desktop.input-sources current
+(process:35357): Gdk-DEBUG: 06:04:33.272: Ignoring portal setting for org.gnome.desktop.input-sources xkb-options
+(process:35357): Gdk-DEBUG: 06:04:33.272: Ignoring portal setting for org.gnome.desktop.input-sources xkb-model
+(process:35357): Gdk-DEBUG: 06:04:33.272: Ignoring portal setting for org.gnome.desktop.input-sources per-window
+(process:35357): Gdk-DEBUG: 06:04:33.272: Ignoring portal setting for org.gnome.desktop.calendar show-weekdate
+(process:35357): Gdk-DEBUG: 06:04:33.272: Ignoring portal setting for org.gnome.desktop.wm.preferences theme
+(process:35357): Gdk-DEBUG: 06:04:33.272: Ignoring portal setting for org.gnome.desktop.wm.preferences focus-new-windows
+(process:35357): Gdk-DEBUG: 06:04:33.272: Ignoring portal setting for org.gnome.desktop.wm.preferences disable-workarounds
+(process:35357): Gdk-DEBUG: 06:04:33.272: Ignoring portal setting for org.gnome.desktop.wm.preferences num-workspaces
+(process:35357): Gdk-DEBUG: 06:04:33.272: Ignoring portal setting for org.gnome.desktop.wm.preferences titlebar-uses-system-font
+(process:35357): Gdk-DEBUG: 06:04:33.272: Ignoring portal setting for org.gnome.desktop.wm.preferences raise-on-click
+(process:35357): Gdk-DEBUG: 06:04:33.272: Ignoring portal setting for org.gnome.desktop.wm.preferences titlebar-font
+(process:35357): Gdk-DEBUG: 06:04:33.272: Ignoring portal setting for org.gnome.desktop.wm.preferences resize-with-right-button
+(process:35357): Gdk-DEBUG: 06:04:33.272: Ignoring portal setting for org.gnome.desktop.wm.preferences auto-raise
+(process:35357): Gdk-DEBUG: 06:04:33.272: Using portal setting for org.gnome.desktop.wm.preferences action-right-click-titlebar: 'menu'
+(process:35357): Gdk-DEBUG: 06:04:33.272: Ignoring portal setting for org.gnome.desktop.wm.preferences mouse-button-modifier
+(process:35357): Gdk-DEBUG: 06:04:33.272: Using portal setting for org.gnome.desktop.wm.preferences action-double-click-titlebar: 'toggle-maximize'
+(process:35357): Gdk-DEBUG: 06:04:33.272: Ignoring portal setting for org.gnome.desktop.wm.preferences workspace-names
+(process:35357): Gdk-DEBUG: 06:04:33.272: Ignoring portal setting for org.gnome.desktop.wm.preferences visual-bell-type
+(process:35357): Gdk-DEBUG: 06:04:33.272: Using portal setting for org.gnome.desktop.wm.preferences action-middle-click-titlebar: 'none'
+(process:35357): Gdk-DEBUG: 06:04:33.272: Ignoring portal setting for org.gnome.desktop.wm.preferences focus-mode
+(process:35357): Gdk-DEBUG: 06:04:33.272: Using portal setting for org.gnome.desktop.wm.preferences button-layout: 'appmenu:close'
+(process:35357): Gdk-DEBUG: 06:04:33.272: Ignoring portal setting for org.gnome.desktop.wm.preferences auto-raise-delay
+(process:35357): Gdk-DEBUG: 06:04:33.272: Ignoring portal setting for org.gnome.desktop.wm.preferences audible-bell
+(process:35357): Gdk-DEBUG: 06:04:33.272: Ignoring portal setting for org.gnome.desktop.wm.preferences visual-bell
+(process:35357): Gdk-DEBUG: 06:04:33.272: Ignoring portal setting for org.gnome.settings-daemon.plugins.xsettings overrides
+(process:35357): Gdk-DEBUG: 06:04:33.272: Ignoring portal setting for org.gnome.settings-daemon.plugins.xsettings disabled-gtk-modules
+(process:35357): Gdk-DEBUG: 06:04:33.272: Ignoring portal setting for org.gnome.settings-daemon.plugins.xsettings enabled-gtk-modules
+(org.gnome.FileRoller:35357): GLib-GIO-DEBUG: 06:04:33.276: _g_io_module_get_default: Found default implementation dconf (DConfSettingsBackend) for ‘gsettings-backend’
+(org.gnome.FileRoller:35357): dconf-DEBUG: 06:04:33.276: watch_fast: "/org/gnome/file-roller/listing/" (establishing: 0, active: 0)
+(org.gnome.FileRoller:35357): dconf-DEBUG: 06:04:33.276: watch_fast: "/org/gnome/file-roller/ui/" (establishing: 0, active: 0)
+(org.gnome.FileRoller:35357): dconf-DEBUG: 06:04:33.277: watch_established: "/org/gnome/file-roller/listing/" (establishing: 1)
+(org.gnome.FileRoller:35357): dconf-DEBUG: 06:04:33.277: watch_established: "/org/gnome/file-roller/ui/" (establishing: 1)
+(org.gnome.FileRoller:35357): Gtk-DEBUG: 06:04:33.277: Not using session manager
+(org.gnome.FileRoller:35357): GLib-GIO-DEBUG: 06:04:33.280: _g_io_module_get_default: Found default implementation gvfs (GDaemonVfs) for ‘gio-vfs’
+(org.gnome.FileRoller:35357): Adwaita-DEBUG: 06:04:33.301: Setting org.freedesktop.appearance.accent-color of type (ddd) not found
+(org.gnome.FileRoller:35357): dconf-DEBUG: 06:04:33.301: watch_fast: "/org/gnome/desktop/interface/" (establishing: 0, active: 0)
+(org.gnome.FileRoller:35357): dconf-DEBUG: 06:04:33.301: watch_established: "/org/gnome/desktop/interface/" (establishing: 1)
+(org.gnome.FileRoller:35357): dconf-DEBUG: 06:04:33.337: watch_fast: "/org/gnome/file-roller/listing/" (establishing: 0, active: 1)
+(org.gnome.FileRoller:35357): dconf-DEBUG: 06:04:33.337: watch_fast: "/org/gnome/file-roller/ui/" (establishing: 0, active: 1)
+(org.gnome.FileRoller:35357): dconf-DEBUG: 06:04:33.337: watch_fast: "/org/gnome/file-roller/general/" (establishing: 0, active: 0)
+(org.gnome.FileRoller:35357): dconf-DEBUG: 06:04:33.337: watch_fast: "/org/gnome/file-roller/dialogs/" (establishing: 0, active: 0)
+(org.gnome.FileRoller:35357): dconf-DEBUG: 06:04:33.337: watch_fast: "/org/gnome/nautilus/preferences/" (establishing: 0, active: 0)
+(org.gnome.FileRoller:35357): dconf-DEBUG: 06:04:33.338: change_fast
+(org.gnome.FileRoller:35357): dconf-DEBUG: 06:04:33.338: change_notify: /org/gnome/file-roller/listing/show-path
+(org.gnome.FileRoller:35357): dconf-DEBUG: 06:04:33.338: watch_established: "/org/gnome/file-roller/general/" (establishing: 1)
+(org.gnome.FileRoller:35357): dconf-DEBUG: 06:04:33.338: watch_established: "/org/gnome/file-roller/dialogs/" (establishing: 1)
+(org.gnome.FileRoller:35357): dconf-DEBUG: 06:04:33.338: watch_established: "/org/gnome/nautilus/preferences/" (establishing: 1)
+(org.gnome.FileRoller:35357): Gtk-DEBUG: 06:04:33.418: snapshot symbolic icon using mask
+(org.gnome.FileRoller:35357): Gtk-DEBUG: 06:04:33.418: snapshot symbolic icon using mask
+(org.gnome.FileRoller:35357): Gtk-DEBUG: 06:04:33.418: snapshot symbolic icon using mask
+(org.gnome.FileRoller:35357): Gtk-DEBUG: 06:04:33.419: snapshot symbolic icon using mask
+(org.gnome.FileRoller:35357): Gtk-DEBUG: 06:04:33.419: snapshot symbolic icon using mask
